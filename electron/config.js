@@ -9,7 +9,7 @@ const config = {
           storageName: "loxTank",
           label: "pressure",
           interpolation: {
-            type: "none", // linear, quadratic
+            type: "linear", // linear, quadratic
             unit: "PSI",
             values: [ // [x, y] pairs
               [0, -123.89876445934394],
@@ -28,7 +28,7 @@ const config = {
           storageName: "propTank",
           label: "pressure",
           interpolation: {
-            type: "none", // linear, quadratic
+            type: "linear", // linear, quadratic
             unit: "PSI",
             values: [ // [x, y] pairs
               [0, -123.89876445934394],
@@ -47,7 +47,7 @@ const config = {
           storageName: "loxInjector",
           label: "pressure",
           interpolation: {
-            type: "none", // linear, quadratic
+            type: "linear", // linear, quadratic
             unit: "PSI",
             values: [ // [x, y] pairs
               [0, -123.89876445934394],
@@ -66,7 +66,7 @@ const config = {
           storageName: "propInjector",
           label: "pressure",
           interpolation: {
-            type: "none", // none, linear, quadratic
+            type: "linear", // none, linear, quadratic
             unit: "PSI",
             values: [ // [x, y] pairs
               [0, -123.89876445934394],
@@ -85,7 +85,7 @@ const config = {
           storageName: "loxDome",
           label: "pressure",
           interpolation: {
-            type: "none", // linear, quadratic
+            type: "linear", // linear, quadratic
             unit: "PSI",
             values: [ // [x, y] pairs
               [0, -123.89876445934394],
@@ -104,7 +104,7 @@ const config = {
           storageName: "propDome",
           label: "pressure",
           interpolation: {
-            type: "none", // linear, quadratic
+            type: "linear", // linear, quadratic
             unit: "PSI",
             values: [ // [x, y] pairs
               [0, -123.89876445934394],
@@ -123,7 +123,7 @@ const config = {
           storageName: "highPressure",
           label: "pressure",
           interpolation: {
-            type: "none", // linear, quadratic
+            type: "linear", // linear, quadratic
             unit: "PSI",
             values: [
               [ 1634771.9270400004, 0 ],

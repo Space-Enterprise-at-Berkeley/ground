@@ -322,9 +322,9 @@ class Comms {
               res = packet.values[v.packetPosition];
               break;
           }
-          // if(v.storageName === 'highPressure') {
-          //   console.log(packet.values[v.packetPosition]);
-          // }
+          if(v.storageName === 'highPressure') {
+            console.log(packet.values[v.packetPosition]);
+          }
           storageValues.values[v.storageName] = res;
           return res;
         })
