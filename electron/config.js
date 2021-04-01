@@ -85,7 +85,7 @@ const config = {
           label: "baroAltitude",
           interpolation: {
             type: "none", // linear, quadratic
-            unit: "??",
+            unit: "meters",
           }
         },
         {
@@ -94,7 +94,7 @@ const config = {
           label: "baroPressure",
           interpolation: {
             type: "none", // linear, quadratic
-            unit: "??",
+            unit: "Pa",
           }
         },
       ]

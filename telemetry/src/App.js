@@ -14,6 +14,7 @@ import comms from './comms';
 
 import Navbar from './Navbar';
 import NewGraph from './NewGraph';
+import RocketOrientation from './RocketOrientation';
 
 const styles = theme => ({
   root: {
@@ -156,7 +157,10 @@ class App extends Component {
           <Container maxWidth='xl' className={classes.container}>
             <Grid container spacing={3} className={classes.row}>
               <Grid item xs={6} className={classes.item}>
-                
+                <RocketOrientation
+                  addSensorListener={this.addSensorListener}
+                  sensorID={4}
+                />
               </Grid>
             </Grid>
           </Container>
