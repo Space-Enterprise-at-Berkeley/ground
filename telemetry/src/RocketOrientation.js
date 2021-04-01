@@ -96,7 +96,7 @@ class RocketOrientation extends Component {
 
     this.props.addSensorListener(this.props.sensorID, (data, timestamp) => {
       if(lad4gltf) {
-        lad4gltf.scene.setRotationFromEuler(new THREE.Euler(Math.PI * data[2] / 180, Math.PI * data[1] / 180, Math.PI * data[0] / 180));
+        lad4gltf.scene.setRotationFromEuler(new THREE.Euler(Math.PI * data[0] / 180, Math.PI * data[1] / 180, Math.PI * data[2] / 180, "YXZ"));
       }
     });
   }
