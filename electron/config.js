@@ -1,281 +1,209 @@
 const config = {
   sensors: [
     {
-      name: "LOX Tank Pressure",
-      packetId: 1,
+      name: "GPS",
+      packetId: 11,
       values: [
         {
           packetPosition: 0,
-          storageName: "loxTank",
-          label: "pressure",
+          storageName: "gpsLatitude",
+          label: "gpsLatitude",
           interpolation: {
             type: "none", // linear, quadratic
-            unit: "PSI",
-            values: [ // [x, y] pairs
-              [0, -123.89876445934394],
-              [8388607, 1131.40825] // 2^23 - 1
-            ]
+            unit: "decimal minutes",
           }
-        }
-      ]
-    },
-    {
-      name: "Prop Tank Pressure",
-      packetId: 1,
-      values: [
+        },
         {
           packetPosition: 1,
-          storageName: "propTank",
-          label: "pressure",
+          storageName: "gpsLongitude",
+          label: "gpsLongitude",
           interpolation: {
             type: "none", // linear, quadratic
-            unit: "PSI",
-            values: [ // [x, y] pairs
-              [0, -123.89876445934394],
-              [8388607, 1131.40825] // 2^23 - 1
-            ]
+            unit: "decimal minutes",
           }
         }
       ]
     },
     {
-      name: "LOX Injector Pressure",
-      packetId: 1,
+      name: "GPS Aux",
+      packetId: 12,
       values: [
+        {
+          packetPosition: 0,
+          storageName: "gpsFix",
+          label: "gpsFix",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "boolean",
+          }
+        },
+        {
+          packetPosition: 1,
+          storageName: "gpsNumSat",
+          label: "gpsNumSat",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "count",
+          }
+        },
         {
           packetPosition: 2,
-          storageName: "loxInjector",
-          label: "pressure",
+          storageName: "gpsAltitude",
+          label: "gpsAltitude",
           interpolation: {
             type: "none", // linear, quadratic
-            unit: "PSI",
-            values: [ // [x, y] pairs
-              [0, -123.89876445934394],
-              [8388607, 1131.40825] // 2^23 - 1
-            ]
+            unit: "??",
           }
-        }
-      ]
-    },
-    {
-      name: "Prop Injector Pressure",
-      packetId: 1,
-      values: [
+        },
         {
           packetPosition: 3,
-          storageName: "propInjector",
-          label: "pressure",
-          interpolation: {
-            type: "none", // none, linear, quadratic
-            unit: "PSI",
-            values: [ // [x, y] pairs
-              [0, -123.89876445934394],
-              [8388607, 1131.40825] // 2^23 - 1
-            ]
-          }
-        }
-      ]
-    },
-    {
-      name: "LOX Dome",
-      packetId: 1,
-      values: [
-        {
-          packetPosition: 5,
-          storageName: "loxDome",
-          label: "pressure",
+          storageName: "gpsSpeed",
+          label: "gpsSpeed",
           interpolation: {
             type: "none", // linear, quadratic
-            unit: "PSI",
-            values: [ // [x, y] pairs
-              [0, -123.89876445934394],
-              [8388607, 1131.40825] // 2^23 - 1
-            ]
+            unit: "knots",
           }
-        }
-      ]
-    },
-    {
-      name: "Prop Dome",
-      packetId: 1,
-      values: [
-        {
-          packetPosition: 6,
-          storageName: "propDome",
-          label: "pressure",
-          interpolation: {
-            type: "none", // linear, quadratic
-            unit: "PSI",
-            values: [ // [x, y] pairs
-              [0, -123.89876445934394],
-              [8388607, 1131.40825] // 2^23 - 1
-            ]
-          }
-        }
-      ]
-    },
-    {
-      name: "Nitrogen Pressure",
-      packetId: 1,
-      values: [
+        },
         {
           packetPosition: 4,
-          storageName: "highPressure",
-          label: "pressure",
+          storageName: "gpsAngle",
+          label: "gpsAngle",
           interpolation: {
-            type: "linear", // linear, quadratic
-            unit: "PSI",
-            values: [
-              [ 1634771.9270400004, 0 ],
-              [ 1771674.0096000005, 150 ],
-              [ 2544768.12288, 700 ],
-              [ 2601139.56864, 730 ],
-              [ 2681670.205440001, 805 ],
-              [ 2802466.1606400004, 890 ],
-              [ 2931315.1795200002, 990 ],
-              [ 3076270.325760001, 1100 ],
-              [ 3189013.217280001, 1200 ],
-              [ 3414499.0003200006, 1351 ],
-              [ 3543348.019200001, 1450 ],
-              [ 3704409.292800001, 1580 ],
-              [ 3946001.203200001, 1760 ],
-              [ 4155380.858880001, 1930 ],
-              [ 4380866.641920001, 2100 ],
-              [ 4509715.660800001, 2180 ],
-              [ 4751307.571200002, 2400 ],
-              [ 4976793.35424, 2550 ],
-              [ 5202279.13728, 2700 ],
-              [ 5411658.792960001, 2870 ],
-              [ 5621038.448640001, 3020 ],
-              [ 5846524.231680001, 3190 ],
-              [ 6015638.568960002, 3333 ],
-              [ 6128381.460480002, 3426 ],
-              [ 6394132.561920001, 3620 ],
-              [ 6474663.198720002, 3700 ],
-              [ 6667936.727040001, 3850 ],
-              [ 6893422.510080002, 4000 ],
-              [ 6990059.274240003, 4080 ],
-              [ 7135014.420480002, 4186 ],
-              [ 7183332.80256, 4221 ],
-              [ 7392712.4582400005, 4365 ]
-            ]
+            type: "none", // linear, quadratic
+            unit: "degrees",
           }
-        }
+        },
       ]
     },
     {
-      name: "Battery",
-      packetId: 2,
+      name: "Barometer",
+      packetId: 13,
       values: [
         {
           packetPosition: 0,
-          storageName: "batteryVoltage",
-          label: "voltage",
+          storageName: "baroAltitude",
+          label: "baroAltitude",
           interpolation: {
-            type: "none",
-            unit: "Volts"
+            type: "none", // linear, quadratic
+            unit: "??",
           }
         },
         {
           packetPosition: 1,
-          storageName: "wattage",
-          label: "wattage",
+          storageName: "baroPressure",
+          label: "baroPressure",
           interpolation: {
-            type: "none",
-            unit: "Watts"
+            type: "none", // linear, quadratic
+            unit: "??",
+          }
+        },
+      ]
+    },
+    {
+      name: "IMU Acceleration",
+      packetId: 14,
+      values: [
+        {
+          packetPosition: 0,
+          storageName: "imuAccelX",
+          label: "imuAccelX",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "??",
+          }
+        },
+        {
+          packetPosition: 1,
+          storageName: "imuAccelY",
+          label: "imuAccelY",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "??",
           }
         },
         {
           packetPosition: 2,
-          storageName: "batteryAmperage",
-          label: "current",
+          storageName: "imuAccelZ",
+          label: "imuAccelZ",
           interpolation: {
-            type: "none",
-            unit: "Amps"
+            type: "none", // linear, quadratic
+            unit: "??",
           }
-        }
+        },
       ]
     },
     {
-      name: "LOX Aux Heater",
-      packetId: 0,
-      values: [
-        {
-          packetPosition: 1,
-          storageName: "loxAuxHeater",
-          label: "loxAuxHeater",
-          interpolation: {
-            type: "linear", // none, linear, quadratic
-            unit: "Volts",
-            values: [
-              [ 0, 0.0 ],
-              [ 255, 12.0 ]
-            ]
-          }
-        }
-      ]
-    },
-    {
-      name: "LOX Gems Heater",
-      packetId: 6,
-      values: [
-        {
-          packetPosition: 1,
-          storageName: "loxGemsHeater",
-          label: "loxGemsHeater",
-          interpolation: {
-            type: "linear", // none, linear, quadratic
-            unit: "Volts",
-            values: [
-              [ 0, 0.0 ],
-              [ 255, 24.0 ]
-            ]
-          }
-        }
-      ]
-    },
-    {
-      name: "Temperatures",
-      packetId: 4,
+      name: "IMU Orientation",
+      packetId: 15,
       values: [
         {
           packetPosition: 0,
-          storageName: "cryoLoxTankTemp",
-          label: "cryoLoxTankTemp",
+          storageName: "imuAngleX",
+          label: "imuAngleX",
           interpolation: {
-            type: "none", // none, linear, quadratic
-            unit: "Celcius"
+            type: "none", // linear, quadratic
+            unit: "degrees",
           }
         },
         {
           packetPosition: 1,
-          storageName: "cryoInj1Temp",
-          label: "cryoInj1Temp",
+          storageName: "imuAngleY",
+          label: "imuAngleY",
           interpolation: {
-            type: "none", // none, linear, quadratic
-            unit: "Celcius"
+            type: "none", // linear, quadratic
+            unit: "degrees",
           }
         },
         {
           packetPosition: 2,
-          storageName: "loxAdapterTreeTemp",
-          label: "loxAdapterTreeTemp",
+          storageName: "imuAngleZ",
+          label: "imuAngleZ",
           interpolation: {
-            type: "none", // none, linear, quadratic
-            unit: "Celcius"
+            type: "none", // linear, quadratic
+            unit: "degrees",
+          }
+        },
+      ]
+    },
+    {
+      name: "Recovery Ack",
+      packetId: 10,
+      values: [
+        {
+          packetPosition: 0,
+          storageName: "recoveryDrogue",
+          label: "recoveryDrogue",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "boolean",
           }
         },
         {
-          packetPosition: 3,
-          storageName: "loxGemsTemp",
-          label: "loxGemsTemp",
+          packetPosition: 1,
+          storageName: "recoveryMain",
+          label: "recoveryMain",
           interpolation: {
-            type: "none", // none, linear, quadratic
-            unit: "Celcius"
+            type: "none", // linear, quadratic
+            unit: "boolean",
           }
-        }
+        },
       ]
-    }
+    },
+    {
+      name: "Packet Counter",
+      packetId: 5,
+      values: [
+        {
+          packetPosition: 0,
+          storageName: "packetCount",
+          label: "packetCount",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "count",
+          }
+        },
+      ]
+    },
   ]
 };
 
