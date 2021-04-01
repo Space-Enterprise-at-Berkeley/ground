@@ -84,10 +84,6 @@ class Navbar extends Component {
     return (
       <AppBar position='static' color='default'>
         <Toolbar>
-          <Tabs value={this.props.tab} onChange={(e, nv) => this.props.setTab(nv)}>
-            <Tab label="Pressures"/>
-            <Tab label="Temperatures"/>
-          </Tabs>
           <div className={classes.grow}></div>
           <TextField label='database name' value={this.state.dbName} onChange={e => this.setState({dbName: e.target.value})} disabled={this.props.selectedDb}/>
           <Button color='primary' variant='contained' disableElevation onClick={e => this.props.selectDb(this.state.dbName)} disabled={this.props.selectedDb}>

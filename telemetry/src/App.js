@@ -15,6 +15,7 @@ import comms from './comms';
 import Navbar from './Navbar';
 import NewGraph from './NewGraph';
 import RocketOrientation from './RocketOrientation';
+import EmbeddedMap from './EmbeddedMap';
 
 const styles = theme => ({
   root: {
@@ -160,6 +161,12 @@ class App extends Component {
                 <RocketOrientation
                   addSensorListener={this.addSensorListener}
                   sensorID={4}
+                />
+              </Grid>
+              <Grid item xs={6} className={classes.item}>
+                <EmbeddedMap
+                  addSensorListener={this.addSensorListener}
+                  sensorID={0}
                 />
               </Grid>
             </Grid>
