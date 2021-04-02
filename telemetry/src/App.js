@@ -16,6 +16,7 @@ import Navbar from './Navbar';
 import NewGraph from './NewGraph';
 import RocketOrientation from './RocketOrientation';
 import EmbeddedMap from './EmbeddedMap';
+import GeneralInfo from './GeneralInfo';
 
 const styles = theme => ({
   root: {
@@ -143,6 +144,8 @@ class App extends Component {
             connected={this.state.connected}
             portOpened={this.state.portOpened}
             addBandwidthListener={this.addBandwidthListener}
+            addSensorListener={this.addSensorListener}
+            battID={8}
             recording={this.state.recording}
             startRecording={async (name) => {
               await comms.startRecording(name);
@@ -160,13 +163,74 @@ class App extends Component {
               <Grid item xs={6} className={classes.item}>
                 <RocketOrientation
                   addSensorListener={this.addSensorListener}
-                  sensorID={4}
+                  sensorID={5}
                 />
               </Grid>
               <Grid item xs={6} className={classes.item}>
                 <EmbeddedMap
                   addSensorListener={this.addSensorListener}
                   sensorID={0}
+                />
+              </Grid>
+              <Grid item xs={6} className={classes.item}>
+                <GeneralInfo
+                  addSensorListener={this.addSensorListener}
+                  // sensorID={0}
+                  accelerationID={3}
+                  altitudeID={2}
+                  parachuteID={6}
+                />
+              </Grid>
+              <Grid item xs={6} className={classes.item}>
+                <NewGraph
+                  sensors={
+                    [{
+                      label: 'Accel X',
+                      unit: 'm/s^2',
+                      idx: 3,
+                      index: 0,
+                      color: [123, 35, 162]
+                    },
+                    {
+                      label: 'Accel Y',
+                      unit: 'm/s^2',
+                      idx: 3,
+                      index: 1,
+                      color: [211, 47, 47]
+                    },
+                    {
+                      label: 'Accel Z',
+                      unit: 'm/s^2',
+                      idx: 3,
+                      index: 2,
+                      color: [56, 152, 60]
+                    },
+                  ]
+                  }
+                  max={600}
+                  defaultWindow={90}
+                  interval={80}
+                  title='Accelerations'
+                  addSensorListener={this.addSensorListener}
+                />
+              </Grid>
+              <Grid item xs={6} className={classes.item}>
+                <NewGraph
+                  sensors={
+                    [{
+                      label: 'Altitude',
+                      unit: 'm',
+                      idx: 2,
+                      index: 0,
+                      color: [123, 35, 162]
+                    },
+                  ]
+                  }
+                  max={600}
+                  defaultWindow={90}
+                  interval={80}
+                  title='Accelerations'
+                  addSensorListener={this.addSensorListener}
                 />
               </Grid>
             </Grid>

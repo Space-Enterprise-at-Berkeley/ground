@@ -35,31 +35,31 @@ function createWindow () {
   });
 
   // use process.env.ELECTRON_START_URL if in dev mode, path to index file otherwise
-  const controlStartUrl = process.env.CONTROL_START_URL ? process.env.CONTROL_START_URL : url.format({
-    pathname: path.join(__dirname, '../index.html'),
-    protocol: 'file:',
-    slashes: true,
-  });
-  controlWindow = new BrowserWindow({
-    show: false,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-    },
-  });
-  controlWindow.maximize();
-  if(!isDev) {
-    controlWindow.removeMenu();
-  }
-  controlWindow.loadURL(controlStartUrl);
-  controlWindow.on('closed', function () {
-    controlWindow = null;
-  });
-  controlWindow.webContents.once('did-finish-load', () => {
-    comms.openControlWebCon(controlWindow.webContents);
-  });
-  controlWindow.once('ready-to-show', () => {
-    controlWindow.show();
-  });
+  // const controlStartUrl = process.env.CONTROL_START_URL ? process.env.CONTROL_START_URL : url.format({
+  //   pathname: path.join(__dirname, '../index.html'),
+  //   protocol: 'file:',
+  //   slashes: true,
+  // });
+  // controlWindow = new BrowserWindow({
+  //   show: false,
+  //   webPreferences: {
+  //     preload: path.join(__dirname, 'preload.js'),
+  //   },
+  // });
+  // controlWindow.maximize();
+  // if(!isDev) {
+  //   controlWindow.removeMenu();
+  // }
+  // controlWindow.loadURL(controlStartUrl);
+  // controlWindow.on('closed', function () {
+  //   controlWindow = null;
+  // });
+  // controlWindow.webContents.once('did-finish-load', () => {
+  //   comms.openControlWebCon(controlWindow.webContents);
+  // });
+  // controlWindow.once('ready-to-show', () => {
+  //   controlWindow.show();
+  // });
 
 }
 

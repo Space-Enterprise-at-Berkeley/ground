@@ -52,7 +52,9 @@ class Navbar extends Component {
       time: 0,
       recordingFilled: true,
       name: '',
-      dbName: ''
+      dbName: '',
+      voltage: 0,
+      current: 0
     };
     this.recordingInterval = null;
   }
@@ -61,6 +63,12 @@ class Navbar extends Component {
     this.props.addBandwidthListener(bandwidth => {
       this.setState({
         bandwidth
+      });
+    });
+    this.props.addSensorListener(this.props.battID, (data, timestamp) => {
+      this.setState({
+        voltage: data[0],
+        current: data[2]
       });
     });
   }
@@ -85,6 +93,12 @@ class Navbar extends Component {
       <AppBar position='static' color='default'>
         <Toolbar>
           <div className={classes.grow}></div>
+          <Button className={classes.display}>
+            {this.state.voltage} V
+          </Button>
+          <Button className={classes.display}>
+            {this.state.current} A
+          </Button>
           <TextField label='database name' value={this.state.dbName} onChange={e => this.setState({dbName: e.target.value})} disabled={this.props.selectedDb}/>
           <Button color='primary' variant='contained' disableElevation onClick={e => this.props.selectDb(this.state.dbName)} disabled={this.props.selectedDb}>
             Set DB

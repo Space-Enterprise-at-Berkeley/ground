@@ -166,6 +166,48 @@ const config = {
       ]
     },
     {
+      name: "IMU Quaternion",
+      packetId: 16,
+      values: [
+        {
+          packetPosition: 0,
+          storageName: "imuQuatW",
+          label: "imuQuatW",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "none",
+          }
+        },
+        {
+          packetPosition: 1,
+          storageName: "imuQuatX",
+          label: "imuQuatX",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "none",
+          }
+        },
+        {
+          packetPosition: 2,
+          storageName: "imuQuatY",
+          label: "imuQuatY",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "none",
+          }
+        },
+        {
+          packetPosition: 3,
+          storageName: "imuQuatZ",
+          label: "imuQuatZ",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "none",
+          }
+        },
+      ]
+    },
+    {
       name: "Recovery Ack",
       packetId: 10,
       values: [
@@ -200,6 +242,39 @@ const config = {
           interpolation: {
             type: "none", // linear, quadratic
             unit: "count",
+          }
+        },
+      ]
+    },
+    {
+      name: "Battery",
+      packetId: 2,
+      values: [
+        {
+          packetPosition: 0,
+          storageName: "batteryVoltage",
+          label: "batteryVoltage",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "volts",
+          }
+        },
+        {
+          packetPosition: 1,
+          storageName: "batteryPower",
+          label: "batteryPower",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "watts",
+          }
+        },
+        {
+          packetPosition: 2,
+          storageName: "batteryCurrent",
+          label: "batteryCurrent",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "amps",
           }
         },
       ]

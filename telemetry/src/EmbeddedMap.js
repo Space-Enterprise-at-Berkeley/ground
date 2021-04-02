@@ -66,7 +66,7 @@ const MyMapComponent = compose(
 ));
 
 const convertDMStoDD = (degrees, minutes, seconds, direction) => {
-  let dd = degrees + minutes/60 + seconds/(60*60);
+  let dd = degrees + minutes/60 + seconds/(60*100);
 
   if (direction == "S" || direction == "W") {
       dd = dd * -1;
