@@ -6,7 +6,7 @@ import {
   withGoogleMap,
   GoogleMap,
   Marker,
-  MarkerWithLabel,
+  Polyline,
 } from "react-google-maps";
 
 import { withStyles, withTheme } from '@material-ui/core/styles';
@@ -55,10 +55,23 @@ const MyMapComponent = compose(
 )(props => (
   <GoogleMap
     defaultZoom={12}
-    // defaultCenter={{ lat: 35.346991, lng: -117.808685 }} // FAR Location
-    defaultCenter={{ lat: 37.8680555556, lng: -122.2594444444 }} // Berkeley
-    defaultOptions={{}}
+    defaultCenter={{ lat: 35.346991, lng: -117.808685 }} // FAR Location
+    // defaultCenter={{ lat: 37.8680555556, lng: -122.2594444444 }} // Berkeley
   >
+    <Polyline
+      path={ props.markerPath }
+      options={{
+        strokeColor: "#ff2527",
+        strokeOpacity: 0.75,
+        strokeWeight: 2,
+        icons: [
+            {
+                offset: "0",
+                repeat: "20px"
+            }
+        ]
+      }}
+    />
     <Marker
       position={{ lat: props.markerLat, lng: props.markerLng }}
     />
@@ -79,7 +92,8 @@ class EmbeddedMap extends Component {
     super(props);
     this.state = {
       rocketLat: convertDMStoDD(37, 52, 5, "N"),
-      rocketLng: convertDMStoDD(122, 15, 34, "W")
+      rocketLng: convertDMStoDD(122, 15, 34, "W"),
+      rocketPath: []
     };
     this.sizeDetector = React.createRef();
     this.mapRef = React.createRef();
@@ -92,17 +106,31 @@ class EmbeddedMap extends Component {
     this.props.addSensorListener(this.props.sensorID, (data, timestamp) => {
       let DMSNorth = data[0];
       let DMSWest = data[1];
+      let lat = convertDMStoDD(
+        Math.floor(DMSNorth/100),
+        Math.floor(DMSNorth - (Math.floor(DMSNorth/100) * 100)),
+        (DMSNorth - Math.floor(DMSNorth)) * 100,
+        "N");
+      let lng = convertDMStoDD(
+        Math.floor(DMSWest/100),
+        Math.floor(DMSWest - (Math.floor(DMSWest/100) * 100)),
+        (DMSWest - Math.floor(DMSWest)) * 100,
+        "W");
+      if(this.state.rocketPath.length === 0) {
+        this.setState({
+          rocketPath: [...this.state.rocketPath, {lat, lng}]
+        });
+      } else {
+        if(this.state.rocketPath[this.state.rocketPath.length-1].lat !== lat
+            || this.state.rocketPath[this.state.rocketPath.length-1].lng !== lng) {
+          this.setState({
+            rocketPath: [...this.state.rocketPath, {lat, lng}]
+          });
+        }
+      }
       this.setState({
-        rocketLat: convertDMStoDD(
-          Math.floor(DMSNorth/100),
-          Math.floor(DMSNorth - (Math.floor(DMSNorth/100) * 100)),
-          (DMSNorth - Math.floor(DMSNorth)) * 100,
-          "N"),
-        rocketLng: convertDMStoDD(
-          Math.floor(DMSWest/100),
-          Math.floor(DMSWest - (Math.floor(DMSWest/100) * 100)),
-          (DMSWest - Math.floor(DMSWest)) * 100,
-          "W"),
+        rocketLat: lat,
+        rocketLng: lng
       });
     });
   }
@@ -119,6 +147,7 @@ class EmbeddedMap extends Component {
             <MyMapComponent
               markerLat={this.state.rocketLat}
               markerLng={this.state.rocketLng}
+              markerPath={this.state.rocketPath}
             />
           </div>
         </CardContent>
