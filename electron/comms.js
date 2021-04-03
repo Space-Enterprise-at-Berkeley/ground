@@ -294,11 +294,9 @@ class Comms {
     this.bandwidthCounter += rawData.length * 8 + 3 // 8 bits per byte plus one start bit and two stop bits
     const timestamp = moment().toJSON();
     let packet;
-    console.log(rawData.substr(1, 3));
     if(rawData.substr(0, 3) === "L/R") {
       
       // RSSI packet
-      console.log(rawData);
       const rssi = rawData.match(/L\/R RSSI: (\d+)\/(\d+)/);
       const noise = rawData.match(/L\/R noise: (\d+)\/(\d+)/);
       const pkts = rawData.match(/pkts: (\d+)/);
