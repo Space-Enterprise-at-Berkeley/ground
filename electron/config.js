@@ -371,6 +371,24 @@ const config = {
             unit: "none",
           }
         },
+        {
+          packetPosition: 13,
+          storageName: "avd",
+          label: "avd",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "none",
+          }
+        },
+        {
+          packetPosition: 14,
+          storageName: "TxSet",
+          label: "TxSet",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "none",
+          }
+        },
       ]
     },
   ]

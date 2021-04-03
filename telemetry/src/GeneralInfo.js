@@ -73,7 +73,7 @@ class GeneralInfo extends Component {
     });
     this.props.addSensorListener(this.props.accelerationID, (data, timestamp) => {
       this.setState({
-        acceleration: data[0]
+        acceleration: Math.round(100 * Math.sqrt(Math.pow(data[0], 2) + Math.pow(data[1], 2) + Math.pow(data[2], 2))) / 100
       });
     });
     this.props.addSensorListener(this.props.parachuteID, (data, timestamp) => {

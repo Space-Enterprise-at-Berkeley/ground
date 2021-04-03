@@ -202,6 +202,10 @@ class Comms {
       setTimeout(() => {
         this.state.port.write("AT&T=RSSI\r\n");
         this.state.port.drain();
+        setTimeout(() => {
+          this.state.port.write("ATO\r\n");
+          this.state.port.drain();
+        }, 1000);
       }, 1000);
     }
   }
@@ -307,6 +311,8 @@ class Comms {
       const ecc = rawData.match(/ecc=(\d+)\/(\d+)/);
       const temp = rawData.match(/temp=([+-]?\d+)/);
       const dco = rawData.match(/dco=(\d+)/);
+      const avd = rawData.match(/avd=(\d+)/);
+      const TxSet = rawData.match(/TxSet=(\d+)/);
       packet = {
         id: 50,
         values: [
@@ -323,6 +329,8 @@ class Comms {
           parseInt(ecc[2]),
           parseInt(temp[1]),
           parseInt(dco[1]),
+          parseInt(avd[1] ? avd[1] : 0),
+          parseInt(TxSet[1] ? TxSet[1] : 0),
         ],
       };
     } else {

@@ -96,7 +96,16 @@ class RocketOrientation extends Component {
 
     this.props.addSensorListener(this.props.sensorID, (data, timestamp) => {
       if(lad4gltf) {
-        lad4gltf.scene.setRotationFromQuaternion(new THREE.Quaternion(data[1], data[2], data[3], data[0]));
+        let quat = new THREE.Quaternion(data[1], data[2], data[3], data[0]);
+        const rot1 = new THREE.Quaternion(-Math.sqrt(2)/2, 0, 0, Math.sqrt(2)/2);
+        const rot2 = new THREE.Quaternion(0, 0, Math.sqrt(2)/2, Math.sqrt(2)/2);
+        // quat = quat.premultiply(new THREE.Quaternion(0, Math.sqrt(2)/2, 0, Math.sqrt(2)/2));
+        // quat = quat.multiply((new THREE.Quaternion(0, Math.sqrt(2)/2, 0, Math.sqrt(2)/2)).invert());
+        quat = quat.premultiply(rot1);
+        quat = quat.multiply(rot1.invert());
+        // quat = quat.premultiply(rot2);
+        // quat.multiply(rot2.invert());
+        lad4gltf.scene.setRotationFromQuaternion(quat);
         // lad4gltf.scene.setRotationFromEuler(new THREE.Qua(Math.PI * data[0] / 180, Math.PI * data[1] / 180, Math.PI * data[2] / 180, "YXZ"));
       }
     });

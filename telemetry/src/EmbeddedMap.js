@@ -147,7 +147,7 @@ class EmbeddedMap extends Component {
             <MyMapComponent
               markerLat={this.state.rocketLat}
               markerLng={this.state.rocketLng}
-              markerPath={this.state.rocketPath}
+              markerPath={this.state.rocketPath.slice(1)}
             />
           </div>
         </CardContent>
