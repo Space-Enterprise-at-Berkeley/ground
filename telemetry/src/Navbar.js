@@ -54,7 +54,9 @@ class Navbar extends Component {
       name: '',
       dbName: '',
       voltage: 0,
-      current: 0
+      current: 0,
+      lRSSI: 0,
+      rRSSI: 0
     };
     this.recordingInterval = null;
   }
@@ -69,6 +71,12 @@ class Navbar extends Component {
       this.setState({
         voltage: data[0],
         current: data[2]
+      });
+    });
+    this.props.addSensorListener(this.props.radioID, (data, timestamp) => {
+      this.setState({
+        lRSSI: data[0],
+        rRSSI: data[1]
       });
     });
   }
@@ -93,6 +101,9 @@ class Navbar extends Component {
       <AppBar position='static' color='default'>
         <Toolbar>
           <div className={classes.grow}></div>
+          <Button onClick={this.props.startRSSI}>
+            {this.state.lRSSI}/{this.state.rRSSI}
+          </Button>
           <Button className={classes.display}>
             {this.state.voltage} V
           </Button>

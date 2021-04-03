@@ -174,6 +174,10 @@ class Comms {
       this.sendPacket(id, data);
       return 3;
     });
+
+    ipcMain.handle('start-rssi', async (event) => {
+      this.startRadioRSSI();
+    });
   }
 
   sendPacket = (id, data) => {
@@ -189,6 +193,17 @@ class Comms {
     }
 
     return 3;
+  }
+
+  startRadioRSSI = () => {
+    if(this.state.open) {
+      this.state.port.write("+++");
+      this.state.port.drain();
+      setTimeout(() => {
+        this.state.port.write("AT&T=RSSI\r\n");
+        this.state.port.drain();
+      }, 1000);
+    }
   }
 
   openWebCon = (webCon) => {
@@ -278,7 +293,43 @@ class Comms {
   processData = rawData => {
     this.bandwidthCounter += rawData.length * 8 + 3 // 8 bits per byte plus one start bit and two stop bits
     const timestamp = moment().toJSON();
-    const packet = this.parsePacket(rawData);
+    let packet;
+    console.log(rawData.substr(1, 3));
+    if(rawData.substr(0, 3) === "L/R") {
+      
+      // RSSI packet
+      console.log(rawData);
+      const rssi = rawData.match(/L\/R RSSI: (\d+)\/(\d+)/);
+      const noise = rawData.match(/L\/R noise: (\d+)\/(\d+)/);
+      const pkts = rawData.match(/pkts: (\d+)/);
+      const txe = rawData.match(/txe=(\d+)/);
+      const rxe = rawData.match(/rxe=(\d+)/);
+      const stx = rawData.match(/stx=(\d+)/);
+      const srx = rawData.match(/srx=(\d+)/);
+      const ecc = rawData.match(/ecc=(\d+)\/(\d+)/);
+      const temp = rawData.match(/temp=([+-]?\d+)/);
+      const dco = rawData.match(/dco=(\d+)/);
+      packet = {
+        id: 50,
+        values: [
+          parseInt(rssi[1]),
+          parseInt(rssi[2]),
+          parseInt(noise[1]),
+          parseInt(noise[2]),
+          parseInt(pkts[1]),
+          parseInt(txe[1]),
+          parseInt(rxe[1]),
+          parseInt(stx[1]),
+          parseInt(srx[1]),
+          parseInt(ecc[1]),
+          parseInt(ecc[2]),
+          parseInt(temp[1]),
+          parseInt(dco[1]),
+        ],
+      };
+    } else {
+      packet = this.parsePacket(rawData);
+    }
     if(!packet) { // packet is not data or is invalid
       return;
     }
@@ -309,7 +360,7 @@ class Comms {
         idx,
         timestamp,
         values: sensor.values.map(v => {
-          if(!packet.values[v.packetPosition]) {
+          if(packet.values[v.packetPosition] === undefined) {
             return NaN; // sonetimes packets have sensors with different read frequencies
           }
           let res;
@@ -319,6 +370,9 @@ class Comms {
               break;
             case "linear":
               res = this.linearInterpolate(packet.values[v.packetPosition], v.interpolation.values);
+              break;
+            case "coef":
+              res = packet.values[v.packetPosition] * v.interpolation.coefficient;
               break;
             default:
               res = packet.values[v.packetPosition];

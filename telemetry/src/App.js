@@ -145,7 +145,9 @@ class App extends Component {
             portOpened={this.state.portOpened}
             addBandwidthListener={this.addBandwidthListener}
             addSensorListener={this.addSensorListener}
-            battID={8}
+            startRSSI={comms.startRSSI}
+            battID={7}
+            radioID={8}
             recording={this.state.recording}
             startRecording={async (name) => {
               await comms.startRecording(name);
@@ -163,7 +165,7 @@ class App extends Component {
               <Grid item xs={6} className={classes.item}>
                 <RocketOrientation
                   addSensorListener={this.addSensorListener}
-                  sensorID={5}
+                  sensorID={4}
                 />
               </Grid>
               <Grid item xs={6} className={classes.item}>
@@ -178,7 +180,7 @@ class App extends Component {
                   // sensorID={0}
                   accelerationID={3}
                   altitudeID={2}
-                  parachuteID={6}
+                  parachuteID={5}
                 />
               </Grid>
               <Grid item xs={6} className={classes.item}>

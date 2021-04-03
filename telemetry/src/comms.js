@@ -60,6 +60,10 @@ class Comms {
     return await this.ipc.invoke('send-packet', id, data);
   }
 
+  startRSSI = async (db) => {
+    return await this.ipc.invoke('start-rssi');
+  }
+
 
 
   /**

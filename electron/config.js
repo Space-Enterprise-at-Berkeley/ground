@@ -133,48 +133,16 @@ const config = {
       ]
     },
     {
-      name: "IMU Orientation",
-      packetId: 15,
-      values: [
-        {
-          packetPosition: 0,
-          storageName: "imuAngleX",
-          label: "imuAngleX",
-          interpolation: {
-            type: "none", // linear, quadratic
-            unit: "degrees",
-          }
-        },
-        {
-          packetPosition: 1,
-          storageName: "imuAngleY",
-          label: "imuAngleY",
-          interpolation: {
-            type: "none", // linear, quadratic
-            unit: "degrees",
-          }
-        },
-        {
-          packetPosition: 2,
-          storageName: "imuAngleZ",
-          label: "imuAngleZ",
-          interpolation: {
-            type: "none", // linear, quadratic
-            unit: "degrees",
-          }
-        },
-      ]
-    },
-    {
       name: "IMU Quaternion",
-      packetId: 16,
+      packetId: 15,
       values: [
         {
           packetPosition: 0,
           storageName: "imuQuatW",
           label: "imuQuatW",
           interpolation: {
-            type: "none", // linear, quadratic
+            type: "coef", // linear, quadratic
+            coefficient: 1/100000,
             unit: "none",
           }
         },
@@ -183,7 +151,8 @@ const config = {
           storageName: "imuQuatX",
           label: "imuQuatX",
           interpolation: {
-            type: "none", // linear, quadratic
+            type: "coef", // linear, quadratic
+            coefficient: 1/100000,
             unit: "none",
           }
         },
@@ -192,7 +161,8 @@ const config = {
           storageName: "imuQuatY",
           label: "imuQuatY",
           interpolation: {
-            type: "none", // linear, quadratic
+            type: "coef", // linear, quadratic
+            coefficient: 1/100000,
             unit: "none",
           }
         },
@@ -201,7 +171,8 @@ const config = {
           storageName: "imuQuatZ",
           label: "imuQuatZ",
           interpolation: {
-            type: "none", // linear, quadratic
+            type: "coef", // linear, quadratic
+            coefficient: 1/100000,
             unit: "none",
           }
         },
@@ -275,6 +246,129 @@ const config = {
           interpolation: {
             type: "none", // linear, quadratic
             unit: "amps",
+          }
+        },
+      ]
+    },
+    {
+      name: "Radio",
+      packetId: 50,
+      values: [
+        {
+          packetPosition: 0,
+          storageName: "leftRSSI",
+          label: "leftRSSI",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "none",
+          }
+        },
+        {
+          packetPosition: 1,
+          storageName: "rightRSSI",
+          label: "rightRSSI",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "none",
+          }
+        },
+        {
+          packetPosition: 2,
+          storageName: "leftNoise",
+          label: "leftNoise",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "none",
+          }
+        },
+        {
+          packetPosition: 3,
+          storageName: "rightNoise",
+          label: "rightNoise",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "none",
+          }
+        },
+        {
+          packetPosition: 4,
+          storageName: "pkts",
+          label: "pkts",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "none",
+          }
+        },
+        {
+          packetPosition: 5,
+          storageName: "txe",
+          label: "txe",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "none",
+          }
+        },
+        {
+          packetPosition: 6,
+          storageName: "rxe",
+          label: "rxe",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "none",
+          }
+        },
+        {
+          packetPosition: 7,
+          storageName: "stx",
+          label: "stx",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "none",
+          }
+        },
+        {
+          packetPosition: 8,
+          storageName: "srx",
+          label: "srx",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "none",
+          }
+        },
+        {
+          packetPosition: 9,
+          storageName: "leftECC",
+          label: "leftECC",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "none",
+          }
+        },
+        {
+          packetPosition: 10,
+          storageName: "rightECC",
+          label: "rightECC",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "none",
+          }
+        },
+        {
+          packetPosition: 11,
+          storageName: "radioTemp",
+          label: "radioTemp",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "none",
+          }
+        },
+        {
+          packetPosition: 12,
+          storageName: "dco",
+          label: "dco",
+          interpolation: {
+            type: "none", // linear, quadratic
+            unit: "none",
           }
         },
       ]
