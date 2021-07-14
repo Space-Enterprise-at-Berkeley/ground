@@ -5,20 +5,25 @@ const url = require('url');
 
 const App = require('./App');
 
-const isMainDev = (process.env.VARIANT === 'main');
+const windowSetDev = process.env.VARIANT;
 
 let backendApp = new App();
 let selector, window1, window2;
-function createWindow (isMain) {
+function createWindow (windowSet) {
   let url1, url2;
-  if(isMain) {
+  if (windowSet === 'main') {
     // main windows
     url1 = (isDev ? 'http://127.0.0.1:3000#/main' : `file://${path.join(__dirname, '../index.html#main')}`);
     url2 = (isDev ? 'http://127.0.0.1:3000#/control' : `file://${path.join(__dirname, '../index.html#control')}`);
-  } else {
+  } else if (windowSet === 'aux') {
     // aux windows
     url1 = (isDev ? 'http://127.0.0.1:3000#/aux1' : `file://${path.join(__dirname, '../index.html#aux1')}`);
     url2 = (isDev ? 'http://127.0.0.1:3000#/aux2' : `file://${path.join(__dirname, '../index.html#aux2')}`);
+  } else if (windowSet === 'cam') {
+	url1 = (isDev ? 'http://127.0.0.1:3000#/cam1' : `file://${path.join(__dirname, '../index.html#cam1')}`);
+    url2 = (isDev ? 'http://127.0.0.1:3000#/cam2' : `file://${path.join(__dirname, '../index.html#cam2')}`);
+  } else {
+	  throw new Error(`Incorrect window set passed into cross-env. ${windowSet}`);
   }
 
   window1 = new BrowserWindow({
@@ -114,7 +119,7 @@ app.on('ready', () => {
   })
 
   if(isDev) {
-    createWindow(isMainDev);
+    createWindow(windowSetDev);
   } else {
     createSelectorWindow();
   }

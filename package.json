@@ -13,6 +13,7 @@
   "scripts": {
     "start-main": "cross-env VARIANT=main electron .",
     "start-aux": "cross-env VARIANT=aux electron .",
+	"start-cam": "cross-env VARIANT=cam electron .",
     "build-electron-main": "cp -r telemetry/build ./build && cp -r electron/. build/electron",
     "package": "electron-builder build --mac -c.extraMetadata.main=build/electron/main.js --publish never",
     "test": "mocha"
