@@ -7,33 +7,12 @@ import { Box, Container, Grid } from '@material-ui/core';
 
 import Settings from './components/Settings';
 import Navbar from './components/Navbar';
-import Graph from './components/Graph';
-import SixValueSquare from './components/SixValueSquare';
+import Feed from './components/Feed';
 
 import comms from './api/Comms';
 
 const styles = theme => ({
-  root: {
-    flexGrow: 1,
-    height: '100vh',
-  },
-  container: {
-    flexGrow: 1,
-    position: 'absolute',
-    top: theme.spacing(6),
-    // height: '100vh',
-    bottom: '0px',
-    padding: theme.spacing(1)
-  },
-  row: {
-    height: '100%'
-  },
-  item: {
-    height: '33%'
-  },
-  navbarGrid: {
-    // height: theme.spacing(2)
-  }
+
 });
 
 class Cam1 extends Component {
@@ -82,15 +61,29 @@ class Cam1 extends Component {
     return (
       <ThemeProvider theme={theme}>
         <CssBaseline/>
-        <Box>
+        <Box className={classes.root}>
           <Settings open={this.state.showSettings} closeSettings={this.closeSettings}/>
           <Navbar
             changeLightDark={this.changeLightDark}
             openSettings={this.openSettings}
           />
-			<Container maxWidth='xl' className={classes.container}>
-				<h1>Cam1 Placeholder</h1>
-			</Container>
+			<Grid container>
+				<Grid container item className={classes.feedGrid} xs={10} spacing={2}>
+					<Grid item xs={6} spacing={2}>
+						<Feed camNum={3}/>
+						<Feed camNum={3}/>
+					</Grid>
+					<Grid item xs={6}>
+						<Feed camNum={3}/>
+						<Feed camNum={3}/>
+					</Grid>
+				</Grid>
+				<Grid container item className={classes.feedCtrl} xs={2}>
+					<h3>
+						Play Button
+					</h3>
+				</Grid>
+			</Grid>
         </Box>
       </ThemeProvider>
     );

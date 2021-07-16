@@ -92,7 +92,7 @@ class Main extends Component {
           />
           <Container maxWidth='xl' className={classes.container}>
             <Grid container={true} spacing={1} className={classes.row}>
-              <Grid item={1} xs={4} className={classes.item}>
+              <Grid item xs={4} className={classes.item}>
                 <Graph
                   fields={
                     [
