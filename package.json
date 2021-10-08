@@ -23,6 +23,10 @@
       "build/**/*",
       "node_modules/**/*"
     ],
+	"extraResources": {
+		"from": "./public/assets",
+		"to": "assets"
+	},
     "publish": {
       "provider": "github",
       "repo": "ground",
