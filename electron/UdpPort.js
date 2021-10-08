@@ -52,7 +52,7 @@ class UdpPort {
     // stupid windows won't start receiving until at least one packet sent
     if(process.platform === 'win32') {
       console.log('sending first packet (windows)')
-      this.server.send("{0|eeee}", 42069, address);
+      this.server.send("{0|eeee}", this.port, address);
     }
   }
 
@@ -64,7 +64,7 @@ class UdpPort {
    */
   send(address, data) {
     console.log(address + ": " + data);
-    this.server.send(data, 42069, address);
+    this.server.send(data, this.port, address);
   }
 }
 

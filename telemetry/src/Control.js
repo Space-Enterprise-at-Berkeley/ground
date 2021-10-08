@@ -18,6 +18,9 @@ import ButtonGroupHeaterCtrlLoop from './components/ButtonGroupHeaterCtrlLoop';
 import BigButton from './components/BigButton';
 import Procedures from './components/Procedures';
 import SwitchButton from './components/SwitchButton'
+import StateWindow from './components/StateWindow'
+
+import UpdogWav from './media/updog.wav';
 
 const styles = theme => ({
   root: {
@@ -49,10 +52,15 @@ class Control extends Component {
     };
 
     this.handleDarkMode = this.handleDarkMode.bind(this);
+    this.playUpdog = this.playUpdog.bind(this);
   }
 
   handleDarkMode(isDark) {
     this.setState({ isDark });
+  }
+
+  playUpdog() {
+    (new Audio(UpdogWav)).play();
   }
 
   componentDidMount() {
@@ -167,6 +175,7 @@ class Control extends Component {
                       text='Igniter'
                       successText='Activate'
                       failText='Deactivate'
+                      onActuateCallback={this.playUpdog}
                     />
                   </Grid>
                 </Grid>
@@ -249,6 +258,13 @@ class Control extends Component {
                     <BigButton
                       onClick={comms.hold}
                       text='Hold'
+                    />
+                  </Grid>
+                </Grid>
+                <Grid container={true} spacing={1}>
+                  <Grid item={1} xs={12}>
+                    <StateWindow
+                      onUpdate={comms.setProcedureState}
                     />
                   </Grid>
                 </Grid>

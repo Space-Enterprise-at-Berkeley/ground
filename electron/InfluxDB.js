@@ -2,6 +2,15 @@ const Influx = require('influx');
 
 const BATCH_SIZE = 10000;
 
+const procedureSteps = {
+    0:"Setup",
+    1:"Pressurant Fill",
+    2:"Prop Fill",
+    3:"LOx Fill",
+    4:"Pre-Chill",
+    5:"Burn"
+  }
+
 class InfluxDB {
   constructor() {
     this.influx = null;
@@ -51,7 +60,7 @@ class InfluxDB {
   }
 
   setProcedureStep(step) {
-    this.tags.procedureStep = step;
+    this.tags.procedureStep = procedureSteps[step];
   }
 
   clearProcedureStep() {

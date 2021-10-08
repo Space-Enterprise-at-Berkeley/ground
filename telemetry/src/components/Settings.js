@@ -77,6 +77,9 @@ class Settings extends Component {
   async setInfluxDatabase() {
     const { influxDatabase } = this.state;
     await Comms.setDatabase(influxDatabase);
+    // Initialize Procedures. Done here since selecting databse is last step before data is recorded
+    // TODO: Maybe move this somewhere else, or rename function
+    await Comms.setProcedureState(0);
   }
 
   componentDidMount() {

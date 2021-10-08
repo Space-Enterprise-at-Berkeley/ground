@@ -60,6 +60,9 @@ class ButtonGroupFlow extends Component {
   }
 
   updateStatus(timestamp, value) {
+    if(value === 1) {
+      this.props.onActuateCallback();
+    }
     this.setState({status: value});
   }
 

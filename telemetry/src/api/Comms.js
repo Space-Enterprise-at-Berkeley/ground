@@ -18,6 +18,8 @@ class Comms {
     this.setDatabase = this.setDatabase.bind(this);
     this.setDarkMode = this.setDarkMode.bind(this);
 
+    this.setProcedureState = this.setProcedureState.bind(this);
+
     //----------Flight Computer----------
 
     this.getFlightConnected = this.getFlightConnected.bind(this);
@@ -211,6 +213,10 @@ class Comms {
     this.ipc.removeListener('state-update', this.stateUpdate);
     this.ipc.removeListener('set-darkmode', this.darkmodeUpdate);
   }
+
+  //----------Dashboard Data----------
+
+  async setProcedureState(procState) { return await this.ipc.invoke('set-procedure-state', procState)}
 
   //----------Flight Computer----------
 

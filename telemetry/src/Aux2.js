@@ -171,8 +171,8 @@ class Aux2 extends Component {
               <Grid item xs={4}>
                 <SixValueSquare
                   field1={{
-                    name: 'N2 Vent',
-                    field: 'pressurantVentRBVcurrent',
+                    name: 'Pressurant Fill',
+                    field: 'pressurantFillRBVcurrent',
                     unit: 'A',
                     decimals: 1,
                     threshold: 0.5
@@ -331,8 +331,8 @@ class Aux2 extends Component {
                     threshold: 0.5
                   }}
                   field4={{
-                    name: '_changeme_',
-                    field: '_changeme_',
+                    name: 'Prop Tank Vent',
+                    field: 'propaneTankVentRBVcurrent',
                     unit: 'A',
                     decimals: 1
                   }}
