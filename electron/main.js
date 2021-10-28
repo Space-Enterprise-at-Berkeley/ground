@@ -1,76 +1,53 @@
 const { app, BrowserWindow, ipcMain, globalShortcut } = require('electron');
 const isDev = require('electron-is-dev');
 const path = require('path');
-const url = require('url');
 
 const App = require('./App');
 
-const isMainDev = (process.env.VARIANT === 'main');
-
 let backendApp = new App();
 let selector, window1, window2;
-function createWindow (isMain) {
-  let url1, url2;
-  if(isMain) {
+function createWindow (variant) {
+  let windows = []
+  if(variant === 'main') {
     // main windows
-    url1 = (isDev ? 'http://127.0.0.1:3000#/main' : `file://${path.join(__dirname, '../index.html#main')}`);
-    url2 = (isDev ? 'http://127.0.0.1:3000#/control' : `file://${path.join(__dirname, '../index.html#control')}`);
-  } else {
+    windows.push (isDev ? 'http://127.0.0.1:3000#/main' : `file://${path.join(__dirname, '../index.html#main')}`);
+    windows.push (isDev ? 'http://127.0.0.1:3000#/control' : `file://${path.join(__dirname, '../index.html#control')}`);
+  } else if(variant ==='aux') {
     // aux windows
-    url1 = (isDev ? 'http://127.0.0.1:3000#/aux1' : `file://${path.join(__dirname, '../index.html#aux1')}`);
-    url2 = (isDev ? 'http://127.0.0.1:3000#/aux2' : `file://${path.join(__dirname, '../index.html#aux2')}`);
+    windows.push (isDev ? 'http://127.0.0.1:3000#/aux1' : `file://${path.join(__dirname, '../index.html#aux1')}`);
+    windows.push (isDev ? 'http://127.0.0.1:3000#/aux2' : `file://${path.join(__dirname, '../index.html#aux2')}`);
+  }else if(variant === 'daq3test'){
+    // daq3 test windows
+    windows.push (isDev ? 'http://127.0.0.1:3000#/main' : `file://${path.join(__dirname, '../index.html#main')}`);
+    windows.push (isDev ? 'http://127.0.0.1:3000#/daq3test' : `file://${path.join(__dirname, '../index.html#daq3test')}`);
   }
 
-  window1 = new BrowserWindow({
-    show: false,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-      devTools: isDev,
-    },
-  });
-  window1.maximize();
-  if(!isDev) {
-    window1.removeMenu();
-  }
-  window1.loadURL(url1);
-  window1.on('closed', function () {
-    backendApp.removeWebContents(window1.webContents);
-    window1 = null;
-  });
-  window1.webContents.once('did-finish-load', () => {
-    backendApp.addWebContents(window1.webContents);
-    if(backendApp.webContents.length === 2){
-      backendApp.initApp()
+  for (const windowUrl of windows) {
+    const browserWindow = new BrowserWindow({
+      show: false,
+      webPreferences: {
+        preload: path.join(__dirname, 'preload.js'),
+        devTools: isDev,
+      }
+    })
+    browserWindow.maximize()
+    if(!isDev){
+      browserWindow.removeMenu()
     }
-  });
-  window1.once('ready-to-show', () => {
-    window1.show();
-  });
-
-  window2 = new BrowserWindow({
-    show: false,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-      devTools: isDev,
-    },
-  });
-  window2.maximize();
-  if(!isDev) {
-    window2.removeMenu();
+    browserWindow.loadURL(windowUrl)
+    browserWindow.on('closed', function () {
+      backendApp.removeWebContents(browserWindow.webContents);
+    });
+    browserWindow.webContents.once('did-finish-load', () => {
+      backendApp.addWebContents(browserWindow.webContents);
+      if(backendApp.webContents.length === windows.length){
+        backendApp.initApp()
+      }
+    });
+    browserWindow.once('ready-to-show', () => {
+      browserWindow.show();
+    });
   }
-  window2.loadURL(url2);
-  window2.on('closed', function () {
-    window2 = null;
-  });
-  window2.webContents.once('did-finish-load', () => {
-    backendApp.addWebContents(window2.webContents);
-    if(backendApp.webContents.length === 2){
-      backendApp.initApp()
-    }
-  });
-  window2.once('ready-to-show', () => {
-    window2.show();
-  });
 }
 
 function createSelectorWindow() {
@@ -102,11 +79,15 @@ function createSelectorWindow() {
 
   ipcMain.handleOnce('open-main-windows', (e) => {
     selector.close();
-    createWindow(true);
+    createWindow('main');
   });
   ipcMain.handleOnce('open-aux-windows', (e) => {
     selector.close();
-    createWindow(false);
+    createWindow('aux');
+  });
+  ipcMain.handleOnce('open-daq3-test-windows', (e) => {
+    selector.close();
+    createWindow('daq3test');
   });
 }
 
@@ -120,7 +101,7 @@ app.on('ready', () => {
   })
 
   if(isDev) {
-    createWindow(isMainDev);
+    createWindow(process.env.VARIANT);
   } else {
     createSelectorWindow();
   }

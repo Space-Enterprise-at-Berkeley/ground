@@ -8,6 +8,7 @@ const FlightV2 = require('./FlightV2');
 const DAQ = require('./DAQ');
 const ActuatorController = require('./ActuatorController');
 const InfluxDB = require('./InfluxDB');
+const DAQV3 = require("./DAQV3");
 
 class App {
   constructor() {
@@ -78,6 +79,12 @@ class App {
       () => this.updateState(Date.now(), { daq2Connected: true }),
       () => this.updateState(Date.now(), { daq2Connected: false }),
       (rate) => this.updateState(Date.now(), { daq2Kbps: rate }));
+
+    this.daq3 = new DAQV3(this.port, '10.0.0.13', {},
+      () => this.updateState(Date.now(), { daq3Connected: true }),
+      () => this.updateState(Date.now(), { daq3Connected: false }),
+      (rate) => this.updateState(Date.now(), { daq3Kbps: rate })
+      )
 
     this.actCtrlr1 = new ActuatorController(this.port, '10.0.0.21', {
         ch12v0Current: null, // these dont work currently
@@ -343,6 +350,7 @@ class App {
     this.addIPC('flight-connected', () => this.flightComputer.isConnected);
     this.addIPC('daq1-connected', () => this.daq1.isConnected);
     this.addIPC('daq2-connected', () => this.daq2.isConnected);
+    this.addIPC('daq3-connected', () => this.daq3.isConnected);
     this.addIPC('actctrlr1-connected', () => this.actCtrlr1.isConnected);
     this.addIPC('actctrlr2-connected', () => this.actCtrlr2.isConnected);
     this.addIPC('actctrlr3-connected', () => this.actCtrlr3.isConnected);

@@ -32,3 +32,6 @@ persist
 
 # Lock file for pnpm manager
 pnpm-lock.yaml
+
+# Lock files in general
+package-lock.json

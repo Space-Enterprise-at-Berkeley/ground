@@ -55,23 +55,43 @@ class Board {
     const update = {};
     for (let i = 0; i < packet.values.length; i++) {
       const fieldDef = def[i];
-      if (fieldDef === undefined) continue;
-      let val = packet.values[i];
-      if (fieldDef.interpolation !== null) {
-        val = fieldDef.interpolation(val, packet.timestamp);
-        if (val._val) {
-          const { additionalFields } = val
-          Object.assign(update, additionalFields)
-          val = val._val
+      if (fieldDef !== undefined) {
+        let val = packet.values[i];
+        if (fieldDef.interpolation !== null) {
+          val = fieldDef.interpolation(val, packet.timestamp);
+          if (val._val) {
+            const { additionalFields } = val
+            Object.assign(update, additionalFields)
+            val = val._val
+          }
+        }
+        let mappedField = this.mapping[fieldDef.field];
+        if (mappedField === undefined) {
+          mappedField = fieldDef.field;
+        } else if (mappedField === null) {
+          continue;
+        }
+        update[mappedField] = val;
+      } else {
+        // check for catch all "*" key in packets def
+        const catchDef = def["*"]
+        if (catchDef !== undefined) {
+          let val = packet.values[i];
+          if (catchDef.interpolation !== null) {
+            val = catchDef.interpolation(val, packet.timestamp);
+            if (val._val) {
+              const { additionalFields } = val
+              Object.assign(update, additionalFields)
+              val = val._val
+            }
+          }
+          if (catchDef.field.includes("{}")) {
+            update[catchDef.field.replace("{}", i)] = val
+          }else{
+            update[`${catchDef.field}${i}`] = val
+          }
         }
       }
-      let mappedField = this.mapping[fieldDef.field];
-      if (mappedField === undefined) {
-        mappedField = fieldDef.field;
-      } else if (mappedField === null) {
-        continue;
-      }
-      update[mappedField] = val;
     }
     return update;
   }
