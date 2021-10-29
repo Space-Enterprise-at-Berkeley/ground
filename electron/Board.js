@@ -75,9 +75,9 @@ class Board {
       } else {
         // check for catch all "*" key in packets def
         const catchDef = def["*"]
-        if (catchDef !== undefined) {
+        if (catchDef !== undefined && catchDef != null) {
           let val = packet.values[i];
-          if (catchDef.interpolation !== null) {
+          if (catchDef.interpolation != null && typeof catchDef.interpolation === 'function' ) {
             val = catchDef.interpolation(val, packet.timestamp);
             if (val._val) {
               const { additionalFields } = val

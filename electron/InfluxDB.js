@@ -31,6 +31,10 @@ class InfluxDB {
     this.setProcedureStep = this.setProcedureStep.bind(this);
     this.clearProcedureStep = this.clearProcedureStep.bind(this);
     this.handleStateUpdate = this.handleStateUpdate.bind(this);
+    this.handleSysLogUpdate = this.handleSysLogUpdate.bind(this);
+
+    this._pushStateUpdate = this._pushStateUpdate.bind(this);
+    this.throttledStateUpdate = throttle(this._pushStateUpdate, 2000)
     this._pushSysLog = this._pushSysLog.bind(this);
     this.throttledSysLogPush = throttle(this._pushSysLog, 250)
   }
@@ -75,8 +79,17 @@ class InfluxDB {
     const sysLogBuffer = [...this.sysLogBuffer]
     if (sysLogBuffer.length === 0) return
     this.sysLogBuffer = []
-    console.debug("writing # to influx", sysLogBuffer.length)
+    // console.debug(`writing ${sysLogBuffer.length} syslogs to influx.`)
     await this.influx.writePoints(sysLogBuffer, { database: this.database, precision: 'ms' }
+    )
+  }
+
+  async _pushStateUpdate(){
+    const pointsBuffer = [...this.pointsBuffer]
+    if (pointsBuffer.length === 0) return
+    this.pointsBuffer = []
+    // console.debug(`writing ${pointsBuffer.length} state update points to influx.`)
+    await this.influx.writePoints(pointsBuffer, { database: this.database, precision: 'ms' }
     )
   }
 
@@ -102,8 +115,6 @@ class InfluxDB {
   }
 
   async handleStateUpdate(timestamp, update) {
-    if (this.influx === null) return;
-    if (this.database === null) return;
     for (let k of Object.keys(update)) {
       this.pointsBuffer.push({
         measurement: k,
@@ -112,13 +123,17 @@ class InfluxDB {
         timestamp: timestamp
       });
     }
+
+    if (this.influx === null) return;
+    if (this.database === null) return;
+
     if (this.pointsBuffer.length > BATCH_SIZE) {
-      const buffer = this.pointsBuffer;
-      this.pointsBuffer = [];
-      await this.influx.writePoints(buffer, { database: this.database, precision: 'ms' });
-      return true;
+      console.debug('points buffer has exceeded batch size, sending early.')
+      this.throttledStateUpdate.flush()
+      return true
     }
-    return false;
+
+    this.throttledStateUpdate()
   }
 }
 
