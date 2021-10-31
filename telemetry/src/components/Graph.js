@@ -109,7 +109,7 @@ class Graph extends Component {
         vArray.set(buff, vLen);
         vLen += buffIdx;
         this.bufferIdx[f] = 0;
-        this.legendRefs[f].current.innerHTML = `(${vArray[vLen-1].toFixed(1)}`;
+        this.legendRefs[f].current.innerHTML = `(${vArray[vLen-1].toFixed(this.props.fields[f].precision || 1)}`;
       }
 
       for(let i = 0; i < vLen; i+=2) {

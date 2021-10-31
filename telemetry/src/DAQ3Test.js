@@ -103,7 +103,8 @@ class Main extends Component {
                       {
                         name: 'daq3-lox-capVal',
                         color: [70, 1, 155],
-                        unit: 'pF'
+                        unit: 'pF',
+                        precision: 3
                       }
                     ]
                   }
@@ -116,7 +117,8 @@ class Main extends Component {
                       {
                         name: 'daq3-fuel-capVal',
                         color: [56, 44, 30],
-                        unit: 'pF'
+                        unit: 'pF',
+                        precision: 3
                       }
                     ]
                   }
