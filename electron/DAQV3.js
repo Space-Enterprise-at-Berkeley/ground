@@ -75,9 +75,22 @@ const packets = {
 
   8: {
     0: {
-      field: 'daq3-capVal',
+      field: 'daq3-fuel-capVal',
+      interpolation: null
+    },
+    1: {
+      field: 'daq3-fuel-frequency',
+      interpolation: null
+    },
+    2: {
+      field: 'daq3-lox-capVal',
+      interpolation: null
+    },
+    3: {
+      field: 'daq3-lox-frequency',
       interpolation: null
     }
+
   },
 
   19: {

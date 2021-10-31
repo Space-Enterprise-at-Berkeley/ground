@@ -101,14 +101,60 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'daq3-capVal',
+                        name: 'daq3-lox-capVal',
                         color: [70, 1, 155],
-                        unit: 'IDK'
+                        unit: 'pF'
                       }
                     ]
                   }
                 />
               </Grid>
+              <Grid item={1} xs={4} className={classes.item}>
+                <Graph
+                  fields={
+                    [
+                      {
+                        name: 'daq3-fuel-capVal',
+                        color: [56, 44, 30],
+                        unit: 'pF'
+                      }
+                    ]
+                  }
+                />
+              </Grid>
+
+              <Grid item={1} xs={4} className={classes.item}/>
+
+              <Grid item={1} xs={4} className={classes.item}>
+                <Graph
+                  fields={
+                    [
+                      {
+                        name: 'daq3-lox-frequency',
+                        color: [70, 1, 155],
+                        unit: 'Hz'
+                      }
+                    ]
+                  }
+                />
+              </Grid>
+              <Grid item={1} xs={4} className={classes.item}>
+                <Graph
+                  fields={
+                    [
+                      {
+                        name: 'daq3-fuel-frequency',
+                        color: [56, 44, 30],
+                        unit: 'Hz'
+                      }
+                    ]
+                  }
+                />
+              </Grid>
+              <Grid item={1} xs={4} className={classes.item}/>
+              <Grid item={1} xs={4} className={classes.item}/>
+              <Grid item={1} xs={4} className={classes.item}/>
+              <Grid item={1} xs={4} className={classes.item}/>
             </Grid>
           </Container>
         </Box>
