@@ -135,7 +135,7 @@ class ButtonGroupRBVTimed extends Component {
             onChange={this.handleTimeFieldChange}
             className={classes.txtField}
             inputProps={{
-              step: 50
+              step: 0.001
             }}
           />
           <Button

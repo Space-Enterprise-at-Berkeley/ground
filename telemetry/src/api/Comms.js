@@ -79,6 +79,8 @@ class Comms {
     //---------------DAQ 1---------------
 
     //---------------DAQ 2---------------
+    this.setLoxCapBase = this.setLoxCapBase.bind(this);
+    this.setFuelCapBase = this.setFuelCapBase.bind(this);
 
     //-------Actuator Controller 1-------
 
@@ -398,6 +400,16 @@ class Comms {
   async hold() {
     return await this.ipc.invoke('hold');
   }
+
+
+  async setLoxCapBase(val) {
+    return await this.ipc.invoke('set-capLoxValBase', val);
+  }
+
+  async setFuelCapBase(val) {
+    return await this.ipc.invoke('set-capFuelValBase', val);
+  }
+
 
   async setloxTankPTHeater(val) {
     return await this.ipc.invoke('set-loxTankPTHeater', val);

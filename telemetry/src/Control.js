@@ -283,13 +283,22 @@ class Control extends Component {
                   </Grid>
                 </Grid>
                 <Grid container={true} spacing={1}>
-                  <Grid item={1} xs={12}>
+                  <Grid item={1} xs={6}>
                     <ButtonGroupRBVTimed
                       open={comms.openPurgePrechillVentRBV}
                       close={comms.closePurgePrechillVentRBV}
-                      time={comms.timePurgePrechillVentRBV}
+                      time={comms.setLoxCapBase}
                       field='purgePrechillVentRBVstate'
-                      text='Purge Prechill Vent RBV'
+                      text='Lox Base Cap'
+                    />
+                  </Grid>
+                  <Grid item={1} xs={6}>
+                    <ButtonGroupRBVTimed
+                      open={comms.openPurgePrechillVentRBV}
+                      close={comms.closePurgePrechillVentRBV}
+                      time={comms.setFuelCapBase}
+                      field='purgePrechillVentRBVstate'
+                      text='Fuel Base Cap'
                     />
                   </Grid>
                 </Grid>

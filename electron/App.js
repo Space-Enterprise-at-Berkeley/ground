@@ -9,6 +9,7 @@ const DAQ = require('./DAQ');
 const DAQV3 = require('./DAQV3');
 const ActuatorController = require('./ActuatorController');
 const InfluxDB = require('./InfluxDB');
+const Packet = require('./Packet');
 
 class App {
   constructor() {
@@ -17,11 +18,13 @@ class App {
     this.state = new State({});
     this.influxDB = new InfluxDB();
 
+    this.ledDelay = 0.0;
+
     this.updateState = this.updateState.bind(this);
     this.sendDarkModeUpdate = this.sendDarkModeUpdate.bind(this);
     this.abort = this.abort.bind(this);
     this.hold = this.hold.bind(this);
-    this.handleSendCustomMessage = this.handleSendCustomMessage.bind(this)
+    this.handleSendCustomMessage = this.handleSendCustomMessage.bind(this);
   }
 
   /**
@@ -241,6 +244,16 @@ class App {
    * @param {Object} update
    */
   sendStateUpdate(timestamp, update) {
+    // LED SHENANIGANS
+    if(timestamp - this.ledDelay > 200) {
+      if(update['daq3-lox-capVal']) {
+        this.ledDelay = timestamp;
+        this.port.send('10.0.0.12', (new Packet(98, [0, update['daq3-fuel-capVal'], update['daq3-lox-capVal']])).stringify());
+      }
+    }
+    // END LED SHENANIGANS
+
+
     for (let wc of this.webContents) {
       wc.send('state-update', {
         timestamp,
@@ -402,6 +415,9 @@ class App {
     // DAQ 1
 
     // DAQ 2
+
+    this.addIPC('set-capLoxValBase', (e, val) => this.port.send('10.0.0.12', (new Packet(97, [val])).stringify()))
+    this.addIPC('set-capFuelValBase', (e, val) => this.port.send('10.0.0.12', (new Packet(96, [val])).stringify()))
 
 
     // Actuator Controller 1
