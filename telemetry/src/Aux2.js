@@ -137,8 +137,8 @@ class Aux2 extends Component {
                     decimals: 0,
                   }}
                   field2={{
-                    name: 'LED1',
-                    field: 'led1Voltage',
+                    name: 'Breakwire',
+                    field: 'breakwireVoltage',
                     unit: 'V',
                     decimals: 0,
                     threshold: 3
@@ -304,8 +304,8 @@ class Aux2 extends Component {
               {/* <Grid item xs={4}>
                 {/* Empty Slot
               </Grid> */}
-              
-              <Grid item xs={8} className={classes.item}>
+
+              <Grid item xs={4} className={classes.item}>
                 <Graph
                   fields={
                     [
@@ -321,6 +321,30 @@ class Aux2 extends Component {
                       },
                       {
                         name: 'newLoadCellTotal', // prop PT temp
+                        color: [238, 154, 7],
+                        unit: 'KGs'
+                      },
+                    ]
+                  }
+                />
+              </Grid>
+              
+              <Grid item xs={4} className={classes.item}>
+                <Graph
+                  fields={
+                    [
+                      {
+                        name: 'thrust1',
+                        color: [255, 51, 224],
+                        unit: 'KGs'
+                      },
+                      {
+                        name: 'thrust2', // prop PT temp
+                        color: [15, 202, 221],
+                        unit: 'KGs'
+                      },
+                      {
+                        name: 'totalThrust', // prop PT temp
                         color: [238, 154, 7],
                         unit: 'KGs'
                       },

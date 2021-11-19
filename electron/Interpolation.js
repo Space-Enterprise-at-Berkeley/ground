@@ -2,10 +2,19 @@
 const GRANULARITY = 200 // store points as 200ms average
 const AVERAGE_INTERVAL = 5000 // default to 5 second averages
 
+const LC1_OFFSET = 0;
+const LC1_SCALE = 0;
+
+const LC2_OFFSET = 0;
+const LC2_SCALE = 0;
+
 class Interpolation {
   static firstTimeStamps = {}
   static valueBuffers = {}
   static pastValues = {}
+
+  static prevNewLC1 = 0
+  static prevNewLC2 = 0
 
   static floatToBool(value) {
     return value > 0.0;
@@ -38,7 +47,8 @@ class Interpolation {
       8: "Turn On Igniter & Open 2 Way",
       9: "Close LOX 2 Way",
       10: "Turn Off Igniter",
-      11: "[Igniter] Abort",
+      11: "[Abort] Igniter Current",
+      12: "[Abort] Igniter Break",
       15: "Enter Checkout",
       16: "Exit Checkout"
 
@@ -54,6 +64,20 @@ class Interpolation {
       return "Id not found: " + raw_value
     }
   }
+  static interpolateLoadCell1(value) {
+    this.prevNewLC1 = ((value - LC1_OFFSET) * LC1_SCALE)
+    return this.prevNewLC1
+  }
+  static interpolateLoadCell2(value) {
+    this.prevNewLC2 = ((value - LC2_OFFSET) * LC2_SCALE)
+    return this.prevNewLC2
+  }
+  static interpolateTotalLoadCell(value) {
+    return this.prevNewLC1 + this.prevNewLC2
+  }
+
+
+
 
   static interpolateSolenoidErrors(value) {
     // value is binary where each "1" indicates an error for that solenoid

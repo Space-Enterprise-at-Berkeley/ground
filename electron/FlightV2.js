@@ -169,7 +169,7 @@ const packets = {
       interpolation: null
     },
     4: {
-      field: 'led1',
+      field: 'breakwire',
       interpolation: null
     },
     5: {
@@ -203,7 +203,7 @@ const packets = {
       interpolation: null
     },
     4: {
-      field: 'led1Current',
+      field: 'breakwireCurrent',
       interpolation: null
     },
     5: {
@@ -237,7 +237,7 @@ const packets = {
       interpolation: null
     },
     4: {
-      field: 'led1Voltage',
+      field: 'breakwireVoltage',
       interpolation: null
     },
     5: {
