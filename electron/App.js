@@ -301,7 +301,7 @@ class App {
 
 
     this.actCtrlr1.openActCh3(); // loxTankVent open
-    this.actCtrlr1.openActCh6(); // fuelTankVent open
+    this.actCtrlr1.openActCh5(); // fuelTankVent open
 
     this.actCtrlr1.closeActCh4(); // loxFill close
     this.actCtrlr1.closeActCh1(); // fuelFill close
