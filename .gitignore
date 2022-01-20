@@ -32,3 +32,6 @@ persist
 
 # Lock file for pnpm manager
 pnpm-lock.yaml
+
+# Lock file for npm because we aren't using CI
+package-lock.json
