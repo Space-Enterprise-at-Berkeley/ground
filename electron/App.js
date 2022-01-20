@@ -264,7 +264,7 @@ class App {
     if (dbrecord) {
       // if update value is not number -> add to syslog as well
       Object.keys(update).forEach(_k => {
-        if(typeof update[_k] !== 'number'){
+        if(typeof update[_k] !== 'number' && !Array.isArray(update[_k])){
           if(update[_k].message){
             this.influxDB.handleSysLogUpdate(timestamp, `${_k} -> ${update[_k].message}`, update[_k].tags)
           }else{

@@ -46,6 +46,9 @@ class DevPacket extends Packet{
           _buf.writeUInt32LE(value)
           return _buf
         }
+        case asASCIIString: {
+          return Buffer.from(value.toString(), "utf8")
+        }
       }
     })
 

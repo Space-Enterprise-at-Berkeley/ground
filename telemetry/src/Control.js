@@ -22,6 +22,7 @@ import StateWindow from './components/StateWindow'
 
 import UpdogWav from './media/updog.wav';
 import CountdownTimer from './components/CountdownTimer';
+import RocketOrientation from "./components/RocketOrientation";
 
 const PAGE_TITLE = "Telemetry: Controls"
 
@@ -31,6 +32,8 @@ const styles = theme => ({
     height: '100vh',
   },
   container: {
+    display: 'flex',
+    flexDirection: 'column',
     flexGrow: 1,
     height: '100vh',
     padding: theme.spacing(1)
@@ -156,7 +159,9 @@ class Control extends Component {
                       open={comms.doNothing}
                       close={comms.doNothing}
                       field='HPSEnable'
-                      change={e => {this.setState({HPS_en: e.target.checked});} }
+                      change={e => {
+                        this.setState({ HPS_en: e.target.checked });
+                      }}
                     />
                   </Grid>
                 </Grid>
@@ -321,7 +326,9 @@ class Control extends Component {
                 <Grid container={true} spacing={1}>
                   <Grid item={1} xs={12}>
                     <BigButton
-                      onClick={() => {comms.abort()}}
+                      onClick={() => {
+                        comms.abort()
+                      }}
                       text='Abort'
                       isRed
                     />
@@ -464,7 +471,8 @@ class Control extends Component {
               {/* START OF PROCEDURE COLUMN */}
               <Grid item={1} xs={2} className={classes.item}>
                 <Grid container={true} spacing={1}>
-                  <CountdownTimer setStartCountdownCallback={this.setStartCountdownCallback} setStopCountdownCallback={this.setStopCountdownCallback}/>
+                  <CountdownTimer setStartCountdownCallback={this.setStartCountdownCallback}
+                    setStopCountdownCallback={this.setStopCountdownCallback}/>
                 </Grid>
               </Grid>
 
@@ -472,8 +480,10 @@ class Control extends Component {
                 <Procedures />
               </Grid> */}
             </Grid>
-            <Grid container={true} spacing={1}>
-              <Grid item={1} xs={3} className={classes.item}>
+            <Grid container={true} spacing={1} style={{
+              height: "100%"
+            }}>
+              <Grid item={1} xs={4} className={classes.item}>
                 <Grid container spacing={1} direction='column'>
                   <Grid item>
                     <ButtonGroupHeater
@@ -498,16 +508,11 @@ class Control extends Component {
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item={1} xs={3} className={classes.item}>
-                <Grid container spacing={1} direction='column'>
-                  
-                </Grid>
+              <Grid item={1} xs={4} className={classes.item}>
+                <RocketOrientation field={"rocketQuart"}/>
               </Grid>
-              <Grid item={1} xs={3} className={classes.item}>
-                
-              </Grid>
-              <Grid item={1} xs={3} className={classes.item}>
-                
+              <Grid item={1} xs={4} className={classes.item}>
+
               </Grid>
             </Grid>
           </Container>

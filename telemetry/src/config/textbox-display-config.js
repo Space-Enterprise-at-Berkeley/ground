@@ -8,6 +8,11 @@ export const GENERIC_FILTERS = [
     key: 't2-number-updates',
     ignoredIf: (node) => (typeof node._val === 'number') // if node value is a number, probably is a value update
   },
+  {
+    name: 'Array Updates',
+    key: 't2-array-updates',
+    ignoredIf: (node) => (Array.isArray(node._val))
+  }
 ]
 
 export const ROOT_OPTION_GROUPING = {

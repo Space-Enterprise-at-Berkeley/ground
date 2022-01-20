@@ -215,6 +215,14 @@ class Interpolation {
       return value
     }
   }
+
+  /**
+   *
+   * @param value quart string, with x y z w separated with a |
+   */
+  static interpolateQuaternionString(value){
+    return value.split("|").map(str => +str)
+  }
 }
 
 module.exports = Interpolation;
