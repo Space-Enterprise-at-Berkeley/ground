@@ -32,7 +32,15 @@ class UdpPort {
     });
 
     this.server.on('message', (msg, rinfo) => {
-      const board = this.boards[rinfo.address];
+      let board
+      if(rinfo.address === '127.0.0.1'){
+        const addressLen = msg.readUInt8(0)
+        const devAddress = msg.toString("utf8", 1, 1+addressLen)
+        board = this.boards[devAddress]
+        msg = msg.slice(1+addressLen)
+      }else{
+        board = this.boards[rinfo.address];
+      }
       if(!board) return;
       board.updateRcvRate(msg.length);
       const packet = board.parseMsgBuf(msg);

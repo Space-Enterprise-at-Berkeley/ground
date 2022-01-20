@@ -34,6 +34,7 @@ class Packet {
   toBuffer() {
     const packetDef = OUTBOUND_PACKET_DEFS[this.id]
     if (!packetDef) {
+      console.debug(`[${this.id}] Packet ID is not defined in the OUTBOUND_PACKET_DEFS.`)
       return
     }
     /**
