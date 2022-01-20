@@ -23,6 +23,7 @@ import StateWindow from './components/StateWindow'
 import UpdogWav from './media/updog.wav';
 import CountdownTimer from './components/CountdownTimer';
 import RocketOrientation from "./components/RocketOrientation";
+import Map from "./components/Map";
 
 const PAGE_TITLE = "Telemetry: Controls"
 
@@ -512,7 +513,7 @@ class Control extends Component {
                 <RocketOrientation field={"rocketQuart"}/>
               </Grid>
               <Grid item={1} xs={4} className={classes.item}>
-
+                <Map field={"rocketCoords"}/>
               </Grid>
             </Grid>
           </Container>

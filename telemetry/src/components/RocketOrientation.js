@@ -44,6 +44,9 @@ class RocketOrientation extends Component {
     super(props);
     this.state = {};
     this.sizeDetector = React.createRef();
+    this.lad4gltf = null
+
+    this.handleValueUpdate = this.handleValueUpdate.bind(this)
   }
 
   componentDidMount() {
@@ -69,9 +72,9 @@ class RocketOrientation extends Component {
     scene.add(directionalLight);
 
     const loader = new GLTFLoader();
-    let lad4gltf = null;
+    const that = this
     loader.load('static/3d-models/LAD4.gltf', function (gltf) {
-      lad4gltf = gltf;
+      that.lad4gltf = gltf;
       scene.add(gltf.scene);
     }, undefined, function (error) {
       console.error(error);
@@ -96,22 +99,23 @@ class RocketOrientation extends Component {
     };
     animate();
 
-    comms.addSubscriber(field, (_, data) => {
-      if (!lad4gltf) return
+    comms.addSubscriber(field, this.handleValueUpdate);
+  }
 
-      let quat = new THREE.Quaternion(data[1], data[2], data[3], data[0]);
-      const rot1 = new THREE.Quaternion(-Math.sqrt(2) / 2, 0, 0, Math.sqrt(2) / 2);
-      const rot2 = new THREE.Quaternion(0, 0, Math.sqrt(2) / 2, Math.sqrt(2) / 2);
-      // quat = quat.premultiply(new THREE.Quaternion(0, Math.sqrt(2)/2, 0, Math.sqrt(2)/2));
-      // quat = quat.multiply((new THREE.Quaternion(0, Math.sqrt(2)/2, 0, Math.sqrt(2)/2)).invert());
-      quat = quat.premultiply(rot1);
-      quat = quat.multiply(rot1.invert());
-      // quat = quat.premultiply(rot2);
-      // quat.multiply(rot2.invert());
-      lad4gltf.scene.setRotationFromQuaternion(quat);
-      // lad4gltf.scene.setRotationFromEuler(new THREE.Qua(Math.PI * data[0] / 180, Math.PI * data[1] / 180, Math.PI * data[2] / 180, "YXZ"));
+  handleValueUpdate(timestamp, data) {
+    if (!this.lad4gltf) return
 
-    });
+    let quat = new THREE.Quaternion(data[1], data[2], data[3], data[0]);
+    const rot1 = new THREE.Quaternion(-Math.sqrt(2) / 2, 0, 0, Math.sqrt(2) / 2);
+    const rot2 = new THREE.Quaternion(0, 0, Math.sqrt(2) / 2, Math.sqrt(2) / 2);
+    // quat = quat.premultiply(new THREE.Quaternion(0, Math.sqrt(2)/2, 0, Math.sqrt(2)/2));
+    // quat = quat.multiply((new THREE.Quaternion(0, Math.sqrt(2)/2, 0, Math.sqrt(2)/2)).invert());
+    quat = quat.premultiply(rot1);
+    quat = quat.multiply(rot1.invert());
+    // quat = quat.premultiply(rot2);
+    // quat.multiply(rot2.invert());
+    this.lad4gltf.scene.setRotationFromQuaternion(quat);
+    // lad4gltf.scene.setRotationFromEuler(new THREE.Qua(Math.PI * data[0] / 180, Math.PI * data[1] / 180, Math.PI * data[2] / 180, "YXZ"));
   }
 
   componentWillUnmount() {
