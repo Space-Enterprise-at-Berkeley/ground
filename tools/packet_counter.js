@@ -1,7 +1,7 @@
 const dgram = require('dgram');
 const server = dgram.createSocket('udp4');
 
-const Packet = require('./electron/Packet');
+const Packet = require('../electron/Packet');
 
 const pktCounts = {};
 
