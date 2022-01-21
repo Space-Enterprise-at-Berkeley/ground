@@ -1,7 +1,7 @@
 const Interpolation = require("./Interpolation");
 
 const { asASCIIString, asFloat, asUInt8, asUInt16, asUInt32 } = Interpolation
-const { interpolateQuaternionString } = Interpolation
+const { interpolateQuaternionString, interpolateCoordString } = Interpolation
 const { FLOAT, UINT8, UINT32, UINT16 } = Interpolation.TYPES
 
 /**
@@ -215,6 +215,9 @@ const INBOUND_PACKET_DEFS = {
     ['loadCellSum', asFloat],
   ],
 
+  164: [
+    ['rocketCoord', asASCIIString, interpolateCoordString]
+  ],
   165: [
     ['rocketQuart', asASCIIString, interpolateQuaternionString]
   ],

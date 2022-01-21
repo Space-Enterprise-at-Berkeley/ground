@@ -1,24 +1,31 @@
 const THREE = require("../telemetry/node_modules/three")
 
-function createRanIntGen(numFields = 4, baseVal = 12, baseJitter = 1) {
-  function generator() {
-    return new Array(numFields).fill(0).map(() => Math.random() * baseJitter + baseVal)
+class DevPacketGenerators {
+  static baseLatVal = 35.34737384872146
+  static baseLongVal = -117.80822750160537
+
+  static createRanIntGen(numFields = 4, baseVal = 12, baseJitter = 1) {
+    return () => {
+      return new Array(numFields).fill(0).map(() => Math.random() * baseJitter + baseVal)
+    }
   }
 
-  return generator
-}
-
-function createRanQuartGen(){
-  function generator(){
-    const quaternion = new THREE.Quaternion();
-    quaternion.random()
-    return [quaternion.toArray().join("|")]
+  static createRanCoordGen(){
+    return () => {
+      DevPacketGenerators.baseLongVal += Math.random() / 10000
+      DevPacketGenerators.baseLatVal += Math.random() / 10000
+      return [[DevPacketGenerators.baseLongVal, DevPacketGenerators.baseLatVal].join("|")]
+    }
   }
 
-  return generator
+  static createRanQuartGen(){
+    return () => {
+      const quaternion = new THREE.Quaternion();
+      quaternion.random()
+      return [quaternion.toArray().join("|")]
+    }
+  }
 }
 
-module.exports = {
-  createRanIntGen,
-  createRanQuartGen
-}
+
+module.exports = DevPacketGenerators

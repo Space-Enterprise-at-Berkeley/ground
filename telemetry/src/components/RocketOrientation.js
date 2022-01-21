@@ -76,6 +76,7 @@ class RocketOrientation extends Component {
     loader.load('static/3d-models/LAD4.gltf', function (gltf) {
       that.lad4gltf = gltf;
       scene.add(gltf.scene);
+      gltf.scene.setRotationFromAxisAngle(new THREE.Vector3(0,0,1), Math.PI / 2)
     }, undefined, function (error) {
       console.error(error);
     });

@@ -223,6 +223,14 @@ class Interpolation {
   static interpolateQuaternionString(value){
     return value.split("|").map(str => +str)
   }
+
+  /**
+   *
+   * @param value coord string, with long and lat separated with a |
+   */
+  static interpolateCoordString(value){
+    return value.split("|").map(str => +str)
+  }
 }
 
 module.exports = Interpolation;

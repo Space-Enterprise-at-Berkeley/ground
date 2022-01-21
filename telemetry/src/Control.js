@@ -513,7 +513,7 @@ class Control extends Component {
                 <RocketOrientation field={"rocketQuart"}/>
               </Grid>
               <Grid item={1} xs={4} className={classes.item}>
-                <Map field={"rocketCoords"}/>
+                <Map field={"rocketCoord"}/>
               </Grid>
             </Grid>
           </Container>

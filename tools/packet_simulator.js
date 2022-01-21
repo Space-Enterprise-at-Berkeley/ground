@@ -1,6 +1,7 @@
 const dgram = require('dgram')
 const DevPacket = require("./DevPacket")
-const { createRanIntGen, createRanQuartGen } = require("./DevPacketGenerators")
+const DevPacketGenerators = require("./DevPacketGenerators")
+const { createRanCoordGen } = DevPacketGenerators
 
 
 const FPS = 5 // packets per second
@@ -8,8 +9,8 @@ const FPS = 5 // packets per second
 const MAX_PACKET = 5 * 1000 // max number of packets
 // const MAX_PACKET = Math.pow(2, 26)
 
-const PACKET_ID = 165
-const PACKET_GENERATOR = createRanQuartGen()
+const PACKET_ID = 164
+const PACKET_GENERATOR = createRanCoordGen()
 const BOARD_IP = "10.0.0.21"
 
 const TARGET_PORT = 42069
