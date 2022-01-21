@@ -12,6 +12,16 @@ framework for displaying the UI. All the code that runs on the
 backend, including processing data from the rocket, lives in the
 `electron` directory.
 
+## Prerequisites
+### Mapbox API Token
+1. Go to mapbox.com
+2. Create an account
+3. Copy your "default public token"
+4. Create a .env file in /telemetry/.env
+5. Paste your "default public token" in the following format:
+`REACT_APP_MAPBOX_ACCESS_TOKEN=pk.eyJ1I...`
+
+
 ## Setup
 Here is a guide to get started with running the dashboard.
 First, make sure you have NodeJS installed. If you don't,
