@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
 import { withStyles, withTheme } from '@material-ui/core/styles';
-import { Grid } from '@material-ui/core';
+import { FormControl, Grid, MenuItem, Select } from '@material-ui/core';
 import ReactMapGL, {
-  AttributionControl, FlyToInterpolator,
-  GeolocateControl,
-  Layer,
-  Marker,
+  AttributionControl,
+  FlyToInterpolator,
+  Layer, Marker,
   ScaleControl,
-  Source,
-  WebMercatorViewport
+  Source
 } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
@@ -22,10 +20,65 @@ const styles = theme => ({
   }
 });
 
+const mapStyles = [
+  { name: "Light", url: "mapbox://styles/mapbox/light-v10" },
+  { name: "Dark", url: "mapbox://styles/mapbox/dark-v10" },
+  { name: "Satellite", url: "mapbox://styles/mapbox/satellite-v9" }
+]
+
 const defaultLong = -117.80822750160537
 const defaultLat = 35.34737384872146
 
+function CurrentCoords(props) {
+  const { longitude, latitude } = props;
+
+  const markerStyle = {
+    position: 'absolute',
+    background: 'rgba(255,255,255,0.45)',
+    left: 0,
+    top: 0,
+    padding: 5
+  };
+
+  return (
+    <div style={markerStyle}>
+      Current Position: ({longitude.toFixed(7)}, {latitude.toFixed(7)})
+    </div>
+  );
+}
+
+function SwitchStyle({ setSelectedStyle, selectedStyle }) {
+  const markerStyle = {
+    position: 'absolute',
+    background: 'rgba(255,255,255,0.45)',
+    right: 0,
+    minWidth: 80,
+    top: 0
+  };
+
+  return (
+    <div style={markerStyle}>
+      <FormControl fullWidth>
+        <Select
+          id="demo-simple-select"
+          value={selectedStyle}
+          label="Map Style"
+          disableUnderline
+          onChange={(evt) => {
+            setSelectedStyle(evt.target.value)
+          }}
+        >
+          {
+            mapStyles.map(style => <MenuItem key={style.url} value={style.url}>{style.name}</MenuItem>)
+          }
+        </Select>
+      </FormControl>
+    </div>
+  );
+}
+
 function Map({ field, classes }) {
+  const [selectedStyle, setSelectedStyle] = useState(mapStyles[0].url)
   const [viewport, setViewport] = useState({
     longitude: defaultLong,
     latitude: defaultLat,
@@ -93,9 +146,12 @@ function Map({ field, classes }) {
           height={"100%"}
           onViewportChange={nextViewport => setViewport(nextViewport)}
           attributionControl={false}
+          mapStyle={selectedStyle}
         >
+          <SwitchStyle setSelectedStyle={setSelectedStyle} selectedStyle={selectedStyle}/>
+          <CurrentCoords longitude={rocketLong} latitude={rocketLat}/>
           <Marker longitude={rocketLong} latitude={rocketLat} offsetLeft={-17.5} offsetTop={-30}>
-            <Room fontSize={"large"}/>
+            <Room fontSize={"large"} htmlColor={selectedStyle.includes("dark") ? "#d94848" : "#000"}/>
           </Marker>
           <Source type={"geojson"} id={"rocket-trail-data"} data={geoJSON}>
             <Layer {...trailLayer}/>
