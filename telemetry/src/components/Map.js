@@ -16,7 +16,12 @@ import { Room } from "@material-ui/icons";
 
 const styles = theme => ({
   root: {
-    height: '100%'
+    height: '100%',
+    margin: 0
+  },
+  fullHeight: {
+    height: '100%',
+    padding: "0px !important"
   }
 });
 
@@ -139,7 +144,7 @@ function Map({ field, classes }) {
 
   return (
     <Grid container spacing={1} alignItems='center' className={classes.root}>
-      <Grid item xs={12} className={classes.root}>
+      <Grid item xs={12} className={classes.fullHeight}>
         <ReactMapGL
           {...viewport}
           width={"100%"}

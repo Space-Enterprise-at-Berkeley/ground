@@ -14,6 +14,8 @@ import Settings from './components/Settings';
 import SixValueSquare from './components/SixValueSquare';
 import TankHeaterSquare from './components/TankHeaterSquare';
 import MessageDisplaySquare from "./components/MessageDisplaySquare";
+import RocketOrientation from "./components/RocketOrientation";
+import Map from "./components/Map";
 
 const PAGE_TITLE = "Telemetry: Main"
 
@@ -117,6 +119,11 @@ class Main extends Component {
                         name: 'loxTankPT',
                         color: [0, 126, 254],
                         unit: 'PSI'
+                      },
+                      {
+                        name: 'loxInjectorPT',
+                        color: [221, 0, 0],
+                        unit: 'PSI'
                       }
                     ]
                   }
@@ -129,6 +136,11 @@ class Main extends Component {
                       {
                         name: 'fuelTankPT',
                         color: [0, 187, 0],
+                        unit: 'PSI'
+                      },
+                      {
+                        name: 'fuelInjectorPT',
+                        color: [70, 1, 155],
                         unit: 'PSI'
                       }
                     ]
@@ -171,30 +183,10 @@ class Main extends Component {
                 />
               </Grid>
               <Grid item={1} xs={4} className={classes.item}>
-                <Graph
-                  fields={
-                    [
-                      {
-                        name: 'loxInjectorPT',
-                        color: [221, 0, 0],
-                        unit: 'PSI'
-                      }
-                    ]
-                  }
-                />
+                <RocketOrientation field={"rocketQuart"}/>
               </Grid>
               <Grid item={1} xs={4} className={classes.item}>
-                <Graph
-                  fields={
-                    [
-                      {
-                        name: 'fuelInjectorPT',
-                        color: [70, 1, 155],
-                        unit: 'PSI'
-                      }
-                    ]
-                  }
-                />
+                <Map field={"rocketCoord"}/>
               </Grid>
               <Grid item={1} xs={4} className={classes.item}>
                 <MessageDisplaySquare/>
