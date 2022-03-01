@@ -11,6 +11,7 @@ import Main from './Main';
 import Control from './Control';
 import Aux1 from './Aux1';
 import Aux2 from './Aux2';
+import Location from './Location';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,6 +19,7 @@ ReactDOM.render(
       <Switch>
         <Route path='/selector' exact component={WindowSelector}/>
         <Route path='/main' exact component={Main} />
+        <Route path='/location' exact component={Location} />
         <Route path='/control' exact component={Control} />
         <Route path='/aux1' exact component={Aux1} />
         <Route path='/aux2' exact component={Aux2} />
