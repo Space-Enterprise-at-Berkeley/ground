@@ -124,11 +124,20 @@ function Map({ field, classes }) {
 
   useEffect(() => {
     comms.addSubscriber(field, handleValueUpdate);
+    comms.addDarkModeListener(handleDarkMode);
     return () => {
       comms.removeSubscriber(field, handleValueUpdate);
-
+      comms.removeDarkModeListener(handleDarkMode)
     }
   }, [])
+
+  const handleDarkMode = (isDark) => {
+    if(isDark){
+      setSelectedStyle(mapStyles.find(({name}) => name === "Dark").url)
+    }else{
+      setSelectedStyle(mapStyles.find(({name}) => name === "Light").url)
+    }
+  }
 
   function handleValueUpdate(timestamp, data) {
     setViewport(_viewport => ({
