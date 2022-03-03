@@ -8,47 +8,19 @@ const App = require('./App');
 const isMainDev = (process.env.VARIANT === 'main');
 
 let backendApp = new App();
-let selector, window1, window2, window3;
+let selector, window1, window2;
 function createWindow (isMain) {
-  let url1, url2, url3;
+  let url1, url2;
   if(isMain) {
     // main windows
     url1 = (isDev ? 'http://127.0.0.1:3000#/main' : `file://${path.join(__dirname, '../index.html#main')}`);
     url2 = (isDev ? 'http://127.0.0.1:3000#/control' : `file://${path.join(__dirname, '../index.html#control')}`);
-    url3 = (isDev ? 'http://127.0.0.1:3000#/location' : `file://${path.join(__dirname, '../index.html#location')}`);
   } else {
     // aux windows
     url1 = (isDev ? 'http://127.0.0.1:3000#/aux1' : `file://${path.join(__dirname, '../index.html#aux1')}`);
     url2 = (isDev ? 'http://127.0.0.1:3000#/aux2' : `file://${path.join(__dirname, '../index.html#aux2')}`);
   }
-  const windowCount = [url1, url2, url3].reduce((acc, cur) => acc + Boolean(cur) ? 1 : 0, 0)
-  if(url3){
-    window3 = new BrowserWindow({
-      show: false,
-      webPreferences: {
-        preload: path.join(__dirname, 'preload.js'),
-        devTools: isDev,
-      },
-    });
-    window3.maximize();
-    if(!isDev) {
-      window3.removeMenu();
-    }
-    window3.loadURL(url3);
-    window3.on('closed', function () {
-      backendApp.removeWebContents(window3.webContents);
-      window3 = null;
-    });
-    window3.webContents.once('did-finish-load', () => {
-      backendApp.addWebContents(window3.webContents);
-      if(backendApp.webContents.length === windowCount){
-        backendApp.initApp()
-      }
-    });
-    window3.once('ready-to-show', () => {
-      window3.show();
-    });
-  }
+  const windowCount = [url1, url2].reduce((acc, cur) => acc + Boolean(cur) ? 1 : 0, 0)
   window1 = new BrowserWindow({
     show: false,
     webPreferences: {
@@ -165,9 +137,6 @@ app.on('before-quit', () => {
   console.log('quitting');
   backendApp.removeWebContents(window1.webContents);
   backendApp.removeWebContents(window2.webContents);
-  if(window3){
-    backendApp.removeWebContents(window3.webContents);
-  }
 });
 
 ipcMain.handle('app-info', async (event) => {

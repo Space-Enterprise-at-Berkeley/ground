@@ -14,6 +14,8 @@ import Settings from './components/Settings';
 import SixValueSquare from './components/SixValueSquare';
 import TankHeaterSquare from './components/TankHeaterSquare';
 import MessageDisplaySquare from "./components/MessageDisplaySquare";
+import RocketOrientation from "./components/RocketOrientation";
+import Map from "./components/Map";
 
 const PAGE_TITLE = "Telemetry: Main"
 
@@ -34,7 +36,7 @@ const styles = theme => ({
     height: '100%'
   },
   item: {
-    height: '33%'
+    height: '50%'
   },
   navbarGrid: {
     // height: theme.spacing(2)
@@ -96,183 +98,73 @@ class Main extends Component {
           />
           <Container maxWidth='xl' className={classes.container}>
             <Grid container={true} spacing={1} className={classes.row}>
-              <Grid item={1} xs={4} className={classes.item}>
-                <Graph
-                  fields={
-                    [
-                      {
-                        name: 'pressurantPT',
-                        color: [70, 1, 155],
-                        unit: 'PSI'
-                      }
-                    ]
-                  }
-                />
+              <Grid item={1} xs={6} className={classes.item}>
+                <RocketOrientation fieldQW={"qW"} fieldQX={"qX"} fieldQY={"qY"} fieldQZ={"qZ"}/>
               </Grid>
-              <Grid item={1} xs={4} className={classes.item}>
-                <Graph
-                  fields={
-                    [
-                      {
-                        name: 'loxTankPT',
-                        color: [0, 126, 254],
-                        unit: 'PSI'
-                      }
-                    ]
-                  }
-                />
+              <Grid item={1} xs={6} className={classes.item}>
+                <Map field={"rocketCoord"}/>
               </Grid>
-              <Grid item={1} xs={4} className={classes.item}>
-                <Graph
-                  fields={
-                    [
-                      {
-                        name: 'fuelTankPT',
-                        color: [0, 187, 0],
-                        unit: 'PSI'
-                      }
-                    ]
-                  }
-                />
-              </Grid>
-              <Grid item={1} xs={4} className={classes.item}>
+              <Grid item={1} xs={6} className={classes.item}>
                 <SixValueSquare
                   field1={{
-                    name: 'LOX DOME',
-                    field: 'loxDomePT',
-                    unit: 'PSI'
+                    name: 'Altitude',
+                    field: 'baroAltitude',
+                    unit: 'm',
+                    decimals: 1,
                   }}
                   field2={{
-                    name: 'LOX Expected Static',
-                    field: 'loxExpectedStatic',
-                    unit: 'PSI'
+                    name: 'Pressure',
+                    field: 'baroPressure',
+                    unit: 'hPa',
+                    decimals: 1
                   }}
                   field3={{
-                    name: 'Pressurant Temp',
-                    field: 'pressurantTemp',
-                    unit: 'ºC'
+                    name: 'Temperature',
+                    field: 'baroTemperature',
+                    unit: 'C',
+                    decimals: 1
                   }}
                   field4={{
-                    name: 'Fuel DOME',
-                    field: 'fuelDomePT',
-                    unit: 'PSI'
+                    name: 'X Accel',
+                    field: 'accelX',
+                    unit: 'm/s^2',
+                    decimals: 1
                   }}
                   field5={{
-                    name: 'Fuel Expected Static',
-                    field: '_',
-                    unit: 'PSI'
+                    name: 'Y Accel',
+                    field: 'accelY',
+                    unit: 'm/s^2',
+                    decimals: 1
                   }}
                   field6={{
-                    name: 'Δ PSI / 5 Seconds',
-                    field: 'dPressurantPT',
-                    unit: 'PSI',
-                    decimals: 2
+                    name: 'Z Accel',
+                    field: 'accelZ',
+                    unit: 'm/s^2',
+                    decimals: 1
                   }}
                 />
               </Grid>
-              <Grid item={1} xs={4} className={classes.item}>
-                <Graph
-                  fields={
-                    [
-                      {
-                        name: 'loxInjectorPT',
-                        color: [221, 0, 0],
-                        unit: 'PSI'
-                      }
-                    ]
-                  }
-                />
+              {/* <Grid item={1} xs={4} className={classes.item}>
+                
               </Grid>
               <Grid item={1} xs={4} className={classes.item}>
-                <Graph
-                  fields={
-                    [
-                      {
-                        name: 'fuelInjectorPT',
-                        color: [70, 1, 155],
-                        unit: 'PSI'
-                      }
-                    ]
-                  }
-                />
+                
               </Grid>
               <Grid item={1} xs={4} className={classes.item}>
-                <MessageDisplaySquare/>
-                {/* <Graph
-                  fields={
-                    [
-                      {
-                        name: 'loxGemsPT',
-                        color: [0, 126, 254],
-                        unit: 'psi'
-                      },
-                      {
-                        name: 'propGemsPT',
-                        color: [0, 187, 0],
-                        unit: 'psi'
-                      },
-                    ]
-                  }
-                /> */}
+                
               </Grid>
               <Grid item={1} xs={4} className={classes.item}>
-                <Graph
-                  fields={
-                    [
-                      {
-                        name: 'loxTankBottomTC',
-                        color: [0, 126, 254],
-                        unit: 'ºC'
-                      },
-                      {
-                        name: 'loxTankMidTC',
-                        color: [0, 187, 0],
-                        unit: 'ºC'
-                      },
-                      {
-                        name: 'loxTankTopTC',
-                        color: [123, 35, 162],
-                        unit: 'ºC'
-                      }
-                    ]
-                  }
-                />
+                
+              </Grid> */}
+              {/* <Grid item={1} xs={4} className={classes.item}>
+                
               </Grid>
               <Grid item={1} xs={4} className={classes.item}>
-                <Graph
-                  fields={
-                    [
-                      {
-                        name: 'fuelTankTopTC',
-                        color: [123, 35, 162],
-                        unit: 'ºC'
-                      }
-                    ]
-                    // [
-                    //   {
-                    //     name: 'engineTC1',
-                    //     color: [0, 126, 254],
-                    //     unit: 'ºC'
-                    //   },
-                    //   {
-                    //     name: 'engineTC2',
-                    //     color: [0, 187, 0],
-                    //     unit: 'ºC'
-                    //   },
-                    //   {
-                    //     name: 'engineTC3',
-                    //     color: [123, 35, 162],
-                    //     unit: 'ºC'
-                    //   },
-                    //   {
-                    //     name: 'engineTC4',
-                    //     color: [35, 123, 162],
-                    //     unit: 'ºC'
-                    //   },
-                    // ]
-                  }
-                />
+                
               </Grid>
+              <Grid item={1} xs={4} className={classes.item}>
+                
+              </Grid> */}
             </Grid>
           </Container>
         </Box>

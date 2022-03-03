@@ -46,11 +46,19 @@ class RocketOrientation extends Component {
     this.sizeDetector = React.createRef();
     this.lad4gltf = null
 
+    this.qW = 0.0;
+    this.qX = 0.0;
+    this.qY = 0.0;
+    this.qZ = 0.0;
+
     this.handleValueUpdate = this.handleValueUpdate.bind(this)
+    this.handleqWUpdate = this.handleqWUpdate.bind(this)
+    this.handleqXUpdate = this.handleqXUpdate.bind(this)
+    this.handleqYUpdate = this.handleqYUpdate.bind(this)
   }
 
   componentDidMount() {
-    const { field } = this.props;
+    const { fieldQW, fieldQX, fieldQY, fieldQZ } = this.props;
 
     const width = this.sizeDetector.current.clientWidth;
     const height = this.sizeDetector.current.clientHeight;
@@ -100,19 +108,27 @@ class RocketOrientation extends Component {
     };
     animate();
 
-    comms.addSubscriber(field, this.handleValueUpdate);
+    comms.addSubscriber(fieldQW, this.handleqWUpdate);
+    comms.addSubscriber(fieldQX, this.handleqXUpdate);
+    comms.addSubscriber(fieldQY, this.handleqYUpdate);
+    comms.addSubscriber(fieldQZ, this.handleValueUpdate); // actuall update the model once QZ received
   }
 
+  handleqWUpdate(timestamp, data) {this.qW = data}
+  handleqXUpdate(timestamp, data) {this.qX = data}
+  handleqYUpdate(timestamp, data) {this.qY = data}
+
   handleValueUpdate(timestamp, data) {
+    this.qZ = data;
     if (!this.lad4gltf) return
 
-    let quat = new THREE.Quaternion(data[1], data[2], data[3], data[0]);
-    const rot1 = new THREE.Quaternion(-Math.sqrt(2) / 2, 0, 0, Math.sqrt(2) / 2);
-    const rot2 = new THREE.Quaternion(0, 0, Math.sqrt(2) / 2, Math.sqrt(2) / 2);
+    let quat = new THREE.Quaternion(this.qW, this.qX, this.qY, this.qZ);
+    // const rot1 = new THREE.Quaternion(-Math.sqrt(2) / 2, 0, 0, Math.sqrt(2) / 2);
+    // const rot2 = new THREE.Quaternion(0, 0, Math.sqrt(2) / 2, Math.sqrt(2) / 2);
     // quat = quat.premultiply(new THREE.Quaternion(0, Math.sqrt(2)/2, 0, Math.sqrt(2)/2));
     // quat = quat.multiply((new THREE.Quaternion(0, Math.sqrt(2)/2, 0, Math.sqrt(2)/2)).invert());
-    quat = quat.premultiply(rot1);
-    quat = quat.multiply(rot1.invert());
+    // quat = quat.premultiply(rot1);
+    // quat = quat.multiply(rot1.invert());
     // quat = quat.premultiply(rot2);
     // quat.multiply(rot2.invert());
     this.lad4gltf.scene.setRotationFromQuaternion(quat);
@@ -122,6 +138,9 @@ class RocketOrientation extends Component {
   componentWillUnmount() {
     const { field } = this.props;
     comms.removeSubscriber(field, this.handleValueUpdate);
+    comms.removeSubscriber(field, this.handleqWUpdate);
+    comms.removeSubscriber(field, this.handleqXUpdate);
+    comms.removeSubscriber(field, this.handleqYUpdate);
     cancelAnimationFrame(this.animationHandle);
   }
 
