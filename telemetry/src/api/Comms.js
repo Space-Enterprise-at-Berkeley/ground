@@ -59,6 +59,10 @@ class Comms {
     this.enableFastRead = this.enableFastRead.bind(this);
     this.disableFastRead = this.disableFastRead.bind(this);
 
+    this.startRecording = this.startRecording.bind(this);
+    this.eraseRecording = this.eraseRecording.bind(this);
+    this.dumpRecording = this.dumpRecording.bind(this);
+
     //---------------DAQ 1---------------
 
     //---------------DAQ 2---------------
@@ -330,6 +334,10 @@ class Comms {
 
   async activateLoxTankTopHtr() { return await this.ipc.invoke('activate-loxTankTopHtr'); }
   async deactivateLoxTankTopHtr() { return await this.ipc.invoke('deactivate-loxTankTopHtr'); }
+
+  async startRecording() { return this.ipc.invoke('startRecording'); }
+  async eraseRecording() { return this.ipc.invoke('eraseRecording'); }
+  async dumpRecording() { return this.ipc.invoke('dumpRecording'); }
 
 
   //---------------DAQ 1---------------

@@ -388,6 +388,11 @@ class App {
     this.addIPC('disable-fastReadRate', this.flightComputer.disableFastReadRate);
 
 
+    this.addIPC('startRecording', this.flightComputer.startRecording);
+    this.addIPC('eraseRecording', this.flightComputer.eraseRecording);
+    this.addIPC('dumpRecording', this.flightComputer.dumpRecording);
+
+
     // DAQ 1
 
     // DAQ 2

@@ -30,6 +30,10 @@ class FlightV2 extends Board {
 
     this.enableFastReadRate = this.enableFastReadRate.bind(this);
     this.disableFastReadRate = this.disableFastReadRate.bind(this);
+
+    this.startRecording = this.startRecording.bind(this);
+    this.eraseRecording = this.eraseRecording.bind(this);
+    this.dumpRecording = this.dumpRecording.bind(this);
   }
 
   openarmValve() { return this.sendPacket(130, [1]); }
@@ -58,6 +62,10 @@ class FlightV2 extends Board {
 
   enableFastReadRate() { return this.sendPacket(140, [1]); }
   disableFastReadRate() { return this.sendPacket(140, [0]); }
+
+  startRecording() { return this.sendPacket(153, []); }
+  eraseRecording() { return this.sendPacket(154, []); }
+  dumpRecording() { return this.sendPacket(155, []); }
 
 }
 

@@ -55,6 +55,10 @@ const OUTBOUND_PACKET_DEFS = {
 
   150: [],
   151: [],
+  153: [], // dump flash data
+  154: [], // start recording
+  155: [], // erase
+
 
   // [170..199] Sent to Actuator Controller
   170: [UINT8, UINT32],
