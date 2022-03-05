@@ -84,7 +84,7 @@ class RocketOrientation extends Component {
     loader.load('static/3d-models/LAD4.gltf', function (gltf) {
       that.lad4gltf = gltf;
       scene.add(gltf.scene);
-      gltf.scene.setRotationFromAxisAngle(new THREE.Vector3(0,0,1), Math.PI / 2)
+      gltf.scene.setRotationFromAxisAngle(new THREE.Vector3(0,1,0), Math.PI / 2)
     }, undefined, function (error) {
       console.error(error);
     });
@@ -136,11 +136,11 @@ class RocketOrientation extends Component {
   }
 
   componentWillUnmount() {
-    const { field } = this.props;
-    comms.removeSubscriber(field, this.handleValueUpdate);
-    comms.removeSubscriber(field, this.handleqWUpdate);
-    comms.removeSubscriber(field, this.handleqXUpdate);
-    comms.removeSubscriber(field, this.handleqYUpdate);
+    const { fieldQW, fieldQX, fieldQY, fieldQZ } = this.props;
+    comms.removeSubscriber(fieldQW, this.handleqWUpdate);
+    comms.removeSubscriber(fieldQX, this.handleqXUpdate);
+    comms.removeSubscriber(fieldQY, this.handleqYUpdate);
+    comms.removeSubscriber(fieldQZ, this.handleValueUpdate);
     cancelAnimationFrame(this.animationHandle);
   }
 

@@ -63,9 +63,9 @@ class FlightV2 extends Board {
   enableFastReadRate() { return this.sendPacket(140, [1]); }
   disableFastReadRate() { return this.sendPacket(140, [0]); }
 
-  startRecording() { return this.sendPacket(153, []); }
-  eraseRecording() { return this.sendPacket(154, []); }
-  dumpRecording() { return this.sendPacket(155, []); }
+  startRecording() { return this.sendPacket(154, []); }
+  eraseRecording() { return this.sendPacket(155, []); }
+  dumpRecording() { return this.sendPacket(153, []); }
 
 }
 

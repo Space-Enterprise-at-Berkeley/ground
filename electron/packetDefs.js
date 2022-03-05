@@ -32,9 +32,13 @@ const INBOUND_PACKET_DEFS = {
   6: [
     ['gpsLatitude', asFloat],
     ['gpsLongitude', asFloat],
-    ['gpsSpeed', asFloat],
-    ['gpsAngle', asFloat],
-    ['gpsAltitude', asFloat]
+    ['gpsAltitude', asFloat],
+    ['gpsSpeed', asFloat]
+  ],
+
+  39: [
+    ['breakwire1', asFloat],
+    ['breakwire2', asFloat],
   ],
 }
 

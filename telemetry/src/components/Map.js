@@ -31,6 +31,9 @@ const mapStyles = [
   { name: "Satellite", url: "mapbox://styles/mapbox/satellite-v9" }
 ]
 
+let latVal = 35.34737384872146;
+let longVal = -117.80822750160537;
+
 const defaultLong = -117.80822750160537
 const defaultLat = 35.34737384872146
 
@@ -82,15 +85,15 @@ function SwitchStyle({ setSelectedStyle, selectedStyle }) {
   );
 }
 
-function Map({ field, classes }) {
+function Map({ fieldLat, fieldLong, classes }) {
   const [selectedStyle, setSelectedStyle] = useState(mapStyles[0].url)
   const [viewport, setViewport] = useState({
-    longitude: defaultLong,
-    latitude: defaultLat,
+    longitude: longVal,
+    latitude: latVal,
     zoom: 11
   });
 
-  const [coordinateHistory, _setCoordinateHistory] = useState([[defaultLong, defaultLat]])
+  const [coordinateHistory, _setCoordinateHistory] = useState([[longVal, latVal]])
 
   const historyLength = coordinateHistory.length
   const rocketLong = coordinateHistory[historyLength - 1][0]
@@ -123,10 +126,12 @@ function Map({ field, classes }) {
   }, [])
 
   useEffect(() => {
-    comms.addSubscriber(field, handleValueUpdate);
+    comms.addSubscriber(fieldLat, handleLatUpdate);
+    comms.addSubscriber(fieldLong, handleValueUpdate);
     comms.addDarkModeListener(handleDarkMode);
     return () => {
-      comms.removeSubscriber(field, handleValueUpdate);
+      comms.removeSubscriber(fieldLat, handleLatUpdate);
+      comms.removeSubscriber(fieldLong, handleValueUpdate);
       comms.removeDarkModeListener(handleDarkMode)
     }
   }, [])
@@ -139,11 +144,16 @@ function Map({ field, classes }) {
     }
   }
 
+  function handleLatUpdate(timestamp, data) {
+    latVal = data;
+  }
+
   function handleValueUpdate(timestamp, data) {
+    longVal = data;
     setViewport(_viewport => ({
       ..._viewport,
-      longitude: data[0],
-      latitude: data[1],
+      longitude: longVal,
+      latitude: latVal,
       transitionDuration: 500,
       transitionInterpolator: new FlyToInterpolator()
     }));

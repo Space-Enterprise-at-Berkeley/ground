@@ -102,7 +102,7 @@ class Main extends Component {
                 <RocketOrientation fieldQW={"qW"} fieldQX={"qX"} fieldQY={"qY"} fieldQZ={"qZ"}/>
               </Grid>
               <Grid item={1} xs={6} className={classes.item}>
-                <Map field={"rocketCoord"}/>
+                <Map fieldLat={"gpsLatitude"} fieldLong={"gpsLongitude"}/>
               </Grid>
               <Grid item={1} xs={6} className={classes.item}>
                 <SixValueSquare
@@ -141,6 +141,46 @@ class Main extends Component {
                     field: 'accelZ',
                     unit: 'm/s^2',
                     decimals: 1
+                  }}
+                />
+              </Grid>
+              <Grid item={1} xs={6} className={classes.item}>
+                <SixValueSquare
+                  field1={{
+                    name: 'Breakwire 1',
+                    field: 'breakwire1',
+                    unit: 'V',
+                    decimals: 2,
+                  }}
+                  field2={{
+                    name: 'Breakwire 2',
+                    field: 'breakwire2',
+                    unit: 'V',
+                    decimals: 2
+                  }}
+                  field3={{
+                    name: '_',
+                    field: '_',
+                    unit: '',
+                    decimals: 0
+                  }}
+                  field4={{
+                    name: '_',
+                    field: '_',
+                    unit: '',
+                    decimals: 0
+                  }}
+                  field5={{
+                    name: '_',
+                    field: '_',
+                    unit: '',
+                    decimals: 0
+                  }}
+                  field6={{
+                    name: '_',
+                    field: '_',
+                    unit: '',
+                    decimals: 0
                   }}
                 />
               </Grid>
