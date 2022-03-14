@@ -127,7 +127,9 @@ class App {
         loadCell2: null,
         loadCellSum: null,
 
-        capacitor: 'loxCapVal',
+      capVal: 'loxCapVal',
+      capValFiltered: 'loxCapValFiltered',
+      capTemperature: 'loxCapTemp',
       },
       () => this.updateState(Date.now(), { daq3Connected: true }),
       () => this.updateState(Date.now(), { daq3Connected: false }),
@@ -158,7 +160,9 @@ class App {
       loadCell2: null,
       loadCellSum: null,
 
-      capacitor: 'fuelCapVal',
+      capVal: 'fuelCapVal',
+      capValFiltered: 'fuelCapValFiltered',
+      capTemperature: 'fuelCapTemp',
     },
     () => this.updateState(Date.now(), { daq4Connected: true }),
     () => this.updateState(Date.now(), { daq4Connected: false }),
@@ -193,9 +197,9 @@ class App {
         acLinAct5Voltage: 'purgePrechillVentRBVvoltage',
         acLinAct5Current: 'purgePrechillVentRBVcurrent',
         
-        acLinAct6State: 'loxPrechillRBVstate',
-        acLinAct6Voltage: 'loxPrechillRBVvoltage',
-        acLinAct6Current: 'loxPrechillRBVcurrent',
+        acLinAct6State: 'pressurantFillVentRBVstate',
+        acLinAct6Voltage: 'pressurantFillVentRBVvoltage',
+        acLinAct6Current: 'pressurantFillVentRBVcurrent',
 
         acLinAct7State: null,
         acLinAct7Voltage: null,
@@ -465,6 +469,12 @@ class App {
     this.addIPC('open-pressurantFillRBV', this.actCtrlr1.openActCh3);
     this.addIPC('close-pressurantFillRBV', this.actCtrlr1.closeActCh3);
     this.addIPC('time-pressurantFillRBV', (e, val) => this.actCtrlr1.actCh3ms(val));
+
+    this.addIPC('open-pressurantFillVentRBV', this.actCtrlr1.openActCh5);
+    this.addIPC('close-pressurantFillVentRBV', this.actCtrlr1.closeActCh5);
+    this.addIPC('time-pressurantFillVentRBV', (e, val) => this.actCtrlr1.actCh5ms(val));
+
+    
 
     // Actuator Controller 2
     // TODO: swap RBV wiring so code mapping doesn't have to be swapped

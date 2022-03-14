@@ -229,10 +229,16 @@ class Aux2 extends Component {
                     [
                       {
                         name: 'loxCapVal',
-                        color: [70, 1, 155],
+                        color: [59, 126, 161],
                         unit: 'pF',
                         precision: 3
-                      }
+                      },
+                      {
+                        name: 'loxCapValFiltered',
+                        color: [0, 50, 98],
+                        unit: 'pF',
+                        precision: 3
+                      },
                     ]
                   }
                 />
@@ -244,10 +250,16 @@ class Aux2 extends Component {
                     [
                       {
                         name: 'fuelCapVal',
-                        color: [56, 44, 30],
+                        color: [253, 181, 21],
                         unit: 'pF',
                         precision: 3
-                      }
+                      },
+                      {
+                        name: 'fuelCapValFiltered',
+                        color: [196, 130, 14],
+                        unit: 'pF',
+                        precision: 3
+                      },
                     ]
                   }
                 />

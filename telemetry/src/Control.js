@@ -279,11 +279,11 @@ class Control extends Component {
                   </Grid>
                   <Grid item={1} xs={6}>
                     <ButtonGroupRBVTimed
-                      open={comms.openloxPrechillRBV}
-                      close={comms.closeloxPrechillRBV}
-                      time={comms.timeloxPrechillRBV}
-                      field='loxPrechillRBVstate'
-                      text='LOX Prechill RBV'
+                      open={comms.openPressurantFillVentRBV}
+                      close={comms.closePressurantFillVentRBV}
+                      time={comms.timePressurantFillVentRBV}
+                      field='pressurantFillVentRBVstate'
+                      text='N2 Fill Vent'
                     />
                   </Grid>
                 </Grid>
@@ -540,6 +540,24 @@ class Control extends Component {
                       close={comms.stopToggleFuelGemsValve}
                       field='fuelGemsValveState'
                       text='Toggle Fuel Gems Valve'
+                    />
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item={1} xs={3} className={classes.item}>
+                <Grid container spacing={1} direction='column'>
+                  <Grid item>
+                    <ButtonGroup
+                      open={comms.activateLoxTankMidHtr}
+                      close={comms.deactivateLoxTankMidHtr}
+                      text='Main Valve Vent'
+                    />
+                  </Grid>
+                  <Grid item>
+                    <ButtonGroup
+                      open={comms.activateLoxTankBottomHtr}
+                      close={comms.deactivateLoxTankBottomHtr}
+                      text='RQD'
                     />
                   </Grid>
                 </Grid>

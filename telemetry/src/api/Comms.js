@@ -88,6 +88,10 @@ class Comms {
     this.closePressurantFillRBV = this.closePressurantFillRBV.bind(this);
     this.timePressurantFillRBV = this.timePressurantFillRBV.bind(this);
 
+    this.openPressurantFillVentRBV = this.openPressurantFillVentRBV.bind(this);
+    this.closePressurantFillVentRBV = this.closePressurantFillVentRBV.bind(this);
+    this.timePressurantFillVentRBV = this.timePressurantFillVentRBV.bind(this);
+
     // this.openLOxVentRBV = this.openLOxVentRBV.bind(this);
     // this.closeLOxVentRBV = this.closeLOxVentRBV.bind(this);
     // this.timeLOxVentRBV = this.timeLOxVentRBV.bind(this);
@@ -423,6 +427,18 @@ class Comms {
 
   async timePressurantFillRBV(val) {
     return await this.ipc.invoke('time-pressurantFillRBV', val);
+  }
+
+  async openPressurantFillVentRBV() {
+    return await this.ipc.invoke('open-pressurantFillVentRBV');
+  }
+
+  async closePressurantFillVentRBV() {
+    return await this.ipc.invoke('close-pressurantFillVentRBV');
+  }
+
+  async timePressurantFillVentRBV(val) {
+    return await this.ipc.invoke('time-pressurantFillVentRBV', val);
   }
 
   // async openLOxVentRBV() {return await this.ipc.invoke('open-LOxVentRBV'); }
