@@ -49,7 +49,7 @@ function CurrentCoords(props) {
 
   return (
     <div style={markerStyle}>
-      Current Position: ({longitude.toFixed(7)}, {latitude.toFixed(7)})
+      {/* Current Position: ({longitude.toFixed(7)}, {latitude.toFixed(7)}) */}
     </div>
   );
 }
@@ -144,19 +144,23 @@ function Map({ field, classes }) {
   }
 
   function handleLatUpdate(timestamp, data) {
-    nextLat = data;
+    if(data !== 0) {
+      nextLat = data;
+    }
   }
 
   function handleLongUpdate(timestamp, data) {
-    setViewport(_viewport => ({
-      ..._viewport,
-      longitude: nextLat,
-      latitude: data,
-      transitionDuration: 500,
-      transitionInterpolator: new FlyToInterpolator()
-    }));
-    // TODO: depending on rate of data, may need to reduce / simplify path
-    _setCoordinateHistory(prev => ([...prev, data]))
+    if(data !== 0 && nextLat !== 0) {
+      setViewport(_viewport => ({
+        ..._viewport,
+        longitude: data,
+        latitude: nextLat,
+        transitionDuration: 500,
+        transitionInterpolator: new FlyToInterpolator()
+      }));
+      // TODO: depending on rate of data, may need to reduce / simplify path
+      _setCoordinateHistory(prev => ([...prev, [data, nextLat]]))
+    }
   }
 
   return (
