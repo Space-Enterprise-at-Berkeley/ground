@@ -31,11 +31,10 @@ const mapStyles = [
   { name: "Satellite", url: "mapbox://styles/mapbox/satellite-v9" }
 ]
 
-let latVal = 35.34737384872146;
-let longVal = -117.80822750160537;
-
 const defaultLong = -117.80822750160537
 const defaultLat = 35.34737384872146
+
+let nextLat = 35.34737384872146;
 
 function CurrentCoords(props) {
   const { longitude, latitude } = props;
@@ -85,15 +84,15 @@ function SwitchStyle({ setSelectedStyle, selectedStyle }) {
   );
 }
 
-function Map({ fieldLat, fieldLong, classes }) {
+function Map({ field, classes }) {
   const [selectedStyle, setSelectedStyle] = useState(mapStyles[0].url)
   const [viewport, setViewport] = useState({
-    longitude: longVal,
-    latitude: latVal,
+    longitude: defaultLong,
+    latitude: defaultLat,
     zoom: 11
   });
 
-  const [coordinateHistory, _setCoordinateHistory] = useState([[longVal, latVal]])
+  const [coordinateHistory, _setCoordinateHistory] = useState([[defaultLong, defaultLat]])
 
   const historyLength = coordinateHistory.length
   const rocketLong = coordinateHistory[historyLength - 1][0]
@@ -126,12 +125,12 @@ function Map({ fieldLat, fieldLong, classes }) {
   }, [])
 
   useEffect(() => {
-    comms.addSubscriber(fieldLat, handleLatUpdate);
-    comms.addSubscriber(fieldLong, handleValueUpdate);
+    comms.addSubscriber('gpsLatitude', handleLatUpdate);
+    comms.addSubscriber('gpsLongitude', handleLongUpdate);
     comms.addDarkModeListener(handleDarkMode);
     return () => {
-      comms.removeSubscriber(fieldLat, handleLatUpdate);
-      comms.removeSubscriber(fieldLong, handleValueUpdate);
+      comms.removeSubscriber('gpsLatitude', handleLatUpdate);
+      comms.removeSubscriber('gpsLongitude', handleLongUpdate);
       comms.removeDarkModeListener(handleDarkMode)
     }
   }, [])
@@ -145,15 +144,14 @@ function Map({ fieldLat, fieldLong, classes }) {
   }
 
   function handleLatUpdate(timestamp, data) {
-    latVal = data;
+    nextLat = data;
   }
 
-  function handleValueUpdate(timestamp, data) {
-    longVal = data;
+  function handleLongUpdate(timestamp, data) {
     setViewport(_viewport => ({
       ..._viewport,
-      longitude: longVal,
-      latitude: latVal,
+      longitude: nextLat,
+      latitude: data,
       transitionDuration: 500,
       transitionInterpolator: new FlyToInterpolator()
     }));

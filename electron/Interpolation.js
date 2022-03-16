@@ -70,6 +70,10 @@ class Interpolation {
     return [buffer.readUInt32LE(offset), 4]
   }
 
+  // static asLatLong(buffer, offset) {
+  //   return [[buffer.readFloatLE(offset), buffer.readFloatLE(offset+4)], 8]
+  // }
+
   /**
    * @typedef {Object} ExtendedUpdateObject
    * @property {Boolean} isExtended Indicates that this is an extended object
