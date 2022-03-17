@@ -49,7 +49,7 @@ function CurrentCoords(props) {
 
   return (
     <div style={markerStyle}>
-      {/* Current Position: ({longitude.toFixed(7)}, {latitude.toFixed(7)}) */}
+      Current Position: ({longitude.toFixed(7)}, {latitude.toFixed(7)})
     </div>
   );
 }

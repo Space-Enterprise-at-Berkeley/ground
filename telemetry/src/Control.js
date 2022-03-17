@@ -510,7 +510,7 @@ class Control extends Component {
                 </Grid>
               </Grid>
               <Grid item={1} xs={4} className={classes.item}>
-              <Grid container spacing={1} direction='column'>
+                <Grid container spacing={1} direction='column'>
                   <Grid item>
                     <ButtonGroupHeater
                       text='start recording'
@@ -535,6 +535,19 @@ class Control extends Component {
                 </Grid>
               </Grid>
               <Grid item={1} xs={4} className={classes.item}>
+                <Grid container spacing={1} direction='column'>
+                  <Grid item>
+                    <ButtonGroupHeater
+                      text='start launch mode'
+                      activate={comms.startFlightMode}
+                      deactivate={()=>{}}
+                    />
+                  </Grid>
+                  <Grid item>
+                  </Grid>
+                  <Grid item>
+                  </Grid>
+                </Grid>
               </Grid>
             </Grid>
           </Container>

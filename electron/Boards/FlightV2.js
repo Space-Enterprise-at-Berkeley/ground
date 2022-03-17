@@ -34,6 +34,7 @@ class FlightV2 extends Board {
     this.startRecording = this.startRecording.bind(this);
     this.eraseRecording = this.eraseRecording.bind(this);
     this.dumpRecording = this.dumpRecording.bind(this);
+    this.startFlightMode = this.startFlightMode.bind(this);
   }
 
   openarmValve() { return this.sendPacket(130, [1]); }
@@ -66,6 +67,7 @@ class FlightV2 extends Board {
   startRecording() { return this.sendPacket(154, []); }
   eraseRecording() { return this.sendPacket(155, []); }
   dumpRecording() { return this.sendPacket(153, []); }
+  startFlightMode() { return this.sendPacket(157, []); }
 
 }
 

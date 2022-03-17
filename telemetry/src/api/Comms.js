@@ -62,6 +62,7 @@ class Comms {
     this.startRecording = this.startRecording.bind(this);
     this.eraseRecording = this.eraseRecording.bind(this);
     this.dumpRecording = this.dumpRecording.bind(this);
+    this.startFlightMode = this.startFlightMode.bind(this);
 
     //---------------DAQ 1---------------
 
@@ -338,6 +339,7 @@ class Comms {
   async startRecording() { return this.ipc.invoke('startRecording'); }
   async eraseRecording() { return this.ipc.invoke('eraseRecording'); }
   async dumpRecording() { return this.ipc.invoke('dumpRecording'); }
+  async startFlightMode() { return this.ipc.invoke('startFlightMode'); }
 
 
   //---------------DAQ 1---------------

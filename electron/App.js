@@ -391,6 +391,7 @@ class App {
     this.addIPC('startRecording', this.flightComputer.startRecording);
     this.addIPC('eraseRecording', this.flightComputer.eraseRecording);
     this.addIPC('dumpRecording', this.flightComputer.dumpRecording);
+    this.addIPC('startFlightMode', this.flightComputer.startFlightMode);
 
 
     // DAQ 1

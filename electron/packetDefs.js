@@ -40,6 +40,10 @@ const INBOUND_PACKET_DEFS = {
     ['breakwire1', asFloat],
     ['breakwire2', asFloat],
   ],
+
+  55: [
+    ['vehicleMode', asUInt8],
+  ],
 }
 
 /** @type {Object.<Number,Array.<Number>>} */
@@ -62,6 +66,7 @@ const OUTBOUND_PACKET_DEFS = {
   153: [], // dump flash data
   154: [], // start recording
   155: [], // erase
+  157: [], // erase
 
 
   // [170..199] Sent to Actuator Controller

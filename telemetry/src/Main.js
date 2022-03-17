@@ -159,10 +159,11 @@ class Main extends Component {
                     decimals: 2
                   }}
                   field3={{
-                    name: '_',
-                    field: '_',
+                    name: 'Vehicle Mode',
+                    field: 'vehicleMode',
                     unit: '',
-                    decimals: 0
+                    decimals: 0,
+                    threshold: 0.5,
                   }}
                   field4={{
                     name: '_',
