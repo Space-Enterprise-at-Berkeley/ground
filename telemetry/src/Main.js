@@ -166,22 +166,24 @@ class Main extends Component {
                     threshold: 0.5,
                   }}
                   field4={{
-                    name: '_',
-                    field: '_',
+                    name: 'Radio RSSI',
+                    field: 'radioRSSI',
                     unit: '',
-                    decimals: 0
+                    decimals: 2
                   }}
                   field5={{
-                    name: '_',
-                    field: '_',
-                    unit: '',
-                    decimals: 0
+                    name: 'Apogee Time',
+                    field: 'apogeeTime',
+                    unit: 'us',
+                    decimals: 0,
+                    threshold: 1
                   }}
                   field6={{
-                    name: '_',
-                    field: '_',
-                    unit: '',
-                    decimals: 0
+                    name: 'Chute Deploy Time',
+                    field: 'mainChuteDeployTime',
+                    unit: 'us',
+                    decimals: 0,
+                    threshold: 1
                   }}
                 />
               </Grid>

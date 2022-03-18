@@ -44,6 +44,15 @@ const INBOUND_PACKET_DEFS = {
   55: [
     ['vehicleMode', asUInt8],
   ],
+
+  56: [
+    ['radioRSSI', asFloat],
+  ],
+
+  158: [
+    ['apogeeTime', asUInt32],
+    ['mainChuteDeployTime', asUInt32],
+  ],
 }
 
 /** @type {Object.<Number,Array.<Number>>} */
