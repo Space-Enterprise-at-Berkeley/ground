@@ -205,8 +205,8 @@ class App {
         acLinAct7Voltage: null,
         acLinAct7Current: null,
 
-        acHeater1Voltage: null,
-        acHeater1Current: null,
+        acHeater1Voltage: 'ladIgniterVoltage',
+        acHeater1Current: 'ladIgniterCurrent',
 
         acHeater2Voltage: null,
         acHeater2Current: null,
@@ -416,8 +416,8 @@ class App {
     this.addIPC('open-armValve', this.flightComputer.openarmValve);
     this.addIPC('close-armValve', this.flightComputer.closearmValve);
 
-    this.addIPC('activate-igniter', this.flightComputer.activateIgniter);
-    this.addIPC('deactivate-igniter', this.flightComputer.deactivateIgniter);
+    this.addIPC('activate-igniter', this.actCtrlr1.open24vCh0);
+    this.addIPC('deactivate-igniter', this.actCtrlr1.close24vCh0);
 
     this.addIPC('open-loxMainValve', this.flightComputer.openloxMainValve);
     this.addIPC('close-loxMainValve', this.flightComputer.closeloxMainValve);

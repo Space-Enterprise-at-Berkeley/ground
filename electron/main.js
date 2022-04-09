@@ -4,6 +4,8 @@ const isDev = require('electron-is-dev');
 const path = require('path');
 const url = require('url');
 
+const SoundBoard = require('./SoundBoard')
+
 const App = require('./App');
 
 const isMainDev = (process.env.VARIANT === 'main');
@@ -156,6 +158,8 @@ ipcMain.handle('app-info', async (event) => {
 
 function createTouchBar(backendApp) {
   
+    let leekBoard = new SoundBoard();
+  
     let invis_char = '‎'
   
     let selection = 'armValve'
@@ -229,7 +233,7 @@ function createTouchBar(backendApp) {
     }
     
     const abortButton = new TouchBarButton({
-      label: '‎              ABORT              ' + invis_char,
+      label: '‎          ABORT          ' + invis_char,
       accessibilityLabel: 'Abort',
       backgroundColor: '#E25241',
       click: () => { backendApp.abort(); }
@@ -364,10 +368,41 @@ function createTouchBar(backendApp) {
     })
     /* END Heater Select */
     
+    /* Leek Sound Selection touchBar */    
+    const leekSelectScrub = new TouchBarScrubber({
+      segmentStyle: 'automatic',
+      items: [
+        { label: 'LOX Dome' },
+        { label: 'Fuel Dome'  },
+        { label: 'LOX Fitting Tree'  },
+        { label: 'Fuel Fitting Tree'  },
+        { label: 'Pressurant System' }
+      ],
+      selectedIndex: 0,
+      selectedStyle: 'outline',
+      mode: 'fixed',
+      showArrowButtons: false,
+      select: (selectedIndex) => {
+        let item = leekSelectScrub.items[selectedIndex]
+        leekBoard.playSound(item['label'])
+      },
+    });
+    
+    const leekSelectButton = new TouchBarPopover({
+      label: '🔈',
+      showCloseButton: true,
+      items: new TouchBar({
+        items: [
+          leekSelectScrub,
+        ],
+      }),
+    })
+    /* END Heater Select */
+    
     /* Main TouchBar */
     const touchBar = new TouchBar({
     items: [
-      abortButton, 
+      abortButton,
       new TouchBarSpacer({size: 'large'}),
       selectionText,
       stateText,
@@ -376,7 +411,8 @@ function createTouchBar(backendApp) {
       openButton,
       new TouchBarSpacer({size: 'large'}),
       valveSelectButton,
-      RBVSelectButton
+      RBVSelectButton,
+      leekSelectButton
     ], 
     });
     

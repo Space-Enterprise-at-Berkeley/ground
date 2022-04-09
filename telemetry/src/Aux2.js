@@ -131,10 +131,11 @@ class Aux2 extends Component {
               <Grid item xs={4} className={classes.item}>
                 <SixValueSquare
                   field1={{
-                    name: '_',
-                    field: '',
-                    unit: '',
+                    name: 'Igniter',
+                    field: 'ladIgniterVoltage',
+                    unit: 'V',
                     decimals: 0,
+                    threshold: 15
                   }}
                   field2={{
                     name: 'Breakwire',
