@@ -357,10 +357,20 @@ class Aux2 extends Component {
                         unit: 'LBS'
                       },
                       {
-                        name: 'totalThrust', // prop PT temp
-                        color: [238, 154, 7],
+                        name: 'thrust3', // prop PT temp
+                        color: [202, 15, 221],
                         unit: 'LBS'
                       },
+                      {
+                        name: 'thrust4', // prop PT temp
+                        color: [221, 202, 15],
+                        unit: 'LBS'
+                      },
+                      // {
+                      //   name: 'totalThrust', // prop PT temp
+                      //   color: [238, 154, 7],
+                      //   unit: 'LBS'
+                      // },
                     ]
                   }
                 />

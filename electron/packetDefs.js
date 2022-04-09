@@ -47,16 +47,16 @@ const INBOUND_PACKET_DEFS = {
   ],
 
   20: [
-    ['engineTC1', asFloat],
+    ['engineTC0', asFloat],
   ],
   21: [
-    ['engineTC2', asFloat],
+    ['engineTC1', asFloat],
   ],
   22: [
-    ['engineTC3', asFloat],
+    ['engineTC2', asFloat],
   ],
   23: [
-    ['engineTC4', asFloat],
+    ['engineTC3', asFloat],
   ],
 
   28: [

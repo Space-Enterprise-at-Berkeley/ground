@@ -220,27 +220,6 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'loxTankBottomTC',
-                        color: [0, 126, 254],
-                        unit: 'ºC'
-                      },
-                      {
-                        name: 'loxTankMidTC',
-                        color: [0, 187, 0],
-                        unit: 'ºC'
-                      },
-                      {
-                        name: 'loxTankTopTC',
-                        color: [123, 35, 162],
-                        unit: 'ºC'
-                      }
-                    ]
-                  }
-                />
-                {/* <Graph
-                  fields={
-                    [
-                      {
                         name: 'thrust1',
                         color: [255, 51, 224],
                         unit: 'LBS'
@@ -251,45 +230,90 @@ class Main extends Component {
                         unit: 'LBS'
                       },
                       {
+                        name: 'thrust3', // prop PT temp
+                        color: [202, 15, 221],
+                        unit: 'LBS'
+                      },
+                      {
+                        name: 'thrust4', // prop PT temp
+                        color: [221, 202, 15],
+                        unit: 'LBS'
+                      },
+                      {
                         name: 'totalThrust', // prop PT temp
                         color: [238, 154, 7],
                         unit: 'LBS'
                       },
                     ]
                   }
-                /> */}
+                />
               </Grid>
               <Grid item={1} xs={4} className={classes.item}>
                 <Graph
                   fields={
-                    // [
-                    //   {
-                    //     name: 'fuelTankBottomTC',
-                    //     color: [123, 35, 162],
-                    //     unit: 'ºC'
-                    //   }
-                    // ]
                     [
                       {
-                        name: 'engineTC1',
+                        name: 'engineTC0',
                         color: [0, 126, 254],
                         unit: 'ºC'
                       },
                       {
-                        name: 'engineTC2',
+                        name: 'engineTC1',
                         color: [0, 187, 0],
                         unit: 'ºC'
                       },
                       {
-                        name: 'engineTC3',
+                        name: 'engineTC2',
                         color: [123, 35, 162],
                         unit: 'ºC'
                       },
                       {
-                        name: 'engineTC4',
+                        name: 'engineTC3',
                         color: [35, 123, 162],
                         unit: 'ºC'
                       },
+
+                      // {
+                      //   name: 'engineTC4',
+                      //   color: [0, 126, 254],
+                      //   unit: 'ºC'
+                      // },
+                      // {
+                      //   name: 'engineTC5',
+                      //   color: [0, 187, 0],
+                      //   unit: 'ºC'
+                      // },
+                      // {
+                      //   name: 'engineTC6',
+                      //   color: [123, 35, 162],
+                      //   unit: 'ºC'
+                      // },
+                      // {
+                      //   name: 'engineTC7',
+                      //   color: [35, 123, 162],
+                      //   unit: 'ºC'
+                      // },
+
+                      // {
+                      //   name: 'engineTC8',
+                      //   color: [0, 126, 254],
+                      //   unit: 'ºC'
+                      // },
+                      // {
+                      //   name: 'engineTC9',
+                      //   color: [0, 187, 0],
+                      //   unit: 'ºC'
+                      // },
+                      // {
+                      //   name: 'engineTC10',
+                      //   color: [123, 35, 162],
+                      //   unit: 'ºC'
+                      // },
+                      // {
+                      //   name: 'engineTC11',
+                      //   color: [35, 123, 162],
+                      //   unit: 'ºC'
+                      // },
                     ]
                   }
                 />

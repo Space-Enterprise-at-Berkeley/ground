@@ -53,14 +53,14 @@ class App {
         daqADC6: null,
         daqADC7: null,
 
-        daqTC1: null,
-        daqTC2: null,
-        daqTC3: null,
-        daqTC4: null,
+        daqTC1: 'engineTC4',
+        daqTC2: 'engineTC5',
+        daqTC3: 'engineTC6',
+        daqTC4: 'engineTC7',
 
         loadCell1: 'thrust1',
         loadCell2: 'thrust2',
-        loadCellSum: 'totalThrust',
+        loadCellSum: 'totalThrust12',
 
         fastLoadCell1: 'fastThrust1',
         fastLoadCell2: 'fastThrust2',
@@ -87,14 +87,14 @@ class App {
         daqADC6: null,
         daqADC7: null,
 
-        daqTC1: 'loxTankBottomTC',
-        daqTC2: 'loxTankMidTC',
-        daqTC3: 'loxTankTopTC',
-        daqTC4: 'fuelTankBottomTC',
+        daqTC1: 'engineTC8',
+        daqTC2: 'engineTC9',
+        daqTC3: 'engineTC10',
+        daqTC4: 'engineTC11',
 
-        loadCell1: null,
-        loadCell2: null,
-        loadCellSum: null,
+        loadCell1: 'thrust3',
+        loadCell2: 'thrust4',
+        loadCellSum: 'totalThrust34',
 
         capacitor1: null,
         capacitor2: null,
