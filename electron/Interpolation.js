@@ -37,7 +37,10 @@ class Interpolation {
    * @returns {[Number|Number]}
    */
   static asFloat(buffer, offset) {
-    return [buffer.readFloatLE(offset), 4]
+
+    let f = [buffer.readFloatLE(offset), 4]
+    // console.log(f);
+    return f
   }
 
   /**

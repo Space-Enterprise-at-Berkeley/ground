@@ -33,7 +33,9 @@ const INBOUND_PACKET_DEFS = {
     ['gpsLatitude', asFloat],
     ['gpsLongitude', asFloat],
     ['gpsAltitude', asFloat],
-    ['gpsSpeed', asFloat]
+    ['gpsSpeed', asFloat],
+    ['validGpsFix', asUInt8],
+    ['numGpsSats', asUInt8]
   ],
 
   39: [

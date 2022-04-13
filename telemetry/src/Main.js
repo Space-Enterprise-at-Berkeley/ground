@@ -110,37 +110,37 @@ class Main extends Component {
                     name: 'Altitude',
                     field: 'baroAltitude',
                     unit: 'm',
-                    decimals: 1,
+                    decimals: 2,
                   }}
                   field2={{
                     name: 'Pressure',
                     field: 'baroPressure',
                     unit: 'hPa',
-                    decimals: 1
+                    decimals: 2
                   }}
                   field3={{
                     name: 'Temperature',
                     field: 'baroTemperature',
                     unit: 'C',
-                    decimals: 1
+                    decimals: 2
                   }}
                   field4={{
                     name: 'X Accel',
                     field: 'accelX',
                     unit: 'm/s^2',
-                    decimals: 1
+                    decimals: 2
                   }}
                   field5={{
                     name: 'Y Accel',
                     field: 'accelY',
                     unit: 'm/s^2',
-                    decimals: 1
+                    decimals: 2
                   }}
                   field6={{
                     name: 'Z Accel',
                     field: 'accelZ',
                     unit: 'm/s^2',
-                    decimals: 1
+                    decimals: 2
                   }}
                 />
               </Grid>
@@ -159,8 +159,8 @@ class Main extends Component {
                     decimals: 2
                   }}
                   field3={{
-                    name: 'Vehicle Mode',
-                    field: 'vehicleMode',
+                    name: 'Valid GPS fix?',
+                    field: 'validGpsFix',
                     unit: '',
                     decimals: 0,
                     threshold: 0.5,

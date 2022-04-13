@@ -85,6 +85,7 @@ class Board {
     const expectedChecksum = Packet.fletcher16(sumBuf)
 
     if (checksum === expectedChecksum) {
+      //console.log("yay checksum ok")
       const values = []
       const packetDef = INBOUND_PACKET_DEFS[id]
       if(!packetDef) return null;

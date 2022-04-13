@@ -9,7 +9,8 @@
     "electron-is-dev": "~1.2.0",
     "influx": "~5.9.2",
     "lodash.throttle": "~4.1.1",
-    "moment": "~2.29.1"
+    "moment": "~2.29.1",
+    "serialport": "^10.4.0"
   },
   "scripts": {
     "start-main": "cross-env VARIANT=main electron .",

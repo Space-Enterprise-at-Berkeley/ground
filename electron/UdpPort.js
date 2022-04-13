@@ -1,5 +1,7 @@
 const dgram = require('dgram');
 
+const { SerialPort } = require('serialport');
+const { ReadlineParser } = require('@serialport/parser-readline')
 const Packet = require('./Packet');
 
 class UdpPort {
@@ -13,6 +15,52 @@ class UdpPort {
     this.address = address;
     this.port = port;
     this.server = dgram.createSocket('udp4');
+    this.currentCommand = Buffer.alloc(4096)
+    this.currentCommandPtr = 0
+    
+
+
+    this.serial = new SerialPort({ path: '/dev/cu.usbserial-AB0KTZ91', baudRate: 57600}, function (err) {
+      if (err) {
+        return console.log('Error: ', err.message)
+      };
+    })
+
+
+    this.serial.on('data', (data) => {
+      // console.log("data incoming >>")
+      // console.log("Data: ", data)
+
+      // while (!this.serialInUse) {
+
+      // }
+      for (let i = 0; i < data.length; i++) {
+        if (data[i]==13 && data[i+1]==10 && data[i+2]==10) {
+          //send out bytes
+          let buf2 = Buffer.alloc(this.currentCommandPtr)
+          for (let j = 0; j < this.currentCommandPtr; j++) {
+           buf2[j] = this.currentCommand[j] 
+          }
+          let board = (this.boards["10.0.0.42"]) //fc ip
+          //console.log(buf2)
+          board.updateRcvRate(buf2.length);
+          const packet = board.parseMsgBuf(buf2);
+          if (packet) {
+            const update = board.processPacket(packet);
+            if (update === undefined) return;
+            this.updateStateCallback(packet.timestamp, update);
+          }
+          this.currentCommandPtr = 0;
+          i += 2;
+        } else {
+          this.currentCommand[this.currentCommandPtr] = data[i]
+          this.currentCommandPtr++;
+        }
+      }
+
+
+    });
+    
     /**
      * @type {Object.<String, Board>}
      */
