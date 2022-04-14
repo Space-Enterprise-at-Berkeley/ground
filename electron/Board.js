@@ -166,18 +166,18 @@ class Board {
   }
 
   resetWatchdog() {
-    if (!this.isConnected) {
-      this.sendPacket(99, [0])
-      this.onConnect();
-    }
-    this.isConnected = true;
-    clearTimeout(this.watchdog);
-    this.watchdog = setTimeout(() => {
-      this.isConnected = false;
-      this.firstRecvTime = -1;
-      this.firstRecvOffset = -1;
-      this.onDisconnect();
-    }, 1000);
+    // if (!this.isConnected) {
+    //   this.sendPacket(99, [0])
+    //   this.onConnect();
+    // }
+    // this.isConnected = true;
+    // clearTimeout(this.watchdog);
+    // this.watchdog = setTimeout(() => {
+    //   this.isConnected = false;
+    //   this.firstRecvTime = -1;
+    //   this.firstRecvOffset = -1;
+    //   this.onDisconnect();
+    // }, 1000);
   }
 }
 

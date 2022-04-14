@@ -60,6 +60,12 @@ const INBOUND_PACKET_DEFS = {
     ['gx', asFloat],
     ['gy', asFloat],
     ['gz', asFloat]
+  ],
+
+  84: [
+    ['isRecording', asUInt8],
+    ['readyToRecord', asUInt8],
+    ['writtenKiloBytes', asUInt32]
   ]
 }
 

@@ -99,13 +99,7 @@ class Main extends Component {
           <Container maxWidth='xl' className={classes.container}>
             <Grid container={true} spacing={1} className={classes.row}>
               <Grid item={1} xs={6} className={classes.item}>
-                <RocketOrientation fieldQW={"qW"} fieldQX={"qX"} fieldQY={"qY"} fieldQZ={"qZ"}/>
-              </Grid>
-              <Grid item={1} xs={6} className={classes.item}>
-                <Map fieldLat={"gpsLatitude"} fieldLong={"gpsLongitude"}/>
-              </Grid>
-              <Grid item={1} xs={6} className={classes.item}>
-                <SixValueSquare
+              <SixValueSquare
                   field1={{
                     name: 'Altitude',
                     field: 'baroAltitude',
@@ -141,6 +135,40 @@ class Main extends Component {
                     field: 'accelZ',
                     unit: 'g',
                     decimals: 2
+                  }}
+                />
+              </Grid>
+              <Grid item={1} xs={6} className={classes.item}>
+                <Map fieldLat={"gpsLatitude"} fieldLong={"gpsLongitude"}/>
+              </Grid>
+              <Grid item={1} xs={6} className={classes.item}>
+                <SixValueSquare
+
+                  field1={{
+                    name: 'Recording?',
+                    field: 'isRecording',
+                    unit: '',
+                    decimals: 0,
+                    threshold:0.5
+                  }}
+                  field2={{
+                    name: 'Ready to record?',
+                    field: 'readyToRecord',
+                    unit: '',
+                    decimals: 0,
+                    threshold: 0.5
+                  }}
+                  field3={{
+                    name: 'Written Data',
+                    field: 'writtenKiloBytes',
+                    unit: 'KB',
+                    decimals: 1
+                  }}
+                  field4={{
+                  }}
+                  field5={{
+                  }}
+                  field6={{
                   }}
                 />
               </Grid>

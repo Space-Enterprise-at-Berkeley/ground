@@ -136,8 +136,12 @@ class UdpPort {
     console.debug(`[${address}]: `);
     console.debug(data.toString('hex').match(/../g).join(' '))
     //this.server.send(data, this.port, address, cb);
+    if (data[0] == 154 || data[0] == 155) {
+      console.log("sending: ")
     console.log(data)
+    this.serial.write(Buffer.from([0x69]))
     this.serial.write(data)
+  }
   }
 
 
