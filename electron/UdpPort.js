@@ -30,9 +30,7 @@ class UdpPort {
     this.serial.on('data', (data) => {
       // console.log("data incoming >>")
       // console.log("Data: ", data)
-
       // while (!this.serialInUse) {
-
       // }
       for (let i = 0; i < data.length; i++) {
         if (data[i]==13 && data[i+1]==10 && data[i+2]==10) {
@@ -57,10 +55,10 @@ class UdpPort {
           this.currentCommandPtr++;
         }
       }
-
-
     });
     
+
+
     /**
      * @type {Object.<String, Board>}
      */
@@ -137,8 +135,12 @@ class UdpPort {
   send(address, data, cb) {
     console.debug(`[${address}]: `);
     console.debug(data.toString('hex').match(/../g).join(' '))
-    this.server.send(data, this.port, address, cb);
+    //this.server.send(data, this.port, address, cb);
+    console.log(data)
+    this.serial.write(data)
   }
+
+
 }
 
 module.exports = UdpPort;

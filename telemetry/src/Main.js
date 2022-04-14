@@ -127,19 +127,19 @@ class Main extends Component {
                   field4={{
                     name: 'X Accel',
                     field: 'accelX',
-                    unit: 'm/s^2',
+                    unit: 'g',
                     decimals: 2
                   }}
                   field5={{
                     name: 'Y Accel',
                     field: 'accelY',
-                    unit: 'm/s^2',
+                    unit: 'g',
                     decimals: 2
                   }}
                   field6={{
                     name: 'Z Accel',
                     field: 'accelZ',
-                    unit: 'm/s^2',
+                    unit: 'g',
                     decimals: 2
                   }}
                 />
@@ -166,24 +166,22 @@ class Main extends Component {
                     threshold: 0.5,
                   }}
                   field4={{
-                    name: 'Radio RSSI',
-                    field: 'radioRSSI',
+                    name: 'Gyro X',
+                    field: 'gx',
                     unit: '',
                     decimals: 2
                   }}
                   field5={{
-                    name: 'Apogee Time',
-                    field: 'apogeeTime',
-                    unit: 'us',
-                    decimals: 0,
-                    threshold: 1
+                    name: 'Gyro Y',
+                    field: 'gy',
+                    unit: '',
+                    decimals: 2
                   }}
                   field6={{
-                    name: 'Chute Deploy Time',
-                    field: 'mainChuteDeployTime',
-                    unit: 'us',
-                    decimals: 0,
-                    threshold: 1
+                    name: 'Gyro Z',
+                    field: 'gz',
+                    unit: '',
+                    decimals: 2
                   }}
                 />
               </Grid>

@@ -55,6 +55,12 @@ const INBOUND_PACKET_DEFS = {
     ['apogeeTime', asUInt32],
     ['mainChuteDeployTime', asUInt32],
   ],
+
+  57: [
+    ['gx', asFloat],
+    ['gy', asFloat],
+    ['gz', asFloat]
+  ]
 }
 
 /** @type {Object.<Number,Array.<Number>>} */

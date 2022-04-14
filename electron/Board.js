@@ -68,21 +68,30 @@ class Board {
     // [ ________ | ________ | ________ ________ ________ ________ | ________ ________ | ________ ... ________ ]
     // [    id    |   len    |              runTime                |       checkSum    |          data         ]
     // [  u_int8  |  u_int8  |              u_int32                |        u_int16    |     defined in doc    ]
-    const id = buf.readUInt8(0);
-    const len = buf.readUInt8(1);
 
-    const runTime = buf.readUInt32LE(2);
-    const timestamp = this.calculateTimestamp(runTime);
-
-    const checksum = buf.readUInt16LE(6);
+    try { 
+    var id = buf.readUInt8(0);
+    var len = buf.readUInt8(1);
+    var runTime = buf.readUInt32LE(2);
+    var timestamp = this.calculateTimestamp(runTime);
+    var checksum = buf.readUInt16LE(6);
+    var dataOffset = 8;
+    var dataBuf = buf.slice(dataOffset, dataOffset + len)
+    var payloadBuf = buf.slice(0, 6)
+    var sumBuf = Buffer.concat([payloadBuf, dataBuf])
+    var expectedChecksum = Packet.fletcher16(sumBuf)
+    } catch (error) {
+      console.error("issue with packet, discarded (Board.js 79ish)")
+      return null
+    }
 
     // currently, data comes after the 2 bytes checksum (at offset 2) 2 + 2 = 4
-    const dataOffset = 8;
+    // const dataOffset = 8;
 
-    const dataBuf = buf.slice(dataOffset, dataOffset + len)
-    const payloadBuf = buf.slice(0, 6)
-    const sumBuf = Buffer.concat([payloadBuf, dataBuf])
-    const expectedChecksum = Packet.fletcher16(sumBuf)
+    // const dataBuf = buf.slice(dataOffset, dataOffset + len)
+    // const payloadBuf = buf.slice(0, 6)
+    // const sumBuf = Buffer.concat([payloadBuf, dataBuf])
+    // const expectedChecksum = Packet.fletcher16(sumBuf)
 
     if (checksum === expectedChecksum) {
       //console.log("yay checksum ok")
