@@ -515,7 +515,7 @@ class Control extends Component {
                     <ButtonGroupHeater
                       text='start recording'
                       activate={comms.startRecording}
-                      deactivate={()=>{}}
+                      deactivate={() => {}}
                     />
                   </Grid>
                   <Grid item>

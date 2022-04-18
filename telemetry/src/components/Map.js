@@ -31,10 +31,10 @@ const mapStyles = [
   { name: "Satellite", url: "mapbox://styles/mapbox/satellite-v9" }
 ]
 
-const defaultLong = -117.80822750160537
-const defaultLat = 35.34737384872146
+const defaultLong = -118.4490
+const defaultLat = 35.1322
 
-let nextLat = 35.34737384872146;
+let nextLat = 35.1322
 
 function CurrentCoords(props) {
   const { longitude, latitude } = props;

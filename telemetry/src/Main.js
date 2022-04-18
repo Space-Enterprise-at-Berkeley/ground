@@ -175,20 +175,20 @@ class Main extends Component {
               <Grid item={1} xs={6} className={classes.item}>
                 <SixValueSquare
                   field1={{
-                    name: 'Breakwire 1',
-                    field: 'breakwire1',
-                    unit: 'V',
+                    name: 'GPS altitude',
+                    field: 'gpsAltitude',
+                    unit: 'm',
                     decimals: 2,
                   }}
                   field2={{
-                    name: 'Breakwire 2',
-                    field: 'breakwire2',
-                    unit: 'V',
-                    decimals: 2
+                    name: 'GPS speed',
+                    field: 'gpsSpeed',
+                    unit: 'm/s (?)',
+                    decimals: 2,
                   }}
                   field3={{
-                    name: 'Valid GPS fix?',
-                    field: 'validGpsFix',
+                    name: 'some GPS number',
+                    field: 'numGpsSats',
                     unit: '',
                     decimals: 0,
                     threshold: 0.5,
