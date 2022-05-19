@@ -145,38 +145,38 @@ class Main extends Component {
                 <SixValueSquare
 
                   field1={{
-                    name: 'Recording?',
-                    field: 'isRecording',
-                    unit: '',
-                    decimals: 0,
-                    threshold:0.5
-                  }}
-                  field2={{
-                    name: 'Ready to record?',
-                    field: 'readyToRecord',
-                    unit: '',
-                    decimals: 0,
-                    threshold: 0.5
-                  }}
-                  field3={{
                     name: 'Written Data',
                     field: 'writtenKiloBytes',
                     unit: 'KB',
-                    decimals: 1
+                    decimals: 1,
                   }}
-                  field4={{
+                  field2={{
                     name: 'Breakwire 1',
                     field: 'breakwire1',
                     unit: 'V',
                     decimals: 2,
                     threshold: 1.5
                   }}
-                  field5={{
+                  field3={{
                     name: 'Breakwire 2',
                     field: 'breakwire2',
                     unit: 'V',
                     decimals: 2,
                     threshold: 1.5
+                  }}
+                  field4={{
+                    name: 'Apogee Time',
+                    field: 'apogeeTime',
+                    unit: 'uS',
+                    decimals: 0,
+                    threshold: 1
+                  }}
+                  field5={{
+                    name: 'Main Chute Deploy Time',
+                    field: 'mainChuteDeployTime',
+                    unit: 'uS',
+                    decimals: 0,
+                    threshold: 1
                   }}
                   field6={{
                   }}
