@@ -99,91 +99,127 @@ class Main extends Component {
           <Container maxWidth='xl' className={classes.container}>
             <Grid container={true} spacing={1} className={classes.row}>
               <Grid item={1} xs={6} className={classes.item}>
-                <RocketOrientation fieldQW={"qW"} fieldQX={"qX"} fieldQY={"qY"} fieldQZ={"qZ"}/>
+              <SixValueSquare
+                  field1={{
+                    name: 'Altitude',
+                    field: 'baroAltitude',
+                    unit: 'm',
+                    decimals: 2,
+                  }}
+                  field2={{
+                    name: 'Pressure',
+                    field: 'baroPressure',
+                    unit: 'hPa',
+                    decimals: 2
+                  }}
+                  field3={{
+                    name: 'Temperature',
+                    field: 'baroTemperature',
+                    unit: 'C',
+                    decimals: 2
+                  }}
+                  field4={{
+                    name: 'X Accel',
+                    field: 'accelX',
+                    unit: 'g',
+                    decimals: 2
+                  }}
+                  field5={{
+                    name: 'Y Accel',
+                    field: 'accelY',
+                    unit: 'g',
+                    decimals: 2
+                  }}
+                  field6={{
+                    name: 'Z Accel',
+                    field: 'accelZ',
+                    unit: 'g',
+                    decimals: 2
+                  }}
+                />
               </Grid>
               <Grid item={1} xs={6} className={classes.item}>
                 <Map fieldLat={"gpsLatitude"} fieldLong={"gpsLongitude"}/>
               </Grid>
               <Grid item={1} xs={6} className={classes.item}>
                 <SixValueSquare
+
                   field1={{
-                    name: 'Altitude',
-                    field: 'baroAltitude',
-                    unit: 'm',
-                    decimals: 1,
+                    name: 'Recording?',
+                    field: 'isRecording',
+                    unit: '',
+                    decimals: 0,
+                    threshold:0.5
                   }}
                   field2={{
-                    name: 'Pressure',
-                    field: 'baroPressure',
-                    unit: 'hPa',
-                    decimals: 1
+                    name: 'Ready to record?',
+                    field: 'readyToRecord',
+                    unit: '',
+                    decimals: 0,
+                    threshold: 0.5
                   }}
                   field3={{
-                    name: 'Temperature',
-                    field: 'baroTemperature',
-                    unit: 'C',
+                    name: 'Written Data',
+                    field: 'writtenKiloBytes',
+                    unit: 'KB',
                     decimals: 1
                   }}
                   field4={{
-                    name: 'X Accel',
-                    field: 'accelX',
-                    unit: 'm/s^2',
-                    decimals: 1
+                    name: 'Breakwire 1',
+                    field: 'breakwire1',
+                    unit: 'V',
+                    decimals: 2,
+                    threshold: 1.5
                   }}
                   field5={{
-                    name: 'Y Accel',
-                    field: 'accelY',
-                    unit: 'm/s^2',
-                    decimals: 1
+                    name: 'Breakwire 2',
+                    field: 'breakwire2',
+                    unit: 'V',
+                    decimals: 2,
+                    threshold: 1.5
                   }}
                   field6={{
-                    name: 'Z Accel',
-                    field: 'accelZ',
-                    unit: 'm/s^2',
-                    decimals: 1
                   }}
                 />
               </Grid>
               <Grid item={1} xs={6} className={classes.item}>
                 <SixValueSquare
                   field1={{
-                    name: 'Breakwire 1',
-                    field: 'breakwire1',
-                    unit: 'V',
+                    name: 'GPS altitude',
+                    field: 'gpsAltitude',
+                    unit: 'm',
                     decimals: 2,
                   }}
                   field2={{
-                    name: 'Breakwire 2',
-                    field: 'breakwire2',
-                    unit: 'V',
-                    decimals: 2
+                    name: 'GPS speed',
+                    field: 'gpsSpeed',
+                    unit: 'm/s (?)',
+                    decimals: 2,
                   }}
                   field3={{
-                    name: 'Vehicle Mode',
-                    field: 'vehicleMode',
+                    name: 'some GPS number',
+                    field: 'numGpsSats',
                     unit: '',
                     decimals: 0,
                     threshold: 0.5,
                   }}
                   field4={{
-                    name: 'Radio RSSI',
-                    field: 'radioRSSI',
+                    name: 'Gyro X',
+                    field: 'gx',
                     unit: '',
                     decimals: 2
                   }}
                   field5={{
-                    name: 'Apogee Time',
-                    field: 'apogeeTime',
-                    unit: 'us',
-                    decimals: 0,
-                    threshold: 1
+                    name: 'Gyro Y',
+                    field: 'gy',
+                    unit: '',
+                    decimals: 2
                   }}
                   field6={{
-                    name: 'Chute Deploy Time',
-                    field: 'mainChuteDeployTime',
-                    unit: 'us',
-                    decimals: 0,
-                    threshold: 1
+                    name: 'Gyro Z',
+                    field: 'gz',
+                    unit: '',
+                    decimals: 2
                   }}
                 />
               </Grid>

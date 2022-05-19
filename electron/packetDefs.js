@@ -33,7 +33,9 @@ const INBOUND_PACKET_DEFS = {
     ['gpsLatitude', asFloat],
     ['gpsLongitude', asFloat],
     ['gpsAltitude', asFloat],
-    ['gpsSpeed', asFloat]
+    ['gpsSpeed', asFloat],
+     ['validGpsFix', asUInt8],
+    ['numGpsSats', asUInt8]
   ],
 
   39: [
@@ -47,6 +49,12 @@ const INBOUND_PACKET_DEFS = {
 
   56: [
     ['radioRSSI', asFloat],
+  ],
+
+  84: [
+    ['isRecording', asUInt8],
+    ['readyToRecord', asUInt8],
+    ['writtenKiloBytes', asUInt32]
   ],
 
   158: [
