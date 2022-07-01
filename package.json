@@ -16,6 +16,7 @@
     "start-aux": "cross-env VARIANT=aux electron .",
     "build-electron-main": "cp -r telemetry/build ./build && cp -r electron/. build/electron",
     "package": "electron-builder build --mac -c.extraMetadata.main=build/electron/main.js --publish never",
+    "package-win": "electron-builder build --win -c.extraMetadata.main=build/electron/main.js --publish never",
     "test": "mocha"
   },
   "build": {
