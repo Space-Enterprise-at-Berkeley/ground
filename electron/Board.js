@@ -80,7 +80,6 @@ class Board {
 
     // currently, data comes after the 2 bytes checksum (at offset 2) 2 + 2 = 4
     const dataOffset = 8;
-
     const dataBuf = buf.slice(dataOffset, dataOffset + len)
     const payloadBuf = buf.slice(0, 6)
     const sumBuf = Buffer.concat([payloadBuf, dataBuf])

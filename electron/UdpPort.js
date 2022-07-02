@@ -83,7 +83,7 @@ class UdpPort {
    * Send data over the port to the specified address
    *
    * @param {String} address
-   * @param {Object} data
+   * @param {Buffer} data
    * @param {Function} cb
     */
   send(address, data, print=true, cb) {

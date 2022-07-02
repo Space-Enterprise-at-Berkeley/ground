@@ -7,8 +7,10 @@ const UdpPort = require('./UdpPort');
 const FlightV2 = require('./Boards/FlightV2');
 const DAQ = require('./Boards/DAQ');
 const DAQV3 = require('./Boards/DAQV3');
+const EReg = require("./Boards/EReg");
 const ActuatorController = require('./Boards/ActuatorController');
 const InfluxDB = require('./InfluxDB');
+const SerPort = require('./SerPort');
 
 let lastThrust12 = 0.0;
 let lastThrust34 = 0.0;
@@ -32,6 +34,7 @@ class App {
    */
   initApp() {
     this.port = new UdpPort('0.0.0.0', 42069, this.updateState);
+    this.port2 = new SerPort(this.updateState);
 
     this.flightComputer = new FlightV2(this.port,
       '10.0.0.42',
@@ -275,9 +278,10 @@ class App {
       () => this.updateState(Date.now(), { actCtrlr2Connected: false }),
       (rate) => this.updateState(Date.now(), { actCtrlr2Kbps: rate }));
 
-    // Begin TouchBar
-    this.abort = this.addBackendFunc('abort', this.flightComputer.abort)
-    // End TouchBar
+      this.ereg = new EReg(this.port2, {},
+        () => this.updateState(Date.now(), { eregConnected: true }),
+        () => this.updateState(Date.now(), { eregConnected: false }),
+        (rate) => this.updateState(Date.now(), { eregKbps: rate }));
 
     this.setupIPC();
   }
@@ -380,6 +384,7 @@ class App {
         manualInput: true
       }).then(r => {
         // TODO: implement some sort of sent check
+        this.ereg.port.send(null, message, null);
       })
     }else{
       const destBoard = this[messageDestination]
@@ -402,6 +407,9 @@ class App {
     this.addIPC('set-procedure-state', (e, procState) => this.influxDB.setProcedureStep(procState));
 
     this.addIPC('send-custom-message', this.handleSendCustomMessage, false)
+
+    this.addIPC('get-serports', SerPort.getPortsAvailable())
+    this.addIPC('connect-port', (e, portName) => {console.log(portName); this.port2.connect(portName, 115200)})
 
     // Flight Computer
 

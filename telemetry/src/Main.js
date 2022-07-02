@@ -101,7 +101,20 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'pressurantPT',
+                        name: 'angle_setpoint',
+                        color: [70, 1, 155],
+                        unit: 'enc_tick'
+                      }
+                    ]
+                  }
+                />
+              </Grid>
+              <Grid item={1} xs={4} className={classes.item}>
+                <Graph
+                  fields={
+                    [
+                      {
+                        name: 'pressure_setpoint',
                         color: [70, 1, 155],
                         unit: 'PSI'
                       }
@@ -114,9 +127,9 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'loxTankPT',
-                        color: [0, 126, 254],
-                        unit: 'PSI'
+                        name: 'motor_command',
+                        color: [70, 1, 155],
+                        unit: 'au'
                       }
                     ]
                   }
@@ -127,57 +140,9 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'fuelTankPT',
-                        color: [0, 187, 0],
-                        unit: 'PSI'
-                      }
-                    ]
-                  }
-                />
-              </Grid>
-              <Grid item={1} xs={4} className={classes.item}>
-                <SixValueSquare
-                  field1={{
-                    name: 'LOX DOME',
-                    field: 'loxDomePT',
-                    unit: 'PSI'
-                  }}
-                  field2={{
-                    name: 'LOX Expected Static',
-                    field: 'loxExpectedStatic',
-                    unit: 'PSI'
-                  }}
-                  field3={{
-                    name: 'Pressurant Temp',
-                    field: 'pressurantTemp',
-                    unit: 'ºC'
-                  }}
-                  field4={{
-                    name: 'Fuel DOME',
-                    field: 'fuelDomePT',
-                    unit: 'PSI'
-                  }}
-                  field5={{
-                    name: 'Fuel Expected Static',
-                    field: '_',
-                    unit: 'PSI'
-                  }}
-                  field6={{
-                    name: 'Δ PSI / 1 Second',
-                    field: 'pressurantPTROC',
-                    unit: 'PSI',
-                    decimals: 2
-                  }}
-                />
-              </Grid>
-              <Grid item={1} xs={4} className={classes.item}>
-                <Graph
-                  fields={
-                    [
-                      {
-                        name: 'loxInjectorPT',
-                        color: [221, 0, 0],
-                        unit: 'PSI'
+                        name: 'motor_angle',
+                        color: [70, 1, 155],
+                        unit: 'deg'
                       }
                     ]
                   }
@@ -188,135 +153,57 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'fuelInjectorPT',
+                        name: 'high_pressure',
                         color: [70, 1, 155],
                         unit: 'PSI'
                       }
                     ]
                   }
                 />
+              </Grid>
+              <Grid item={1} xs={4} className={classes.item}>
+                <Graph
+                  fields={
+                    [
+                      {
+                        name: 'low_pressure',
+                        color: [70, 1, 155],
+                        unit: 'PSI'
+                      }
+                    ]
+                  }
+                />
+              </Grid>
+              <Grid item={1} xs={4} className={classes.item}>
+                <Graph
+                  fields={
+                    [
+                      {
+                        name: 'pressure_p_term',
+                        color: [70, 1, 155],
+                        unit: 'enc'
+                      }
+                    ]
+                  }
+                />
+
+              </Grid>
+              <Grid item={1} xs={4} className={classes.item}>
+                <Graph
+                  fields={
+                    [
+                      {
+                        name: 'pressure_d_term',
+                        color: [70, 1, 155],
+                        unit: 'enc'
+                      }
+                    ]
+                  }
+                />
+
               </Grid>
               <Grid item={1} xs={4} className={classes.item}>
                 <MessageDisplaySquare/>
-                {/* <Graph
-                  fields={
-                    [
-                      {
-                        name: 'loxGemsPT',
-                        color: [0, 126, 254],
-                        unit: 'psi'
-                      },
-                      {
-                        name: 'propGemsPT',
-                        color: [0, 187, 0],
-                        unit: 'psi'
-                      },
-                    ]
-                  }
-                /> */}
-              </Grid>
-              <Grid item={1} xs={4} className={classes.item}>
-                <Graph
-                  fields={
-                    [
-                      {
-                        name: 'thrust1',
-                        color: [255, 51, 224],
-                        unit: 'LBS'
-                      },
-                      {
-                        name: 'thrust2', // prop PT temp
-                        color: [15, 202, 221],
-                        unit: 'LBS'
-                      },
-                      {
-                        name: 'thrust3', // prop PT temp
-                        color: [202, 15, 221],
-                        unit: 'LBS'
-                      },
-                      {
-                        name: 'thrust4', // prop PT temp
-                        color: [221, 202, 15],
-                        unit: 'LBS'
-                      },
-                      {
-                        name: 'totalThrust', // prop PT temp
-                        color: [238, 154, 7],
-                        unit: 'LBS'
-                      },
-                    ]
-                  }
-                />
-              </Grid>
-              <Grid item={1} xs={4} className={classes.item}>
-                <Graph
-                  fields={
-                    [
-                      {
-                        name: 'engineTop1TC',
-                        color: [0, 126, 254],
-                        unit: 'ºC'
-                      },
-                      {
-                        name: 'engineTop2TC',
-                        color: [0, 187, 0],
-                        unit: 'ºC'
-                      },
-                      {
-                        name: 'engineBottom1TC',
-                        color: [123, 35, 162],
-                        unit: 'ºC'
-                      },
-                      {
-                        name: 'engineBottom2TC',
-                        color: [35, 123, 162],
-                        unit: 'ºC'
-                      },
-
-                      // {
-                      //   name: 'engineTC4',
-                      //   color: [0, 126, 254],
-                      //   unit: 'ºC'
-                      // },
-                      // {
-                      //   name: 'engineTC5',
-                      //   color: [0, 187, 0],
-                      //   unit: 'ºC'
-                      // },
-                      // {
-                      //   name: 'engineTC6',
-                      //   color: [123, 35, 162],
-                      //   unit: 'ºC'
-                      // },
-                      // {
-                      //   name: 'engineTC7',
-                      //   color: [35, 123, 162],
-                      //   unit: 'ºC'
-                      // },
-
-                      // {
-                      //   name: 'engineTC8',
-                      //   color: [0, 126, 254],
-                      //   unit: 'ºC'
-                      // },
-                      // {
-                      //   name: 'engineTC9',
-                      //   color: [0, 187, 0],
-                      //   unit: 'ºC'
-                      // },
-                      // {
-                      //   name: 'engineTC10',
-                      //   color: [123, 35, 162],
-                      //   unit: 'ºC'
-                      // },
-                      // {
-                      //   name: 'engineTC11',
-                      //   color: [35, 123, 162],
-                      //   unit: 'ºC'
-                      // },
-                    ]
-                  }
-                />
               </Grid>
             </Grid>
           </Container>

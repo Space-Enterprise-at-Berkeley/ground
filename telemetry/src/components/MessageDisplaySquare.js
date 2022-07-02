@@ -397,6 +397,8 @@ const LogMessageHistory = forwardRef(({ logs: _logs, classes, deleteLogs, availa
         // TODO: maybe have a verify thing
         inputRef.current.value = ""
       })
+      // ereg 
+
     }
   }
 

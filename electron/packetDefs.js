@@ -18,23 +18,17 @@ const INBOUND_PACKET_DEFS = {
     ['firmwareCommitHash', asASCIIString],
   ],
   1: [
-    ['flightBattVoltage', asFloat],
-    ['flightBattCurrent', asFloat],
-    ['flightBattPower', asFloat]
+    ['angle_setpoint', asFloat],
+    ['pressure_setpoint', asFloat],
+    ['motor_command', asFloat],
+    ['motor_angle', asFloat],
+    ['high_pressure', asFloat],
+    ['low_pressure', asFloat],
+    ['pressure_p_term', asFloat],
+    ['pressure_d_term', asFloat],
+    ['pressure_i_term', asFloat],
   ],
-  2: [
-    ['flightSupply12Voltage', asFloat],
-    ['flightSupply12Current', asFloat],
-    ['flightSupply12Power', asFloat]
-  ],
-  3: [
-    ['flightSupply8Voltage', asFloat],
-    ['flightSupply8Current', asFloat],
-    ['flightSupply8Power', asFloat]
-  ],
-  9: [
-    ['pressurantPTROC', asFloat],
-  ],
+  
   // [10..59] Sent by Flight Computer
   10: [
     ['loxTankPT', asFloat],

@@ -3,7 +3,7 @@ import moment from 'moment';
 const { ipcRenderer } = window;
 
 class Comms {
-  constructor(ipc) {
+  constructor(ipc,serial) {
     this.subscribers = {};
     this.universalSubscribers = [];
     this.darkmodeListeners = [];
@@ -16,6 +16,8 @@ class Comms {
 
     this.connectInflux = this.connectInflux.bind(this);
     this.getDatabases = this.getDatabases.bind(this);
+    this.getPorts = this.getPorts.bind(this);
+    this.connectPort = this.connectPort.bind(this);
     this.setDatabase = this.setDatabase.bind(this);
     this.setDarkMode = this.setDarkMode.bind(this);
 
@@ -152,6 +154,8 @@ class Comms {
     this.closePurgeFlowRBV = this.closePurgeFlowRBV.bind(this);
     this.timePurgeFlowRBV = this.timePurgeFlowRBV.bind(this);
 
+    //-------e-Reg-------
+    this.serial = serial;
   }
 
   stateUpdate(event, payload) {
@@ -223,6 +227,9 @@ class Comms {
     this.ipc.removeListener('set-darkmode', this.darkmodeUpdate);
   }
 
+  //-------e-Reg-------
+  
+
   //----------Universal Parser--------
 
   async sendCustomMessage(messageDestination, message) {
@@ -255,6 +262,14 @@ class Comms {
 
   async getDatabases() {
     return await this.ipc.invoke('get-databases');
+  }
+
+  async getPorts() {
+    return await this.ipc.invoke('get-serports');
+  }
+
+  async connectPort(portName) {
+    return await this.ipc.invoke('connect-port', portName);
   }
 
   async setDatabase(database) {

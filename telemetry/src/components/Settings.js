@@ -38,6 +38,8 @@ class Settings extends Component {
       influxConnecting: false,
       influxDatabase: '',
       influxDatabaseList: [],
+      portNames: [],
+      selectedPortName: ''
     };
 
     this.updateInfluxHost = this.updateInfluxHost.bind(this);
@@ -49,6 +51,11 @@ class Settings extends Component {
 
     this.connectToInflux = this.connectToInflux.bind(this);
     this.setInfluxDatabase = this.setInfluxDatabase.bind(this);
+
+
+    this.selectPort = this.selectPort.bind(this);
+    this.setPortName = this.setPortName.bind(this);
+
   }
 
   updateInfluxHost(e) { this.setState({ influxHost: e.target.value }); }
@@ -57,6 +64,9 @@ class Settings extends Component {
   updateInfluxUsername(e) { this.setState({ influxUsername: e.target.value }); }
   updateInfluxPassword(e) { this.setState({ influxPassword: e.target.value }); }
   updateInfluxDatabase(e) { this.setState({ influxDatabase: e.target.value }); }
+
+  selectPort(e) { this.setState({ selectedPortName: e.target.value }); }
+
 
   async connectToInflux() {
     this.setState({ influxConnecting: true });
@@ -83,9 +93,19 @@ class Settings extends Component {
   }
 
   componentDidMount() {
+    // Comms.getPorts().then((p) => {
+    //   this.setState({
+    //     portNames: p.map(v => v.comName)
+    //   });
+    // });
   }
 
   componentWillUnmount() {
+  }
+
+  setPortName() {
+    console.log(this.state.selectedPortName)
+    Comms.connectPort(this.state.selectedPortName)
   }
 
   render() {
@@ -97,7 +117,9 @@ class Settings extends Component {
             influxPassword,
             influxConnecting,
             influxDatabase,
-            influxDatabaseList } = this.state;
+            influxDatabaseList,
+            portNames,
+            selectedPortName } = this.state;
     const influxConnected = influxDatabaseList.length > 0;
     return (
       <Dialog open={ open } onClose={ closeSettings }>
@@ -163,6 +185,17 @@ class Settings extends Component {
                 ))}
               </Select>
               <Button onClick={ this.setInfluxDatabase } color='primary' variant='contained' disabled={ !influxConnected }>Select DB</Button>
+            </div>
+          </form>
+          <form noValidate>
+            <div>
+              <TextField
+                label='com port name'
+                value={ selectedPortName }
+                onChange={ this.selectPort }
+                className={ classes.fields }
+              />
+              <Button onClick={ this.setPortName } color='primary' variant='contained'>Select Serial Port</Button>
             </div>
           </form>
         </DialogContent>
