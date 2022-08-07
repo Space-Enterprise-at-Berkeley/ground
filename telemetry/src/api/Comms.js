@@ -88,9 +88,13 @@ class Comms {
     this.closeERegACCh3 = this.closeERegACCh3.bind(this);
     this.timeERegACCh3 = this.timeERegACCh3.bind(this);
 
-    this.openPressurantFillVentRBV = this.openPressurantFillVentRBV.bind(this);
-    this.closePressurantFillVentRBV = this.closePressurantFillVentRBV.bind(this);
-    this.timePressurantFillVentRBV = this.timePressurantFillVentRBV.bind(this);
+    this.openERegACCh5 = this.openERegACCh5.bind(this);
+    this.closeERegACCh5 = this.closeERegACCh5.bind(this);
+    this.timeERegACCh5 = this.timeERegACCh5.bind(this);
+    
+    this.openERegACCh6 = this.openERegACCh6.bind(this);
+    this.closeERegACCh6 = this.closeERegACCh6.bind(this);
+    this.timeERegACCh6 = this.timeERegACCh6.bind(this);
 
     // this.openLOxVentRBV = this.openLOxVentRBV.bind(this);
     // this.closeLOxVentRBV = this.closeLOxVentRBV.bind(this);
@@ -429,16 +433,28 @@ class Comms {
     return await this.ipc.invoke('time-ERegACCh3', val);
   }
 
-  async openPressurantFillVentRBV() {
-    return await this.ipc.invoke('open-pressurantFillVentRBV');
+  async openERegACCh5() {
+    return await this.ipc.invoke('open-ERegACCh5');
   }
 
-  async closePressurantFillVentRBV() {
-    return await this.ipc.invoke('close-pressurantFillVentRBV');
+  async closeERegACCh5() {
+    return await this.ipc.invoke('close-ERegACCh5');
   }
 
-  async timePressurantFillVentRBV(val) {
-    return await this.ipc.invoke('time-pressurantFillVentRBV', val);
+  async timeERegACCh5(val) {
+    return await this.ipc.invoke('time-ERegACCh5', val);
+  }
+  
+  async openERegACCh6() {
+    return await this.ipc.invoke('open-ERegACCh6');
+  }
+
+  async closeERegACCh6() {
+    return await this.ipc.invoke('close-ERegACCh6');
+  }
+
+  async timeERegACCh6(val) {
+    return await this.ipc.invoke('time-ERegACCh6', val);
   }
 
   // async openLOxVentRBV() {return await this.ipc.invoke('open-LOxVentRBV'); }

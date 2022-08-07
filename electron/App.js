@@ -188,9 +188,9 @@ class App {
         acLinAct2Voltage: 'ERegACCh1voltage',
         acLinAct2Current: 'ERegACCh1current',
         
-        acLinAct3State: 'pressurantFlowRBVstate',
-        acLinAct3Voltage: 'pressurantFlowRBVvoltage',
-        acLinAct3Current: 'pressurantFlowRBVcurrent',
+        acLinAct3State: 'ERegACCh2state',
+        acLinAct3Voltage: 'ERegACCh2voltage',
+        acLinAct3Current: 'ERegACCh2current',
 
         acLinAct4State: 'ERegACCh3state',
         acLinAct4Voltage: 'ERegACCh3voltage',
@@ -200,13 +200,13 @@ class App {
         acLinAct5Voltage: 'ERegACCh4voltage',
         acLinAct5Current: 'ERegACCh4current',
         
-        acLinAct6State: 'pressurantFillVentRBVstate',
-        acLinAct6Voltage: 'pressurantFillVentRBVvoltage',
-        acLinAct6Current: 'pressurantFillVentRBVcurrent',
+        acLinAct6State: 'ERegACCh5state',
+        acLinAct6Voltage: 'ERecACCh5voltage',
+        acLinAct6Current: 'ERegACCh5current',
 
-        acLinAct7State: null,
-        acLinAct7Voltage: null,
-        acLinAct7Current: null,
+        acLinAct7State: 'ERegACCh6state',
+        acLinAct7Voltage: 'ERegACCh6voltage',
+        acLinAct7Current: 'ERegACCh6current',
 
         acHeater1Voltage: null,
         acHeater1Current: null,
@@ -482,17 +482,21 @@ class App {
     this.addIPC('close-ERegACCh3', this.actCtrlr1.closeActCh3);
     this.addIPC('time-ERegACCh3', (e, val) => this.actCtrlr1.actCh3ms(val));
 
-    this.addIPC('open-pressurantFillVentRBV', this.actCtrlr1.openActCh5);
-    this.addIPC('close-pressurantFillVentRBV', this.actCtrlr1.closeActCh5);
-    this.addIPC('time-pressurantFillVentRBV', (e, val) => this.actCtrlr1.actCh5ms(val));
+    this.addIPC('open-ERegACCh5', this.actCtrlr1.openActCh5);
+    this.addIPC('close-ERegACCh5', this.actCtrlr1.closeActCh5);
+    this.addIPC('time-ERegACCh5', (e, val) => this.actCtrlr1.actCh5ms(val));
+
+    this.addIPC('open-ERegACCh6', this.actCtrlr1.openActCh6);
+    this.addIPC('close-ERegACCh6', this.actCtrlr1.closeActCh6);
+    this.addIPC('time-ERegACCh6', (e, val) => this.actCtrlr1.actCh6ms(val));
 
     
 
     // Actuator Controller 2
     // TODO: swap RBV wiring so code mapping doesn't have to be swapped
-    this.addIPC('open-pressurantFlowRBV', this.actCtrlr1.openActCh2);
-    this.addIPC('close-pressurantFlowRBV', this.actCtrlr1.closeActCh2);
-    this.addIPC('time-pressurantFlowRBV', (e, val) => this.actCtrlr1.actCh2ms(val));
+    // this.addIPC('open-pressurantFlowRBV', this.actCtrlr1.openActCh2);
+    // this.addIPC('close-pressurantFlowRBV', this.actCtrlr1.closeActCh2);
+    // this.addIPC('time-pressurantFlowRBV', (e, val) => this.actCtrlr1.actCh2ms(val));
 
     this.addIPC('open-ERegACCh1', this.actCtrlr1.openActCh1);
     this.addIPC('close-ERegACCh1', this.actCtrlr1.closeActCh1);

@@ -79,13 +79,13 @@ class ActuatorController extends Board {
   closeActCh4() { return this.sendPacket(14, [1, 0.0]); }
   actCh4ms(time) { return this.sendPacket(14, [(time > 0) ? 2 : 3, Math.abs(time)]); }
 
-  openActCh5() { return this.sendPacket(175, [0, 0.0]); }
-  closeActCh5() { return this.sendPacket(175, [1, 0.0]); }
-  actCh5ms(time) { return this.sendPacket(175, [(time > 0) ? 2 : 3, Math.abs(time)]); }
+  openActCh5() { return this.sendPacket(15, [0, 0.0]); }
+  closeActCh5() { return this.sendPacket(15, [1, 0.0]); }
+  actCh5ms(time) { return this.sendPacket(15, [(time > 0) ? 2 : 3, Math.abs(time)]); }
 
-  openActCh6() { return this.sendPacket(176, [0, 0.0]); }
-  closeActCh6() { return this.sendPacket(176, [1, 0.0]); }
-  actCh6ms(time) { return this.sendPacket(176, [(time > 0) ? 2 : 3, Math.abs(time)]); }
+  openActCh6() { return this.sendPacket(16, [0, 0.0]); }
+  closeActCh6() { return this.sendPacket(16, [1, 0.0]); }
+  actCh6ms(time) { return this.sendPacket(16, [(time > 0) ? 2 : 3, Math.abs(time)]); }
 
 }
 
