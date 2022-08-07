@@ -7,7 +7,7 @@ const procedureSteps = {
   0: "Setup",
   1: "Pressurant Fill",
   2: "Prop Fill",
-  3: "LOx Fill",
+  3: "Channel 0",
   4: "Pre-Chill",
   5: "Burn"
 }

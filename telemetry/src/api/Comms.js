@@ -100,9 +100,9 @@ class Comms {
     this.closeloxTankVentRBV = this.closeloxTankVentRBV.bind(this);
     this.timeloxTankVentRBV = this.timeloxTankVentRBV.bind(this);
 
-    this.openloxFillRBV = this.openloxFillRBV.bind(this);
-    this.closeloxFillRBV = this.closeloxFillRBV.bind(this);
-    this.timeloxFillRBV = this.timeloxFillRBV.bind(this);
+    this.openERegACCh0 = this.openERegACCh0.bind(this);
+    this.closeERegACCh0 = this.closeERegACCh0.bind(this);
+    this.timeERegACCh0 = this.timeERegACCh0.bind(this);
 
     // this.openPressurantVentRBV = this.openPressurantVentRBV.bind(this);
     // this.closePressurantVentRBV = this.closePressurantVentRBV.bind(this);
@@ -118,9 +118,9 @@ class Comms {
     // this.closePropaneVentRBV = this.closePropaneVentRBV.bind(this);
     // this.timePropaneVentRBV = this.timePropaneVentRBV.bind(this);
 
-    this.openfuelFillRBV = this.openfuelFillRBV.bind(this);
-    this.closefuelFillRBV = this.closefuelFillRBV.bind(this);
-    this.timefuelFillRBV = this.timefuelFillRBV.bind(this);
+    this.openERegACCh1 = this.openERegACCh1.bind(this);
+    this.closeERegACCh1 = this.closeERegACCh1.bind(this);
+    this.timeERegACCh1 = this.timeERegACCh1.bind(this);
 
     this.openfuelTankVentRBV = this.openfuelTankVentRBV.bind(this);
     this.closefuelTankVentRBV = this.closefuelTankVentRBV.bind(this);
@@ -457,16 +457,16 @@ class Comms {
     return await this.ipc.invoke('time-loxTankVentRBV', val);
   }
 
-  async openloxFillRBV() {
-    return await this.ipc.invoke('open-loxFillRBV');
+  async openERegACCh0() {
+    return await this.ipc.invoke('open-ERegACCh0');
   }
 
-  async closeloxFillRBV() {
-    return await this.ipc.invoke('close-loxFillRBV');
+  async closeERegACCh0() {
+    return await this.ipc.invoke('close-ERegACCh0');
   }
 
-  async timeloxFillRBV(val) {
-    return await this.ipc.invoke('time-loxFillRBV', val);
+  async timeERegACCh0(val) {
+    return await this.ipc.invoke('time-ERegACCh0', val);
   }
 
   async openPressurantVentRBV() {
@@ -499,16 +499,16 @@ class Comms {
   // async closePropaneVentRBV() {return await this.ipc.invoke('close-propaneVentRBV'); }
   // async timePropaneVentRBV(val) {return await this.ipc.invoke('time-propaneVentRBV', val); }
 
-  async openfuelFillRBV() {
-    return await this.ipc.invoke('open-fuelFillRBV');
+  async openERegACCh1() {
+    return await this.ipc.invoke('open-ERegACCh1');
   }
 
-  async closefuelFillRBV() {
-    return await this.ipc.invoke('close-fuelFillRBV');
+  async closeERegACCh1() {
+    return await this.ipc.invoke('close-ERegACCh1');
   }
 
-  async timefuelFillRBV(val) {
-    return await this.ipc.invoke('time-fuelFillRBV', val);
+  async timeERegACCh1(val) {
+    return await this.ipc.invoke('time-ERegACCh1', val);
   }
 
   // async openPropaneRQD() {return await this.ipc.invoke('open-propaneRQD'); }

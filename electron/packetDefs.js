@@ -294,8 +294,8 @@ const OUTBOUND_PACKET_DEFS = {
   152: [],
 
   // [170..199] Sent to Actuator Controller
-  170: [UINT8, UINT32],
-  171: [UINT8, UINT32],
+  10: [UINT8, UINT32],
+  11: [UINT8, UINT32],
   172: [UINT8, UINT32],
   173: [UINT8, UINT32],
   174: [UINT8, UINT32],

@@ -180,13 +180,13 @@ class App {
         acSupply12Voltage: 'ac1Supply12Voltage',
         acSupply12Current: 'ac1Supply12Current',
 
-        acLinAct1State: 'loxFillRBVstate',
-        acLinAct1Voltage: 'loxFillRBVvoltage',
-        acLinAct1Current: 'loxFillRBVcurrent',
+        acLinAct1State: 'ERegACCh0state',
+        acLinAct1Voltage: 'ERegACCh0voltage',
+        acLinAct1Current: 'ERegACCh0current',
         
-        acLinAct2State: 'fuelFillRBVstate',
-        acLinAct2Voltage: 'fuelFillRBVvoltage',
-        acLinAct2Current: 'fuelFillRBVcurrent',
+        acLinAct2State: 'ERegACCh1state',
+        acLinAct2Voltage: 'ERegACCh1voltage',
+        acLinAct2Current: 'ERegACCh1current',
         
         acLinAct3State: 'pressurantFlowRBVstate',
         acLinAct3Voltage: 'pressurantFlowRBVvoltage',
@@ -462,9 +462,9 @@ class App {
 
 
     // Actuator Controller 1
-    this.addIPC('open-loxFillRBV', this.actCtrlr1.openActCh0);
-    this.addIPC('close-loxFillRBV', this.actCtrlr1.closeActCh0);
-    this.addIPC('time-loxFillRBV', (e, val) => this.actCtrlr1.actCh0ms(val));
+    this.addIPC('open-ERegACCh0', this.actCtrlr1.openActCh0);
+    this.addIPC('close-ERegACCh0', this.actCtrlr1.closeActCh0);
+    this.addIPC('time-ERegACCh0', (e, val) => this.actCtrlr1.actCh0ms(val));
 
     this.addIPC('open-loxTankVentRBV', this.actCtrlr2.openActCh0);
     this.addIPC('close-loxTankVentRBV', this.actCtrlr2.closeActCh0);
@@ -494,9 +494,9 @@ class App {
     this.addIPC('close-pressurantFlowRBV', this.actCtrlr1.closeActCh2);
     this.addIPC('time-pressurantFlowRBV', (e, val) => this.actCtrlr1.actCh2ms(val));
 
-    this.addIPC('open-fuelFillRBV', this.actCtrlr1.openActCh1);
-    this.addIPC('close-fuelFillRBV', this.actCtrlr1.closeActCh1);
-    this.addIPC('time-fuelFillRBV', (e, val) => this.actCtrlr1.actCh1ms(val));
+    this.addIPC('open-ERegACCh1', this.actCtrlr1.openActCh1);
+    this.addIPC('close-ERegACCh1', this.actCtrlr1.closeActCh1);
+    this.addIPC('time-ERegACCh1', (e, val) => this.actCtrlr1.actCh1ms(val));
 
     this.addIPC('open-fuelTankVentRBV', this.actCtrlr2.openActCh2);
     this.addIPC('close-fuelTankVentRBV', this.actCtrlr2.closeActCh2);

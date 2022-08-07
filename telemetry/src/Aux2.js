@@ -199,15 +199,15 @@ class Aux2 extends Component {
                     threshold: 0.1
                   }}
                   field4={{
-                    name: 'LOX Fill',
-                    field: 'loxFillRBVcurrent',
+                    name: 'Channel 0',
+                    field: 'ERegACCh0current',
                     unit: 'A',
                     decimals: 1,
                     threshold: 0.1
                   }}
                   field5={{
-                    name: 'Fuel Fill',
-                    field: 'fuelFillRBVcurrent',
+                    name: 'Channel 1',
+                    field: 'ERegACCh1current',
                     unit: 'A',
                     decimals: 1,
                     threshold: 0.1
