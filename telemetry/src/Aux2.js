@@ -193,7 +193,7 @@ class Aux2 extends Component {
                   }}
                   field3={{
                     name: 'Pressurant Fill',
-                    field: 'pressurantFillRBVcurrent',
+                    field: 'ERegACCh3current',
                     unit: 'A',
                     decimals: 1,
                     threshold: 0.1
@@ -304,8 +304,8 @@ class Aux2 extends Component {
                     threshold: 0.1
                   }}
                   field6={{
-                    name: 'Fuel Prechill',
-                    field: 'fuelPrechillRBVcurrent',
+                    name: 'Channel 4',
+                    field: 'ERegACCh4',
                     unit: 'A',
                     decimals: 1,
                     threshold: 0.1

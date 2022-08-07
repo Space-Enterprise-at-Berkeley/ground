@@ -76,7 +76,7 @@ class Control extends Component {
     this.startCountdown();
     comms.closeloxTankVentRBV();
     comms.closefuelTankVentRBV();
-    comms.closeloxPrechillRBV();
+    comms.closeERegACCh2();
     comms.closefuelPrechillRBV();
     comms.closePurgeFlowRBV();
 
@@ -89,7 +89,7 @@ class Control extends Component {
     comms.openloxTankVentRBV();
     comms.openfuelTankVentRBV();
     comms.openPurgeFlowRBV();
-    comms.openloxPrechillRBV();
+    comms.openERegACCh2();
     comms.openfuelPrechillRBV();
 
     this.stopCountdown();
@@ -299,11 +299,11 @@ class Control extends Component {
                   </Grid>
                   <Grid item={1} xs={6}>
                     <ButtonGroupRBVTimed
-                      open={comms.openfuelPrechillRBV}
-                      close={comms.closefuelPrechillRBV}
-                      time={comms.timefuelPrechillRBV}
-                      field='fuelPrechillRBVstate'
-                      text='Fuel Prechill RBV'
+                      open={comms.openERegACCh4}
+                      close={comms.closeERegACCh4}
+                      time={comms.timeERegACCh4}
+                      field='ERegACCh4state'
+                      text='Channel 4'
                     />
                   </Grid>
                   <Grid item={1} xs={6}>
@@ -316,11 +316,11 @@ class Control extends Component {
                   </Grid>
                   <Grid item={1} xs={6}>
                     <ButtonGroupRBVTimed
-                      open={comms.openPurgePrechillVentRBV}
-                      close={comms.closePurgePrechillVentRBV}
-                      time={comms.timePurgePrechillVentRBV}
-                      field='purgePrechillVentRBVstate'
-                      text='Purge Prechill Vent RBV'
+                      open={comms.openERegACCh2}
+                      close={comms.closeERegACCh2}
+                      time={comms.timeERegACCh2}
+                      field='ERegACCh2state'
+                      text='Channel 2'
                     />
                   </Grid>
                 </Grid>
@@ -356,11 +356,11 @@ class Control extends Component {
                 <Grid container={true} spacing={1}>
                   <Grid item={1} xs={12}>
                     <ButtonGroupRBVTimed
-                      open={comms.openPressurantFillRBV}
-                      close={comms.closePressurantFillRBV}
-                      time={comms.timePressurantFillRBV}
-                      field='pressurantFillRBVstate'
-                      text='N2 Fill RBV'
+                      open={comms.openERegACCh3}
+                      close={comms.closeERegACCh3}
+                      time={comms.timeERegACCh3}
+                      field='ERegACCh3state'
+                      text='Channel 3'
                     />
                   </Grid>
                   {/* <Grid item={1} xs={6}>
@@ -431,7 +431,7 @@ class Control extends Component {
                       close={comms.closeERegACCh1}
                       time={comms.timeERegACCh1}
                       field='ERegACCh1state'
-                      text='Channel 1 RBV'
+                      text='Channel 1'
                     />
                   </Grid>
                 </Grid>

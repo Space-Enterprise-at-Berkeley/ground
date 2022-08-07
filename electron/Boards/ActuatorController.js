@@ -67,17 +67,17 @@ class ActuatorController extends Board {
   closeActCh1() { return this.sendPacket(11, [1, 0.0]); }
   actCh1ms(time) { return this.sendPacket(11, [(time > 0) ? 2 : 3, Math.abs(time)]); }
   
-  openActCh2() { return this.sendPacket(172, [0, 0.0]); }
-  closeActCh2() { return this.sendPacket(172, [1, 0.0]); }
-  actCh2ms(time) { return this.sendPacket(172, [(time > 0) ? 2 : 3, Math.abs(time)]); }
+  openActCh2() { return this.sendPacket(12, [0, 0.0]); }
+  closeActCh2() { return this.sendPacket(12, [1, 0.0]); }
+  actCh2ms(time) { return this.sendPacket(12, [(time > 0) ? 2 : 3, Math.abs(time)]); }
 
-  openActCh3() { return this.sendPacket(173, [0, 0.0]); }
-  closeActCh3() { return this.sendPacket(173, [1, 0.0]); }
-  actCh3ms(time) { return this.sendPacket(173, [(time > 0) ? 2 : 3, Math.abs(time)]); }
+  openActCh3() { return this.sendPacket(13, [0, 0.0]); }
+  closeActCh3() { return this.sendPacket(13, [1, 0.0]); }
+  actCh3ms(time) { return this.sendPacket(13, [(time > 0) ? 2 : 3, Math.abs(time)]); }
 
-  openActCh4() { return this.sendPacket(174, [0, 0.0]); }
-  closeActCh4() { return this.sendPacket(174, [1, 0.0]); }
-  actCh4ms(time) { return this.sendPacket(174, [(time > 0) ? 2 : 3, Math.abs(time)]); }
+  openActCh4() { return this.sendPacket(14, [0, 0.0]); }
+  closeActCh4() { return this.sendPacket(14, [1, 0.0]); }
+  actCh4ms(time) { return this.sendPacket(14, [(time > 0) ? 2 : 3, Math.abs(time)]); }
 
   openActCh5() { return this.sendPacket(175, [0, 0.0]); }
   closeActCh5() { return this.sendPacket(175, [1, 0.0]); }

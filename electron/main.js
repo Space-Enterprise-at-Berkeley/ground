@@ -308,7 +308,7 @@ function createTouchBar(backendApp) {
         { label: 'Fuel Vent', channel:'fuelTankVentRBV' },
         { label: 'Channel 0', channel:'ERegACCh0' },
         { label: 'Channel 1', channel:'ERegACCh1' },
-        { label: 'N2 Fill', channel:'pressurantFillRBV' },
+        { label: 'N2 Fill', channel:'ERegACCh3' },
         { label: 'N2 Fill Vent', channel:'pressurantFillVentRBV' },
         { label: 'N2 Flow', channel:'pressurantFlowRBV' },
       ],

@@ -192,13 +192,13 @@ class App {
         acLinAct3Voltage: 'pressurantFlowRBVvoltage',
         acLinAct3Current: 'pressurantFlowRBVcurrent',
 
-        acLinAct4State: 'pressurantFillRBVstate',
-        acLinAct4Voltage: 'pressurantFillRBVvoltage',
-        acLinAct4Current: 'pressurantFillRBVcurrent',
+        acLinAct4State: 'ERegACCh3state',
+        acLinAct4Voltage: 'ERegACCh3voltage',
+        acLinAct4Current: 'ERegACCh3current',
         
-        acLinAct5State: 'purgePrechillVentRBVstate',
-        acLinAct5Voltage: 'purgePrechillVentRBVvoltage',
-        acLinAct5Current: 'purgePrechillVentRBVcurrent',
+        acLinAct5State: 'ERegACCh4state',
+        acLinAct5Voltage: 'ERegACCh4voltage',
+        acLinAct5Current: 'ERegACCh4current',
         
         acLinAct6State: 'pressurantFillVentRBVstate',
         acLinAct6Voltage: 'pressurantFillVentRBVvoltage',
@@ -468,19 +468,19 @@ class App {
 
     this.addIPC('open-loxTankVentRBV', this.actCtrlr2.openActCh0);
     this.addIPC('close-loxTankVentRBV', this.actCtrlr2.closeActCh0);
-    this.addIPC('time-loxTankVentRBV', (e, val) => this.actCtrlr2.actCh0ms(val));
+    this.addIPC('time-loxTankVentRBV', (e, val) => this.actCtrlr2.actCh0ms(val)); //wtf why is this still like this
 
-    this.addIPC('open-loxPrechillRBV', this.actCtrlr1.openActCh2);
-    this.addIPC('close-loxPrechillRBV', this.actCtrlr1.closeActCh2);
-    this.addIPC('time-loxPrechillRBV', (e, val) => this.actCtrlr1.actCh2ms(val));
+    this.addIPC('open-ERegACCh2', this.actCtrlr1.openActCh2);
+    this.addIPC('close-ERegACCh2', this.actCtrlr1.closeActCh2);
+    this.addIPC('time-ERegACCh2', (e, val) => this.actCtrlr1.actCh2ms(val));
 
-    this.addIPC('open-purgePrechillVentRBV', this.actCtrlr1.openActCh4);
-    this.addIPC('close-purgePrechillVentRBV', this.actCtrlr1.closeActCh4);
-    this.addIPC('time-purgePrechillVentRBV', (e, val) => this.actCtrlr1.actCh4ms(val));
+    this.addIPC('open-ERegACCh4', this.actCtrlr1.openActCh4);
+    this.addIPC('close-ERegACCh4', this.actCtrlr1.closeActCh4);
+    this.addIPC('time-ERegACCh4', (e, val) => this.actCtrlr1.actCh4ms(val));
 
-    this.addIPC('open-pressurantFillRBV', this.actCtrlr1.openActCh3);
-    this.addIPC('close-pressurantFillRBV', this.actCtrlr1.closeActCh3);
-    this.addIPC('time-pressurantFillRBV', (e, val) => this.actCtrlr1.actCh3ms(val));
+    this.addIPC('open-ERegACCh3', this.actCtrlr1.openActCh3);
+    this.addIPC('close-ERegACCh3', this.actCtrlr1.closeActCh3);
+    this.addIPC('time-ERegACCh3', (e, val) => this.actCtrlr1.actCh3ms(val));
 
     this.addIPC('open-pressurantFillVentRBV', this.actCtrlr1.openActCh5);
     this.addIPC('close-pressurantFillVentRBV', this.actCtrlr1.closeActCh5);

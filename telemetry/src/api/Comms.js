@@ -84,9 +84,9 @@ class Comms {
     this.closePressurantFlowRBV = this.closePressurantFlowRBV.bind(this);
     this.timePressurantFlowRBV = this.timePressurantFlowRBV.bind(this);
 
-    this.openPressurantFillRBV = this.openPressurantFillRBV.bind(this);
-    this.closePressurantFillRBV = this.closePressurantFillRBV.bind(this);
-    this.timePressurantFillRBV = this.timePressurantFillRBV.bind(this);
+    this.openERegACCh3 = this.openERegACCh3.bind(this);
+    this.closeERegACCh3 = this.closeERegACCh3.bind(this);
+    this.timeERegACCh3 = this.timeERegACCh3.bind(this);
 
     this.openPressurantFillVentRBV = this.openPressurantFillVentRBV.bind(this);
     this.closePressurantFillVentRBV = this.closePressurantFillVentRBV.bind(this);
@@ -132,13 +132,13 @@ class Comms {
 
     //-------Actuator Controller 3-------
 
-    this.openloxPrechillRBV = this.openloxPrechillRBV.bind(this);
-    this.closeloxPrechillRBV = this.closeloxPrechillRBV.bind(this);
-    this.timeloxPrechillRBV = this.timeloxPrechillRBV.bind(this);
+    this.openERegACCh2 = this.openERegACCh2.bind(this);
+    this.closeERegACCh2 = this.closeERegACCh2.bind(this);
+    this.timeERegACCh2 = this.timeERegACCh2.bind(this);
 
-    this.openPurgePrechillVentRBV = this.openPurgePrechillVentRBV.bind(this);
-    this.closePurgePrechillVentRBV = this.closePurgePrechillVentRBV.bind(this);
-    this.timePurgePrechillVentRBV = this.timePurgePrechillVentRBV.bind(this);
+    this.openERegACCh4 = this.openERegACCh4.bind(this);
+    this.closeERegACCh4 = this.closeERegACCh4.bind(this);
+    this.timeERegACCh4 = this.timeERegACCh4.bind(this);
 
     this.openPrechillFlowRBV = this.openPrechillFlowRBV.bind(this);
     this.closePrechillFlowRBV = this.closePrechillFlowRBV.bind(this);
@@ -417,16 +417,16 @@ class Comms {
     return await this.ipc.invoke('time-pressurantFlowRBV', val);
   }
 
-  async openPressurantFillRBV() {
-    return await this.ipc.invoke('open-pressurantFillRBV');
+  async openERegACCh3() {
+    return await this.ipc.invoke('open-ERegACCh3');
   }
 
-  async closePressurantFillRBV() {
-    return await this.ipc.invoke('close-pressurantFillRBV');
+  async closeERegACCh3() {
+    return await this.ipc.invoke('close-ERegACCh3');
   }
 
-  async timePressurantFillRBV(val) {
-    return await this.ipc.invoke('time-pressurantFillRBV', val);
+  async timeERegACCh3(val) {
+    return await this.ipc.invoke('time-ERegACCh3', val);
   }
 
   async openPressurantFillVentRBV() {
@@ -537,28 +537,28 @@ class Comms {
     return await this.ipc.invoke('set-loxTankBottomHeater', val);
   }
 
-  async openloxPrechillRBV() {
-    return await this.ipc.invoke('open-loxPrechillRBV');
+  async openERegACCh2() {
+    return await this.ipc.invoke('open-ERegACCh2');
   }
 
-  async closeloxPrechillRBV() {
-    return await this.ipc.invoke('close-loxPrechillRBV');
+  async closeERegACCh2() {
+    return await this.ipc.invoke('close-ERegACCh2');
   }
 
-  async timeloxPrechillRBV(val) {
-    return await this.ipc.invoke('time-loxPrechillRBV', val);
+  async timeERegACCh2(val) {
+    return await this.ipc.invoke('time-ERegACCh2', val);
   }
 
-  async openPurgePrechillVentRBV() {
-    return await this.ipc.invoke('open-purgePrechillVentRBV');
+  async openERegACCh4() {
+    return await this.ipc.invoke('open-ERegACCh4');
   }
 
-  async closePurgePrechillVentRBV() {
-    return await this.ipc.invoke('close-purgePrechillVentRBV');
+  async closeERegACCh4() {
+    return await this.ipc.invoke('close-ERegACCh4');
   }
 
-  async timePurgePrechillVentRBV(val) {
-    return await this.ipc.invoke('time-purgePrechillVentRBV', val);
+  async timeERegACCh4(val) {
+    return await this.ipc.invoke('time-ERegACCh4', val);
   }
 
   async openPrechillFlowRBV() {
