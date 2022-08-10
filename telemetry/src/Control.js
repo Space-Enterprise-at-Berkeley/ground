@@ -420,8 +420,8 @@ class Control extends Component {
                   </Grid> */}
                 </Grid>
 
-                <Grid container={true} spacing={1}>
-                  {/* <Grid item={1} xs={6}>
+                {/* <Grid container={true} spacing={1}>
+                  <Grid item={1} xs={6}>
                     <ButtonGroupRBVTimed
                       open={comms.openfuelTankVentRBV}
                       close={comms.closefuelTankVentRBV}
@@ -430,17 +430,17 @@ class Control extends Component {
                       text='Prop Tank Vent RBV'
                     />
                   </Grid> */}
-                  <Grid item={1} xs={12}>
+                  {/* <Grid item={1} xs={12}>
                     <ButtonGroupRBVTimed
-                      open={comms.openPrechillFlowRBV}
-                      close={comms.closePrechillFlowRBV}
-                      time={comms.timePrechillFlowRBV}
-                      field='prechillFlowRBVstate'
-                      text='Prechill Flow RBV'
+                    open={comms.openPrechillFlowRBV}
+                    close={comms.closePrechillFlowRBV}
+                    time={comms.timePrechillFlowRBV}
+                    field='prechillFlowRBVstate'
+                    text='Prechill Flow RBV'
                     />
                   </Grid>
-                </Grid>
-                <Grid container={true} spacing={1}>
+                </Grid> */}
+                {/* <Grid container={true} spacing={1}>
                   <Grid item={1} xs={12}>
                     <SwitchButton
                       open={comms.enableFastRead}
@@ -449,7 +449,7 @@ class Control extends Component {
                       text='Fast Read Rate'
                     />
                   </Grid>
-                </Grid>
+                </Grid> */}
                 <Grid container={true} spacing={1}>
                   {/* <Grid item={1} xs={6}>
                     <ButtonGroupRBVTimed
@@ -484,7 +484,7 @@ class Control extends Component {
               </Grid> */}
             </Grid>
             <Grid container={true} spacing={1}>
-              <Grid item={1} xs={3} className={classes.item}>
+              {/* <Grid item={1} xs={3} className={classes.item}>
                 <Grid container spacing={1} direction='column'>
                   <Grid item>
                     <ButtonGroupHeater
@@ -508,8 +508,8 @@ class Control extends Component {
                     />
                   </Grid>
                 </Grid>
-              </Grid>
-              <Grid item={1} xs={3} className={classes.item}>
+              </Grid> */}
+              {/* <Grid item={1} xs={3} className={classes.item}>
                 <Grid container spacing={1} direction='column'>
                   <Grid item>
                     <ButtonGroup
@@ -548,8 +548,8 @@ class Control extends Component {
                     />
                   </Grid>
                 </Grid>
-              </Grid>
-              <Grid item={1} xs={3} className={classes.item}>
+              </Grid> */}
+              {/* <Grid item={1} xs={3} className={classes.item}>
                 <Grid container spacing={1} direction='column'>
                   <Grid item>
                     <ButtonGroup
@@ -566,7 +566,7 @@ class Control extends Component {
                     />
                   </Grid>
                 </Grid>
-              </Grid>
+              </Grid> */}
               <Grid item={1} xs={3} className={classes.item}>
                 
               </Grid>
