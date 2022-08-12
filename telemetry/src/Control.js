@@ -152,12 +152,12 @@ class Control extends Component {
                   </Grid>
                   <Grid item={1} xs={6}>
                     <SwitchButton
-                      text='Pressurant Enable'
-                      open={comms.doNothing}
-                      close={comms.doNothing}
-                      field='HPSEnable'
-                      change={e => {this.setState({HPS_en: e.target.checked});} }
-                    />
+                        open={comms.openERegAC24VCh1}
+                        close={comms.closeERegAC24VCh0}
+                        field='_'
+                        text='24VChan1'
+                        change={e => {this.setState({HPS_en: e.target.checked});} }
+                      />
                   </Grid>
                 </Grid>
                 <Grid container={true} spacing={1}>
@@ -310,10 +310,11 @@ class Control extends Component {
                   </Grid>
                   <Grid item={1} xs={6}>
                     <SwitchButton
-                      open={comms.enableIgniter}
-                      close={comms.disableIgniter}
+                      open={comms.openERegAC24VCh0}
+                      close={comms.closeERegAC24VCh0}
                       field='_'
-                      text='Igniter Enable'
+                      text='24VChan0'
+                      change={e => {this.setState({HPS_en: e.target.checked});} }
                     />
                   </Grid>
                   <Grid item={1} xs={6}>
