@@ -183,10 +183,9 @@ class Control extends Component {
                   </Grid>
                   <Grid item={1} xs={6}>
                     <ButtonGroup
-                      open={
+                      open={comms.closeERegAC24VCh0}
                         //EMPTY HERE
-                        comms.openfuelMainValve()
-                      }
+                        //comms.openfuelMainValve()
                       close={() => {
                         comms.closeloxMainValve()
                         // comms.closefuelMainValve()
