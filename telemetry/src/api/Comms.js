@@ -109,6 +109,11 @@ class Comms {
     this.closeERegACCh0 = this.closeERegACCh0.bind(this);
     this.timeERegACCh0 = this.timeERegACCh0.bind(this);
 
+    this.openERegAC24VCh0 = this.openERegAC24VCh0.bind(this);
+    this.closeERegAC24VCh0 = this.closeERegAC24VCh0.bind(this);
+    this.openERegAC24VCh1 = this.openERegAC24VCh1.bind(this);
+    this.closeERegAC24VCh1 = this.closeERegAC24VCh1.bind(this);
+
     // this.openPressurantVentRBV = this.openPressurantVentRBV.bind(this);
     // this.closePressurantVentRBV = this.closePressurantVentRBV.bind(this);
     // this.timePressurantVentRBV = this.timePressurantVentRBV.bind(this);
@@ -457,6 +462,22 @@ class Comms {
 
   async timeERegACCh6(val) {
     return await this.ipc.invoke('time-ERegACCh6', val);
+  }
+
+  async openERegAC24VCh0(val) {
+    return await this.ipc.invoke('open-ERegAC24VCh0', val);
+  }
+
+  async closeERegAC24VCh0(val) {
+    return await this.ipc.invoke('close-ERegAC24VCh0', val);
+  }
+
+  async openERegAC24VCh1(val) {
+    return await this.ipc.invoke('open-ERegAC24VCh1', val);
+  }
+
+  async closeERegAC24VCh1(val) {
+    return await this.ipc.invoke('close-ERegAC24VCh1', val);
   }
 
   // async openLOxVentRBV() {return await this.ipc.invoke('open-LOxVentRBV'); }
