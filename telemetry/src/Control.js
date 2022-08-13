@@ -170,15 +170,7 @@ class Control extends Component {
                       text='LOX Tank Vent RBV'
                     />
                   </Grid>
-                  <Grid item={1} xs={6}>
-                    <ButtonGroupRBVTimed
-                      open={comms.openfuelTankVentRBV}
-                      close={comms.closefuelTankVentRBV}
-                      time={comms.timefuelTankVentRBV}
-                      field='fuelTankVentRBVstate'
-                      text='Fuel Tank Vent RBV'
-                    />
-                  </Grid>
+
                 </Grid>
                 <Grid container={true} spacing={1}>
                   <Grid item={1} xs={6}>
@@ -191,13 +183,14 @@ class Control extends Component {
                   </Grid>
                   <Grid item={1} xs={6}>
                     <ButtonGroup
-                      open={() => {
-                        comms.openloxMainValve()
-                        comms.openfuelMainValve()
-                      }}
+                      open={
+                        //EMPTY HERE
+                        comms.openloxMainValve
+                        // comms.openfuelMainValve()
+                      }
                       close={() => {
                         comms.closeloxMainValve()
-                        comms.closefuelMainValve()
+                        // comms.closefuelMainValve()
                       }}
                       field='loxMainValveState'
                       text='Both Valves'

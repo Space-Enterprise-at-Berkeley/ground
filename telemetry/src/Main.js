@@ -101,7 +101,7 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'pressurantPT',
+                        name: 'EREG_HP_PT',
                         color: [70, 1, 155],
                         unit: 'PSI'
                       }
@@ -114,7 +114,7 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'loxTankPT',
+                        name: 'EREG_LP_PT',
                         color: [0, 126, 254],
                         unit: 'PSI'
                       }
@@ -127,7 +127,7 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'fuelTankPT',
+                        name: 'EREG_MOTOR_POWER',
                         color: [0, 187, 0],
                         unit: 'PSI'
                       }
@@ -138,7 +138,7 @@ class Main extends Component {
               <Grid item={1} xs={4} className={classes.item}>
                 <SixValueSquare
                   field1={{
-                    name: 'LOX DOME',
+                    name: 'EREG_ANGLE_SETPOINT',
                     field: 'loxDomePT',
                     unit: 'PSI'
                   }}
@@ -175,7 +175,7 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'loxInjectorPT',
+                        name: 'EREG_ENCODER_ANGLE',
                         color: [221, 0, 0],
                         unit: 'PSI'
                       }
