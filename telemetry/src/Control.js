@@ -153,7 +153,7 @@ class Control extends Component {
                   <Grid item={1} xs={6}>
                     <SwitchButton
                         open={comms.openERegAC24VCh1}
-                        close={comms.closeERegAC24VCh0}
+                        close={comms.closeERegAC24VCh1}
                         field='_'
                         text='24VChan1'
                         change={e => {this.setState({HPS_en: e.target.checked});} }

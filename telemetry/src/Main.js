@@ -129,7 +129,7 @@ class Main extends Component {
                       {
                         name: 'EREG_MOTOR_POWER',
                         color: [0, 187, 0],
-                        unit: 'PSI'
+                        unit: '%'
                       }
                     ]
                   }
@@ -177,7 +177,7 @@ class Main extends Component {
                       {
                         name: 'EREG_ENCODER_ANGLE',
                         color: [221, 0, 0],
-                        unit: 'PSI'
+                        unit: 'Count'
                       }
                     ]
                   }
