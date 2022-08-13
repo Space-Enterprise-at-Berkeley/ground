@@ -156,6 +156,19 @@ const INBOUND_PACKET_DEFS = {
   ],
 
   // [60:89] ACTUATOR CONTROLLERS
+  5: [
+    ['EREG_HP_PT', asFloat],
+    ['EREG_LP_PT', asFloat],
+    ['EREG_INJECTOR_PT', asFloat],
+    ['EREG_ENCODER_ANGLE', asFloat],
+    ['EREG_ANGLE_SETPOINT', asFloat],
+    ['EREG_MOTOR_POWER', asFloat],
+    ['EREG_PRESSURE_SETPOINT', asFloat],
+    ['EREG_PRESSURE_CONTROL_P', asFloat],
+    ['EREG_PRESSURE_CONTROL_I', asFloat],
+    ['EREG_PRESSURE_CONTROL_D', asFloat],
+    
+  ],
   61: [
     ['acBattVoltage', asFloat],
     ['acBattCurrent', asFloat],
@@ -302,6 +315,9 @@ const OUTBOUND_PACKET_DEFS = {
   15: [UINT8, UINT32],
   16: [UINT8, UINT32],
   17: [UINT8, UINT32],
+
+  34: [],
+
   180: [UINT8],
   181: [UINT8],
   182: [UINT8],

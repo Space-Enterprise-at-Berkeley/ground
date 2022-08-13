@@ -4,6 +4,7 @@ class ActuatorController extends Board {
   constructor(port, address, mapping, onConnect, onDisconnect, onRate) {
     super(port, address, mapping, onConnect, onDisconnect, onRate);
 
+
     this.open12vCh0 = this.open12vCh0.bind(this);
     this.close12vCh0 = this.close12vCh0.bind(this);
 
@@ -19,6 +20,7 @@ class ActuatorController extends Board {
     this.openActCh0 = this.openActCh0.bind(this);
     this.closeActCh0 = this.closeActCh0.bind(this);
     this.actCh0ms = this.actCh0ms.bind(this);
+
 
     this.openActCh1 = this.openActCh1.bind(this);
     this.closeActCh1 = this.closeActCh1.bind(this);
@@ -47,6 +49,7 @@ class ActuatorController extends Board {
 
   }
 
+
   open12vCh0() { return this.sendPacket(180, [1]); }
   close12vCh0() { return this.sendPacket(180, [0]); }
 
@@ -58,6 +61,7 @@ class ActuatorController extends Board {
 
   open24vCh1() { return this.sendPacket(183, [1]); }
   close24vCh1() { return this.sendPacket(183, [0]); }
+
 
   openActCh0() { return this.sendPacket(10, [0, 0.0]); }
   closeActCh0() { return this.sendPacket(10, [1, 0.0]); }

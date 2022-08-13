@@ -104,6 +104,7 @@ class Comms {
     this.closeloxTankVentRBV = this.closeloxTankVentRBV.bind(this);
     this.timeloxTankVentRBV = this.timeloxTankVentRBV.bind(this);
 
+
     this.openERegACCh0 = this.openERegACCh0.bind(this);
     this.closeERegACCh0 = this.closeERegACCh0.bind(this);
     this.timeERegACCh0 = this.timeERegACCh0.bind(this);
@@ -122,7 +123,6 @@ class Comms {
     // this.closePropaneVentRBV = this.closePropaneVentRBV.bind(this);
     // this.timePropaneVentRBV = this.timePropaneVentRBV.bind(this);
 
-    this.runERegDiag = this.runERegDiag.bind(this);
 
     this.openERegACCh1 = this.openERegACCh1.bind(this);
     this.closeERegACCh1 = this.closeERegACCh1.bind(this);
@@ -467,6 +467,7 @@ class Comms {
     return await this.ipc.invoke('open-loxTankVentRBV');
   }
 
+
   async closeloxTankVentRBV() {
     return await this.ipc.invoke('close-loxTankVentRBV');
   }
@@ -517,9 +518,6 @@ class Comms {
   // async openPropaneVentRBV() {return await this.ipc.invoke('open-propaneVentRBV'); }
   // async closePropaneVentRBV() {return await this.ipc.invoke('close-propaneVentRBV'); }
   // async timePropaneVentRBV(val) {return await this.ipc.invoke('time-propaneVentRBV', val); }
-  async runERegDiag() {
-    return await this.ipc.invoke('runERegDiag');
-  }
 
   async openERegACCh1() {
     return await this.ipc.invoke('open-ERegACCh1');

@@ -185,8 +185,7 @@ class Control extends Component {
                     <ButtonGroup
                       open={
                         //EMPTY HERE
-                        comms.openloxMainValve
-                        // comms.openfuelMainValve()
+                        comms.openfuelMainValve()
                       }
                       close={() => {
                         comms.closeloxMainValve()

@@ -462,6 +462,7 @@ class App {
 
 
     // Actuator Controller 1
+    
     this.addIPC('open-ERegACCh0', this.actCtrlr1.openActCh0);
     this.addIPC('close-ERegACCh0', this.actCtrlr1.closeActCh0);
     this.addIPC('time-ERegACCh0', (e, val) => this.actCtrlr1.actCh0ms(val));
