@@ -114,6 +114,25 @@ class Comms {
     this.openERegAC24VCh1 = this.openERegAC24VCh1.bind(this);
     this.closeERegAC24VCh1 = this.closeERegAC24VCh1.bind(this);
 
+    this.sendFuelERegDiag = this.sendFuelERegDiag.bind(this);
+    this.sendLOXERegDiag = this.sendLOXERegDiag.bind(this);
+
+    this.startOneSidedFuel = this.startOneSidedFuel.bind(this);
+    this.startOneSidedLOX = this.startOneSidedLOX.bind(this);
+
+    this.beginERegFlow = this.beginERegFlow.bind(this);
+
+    this.abortEReg = this.abortEReg.bind(this);
+
+    this.setFuelERegEncoder = this.setFuelERegEncoder.bind(this);
+    this.setLOXERegEncoder = this.setLOXERegEncoder.bind(this);
+
+    this.pressERegFuelStatic = this.pressERegFuelStatic.bind(this);
+    this.pressERegLOXStatic = this.pressERegLOXStatic.bind(this);
+
+    this.zeroERegFuelEncoder = this.zeroERegFuelEncoder.bind(this);
+    this.zeroERegLOXEncoder = this.zeroERegLOXEncoder.bind(this);
+
     // this.openPressurantVentRBV = this.openPressurantVentRBV.bind(this);
     // this.closePressurantVentRBV = this.closePressurantVentRBV.bind(this);
     // this.timePressurantVentRBV = this.timePressurantVentRBV.bind(this);
@@ -479,6 +498,54 @@ class Comms {
 
   async closeERegAC24VCh1(val) {
     return await this.ipc.invoke('close-ERegAC24VCh1', val);
+  }
+
+  async sendFuelERegDiag(val) {
+    return await this.ipc.invoke('send-FuelERegDiag');
+  }
+
+  async sendLOXERegDiag(val) {
+    return await this.ipc.invoke('send-LOXERegDiag');
+  }
+
+  async startOneSidedFuel(val) {
+    return await this.ipc.invoke('start-oneSidedFuel');
+  }
+
+  async startOneSidedLOX(val) {
+    return await this.ipc.invoke('start-oneSidedLOX')
+  }
+
+  async beginERegFlow(val) {
+    return await this.ipc.invoke('begin-ERegFlow');
+  }
+
+  async abortEReg(val) {
+    return await this.ipc.invoke('abort-EReg');
+  }
+
+  async setFuelERegEncoder(val) {
+    return await this.ipc.invoke('set-FuelERegEncoder', val);
+  }
+
+  async setLOXERegEncoder(val) {
+    return await this.ipc.invoke('set-LOXERegEncoder', val);
+  }
+
+  async pressERegFuelStatic(val) {
+    return await this.ipc.invoke('press-ERegFuelStatic');
+  }
+
+  async pressERegLOXStatic(val) {
+    return await this.ipc.invoke('press-ERegLOXStatic');
+  }
+
+  async zeroERegFuelEncoder(val) {
+    return await this.ipc.invoke('zero-ERegFuelEncoder');
+  }
+
+  async zeroERegLOXEncoder(val) {
+    return await this.ipc.invoke('zero-ERegLOXEncoder');
   }
 
   // async openLOxVentRBV() {return await this.ipc.invoke('open-LOxVentRBV'); }

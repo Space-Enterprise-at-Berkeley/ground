@@ -534,6 +534,7 @@ class MessageDisplaySquare
   }
 
   handleUpdate(timestamp, update) {
+    console.log("heree")
     const discardedFields = new Set()
     const nodes = [ROOT_OPTION_GROUPING]
 

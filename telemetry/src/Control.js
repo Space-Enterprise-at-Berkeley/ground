@@ -51,7 +51,8 @@ class Control extends Component {
     this.state = {
       isDark: false,
       showSettings: false,
-      HPS_en: false
+      HPS_en: false,
+      flow_en: false
     };
 
     this.handleDarkMode = this.handleDarkMode.bind(this);
@@ -74,23 +75,24 @@ class Control extends Component {
 
   beginFlowAll() {
     this.startCountdown();
-    comms.closeloxTankVentRBV();
-    comms.closefuelTankVentRBV();
-    comms.closeERegACCh2();
-    comms.closefuelPrechillRBV();
-    comms.closePurgeFlowRBV();
+    // comms.closeloxTankVentRBV();
+    // comms.closefuelTankVentRBV();
+    // comms.closeERegACCh2();
+    // comms.closefuelPrechillRBV();
+    // comms.closePurgeFlowRBV(); //TODO change mappings to close packets automatically for EReg
 
-    setTimeout(comms.beginFlow, 4000);
+    setTimeout(comms.beginERegFlow, 4000);
   }
 
   abortAll() {
-    comms.abort();
+    comms.abortEReg();
 
-    comms.openloxTankVentRBV();
-    comms.openfuelTankVentRBV();
-    comms.openPurgeFlowRBV();
-    comms.openERegACCh2();
-    comms.openfuelPrechillRBV();
+    // comms.openloxTankVentRBV();
+    // comms.openfuelTankVentRBV();
+    // comms.openPurgeFlowRBV();
+    // comms.openERegACCh2();
+    // comms.openfuelPrechillRBV(); //TODO OPEN VENTS
+
 
     this.stopCountdown();
   }
@@ -140,76 +142,117 @@ class Control extends Component {
               {/* START OF FIRST BUTTON COLUMN */}
               <Grid item={1} xs={4} className={classes.item}>
                 <Grid container={true} spacing={1}>
-                  <Grid item={1} xs={6}>
-                    <ButtonGroupRBVTimed
-                      open={comms.openPressurantFlowRBV}
-                      close={comms.closePressurantFlowRBV}
-                      time={comms.timePressurantFlowRBV}
-                      field='pressurantFlowRBVstate'
-                      text='Pressurant Flow RBV'
-                      disabled={!this.state.HPS_en}
+                  {/* <Grid item={1} xs={6}>
+                    <ButtonGroup
+                      open={comms.openERegAC24VCh0}
+                      close={comms.closeERegAC24VCh0}
+                      text='24VChan0'
+                      // disabled={!this.state.HPS_en}
                     />
-                  </Grid>
-                  <Grid item={1} xs={6}>
-                    <SwitchButton
-                        open={comms.openERegAC24VCh1}
-                        close={comms.closeERegAC24VCh0}
-                        field='_'
-                        text='24VChan1'
-                        change={e => {this.setState({HPS_en: e.target.checked});} }
-                      />
-                  </Grid>
+                  </Grid> */}
+
                 </Grid>
                 <Grid container={true} spacing={1}>
                   <Grid item={1} xs={6}>
                     <ButtonGroupRBVTimed
-                      open={comms.openloxTankVentRBV}
-                      close={comms.closeloxTankVentRBV}
-                      time={comms.timeloxTankVentRBV}
-                      field='loxTankVentRBVstate'
-                      text='LOX Tank Vent RBV'
+                      open={() => comms.setFuelERegEncoder(1000)}
+                      close={() => comms.setFuelERegEncoder(0)}
+                      time={comms.setFuelERegEncoder}
+                      text='Set Fuel EReg Encoder (0-1000)'
+                      successText='1000'
+                      failText ='0'
+                      send_repl = 'SEND'
+                    />
+                  </Grid>
+
+                  <Grid item={1} xs={6}>
+                    <ButtonGroupRBVTimed
+                      open={() => comms.setLOXERegEncoder(1000)}
+                      close={() => comms.setLOXERegEncoder(0)}
+                      time={comms.setLOXERegEncoder}
+                      text='Set LOX EReg Encoder (0-1000)'
+                      successText='1000'
+                      failText ='0'
+                      send_repl = 'SEND'
                     />
                   </Grid>
 
                 </Grid>
                 <Grid container={true} spacing={1}>
-                  <Grid item={1} xs={6}>
+                  {/* <Grid item={1} xs={6}>
                     <ButtonGroup
                       open={comms.openarmValve}
                       close={comms.closearmValve}
                       field='armValveState'
                       text='Arm Main Valves'
                     />
-                  </Grid>
+                  </Grid> */}
                   <Grid item={1} xs={6}>
                     <ButtonGroup
-                      open={comms.closeERegAC24VCh0}
-                        //EMPTY HERE
-                        //comms.openfuelMainValve()
-                      close={() => {
-                        comms.closeloxMainValve()
-                        // comms.closefuelMainValve()
-                      }}
-                      field='loxMainValveState'
-                      text='Both Valves'
+                      open={comms.zeroERegFuelEncoder}
+                      close={comms.zeroERegLOXEncoder}
+                      text='Zero Encoder'
+                      successText='Fuel EReg'
+                      failText='LOX EReg'
                     />
                   </Grid>
+
+                  <Grid item={1} xs={6}>
+                    <ButtonGroup
+                      open={comms.sendFuelERegDiag}
+                      close={comms.sendLOXERegDiag}
+                      text='Run Diagnostic'
+                      successText='Fuel EReg'
+                      failText='LOX EReg'
+                    />
+                  </Grid>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  <br></br>
                 </Grid>
                 <Grid container={true} spacing={1}>
+                <Grid item={1} xs={6}>
+                    <SwitchButton
+                      open={comms.doNothing}
+                      close={comms.doNothing}
+                      text='Enable Static Press & Flow'
+                      change={e => {this.setState({flow_en: e.target.checked});}}
+                      />
+                  </Grid>
                   <Grid item={1} xs={6}>
                     <ButtonGroup
-                      open={comms.openloxMainValve}
-                      close={comms.closeloxMainValve}
-                      field='loxMainValveState'
-                      text='LOX Main'
+                      open={comms.pressERegFuelStatic}
+                      close={comms.pressERegLOXStatic}
+                      text='Static Pressurize'
+                      successText='Fuel EReg'
+                      failText = 'LOX EReg'
+                      disabled = {!this.state.flow_en}
                     />
                   </Grid>
                   <Grid item={1} xs={6}>
                     <ButtonGroup
-                      open={comms.openfuelMainValve}
-                      close={comms.closefuelMainValve}
-                      field='fuelMainValveState'
-                      text='Prop Main'
+                      open={comms.startOneSidedFuel}
+                      close={comms.startOneSidedLOX}
+                      text='Start Single Propellant Flow'
+                      successText='Fuel EReg'
+                      failText='LOX EReg'
+                      disabled = {!this.state.flow_en}
+                    />
+                  </Grid>
+                  <Grid item={1} xs={6}>
+                    <ButtonGroupFlow
+                      open={this.beginFlowAll}
+                      close={this.abortAll}
+                      field='__' // change this?
+                      text='Begin Flow'
+                      disabled = {!this.state.flow_en}
                     />
                   </Grid>
                 </Grid>
@@ -224,7 +267,7 @@ class Control extends Component {
                       failText='Retract'
                     />
                   </Grid> */}
-                  <Grid item={1} xs={6}>
+                  {/* <Grid item={1} xs={6}>
                     <ButtonGroupFlow
                       open={comms.activateIgniter}
                       close={comms.deactivateIgniter}
@@ -234,15 +277,8 @@ class Control extends Component {
                       failText='Deactivate'
                       onActuateCallback={this.playUpdog}
                     />
-                  </Grid>
-                  <Grid item={1} xs={6}>
-                    <ButtonGroupFlow
-                      open={this.beginFlowAll}
-                      close={this.abortAll}
-                      field='__' // change this?
-                      text='Begin Flow'
-                    />
-                  </Grid>
+                  </Grid> */}
+
                 </Grid>
                 {/* <Grid container={true} spacing={1}>
                   <Grid item={1} xs={12}>
@@ -265,7 +301,7 @@ class Control extends Component {
                       close={comms.closeERegACCh0}
                       time={comms.timeERegACCh0}
                       field='ERegACCh0state'
-                      text='Channel 0'
+                      text='RBV Channel 0'
                     />
                   </Grid>
                   <Grid item={1} xs={6}>
@@ -274,7 +310,7 @@ class Control extends Component {
                       close={comms.closeERegACCh1}
                       time={comms.timeERegACCh1}
                       field='ERegACCh1state'
-                      text='Channel 1'
+                      text='RBV Channel 1'
                     />
                   </Grid>
                 </Grid>
@@ -286,7 +322,7 @@ class Control extends Component {
                       close={comms.closeERegACCh3}
                       time={comms.timeERegACCh3}
                       field='ERegACCh3state'
-                      text='Channel 3'
+                      text='RBV Channel 3'
                     />
                   </Grid>
                   <Grid item={1} xs={6}>
@@ -296,16 +332,7 @@ class Control extends Component {
                       close={comms.closeERegACCh4}
                       time={comms.timeERegACCh4}
                       field='ERegACCh4state'
-                      text='Channel 4'
-                    />
-                  </Grid>
-                  <Grid item={1} xs={6}>
-                    <SwitchButton
-                      open={comms.openERegAC24VCh0}
-                      close={comms.closeERegAC24VCh0}
-                      field='_'
-                      text='24VChan0'
-                      change={e => {this.setState({HPS_en: e.target.checked});} }
+                      text='RBV Channel 4'
                     />
                   </Grid>
                   <Grid item={1} xs={6}>
@@ -315,14 +342,34 @@ class Control extends Component {
                       close={comms.closeERegACCh6}
                       time={comms.timeERegACCh6}
                       field='ERegACCh6state'
-                      text='Channel 6'
+                      text='RBV Channel 6'
                     />
                   </Grid>
+                  <Grid item={1} xs={6}>
+                    <ButtonGroup
+                      open={comms.openERegAC24VCh0}
+                      close={comms.closeERegAC24VCh0}
+                      text='24VChan0'
+                      // disabled={!this.state.HPS_en}
+                    />
+                  </Grid>
+                  
+
+                  {/* <Grid item={1} xs={6}>
+                    <ButtonGroupRBVTimed
+
+                      open={comms.openERegACCh6}
+                      close={comms.closeERegACCh6}
+                      time={comms.timeERegACCh6}
+                      field='ERegACCh6state'
+                      text='Channel 6'
+                    />
+                  </Grid> */}
                 </Grid>
                 <Grid container={true} spacing={1}>
                   <Grid item={1} xs={12}>
                     <BigButton
-                      onClick={() => {comms.abort()}}
+                      onClick={() => {this.abortAll()}}
                       text='Abort'
                       isRed
                     />
@@ -356,7 +403,7 @@ class Control extends Component {
                       close={comms.closeERegACCh2}
                       time={comms.timeERegACCh2}
                       field='ERegACCh2state'
-                      text='Channel 2'
+                      text='RBV Channel 2'
                     />
                   </Grid>
                   {/* <Grid item={1} xs={6}>
@@ -386,8 +433,17 @@ class Control extends Component {
                       close={comms.closeERegACCh5}
                       time={comms.timeERegACCh5}
                       field='ERegACCh5state'
-                      text='Channel 5'
+                      text='RBV Channel 5'
                     />
+                  </Grid>
+
+                  <Grid item={1} xs={12}>
+                    <ButtonGroup
+                        open={comms.openERegAC24VCh1}
+                        close={comms.closeERegAC24VCh1}
+                        field='_'
+                        text='24VChan1'
+                      />
                   </Grid>
                 </Grid>
                 <Grid container={true} spacing={1}>

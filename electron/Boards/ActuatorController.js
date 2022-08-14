@@ -46,6 +46,24 @@ class ActuatorController extends Board {
     this.closeActCh6 = this.closeActCh6.bind(this);
     this.actCh6ms = this.actCh6ms.bind(this);
 
+    this.sendFuelEregDiag = this.sendFuelEregDiag.bind(this);
+    this.sendLOXEregDiag = this.sendLOXEregDiag.bind(this);
+
+    this.startOneSidedFuel = this.startOneSidedFuel.bind(this);
+    this.startOneSidedLOX = this.startOneSidedLOX.bind(this);
+
+    this.beginERegFlow = this.beginERegFlow.bind(this);
+
+    this.abortEReg = this.abortEReg.bind(this);
+
+    this.setLOXERegEncoder = this.setLOXERegEncoder.bind(this);
+    this.setFuelERegEncoder = this.setFuelERegEncoder.bind(this);
+
+    this.pressERegFuelStatic = this.pressERegFuelStatic.bind(this);
+    this.pressERegLOXStatic = this.pressERegLOXStatic.bind(this);
+
+    this.zeroERegFuelEncoder = this.zeroERegFuelEncoder.bind(this);
+    this.zeroERegLOXEncoder = this.zeroERegLOXEncoder.bind(this);
 
   }
 
@@ -56,11 +74,11 @@ class ActuatorController extends Board {
   open12vCh1() { return this.sendPacket(181, [1]); }
   close12vCh1() { return this.sendPacket(181, [0]); }
 
-  open24vCh0() { return this.sendPacket(182, [1]); }
-  close24vCh0() { return this.sendPacket(182, [0]); }
+  open24vCh0() { return this.sendPacket(19, [1]); }
+  close24vCh0() { return this.sendPacket(19, [0]); }
 
-  open24vCh1() { return this.sendPacket(183, [1]); }
-  close24vCh1() { return this.sendPacket(183, [0]); }
+  open24vCh1() { return this.sendPacket(20, [1]); }
+  close24vCh1() { return this.sendPacket(20, [0]); }
 
 
   openActCh0() { return this.sendPacket(10, [0, 0.0]); }
@@ -90,6 +108,37 @@ class ActuatorController extends Board {
   openActCh6() { return this.sendPacket(16, [0, 0.0]); }
   closeActCh6() { return this.sendPacket(16, [1, 0.0]); }
   actCh6ms(time) { return this.sendPacket(16, [(time > 0) ? 2 : 3, Math.abs(time)]); }
+
+  sendFuelEregDiag() {return this.sendPacket(9, [0]);}
+  sendLOXEregDiag() {return this.sendPacket(9, [1]);}
+
+  startOneSidedFuel() {return this.sendPacket(1, [0]);}
+  startOneSidedLOX() {return this.sendPacket(1, [1]);}
+
+  beginERegFlow() {return this.sendPacket(2, []);}
+
+  abortEReg() {return this.sendPacket(3, []);}
+
+  setFuelERegEncoder(value) {
+    if ((value <= 1000) && (value >= 0)) {
+      return this.sendPacket(4, [0, value]);
+    } else {
+      console.log("fuel encoder set value out of bound");
+    }
+  }
+  setLOXERegEncoder(value) {
+    if ((value <= 1000) && (value >= 0)) {
+      return this.sendPacket(4, [1, value]);
+    } else {
+      console.log("lox encoder set value out of bound");
+    }
+  }
+
+  pressERegFuelStatic() {return this.sendPacket(6, [0]);}
+  pressERegLOXStatic() {return this.sendPacket(6, [1]);}
+
+  zeroERegFuelEncoder() {return this.sendPacket(8, [0]);}
+  zeroERegLOXEncoder() {return this.sendPacket(8, [1]);}
 
 }
 

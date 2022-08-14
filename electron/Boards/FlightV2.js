@@ -46,6 +46,7 @@ class FlightV2 extends Board {
 
     this.enableIgniter = this.enableIgniter.bind(this);
     this.disableIgniter = this.disableIgniter.bind(this);
+
   }
 
   openloxGemsValve() { return this.sendPacket(126, [1]); }

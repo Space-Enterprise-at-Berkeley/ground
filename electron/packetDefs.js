@@ -307,6 +307,20 @@ const OUTBOUND_PACKET_DEFS = {
   152: [],
 
   // [170..199] Sent to Actuator Controller
+
+  // EReg packets
+  1: [UINT8], //begin one sided flow -> [fuel ereg ? 1 : 0]
+  2: [], //start flow
+  3: [], //abort
+  4: [UINT8, UINT32], // set encoder to value; [fuel ereg ? 1 : 0, encoderValue]
+  6: [UINT8], //static press -> [fuel ereg ? 1 : 0]
+  // 7: [UINT8], //activate igniter
+  8: [UINT8], //Zero encoder; [fuel ereg ? 1 : 0]
+  9: [UINT8], //Run diagnostic; [fuel ereg ? 1 : 0]
+
+
+
+  //AC RBV & 24/12V packets
   10: [UINT8, UINT32],
   11: [UINT8, UINT32],
   12: [UINT8, UINT32],
@@ -316,10 +330,10 @@ const OUTBOUND_PACKET_DEFS = {
   16: [UINT8, UINT32],
   17: [UINT8, UINT32],
 
-  34: [],
 
-  180: [UINT8],
-  181: [UINT8],
+
+  19: [UINT8],
+  20: [UINT8],
   182: [UINT8],
   183: [UINT8],
 }

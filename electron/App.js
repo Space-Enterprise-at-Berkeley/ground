@@ -496,6 +496,28 @@ class App {
 
     this.addIPC('open-ERegAC24VCh1', this.actCtrlr1.open24vCh1);
     this.addIPC('close-ERegAC24VCh1', this.actCtrlr1.close24vCh1);
+
+    this.addIPC('send-FuelERegDiag', this.actCtrlr1.sendFuelEregDiag);
+    this.addIPC('send-LOXERegDiag', this.actCtrlr1.sendLOXEregDiag);
+
+    this.addIPC('start-oneSidedFuel', this.actCtrlr1.startOneSidedFuel);
+    this.addIPC('start-oneSidedLOX', this.actCtrlr1.startOneSidedLOX);
+
+    this.addIPC('begin-ERegFlow', this.actCtrlr1.beginERegFlow);
+
+    this.addIPC('abort-EReg', this.actCtrlr1.abortEReg);
+
+    this.addIPC('set-LOXERegEncoder', (e, val)=>this.actCtrlr1.setLOXERegEncoder(val));
+    this.addIPC('set-FuelERegEncoder', (e, val)=>this.actCtrlr1.setFuelERegEncoder(val));
+
+    this.addIPC('press-ERegFuelStatic', this.actCtrlr1.pressERegFuelStatic);
+    this.addIPC('press-ERegLOXStatic', this.actCtrlr1.pressERegLOXStatic);
+
+    this.addIPC('zero-ERegFuelEncoder', this.actCtrlr1.zeroERegFuelEncoder);
+    this.addIPC('zero-ERegLOXEncoder', this.actCtrlr1.zeroERegLOXEncoder);
+
+    
+
     
 
     // Actuator Controller 2

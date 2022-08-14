@@ -146,7 +146,8 @@ class ButtonGroupRBVTimed extends Component {
             disableRipple
             size='small'
           >
-            {this.props.failText || "Send"}
+            {this.props.send_repl || this.props.failText || "Send"} {/* jank but idk how else to do it w/o breaking existing stuff
+             (or how to inline comment in this language for that matter) -->*/}
           </Button>
           {!noClose ? 
             <Button

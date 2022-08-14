@@ -33,10 +33,12 @@ class Board {
     const p = new Packet(id, values);
     const buf = p.toBuffer()
     if (!buf) {
+      
       console.debug(`[id ${id}] Outbound packet's packet data typing definition could not be found. Not sent.`)
       return false
     }
     // write string version of packet for debugging purposes, disable socket data print
+    
     process.stdout.write(p.stringify())
     this.port.send(this.address, buf, false);
     return true;
