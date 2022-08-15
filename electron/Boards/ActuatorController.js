@@ -65,6 +65,8 @@ class ActuatorController extends Board {
     this.zeroERegFuelEncoder = this.zeroERegFuelEncoder.bind(this);
     this.zeroERegLOXEncoder = this.zeroERegLOXEncoder.bind(this);
 
+    this.actuateFuelERegMainValve = this.actuateFuelERegMainValve.bind(this);
+    this.actuateLOXERegMainValve = this.actuateLOXERegMainValve.bind(this);
   }
 
 
@@ -134,11 +136,27 @@ class ActuatorController extends Board {
     }
   }
 
-  pressERegFuelStatic() {return this.sendPacket(6, [0]);}
-  pressERegLOXStatic() {return this.sendPacket(6, [1]);}
+  pressERegFuelStatic() {return this.sendPacket(7, [0]);}
+  pressERegLOXStatic() {return this.sendPacket(7, [1]);}
 
   zeroERegFuelEncoder() {return this.sendPacket(8, [0]);}
   zeroERegLOXEncoder() {return this.sendPacket(8, [1]);}
+
+  actuateFuelERegMainValve(value) {
+    if (0 <= value <= 1) {
+      return this.sendPacket(5, [0, value])
+    } else {
+      console.log("what easrr")
+    }
+  } 
+
+  actuateLOXERegMainValve(value) {
+    if (0 <= value <= 1) {
+      return this.sendPacket(5, [1, value])
+    } else {
+      console.log("what erwere")
+    }
+  }
 
 }
 

@@ -215,16 +215,22 @@ class Control extends Component {
                       failText='LOX EReg'
                     />
                   </Grid>
-                  <br></br>
-                  <br></br>
-                  <br></br>
-                  <br></br>
-                  <br></br>
-                  <br></br>
-                  <br></br>
-                  <br></br>
-                  <br></br>
-                  <br></br>
+                  <Grid item={1} xs={6}>
+                    <ButtonGroup
+                      open={() => comms.actuateFuelERegMainValve(1)}
+                      close={() => comms.actuateFuelERegMainValve(0)}
+                      text='Fuel Main Valve'
+                      send_repl = 'SEND'
+                      />
+                  </Grid>
+                  <Grid item={1} xs={6}>
+                    <ButtonGroup
+                      open={() => comms.actuateLOXERegMainValve(1)}
+                      close={() => comms.actuateLOXERegMainValve(0)}
+                      text='LOX Main Valve'
+                      send_repl = 'SEND'
+                      />
+                  </Grid>
                 </Grid>
                 <Grid container={true} spacing={1}>
                 <Grid item={1} xs={6}>
@@ -454,6 +460,7 @@ class Control extends Component {
                         text='24VChan1'
                       />
                   </Grid>
+
                 </Grid>
                 <Grid container={true} spacing={1}>
                   {/* <Grid item={1} xs={6}>

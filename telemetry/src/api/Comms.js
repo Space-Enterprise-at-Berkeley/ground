@@ -133,6 +133,9 @@ class Comms {
     this.zeroERegFuelEncoder = this.zeroERegFuelEncoder.bind(this);
     this.zeroERegLOXEncoder = this.zeroERegLOXEncoder.bind(this);
 
+    this.actuateFuelERegMainValve = this.actuateFuelERegMainValve.bind(this);
+    this.actuateLOXERegMainValve = this.actuateLOXERegMainValve.bind(this);
+
     // this.openPressurantVentRBV = this.openPressurantVentRBV.bind(this);
     // this.closePressurantVentRBV = this.closePressurantVentRBV.bind(this);
     // this.timePressurantVentRBV = this.timePressurantVentRBV.bind(this);
@@ -546,6 +549,14 @@ class Comms {
 
   async zeroERegLOXEncoder(val) {
     return await this.ipc.invoke('zero-ERegLOXEncoder');
+  }
+
+  async actuateFuelERegMainValve(val) {
+    return await this.ipc.invoke('actuate-FuelERegMainValve', val);
+  }
+
+  async actuateLOXERegMainValve(val) {
+    return await this.ipc.invoke('actuate-LOXERegMainValve', val);
   }
 
   // async openLOxVentRBV() {return await this.ipc.invoke('open-LOxVentRBV'); }

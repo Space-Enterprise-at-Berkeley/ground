@@ -516,7 +516,10 @@ class App {
     this.addIPC('zero-ERegFuelEncoder', this.actCtrlr1.zeroERegFuelEncoder);
     this.addIPC('zero-ERegLOXEncoder', this.actCtrlr1.zeroERegLOXEncoder);
 
-    
+    this.addIPC('actuate-LOXERegMainValve', (e, val)=>this.actCtrlr1.actuateLOXERegMainValve(val));
+    this.addIPC('actuate-FuelERegMainValve', (e, val)=>this.actCtrlr1.actuateFuelERegMainValve(val));
+
+
 
     
 
