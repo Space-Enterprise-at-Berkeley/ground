@@ -312,7 +312,7 @@ const OUTBOUND_PACKET_DEFS = {
   1: [UINT8], //begin one sided flow -> [fuel ereg ? 1 : 0]
   2: [], //start flow
   3: [], //abort
-  4: [UINT8, UINT32], // set encoder to value; [fuel ereg ? 1 : 0, encoderValue]
+  4: [UINT8, FLOAT], // set encoder to value; [fuel ereg ? 1 : 0, encoderValue]
   5: [UINT8, UINT8], //open main valve
   6: [UINT8, UINT8], //close main valve
   7: [UINT8], //static press -> [fuel ereg ? 1 : 0]
