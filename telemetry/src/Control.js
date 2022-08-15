@@ -370,16 +370,6 @@ class Control extends Component {
                   </Grid>
                   
 
-                  {/* <Grid item={1} xs={6}>
-                    <ButtonGroupRBVTimed
-
-                      open={comms.openERegACCh6}
-                      close={comms.closeERegACCh6}
-                      time={comms.timeERegACCh6}
-                      field='ERegACCh6state'
-                      text='Channel 6'
-                    />
-                  </Grid> */}
                 </Grid>
                 <Grid container={true} spacing={1}>
                   <Grid item={1} xs={12}>

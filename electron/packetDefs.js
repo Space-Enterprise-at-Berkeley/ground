@@ -14,149 +14,149 @@ const { FLOAT, UINT8, UINT32, UINT16 } = Interpolation.TYPES
 /** @type {Object.<Number,Array.<[String,Parser,Interpolator|null]>|Array.<[String,Parser]>>} */
 const INBOUND_PACKET_DEFS = {
   // [1..59] Sent by Flight Computer
-  0: [
-    ['firmwareCommitHash', asASCIIString],
-  ],
-  1: [
-    ['flightBattVoltage', asFloat],
-    ['flightBattCurrent', asFloat],
-    ['flightBattPower', asFloat]
-  ],
-  2: [
-    ['flightSupply12Voltage', asFloat],
-    ['flightSupply12Current', asFloat],
-    ['flightSupply12Power', asFloat]
-  ],
-  3: [
-    ['flightSupply8Voltage', asFloat],
-    ['flightSupply8Current', asFloat],
-    ['flightSupply8Power', asFloat]
-  ],
-  9: [
-    ['pressurantPTROC', asFloat],
-  ],
-  // [10..59] Sent by Flight Computer
-  10: [
-    ['loxTankPT', asFloat],
-    ['fuelTankPT', asFloat],
-    ['loxInjectorPT', asFloat],
-    ['fuelInjectorPT', asFloat],
-    ['pressurantPT', asFloat],
-    ['loxDomePT', asFloat],
-    ['fuelDomePT', asFloat]
-  ],
+  // 0: [
+  //   ['firmwareCommitHash', asASCIIString],
+  // ],
+  // 1: [
+  //   ['flightBattVoltage', asFloat],
+  //   ['flightBattCurrent', asFloat],
+  //   ['flightBattPower', asFloat]
+  // ],
+  // 2: [
+  //   ['flightSupply12Voltage', asFloat],
+  //   ['flightSupply12Current', asFloat],
+  //   ['flightSupply12Power', asFloat]
+  // ],
+  // 3: [
+  //   ['flightSupply8Voltage', asFloat],
+  //   ['flightSupply8Current', asFloat],
+  //   ['flightSupply8Power', asFloat]
+  // ],
+  // 9: [
+  //   ['pressurantPTROC', asFloat],
+  // ],
+  // // [10..59] Sent by Flight Computer
+  // 10: [
+  //   ['loxTankPT', asFloat],
+  //   ['fuelTankPT', asFloat],
+  //   ['loxInjectorPT', asFloat],
+  //   ['fuelInjectorPT', asFloat],
+  //   ['pressurantPT', asFloat],
+  //   ['loxDomePT', asFloat],
+  //   ['fuelDomePT', asFloat]
+  // ],
 
-  20: [
-    ['engineTop1TC', asFloat],
-  ],
-  21: [
-    ['engineTop2TC', asFloat],
-  ],
-  22: [
-    ['engineBottom1TC', asFloat],
-  ],
-  23: [
-    ['engineBottom2TC', asFloat],
-  ],
+  // 20: [
+  //   ['engineTop1TC', asFloat],
+  // ],
+  // 21: [
+  //   ['engineTop2TC', asFloat],
+  // ],
+  // 22: [
+  //   ['engineBottom1TC', asFloat],
+  // ],
+  // 23: [
+  //   ['engineBottom2TC', asFloat],
+  // ],
 
-  28: [
-    ['loxGemsVoltage', asFloat],
-    ['loxGemsCurrent', asFloat],
-  ],
-  29: [
-    ['fuelGemsVoltage', asFloat],
-    ['fuelGemsCurrent', asFloat],
-  ],
-  30: [
-    ['armValveVoltage', asFloat],
-    ['armValveCurrent', asFloat],
-  ],
-  31: [
-    ['igniterVoltage', asFloat],
-    ['igniterCurrent', asFloat],
-  ],
-  32: [
-    ['loxMainValveVoltage', asFloat],
-    ['loxMainValveCurrent', asFloat],
-  ],
-  33: [
-    ['fuelMainValveVoltage', asFloat],
-    ['fuelMainValveCurrent', asFloat],
-  ],
-  34: [
-    ['breakwireVoltage', asFloat],
-    ['breakwireCurrent', asFloat],
-  ],
+  // 28: [
+  //   ['loxGemsVoltage', asFloat],
+  //   ['loxGemsCurrent', asFloat],
+  // ],
+  // 29: [
+  //   ['fuelGemsVoltage', asFloat],
+  //   ['fuelGemsCurrent', asFloat],
+  // ],
+  // 30: [
+  //   ['armValveVoltage', asFloat],
+  //   ['armValveCurrent', asFloat],
+  // ],
+  // 31: [
+  //   ['igniterVoltage', asFloat],
+  //   ['igniterCurrent', asFloat],
+  // ],
+  // 32: [
+  //   ['loxMainValveVoltage', asFloat],
+  //   ['loxMainValveCurrent', asFloat],
+  // ],
+  // 33: [
+  //   ['fuelMainValveVoltage', asFloat],
+  //   ['fuelMainValveCurrent', asFloat],
+  // ],
+  // 34: [
+  //   ['breakwireVoltage', asFloat],
+  //   ['breakwireCurrent', asFloat],
+  // ],
 
-  35: [
-    ['RQDVoltage', asFloat],
-    ['RQDCurrent', asFloat],
-  ],
-  36: [
-    ['mainValveVentVoltage', asFloat],
-    ['mainValveVentCurrent', asFloat],
-  ],
-  37: [
-    ['loxTankTopHtrVoltage', asFloat],
-    ['loxTankTopHtrCurrent', asFloat],
-  ],
-  38: [
-    ['igniterEnableVoltage', asFloat],
-    ['igniterEnableCurrent', asFloat],
-  ],
+  // 35: [
+  //   ['RQDVoltage', asFloat],
+  //   ['RQDCurrent', asFloat],
+  // ],
+  // 36: [
+  //   ['mainValveVentVoltage', asFloat],
+  //   ['mainValveVentCurrent', asFloat],
+  // ],
+  // 37: [
+  //   ['loxTankTopHtrVoltage', asFloat],
+  //   ['loxTankTopHtrCurrent', asFloat],
+  // ],
+  // 38: [
+  //   ['igniterEnableVoltage', asFloat],
+  //   ['igniterEnableCurrent', asFloat],
+  // ],
 
-  40: [
-    ['armValveState', asUInt8],
-  ],
-  41: [
-    ['igniterState', asUInt8],
-  ],
-  42: [
-    ['loxMainValveState', asUInt8],
-  ],
-  43: [
-    ['fuelMainValveState', asUInt8],
-  ],
-  45: [
-    ['RQDState', asUInt8],
-  ],
-  46: [
-    ['mainValveVentState', asUInt8],
-  ],
-  47: [
-    ['loxTankTopHtrState', asUInt8],
-  ],
-  48: [
-    ['igniterEnableState', asUInt8],
-  ],
+  // 40: [
+  //   ['armValveState', asUInt8],
+  // ],
+  // 41: [
+  //   ['igniterState', asUInt8],
+  // ],
+  // 42: [
+  //   ['loxMainValveState', asUInt8],
+  // ],
+  // 43: [
+  //   ['fuelMainValveState', asUInt8],
+  // ],
+  // 45: [
+  //   ['RQDState', asUInt8],
+  // ],
+  // 46: [
+  //   ['mainValveVentState', asUInt8],
+  // ],
+  // 47: [
+  //   ['loxTankTopHtrState', asUInt8],
+  // ],
+  // 48: [
+  //   ['igniterEnableState', asUInt8],
+  // ],
 
-  49: [
-    ['actuatorStates', asUInt8],
-  ],
+  // 49: [
+  //   ['actuatorStates', asUInt8],
+  // ],
 
-  50: [
-    ['flowState', asUInt8],
-  ],
-  51: [
-    ['autoVentStatus', asUInt8],
-  ],
-  52: [
-    ['loxGemsValveState', asUInt8],
-  ],
-  53: [
-    ['fuelGemsValveState', asUInt8],
-  ],
+  // 50: [
+  //   ['flowState', asUInt8],
+  // ],
+  // 51: [
+  //   ['autoVentStatus', asUInt8],
+  // ],
+  // 52: [
+  //   ['loxGemsValveState', asUInt8],
+  // ],
+  // 53: [
+  //   ['fuelGemsValveState', asUInt8],
+  // ],
 
-  152: [
-    ['autoLoxLead', asUInt32],
-    ['autoBurnTime', asUInt32],
-    ['autoIgniterAbortEnabled', asUInt8],
-    ['autoBreakwireAbortEnabled', asUInt8],
-    ['autoThrustAbortEnabled', asUInt8],
-  ],
+  // 152: [
+  //   ['autoLoxLead', asUInt32],
+  //   ['autoBurnTime', asUInt32],
+  //   ['autoIgniterAbortEnabled', asUInt8],
+  //   ['autoBreakwireAbortEnabled', asUInt8],
+  //   ['autoThrustAbortEnabled', asUInt8],
+  // ],
 
   // [60:89] ACTUATOR CONTROLLERS
-  5: [
+  0: [
     ['EREG_HP_PT', asFloat],
     ['EREG_LP_PT', asFloat],
     ['EREG_INJECTOR_PT', asFloat],
@@ -169,6 +169,33 @@ const INBOUND_PACKET_DEFS = {
     ['EREG_PRESSURE_CONTROL_D', asFloat],
     
   ],
+
+  1: [ 
+    ['mainValveState', asUInt8],
+  ],
+
+  2: [ //config packet
+    ['PRESSURE_SETPOINT', asFloat],
+    ['outer_K_p', asFloat],
+    ['outer_K_i', asFloat],
+    ['outer_K_d', asFloat],
+    ['inner_K_p', asFloat],
+    ['inner_K_i', asFloat],
+    ['inner_K_d', asFloat],
+  ],
+
+  11: [ //diagnostic test sucess message
+    ['diagnosticSuccessMsg', asASCIIString],
+  ],
+
+  12: [ //diagnostic fail msg
+    ['diagnosticFailMsg', asASCIIString],
+  ],
+
+  13: [ //command fail msg
+    ['commandFailMsg', asASCIIString],
+  ],
+
   61: [
     ['acBattVoltage', asFloat],
     ['acBattCurrent', asFloat],
@@ -213,73 +240,73 @@ const INBOUND_PACKET_DEFS = {
     ['acLinAct7Current', asFloat],
   ],
 
-  80: [
-    ['acHeater1Voltage', asFloat],
+  77: [
+    ['acHeater1Voltage', asFloat], //inbound 12V channel 0
     ['acHeater1Current', asFloat],
   ],
-  81: [
-    ['acHeater2Voltage', asFloat],
+  78: [
+    ['acHeater2Voltage', asFloat], //inbound 12V channel 1
     ['acHeater2Current', asFloat],
   ],
-  82: [
-    ['acHeater3Voltage', asFloat],
+  79: [
+    ['acHeater3Voltage', asFloat], //inbound 24V channel 0
     ['acHeater3Current', asFloat],
   ],
-  83: [
-    ['acHeater4Voltage', asFloat],
+  79: [
+    ['acHeater4Voltage', asFloat], //inbound 24V channel 1
     ['acHeater4Current', asFloat],
   ],
 
-  // [100:129] DAQs
-  100: [
-    ['daqBattVoltage', asFloat],
-    ['daqBattCurrent', asFloat],
-  ],
+  // // [100:129] DAQs
+  // 100: [
+  //   ['daqBattVoltage', asFloat],
+  //   ['daqBattCurrent', asFloat],
+  // ],
 
-  101: [
-    ['daqADC0', asFloat],
-    ['daqADC1', asFloat],
-    ['daqADC2', asFloat],
-    ['daqADC3', asFloat],
-    ['daqADC4', asFloat],
-    ['daqADC5', asFloat],
-    ['daqADC6', asFloat],
-    ['daqADC7', asFloat],
-  ],
+  // 101: [
+  //   ['daqADC0', asFloat],
+  //   ['daqADC1', asFloat],
+  //   ['daqADC2', asFloat],
+  //   ['daqADC3', asFloat],
+  //   ['daqADC4', asFloat],
+  //   ['daqADC5', asFloat],
+  //   ['daqADC6', asFloat],
+  //   ['daqADC7', asFloat],
+  // ],
 
-  110: [
-    ['daqTC1', asFloat],
-  ],
-  111: [
-    ['daqTC2', asFloat],
-  ],
-  112: [
-    ['daqTC3', asFloat],
-  ],
-  113: [
-    ['daqTC4', asFloat],
-  ],
+  // 110: [
+  //   ['daqTC1', asFloat],
+  // ],
+  // 111: [
+  //   ['daqTC2', asFloat],
+  // ],
+  // 112: [
+  //   ['daqTC3', asFloat],
+  // ],
+  // 113: [
+  //   ['daqTC4', asFloat],
+  // ],
 
-  120: [
-    ['loadCell1', asFloat],
-    ['loadCell2', asFloat],
-    ['loadCellSum', asFloat],
-  ],
-  121: [
-    ['fastLoadCell1', asFloat],
-    ['fastLoadCell2', asFloat],
-    // ['fastLoadCellSum', asFloat],
-  ],
-  221: [
-    ['capVal', asFloat],
-    ['capValFiltered', asFloat],
-    ['capTemperature', asFloat],
-  ],
-  222: [
-    ['capVal', asFloat],
-    ['capValFiltered', asFloat],
-    ['capTemperature', asFloat],
-  ],
+  // 120: [
+  //   ['loadCell1', asFloat],
+  //   ['loadCell2', asFloat],
+  //   ['loadCellSum', asFloat],
+  // ],
+  // 121: [
+  //   ['fastLoadCell1', asFloat],
+  //   ['fastLoadCell2', asFloat],
+  //   // ['fastLoadCellSum', asFloat],
+  // ],
+  // 221: [
+  //   ['capVal', asFloat],
+  //   ['capValFiltered', asFloat],
+  //   ['capTemperature', asFloat],
+  // ],
+  // 222: [
+  //   ['capVal', asFloat],
+  //   ['capValFiltered', asFloat],
+  //   ['capTemperature', asFloat],
+  // ],
 }
 
 /** @type {Object.<Number,Array.<Number>>} */
@@ -335,8 +362,6 @@ const OUTBOUND_PACKET_DEFS = {
 
   19: [UINT8],
   20: [UINT8],
-  182: [UINT8],
-  183: [UINT8],
 }
 
 module.exports = { INBOUND_PACKET_DEFS, OUTBOUND_PACKET_DEFS }

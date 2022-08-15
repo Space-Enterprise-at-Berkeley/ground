@@ -208,17 +208,17 @@ class App {
         acLinAct7Voltage: 'ERegACCh6voltage',
         acLinAct7Current: 'ERegACCh6current',
 
-        acHeater1Voltage: null,
-        acHeater1Current: null,
+        acHeater1Voltage: 'acHeater1Voltage',
+        acHeater1Current: 'acHeater1Current',
 
-        acHeater2Voltage: null,
-        acHeater2Current: null,
+        acHeater2Voltage: 'acHeater2Voltage',
+        acHeater2Current: 'acHeater2Current',
 
-        acHeater3Voltage: null,
-        acHeater3Current: null,
+        acHeater3Voltage: 'acHeater3Voltage',
+        acHeater3Current: 'acHeater3Current',
 
-        acHeater4Voltage: null,
-        acHeater4Current: null,
+        acHeater4Voltage: 'acHeater4Voltage',
+        acHeater4Current: 'acHeater4Current',
       },
       () => this.updateState(Date.now(), { actCtrlr1Connected: true }),
       () => this.updateState(Date.now(), { actCtrlr1Connected: false }),
