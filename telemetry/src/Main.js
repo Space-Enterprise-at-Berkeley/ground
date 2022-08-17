@@ -138,35 +138,34 @@ class Main extends Component {
               <Grid item={1} xs={4} className={classes.item}>
                 <SixValueSquare
                   field1={{
-                    name: 'EREG_ANGLE_SETPOINT',
-                    field: 'loxDomePT',
-                    unit: 'PSI'
+                    name: 'Pressure Setpoint',
+                    field: 'PRESSURE_SETPOINT',
+                    decimals: 0
                   }}
                   field2={{
-                    name: 'LOX Expected Static',
-                    field: 'loxExpectedStatic',
-                    unit: 'PSI'
+                    name: 'Outer K_p',
+                    field: 'outer_K_p',
+                    decimals: 3
                   }}
                   field3={{
-                    name: 'Pressurant Temp',
-                    field: 'pressurantTemp',
-                    unit: 'ºC'
+                    name: 'Outer K_i',
+                    field: 'outer_K_i',
+                    decimals: 3
                   }}
                   field4={{
-                    name: 'Fuel DOME',
-                    field: 'fuelDomePT',
-                    unit: 'PSI'
+                    name: 'Outer K_d',
+                    field: 'outer_K_d',
+                    decimals: 3
                   }}
                   field5={{
-                    name: 'Fuel Expected Static',
-                    field: '_',
-                    unit: 'PSI'
+                    name: 'Inner K_p',
+                    field: 'inner_K_p',
+                    decimals: 3
                   }}
                   field6={{
-                    name: 'Δ PSI / 1 Second',
-                    field: 'pressurantPTROC',
-                    unit: 'PSI',
-                    decimals: 2
+                    name: 'Inner K_i',
+                    field: 'inner_K_i',
+                    decimals: 3
                   }}
                 />
               </Grid>
