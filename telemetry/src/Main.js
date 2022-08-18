@@ -187,7 +187,7 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'fuelInjectorPT',
+                        name: 'EREG_ANGLE_SETPOINT',
                         color: [70, 1, 155],
                         unit: 'PSI'
                       }
@@ -219,9 +219,9 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'thrust1',
+                        name: 'EREG_PRESSURE_SETPOINT',
                         color: [255, 51, 224],
-                        unit: 'LBS'
+                        unit: 'PSI'
                       },
                       {
                         name: 'thrust2', // prop PT temp
@@ -252,9 +252,9 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'engineTop1TC',
+                        name: 'EREG_ANGLE_SETPOINT',
                         color: [0, 126, 254],
-                        unit: 'ºC'
+                        unit: 'PSI'
                       },
                       {
                         name: 'engineTop2TC',
