@@ -169,6 +169,7 @@ class Main extends Component {
                   }}
                 />
               </Grid>
+              
               <Grid item={1} xs={4} className={classes.item}>
                 <Graph
                   fields={
@@ -189,7 +190,7 @@ class Main extends Component {
                       {
                         name: 'EREG_ANGLE_SETPOINT',
                         color: [70, 1, 155],
-                        unit: 'PSI'
+                        unit: 'kg'
                       }
                     ]
                   }
@@ -257,9 +258,9 @@ class Main extends Component {
                         unit: 'PSI'
                       },
                       {
-                        name: 'engineTop2TC',
+                        name: 'EREG_ENCODER_ANGLE',
                         color: [0, 187, 0],
-                        unit: 'ºC'
+                        unit: 'yes'
                       },
                       {
                         name: 'engineBottom1TC',
