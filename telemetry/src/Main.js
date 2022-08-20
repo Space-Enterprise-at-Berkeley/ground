@@ -101,8 +101,15 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'EREG_HP_PT',
-                        color: [70, 1, 155],
+                        name: 'EREG_FUEL_HP_PT',
+                        displayname: 'Fuel Pressurant PT',
+                        color: [255,0,0],
+                        unit: 'PSI'
+                      },
+                      {
+                        name: 'EREG_LOX_HP_PT',
+                        displayname: 'LOX Pressurant PT',
+                        color: [0,0,255],
                         unit: 'PSI'
                       }
                     ]
@@ -114,9 +121,16 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'EREG_LP_PT',
+                        name: 'EREG_FUEL_LP_PT',
+                        displayname: 'Fuel Tank PT',
                         color: [0, 126, 254],
                         unit: 'PSI'
+                      },
+                      {
+                        name: 'EREG_FUEL_PRESSURE_SETPOINT',
+                        displayname: 'Fuel Tank Setpoint',
+                        color: [80, 219, 38],
+                        unit: 'PSI'
                       }
                     ]
                   }
@@ -127,9 +141,16 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'EREG_MOTOR_POWER',
-                        color: [0, 187, 0],
-                        unit: '%'
+                        name: 'EREG_LOX_LP_PT',
+                        displayname: 'LOX Tank PT',
+                        color: [236, 38, 78],
+                        unit: 'PSI',
+                      },
+                      {
+                        name: 'EREG_LOX_PRESSURE_SETPOINT',
+                        displayname: 'LOX Tank Setpoint',
+                        color: [0, 196, 236],
+                        unit: 'PSI'
                       }
                     ]
                   }
@@ -138,29 +159,27 @@ class Main extends Component {
               <Grid item={1} xs={4} className={classes.item}>
                 <SixValueSquare
                   field1={{
-                    name: 'Pressure Setpoint',
-                    field: 'PRESSURE_SETPOINT',
+                    name: 'Fuel Flow Pressure',
+                    field: 'FUEL_PRESSURE_SETPOINT',
                     decimals: 0
                   }}
                   field2={{
-                    name: 'Outer K_p',
-                    field: 'outer_K_p',
-                    decimals: 3
+                    name: 'LOX Flow Pressure',
+                    field: 'LOX_PRESSURE_SETPOINT',
+                    decimals: 0
                   }}
                   field3={{
-                    name: 'Outer K_i',
-                    field: 'outer_K_i',
-                    decimals: 3
+                    field: '_',
                   }}
                   field4={{
-                    name: 'Outer K_d',
-                    field: 'outer_K_d',
-                    decimals: 3
+                    name: 'Fuel Burntime',
+                    field: 'FUEL_burn_duration',
+                    decimals: 1
                   }}
                   field5={{
-                    name: 'Inner K_p',
-                    field: 'inner_K_p',
-                    decimals: 3
+                    name: 'LOX Burntime',
+                    field: 'LOX_burn_duration',
+                    decimals: 1
                   }}
                   field6={{
                     name: 'Inner K_i',

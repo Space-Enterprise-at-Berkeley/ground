@@ -59,6 +59,7 @@ class Graph extends Component {
     this.lines = [];
     this.lastUpdate = Date.now();
     this.subscribers = [];
+  
 
     this.createUpdateHandler = this.createUpdateHandler.bind(this);
     this.updateGraph = this.updateGraph.bind(this);
@@ -192,7 +193,7 @@ class Graph extends Component {
                     <React.Fragment key={i}>
                       <td style={{backgroundColor: `rgb(${f.color[0]},${f.color[1]},${f.color[2]})`, width: '30px', height: '100%'}}/>
                       <td style={{fontSize: '0.75rem'}}>
-                        {f.name}
+                        {f.displayname ? f.displayname : f.name}
                       </td>
                       <td ref={this.legendRefs[i]} style={{fontSize: '0.75rem'}}>
                         (0.0

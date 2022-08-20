@@ -157,43 +157,80 @@ const INBOUND_PACKET_DEFS = {
 
   // [60:89] ACTUATOR CONTROLLERS
   0: [
-    ['EREG_HP_PT', asFloat],
-    ['EREG_LP_PT', asFloat],
-    ['EREG_INJECTOR_PT', asFloat],
-    ['EREG_ENCODER_ANGLE', asFloat],
-    ['EREG_ANGLE_SETPOINT', asFloat],
-    ['EREG_PRESSURE_SETPOINT', asFloat],
-    ['EREG_MOTOR_POWER', asFloat],
-    ['EREG_PRESSURE_CONTROL_P', asFloat],
-    ['EREG_PRESSURE_CONTROL_I', asFloat],
-    ['EREG_PRESSURE_CONTROL_D', asFloat],
+    ['EREG_FUEL_HP_PT', asFloat],
+    ['EREG_FUEL_LP_PT', asFloat],
+    ['EREG_FUEL_INJECTOR_PT', asFloat],
+    ['EREG_FUEL_ENCODER_ANGLE', asFloat],
+    ['EREG_FUEL_ANGLE_SETPOINT', asFloat],
+    ['EREG_FUEL_PRESSURE_SETPOINT', asFloat],
+    ['EREG_FUEL_MOTOR_POWER', asFloat],
+    ['EREG_FUEL_PRESSURE_CONTROL_P', asFloat],
+    ['EREG_FUEL_PRESSURE_CONTROL_I', asFloat],
+    ['EREG_FUEL_PRESSURE_CONTROL_D', asFloat],
     
   ],
 
-  1: [ 
-    ['mainValveState', asUInt8],
+
+  1: [
+    ['EREG_LOX_HP_PT', asFloat],
+    ['EREG_LOX_LP_PT', asFloat],
+    ['EREG_LOX_INJECTOR_PT', asFloat],
+    ['EREG_LOX_ENCODER_ANGLE', asFloat],
+    ['EREG_LOX_ANGLE_SETPOINT', asFloat],
+    ['EREG_LOX_PRESSURE_SETPOINT', asFloat],
+    ['EREG_LOX_MOTOR_POWER', asFloat],
+    ['EREG_LOX_PRESSURE_CONTROL_P', asFloat],
+    ['EREG_LOX_PRESSURE_CONTROL_I', asFloat],
+    ['EREG_LOX_PRESSURE_CONTROL_D', asFloat],
+    
   ],
 
-  2: [ //config packet
-    ['PRESSURE_SETPOINT', asFloat],
-    ['outer_K_p', asFloat],
-    ['outer_K_i', asFloat],
-    ['outer_K_d', asFloat],
-    ['inner_K_p', asFloat],
-    ['inner_K_i', asFloat],
-    ['inner_K_d', asFloat],
+
+  2: [ 
+    ['fuelMainValveState', asUInt8],
+  ],
+  
+  3: [
+    ['loxMainValveState', asUInt8],
   ],
 
-  11: [ //diagnostic test sucess message
-    ['diagnosticSuccessMsg', asASCIIString],
+  4: [ //config packet
+    ['FUEL_PRESSURE_SETPOINT', asFloat],
+    ['FUEL_outer_K_p', asFloat],
+    ['FUEL_outer_K_i', asFloat],
+    ['FUEL_outer_K_d', asFloat],
+    ['FUEL_inner_K_p', asFloat],
+    ['FUEL_inner_K_i', asFloat],
+    ['FUEL_inner_K_d', asFloat],
+    ['FUEL_burn_duration', asFloat]
   ],
 
-  12: [ //diagnostic fail msg
-    ['diagnosticFailMsg', asASCIIString],
+  5: [ //config packet
+  ['LOX_PRESSURE_SETPOINT', asFloat],
+  ['LOX_outer_K_p', asFloat],
+  ['LOX_outer_K_i', asFloat],
+  ['LOX_outer_K_d', asFloat],
+  ['LOX_inner_K_p', asFloat],
+  ['LOX_inner_K_i', asFloat],
+  ['LOX_inner_K_d', asFloat],
+  ['LOX_burn_duration', asFloat]
+],
+
+
+  12: [ 
+    ['fuelDiagnosticMsg', asASCIIString],
   ],
 
-  13: [ //command fail msg
-    ['commandFailMsg', asASCIIString],
+  13: [ 
+    ['loxDiagnosticMsg', asASCIIString],
+  ],
+
+  14: [ //command fail msg
+    ['fuelCommandFailMsg', asASCIIString],
+  ],
+
+  15: [
+    ['loxCommandFailMsg', asASCIIString],
   ],
 
   61: [
