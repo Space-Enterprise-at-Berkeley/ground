@@ -179,6 +179,9 @@ class Main extends Component {
                     threshold: 1
                   }}
                   field6={{
+                    name: '(really fake) RSSI',
+                    field: 'radioRSSI',
+                    unit: 'idk'
                   }}
                 />
               </Grid>

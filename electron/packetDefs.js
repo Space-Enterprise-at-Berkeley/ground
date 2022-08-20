@@ -48,7 +48,7 @@ const INBOUND_PACKET_DEFS = {
   ],
 
   56: [
-    ['radioRSSI', asFloat],
+    ['radioRSSI', asUInt16],
   ],
 
   84: [
