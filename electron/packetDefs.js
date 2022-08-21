@@ -233,6 +233,9 @@ const INBOUND_PACKET_DEFS = {
     ['loxCommandFailMsg', asASCIIString],
   ],
 
+  50: [
+    ['flowState', asUInt8],
+  ],
   61: [
     ['acBattVoltage', asFloat],
     ['acBattCurrent', asFloat],

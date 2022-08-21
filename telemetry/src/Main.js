@@ -169,7 +169,9 @@ class Main extends Component {
                     decimals: 0
                   }}
                   field3={{
-                    field: '_',
+                    name: 'Flow State',
+                    field: 'flowState',
+                    decimals: 0
                   }}
                   field4={{
                     name: 'Fuel Burntime',

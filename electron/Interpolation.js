@@ -30,6 +30,11 @@ class Interpolation {
     return [buffer.slice(offset).toString("ascii"), buffer.length]
   }
 
+  // static asFlowState(buffer, offset) {
+  //   let num = buffer.readUInt8(offset)
+
+  // }
+
   /**
    * Returns the float that is represented by the buffer at the given offset.
    * @param buffer {Buffer} the source buffer
