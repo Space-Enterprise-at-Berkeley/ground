@@ -316,7 +316,7 @@ class Control extends Component {
                       close={comms.closeERegACCh0}
                       time={comms.timeERegACCh0}
                       field='ERegACCh0state'
-                      text='RBV Channel 0'
+                      text='Fuel Tank Vent RBV'
                     />
                   </Grid>
                   <Grid item={1} xs={6}>
@@ -325,7 +325,7 @@ class Control extends Component {
                       close={comms.closeERegACCh1}
                       time={comms.timeERegACCh1}
                       field='ERegACCh1state'
-                      text='RBV Channel 1'
+                      text='Lox Tank Vent RBV'
                     />
                   </Grid>
                 </Grid>
@@ -337,7 +337,7 @@ class Control extends Component {
                       close={comms.closeERegACCh3}
                       time={comms.timeERegACCh3}
                       field='ERegACCh3state'
-                      text='RBV Channel 3'
+                      text='Two Way'
                     />
                   </Grid>
                   <Grid item={1} xs={6}>
@@ -347,7 +347,7 @@ class Control extends Component {
                       close={comms.closeERegACCh4}
                       time={comms.timeERegACCh4}
                       field='ERegACCh4state'
-                      text='RBV Channel 4'
+                      text='Channel 5 RBV'
                     />
                   </Grid>
                   <Grid item={1} xs={6}>
@@ -357,7 +357,7 @@ class Control extends Component {
                       close={comms.closeERegACCh6}
                       time={comms.timeERegACCh6}
                       field='ERegACCh6state'
-                      text='RBV Channel 6'
+                      text='Lox Gems'
                     />
                   </Grid>
                   <Grid item={1} xs={6}>
@@ -408,7 +408,7 @@ class Control extends Component {
                       close={comms.closeERegACCh2}
                       time={comms.timeERegACCh2}
                       field='ERegACCh2state'
-                      text='RBV Channel 2'
+                      text='Propane Fill RBV'
                     />
                   </Grid>
                   {/* <Grid item={1} xs={6}>
@@ -438,7 +438,7 @@ class Control extends Component {
                       close={comms.closeERegACCh5}
                       time={comms.timeERegACCh5}
                       field='ERegACCh5state'
-                      text='RBV Channel 5'
+                      text='Fuel Gems'
                     />
                   </Grid>
 
