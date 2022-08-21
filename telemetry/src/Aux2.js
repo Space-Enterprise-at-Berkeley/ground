@@ -199,8 +199,8 @@ class Aux2 extends Component {
                     threshold: 0.1
                   }}
                   field4={{
-                    name: 'Channel 0',
-                    field: 'ERegACCh0current',
+                    name: 'Channel  c0',
+                    field: 'acLinAct1Current',
                     unit: 'A',
                     decimals: 1,
                     threshold: 0.1

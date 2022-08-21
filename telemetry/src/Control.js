@@ -333,9 +333,9 @@ class Control extends Component {
                   <Grid item={1} xs={6}>
                     <ButtonGroupRBVTimed
 
-                      open={comms.openERegACCh3}
-                      close={comms.closeERegACCh3}
-                      time={comms.timeERegACCh3}
+                      open={comms.closeERegACCh3}
+                      close={comms.openERegACCh3} //CHANGED BECAUSE WE"RE USING DIODES
+                      time={comms.timeERegACCh3} 
                       field='ERegACCh3state'
                       text='Two Way'
                     />
@@ -353,8 +353,8 @@ class Control extends Component {
                   <Grid item={1} xs={6}>
                     <ButtonGroupRBVTimed
 
-                      open={comms.openERegACCh6}
-                      close={comms.closeERegACCh6}
+                      open={comms.closeERegACCh6}
+                      close={comms.openERegACCh6}
                       time={comms.timeERegACCh6}
                       field='ERegACCh6state'
                       text='Lox Gems'
@@ -434,8 +434,8 @@ class Control extends Component {
                   <Grid item={1} xs={12}>
                     <ButtonGroupRBVTimed
 
-                      open={comms.openERegACCh5}
-                      close={comms.closeERegACCh5}
+                      open={comms.closeERegACCh5}
+                      close={comms.openERegACCh5}
                       time={comms.timeERegACCh5}
                       field='ERegACCh5state'
                       text='Fuel Gems'
