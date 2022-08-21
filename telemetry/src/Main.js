@@ -106,12 +106,12 @@ class Main extends Component {
                         color: [255,0,0],
                         unit: 'PSI'
                       },
-                      {
-                        name: 'EREG_LOX_HP_PT',
-                        displayname: 'LOX Pressurant PT',
-                        color: [0,0,255],
-                        unit: 'PSI'
-                      }
+                      // {
+                      //   name: 'EREG_LOX_HP_PT',
+                      //   displayname: 'LOX Pressurant PT',
+                      //   color: [0,0,255],
+                      //   unit: 'PSI'
+                      // }
                     ]
                   }
                 />
@@ -126,12 +126,12 @@ class Main extends Component {
                         color: [0, 126, 254],
                         unit: 'PSI'
                       },
-                      {
-                        name: 'EREG_FUEL_PRESSURE_SETPOINT',
-                        displayname: 'Fuel Tank Setpoint',
-                        color: [80, 219, 38],
-                        unit: 'PSI'
-                      }
+                      // {
+                      //   name: 'EREG_FUEL_PRESSURE_SETPOINT',
+                      //   displayname: 'Fuel Tank Setpoint',
+                      //   color: [80, 219, 38],
+                      //   unit: 'PSI'
+                      // }
                     ]
                   }
                 />
@@ -146,12 +146,12 @@ class Main extends Component {
                         color: [236, 38, 78],
                         unit: 'PSI',
                       },
-                      {
-                        name: 'EREG_LOX_PRESSURE_SETPOINT',
-                        displayname: 'LOX Tank Setpoint',
-                        color: [0, 196, 236],
-                        unit: 'PSI'
-                      }
+                      // {
+                      //   name: 'EREG_LOX_PRESSURE_SETPOINT',
+                      //   displayname: 'LOX Tank Setpoint',
+                      //   color: [0, 196, 236],
+                      //   unit: 'PSI'
+                      // }
                     ]
                   }
                 />
@@ -194,9 +194,16 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'EREG_ENCODER_ANGLE',
+                        name: 'EREG_FUEL_ENCODER_ANGLE',
                         color: [221, 0, 0],
-                        unit: 'Count'
+                        unit: 'Count',
+                        displayname: 'Fuel Encoder Angle'
+                      },
+                      {
+                        name: 'EREG_FUEL_ANGLE_SETPOINT',
+                        color: [0,0,221],
+                        unit: 'Count',
+                        displayname: 'Fuel Angle Setpoint'
                       }
                     ]
                   }
@@ -239,7 +246,7 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'EREG_PRESSURE_SETPOINT',
+                        name: 'EREG_FUEL_MOTOR_POWER',
                         color: [255, 51, 224],
                         unit: 'PSI'
                       },
