@@ -122,15 +122,19 @@ class ActuatorController extends Board {
   abortEReg() {return this.sendPacket(3, []);}
 
   setFuelERegEncoder(value) {
-    if ((value <= 1000) && (value >= 0)) {
+    if ((value <= 600) && (value > 0)) {
       return this.sendPacket(4, [0, value]);
+    } else if (value == 0) {
+      return this.sendPacket(21, [0]);
     } else {
       console.log("fuel encoder set value out of bound");
     }
   }
   setLOXERegEncoder(value) {
-    if ((value <= 1000) && (value >= 0)) {
+    if ((value <= 600) && (value >= 0)) {
       return this.sendPacket(4, [1, value]);
+    } else if (value == 0) {
+      return this.sendPacket(21, [1]);
     } else {
       console.log("lox encoder set value out of bound");
     }

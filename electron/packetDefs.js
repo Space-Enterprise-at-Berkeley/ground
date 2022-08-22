@@ -396,12 +396,13 @@ const OUTBOUND_PACKET_DEFS = {
   14: [UINT8, UINT32],
   15: [UINT8, UINT32],
   16: [UINT8, UINT32],
-  17: [UINT8, UINT32],
+  // 17: [UINT8, UINT32],
 
 
 
   19: [UINT8],
   20: [UINT8],
+  21: [UINT8],
 }
 
 module.exports = { INBOUND_PACKET_DEFS, OUTBOUND_PACKET_DEFS }
