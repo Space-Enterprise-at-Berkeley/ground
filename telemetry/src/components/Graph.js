@@ -192,13 +192,13 @@ class Graph extends Component {
                   this.props.fields.map((f, i) => (
                     <React.Fragment key={i}>
                       <td style={{backgroundColor: `rgb(${f.color[0]},${f.color[1]},${f.color[2]})`, width: '30px', height: '100%'}}/>
-                      <td style={{fontSize: '0.75rem'}}>
+                      <td style={{fontSize: '0.85rem'}}>
                         {f.displayname ? f.displayname : f.name}
                       </td>
-                      <td ref={this.legendRefs[i]} style={{fontSize: '0.75rem'}}>
+                      <td ref={this.legendRefs[i]} style={{fontSize: '0.85rem'}}>
                         (0.0
                       </td>
-                      <td style={{width: '2.5rem', fontSize: '0.75rem'}}>{f.unit})</td>
+                      <td style={{width: '2.5rem', fontSize: '0.85rem'}}>{f.unit})</td>
                     </React.Fragment>
                   ))
                 }

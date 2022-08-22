@@ -81,7 +81,7 @@ class Control extends Component {
     // comms.closefuelPrechillRBV();
     // comms.closePurgeFlowRBV(); //TODO change mappings to close packets automatically for EReg
 
-    setTimeout(comms.beginERegFlow, 4000);
+    setTimeout(comms.beginERegFlow, 2700);
   }
 
   abortAll() {
