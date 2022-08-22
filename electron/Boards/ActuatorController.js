@@ -131,7 +131,7 @@ class ActuatorController extends Board {
     }
   }
   setLOXERegEncoder(value) {
-    if ((value <= 600) && (value >= 0)) {
+    if ((value <= 600) && (value > 0)) {
       return this.sendPacket(4, [1, value]);
     } else if (value == 0) {
       return this.sendPacket(21, [1]);
