@@ -54,7 +54,7 @@ class ButtonGroup extends Component {
       open: false,
       openClicked: false,
     };
-
+    this.noFeedback = this.noFeedback || false;    
     this.updateOpen = this.updateOpen.bind(this);
     this.setOpen = this.setOpen.bind(this);
     this.setClosed = this.setClosed.bind(this);
@@ -95,7 +95,9 @@ class ButtonGroup extends Component {
           <Box component="span" display="block">{text}</Box>
         </Grid>
         <Grid item>
-          <Box borderRadius={4} {...statusBox} bgcolor={open ? theme.palette.success.main : theme.palette.error.main}/>
+          <Box borderRadius={4} {...statusBox} bgcolor={this.props.noFeedback ? (
+            this.props.disabled ? theme.palette.error.main : theme.palette.warning.main) : 
+            (open ? theme.palette.success.main : theme.palette.error.main)}/>
         </Grid>
         <Grid item >
           <Button

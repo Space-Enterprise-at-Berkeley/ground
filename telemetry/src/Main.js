@@ -184,9 +184,8 @@ class Main extends Component {
                     decimals: 1
                   }}
                   field6={{
-                    name: 'Inner K_i',
-                    field: 'inner_K_i',
-                    decimals: 3
+    
+                    field: '_',
                   }}
                 />
               </Grid>
@@ -198,13 +197,13 @@ class Main extends Component {
                       {
                         name: 'EREG_FUEL_ENCODER_ANGLE',
                         color: [221, 0, 0],
-                        unit: 'Count',
+                        unit: 'Ticks',
                         displayname: 'Fuel Encoder Angle'
                       },
                       {
                         name: 'EREG_FUEL_ANGLE_SETPOINT',
                         color: [0,0,221],
-                        unit: 'Count',
+                        unit: 'Ticks',
                         displayname: 'Fuel Angle Setpoint'
                       }
                     ]
@@ -216,9 +215,16 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'EREG_ANGLE_SETPOINT',
-                        color: [70, 1, 155],
-                        unit: 'kg'
+                        name: 'EREG_LOX_ENCODER_ANGLE',
+                        color: [148, 42, 235],
+                        unit: 'Ticks',
+                        displayname: 'LOX Encoder Angle'
+                      },
+                      {
+                        name: 'EREG_LOX_ENCODER_ANGLE',
+                        color: [62, 237, 141],
+                        unit: 'Ticks',
+                        displayname: "LOX Encoder Setpoint"
                       }
                     ]
                   }
@@ -248,30 +254,18 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'EREG_FUEL_MOTOR_POWER',
+                        name: 'EREG_FUEL_INJECTOR_PT',
                         color: [255, 51, 224],
-                        unit: 'PSI'
+                        unit: 'PSI',
+                        displayname: 'Fuel Injector PT'
                       },
                       {
-                        name: 'thrust2', // prop PT temp
+                        name: 'EREG_LOX_INJECTOR_PT', // prop PT temp
                         color: [15, 202, 221],
-                        unit: 'LBS'
+                        unit: 'PSI',
+                        displayname: 'LOX Injector PT'
                       },
-                      {
-                        name: 'thrust3', // prop PT temp
-                        color: [202, 15, 221],
-                        unit: 'LBS'
-                      },
-                      {
-                        name: 'thrust4', // prop PT temp
-                        color: [221, 202, 15],
-                        unit: 'LBS'
-                      },
-                      {
-                        name: 'totalThrust', // prop PT temp
-                        color: [238, 154, 7],
-                        unit: 'LBS'
-                      },
+
                     ]
                   }
                 />
@@ -281,25 +275,18 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'EREG_ANGLE_SETPOINT',
+                        name: 'EREG_FUEL_MOTOR_POWER',
+                        displayname: 'Fuel Motor Power',
                         color: [0, 126, 254],
-                        unit: 'PSI'
-                      },
-                      {
-                        name: 'EREG_ENCODER_ANGLE',
-                        color: [0, 187, 0],
                         unit: 'yes'
                       },
                       {
-                        name: 'engineBottom1TC',
-                        color: [123, 35, 162],
-                        unit: 'ºC'
+                        name: 'EREG_LOX_MOTOR_POWER',
+                        displayname: 'LOX Motor Power',
+                        color: [0, 187, 0],
+                        unit: 'yes'
                       },
-                      {
-                        name: 'engineBottom2TC',
-                        color: [35, 123, 162],
-                        unit: 'ºC'
-                      },
+
 
                       // {
                       //   name: 'engineTC4',

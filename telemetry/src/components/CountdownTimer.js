@@ -54,13 +54,14 @@ const styles = theme => ({
 });
 
 const steps = [
-  {label: 'Close RBVs', time: -6.665},
-  {label: 'Igniter On', time: -2.665},
-  {label: 'Arm Valves', time: -0.665},
-  {label: 'Open LOX', time: -0.165},
+  {label: 'Close Vents', time: -4.3},
+  {label: 'Igniter On', time: -2},
+  {label: 'Arm Valves', time: -0.3},
+  {label: 'Open LOX', time: 0.0},
   {label: 'Open Fuel', time: 0.0},
-  {label: 'Close LOX', time: 3.0},
-  {label: 'Close Fuel', time: 3.1},
+  {label: 'Close LOX', time: 5},
+  {label: 'Close Fuel', time: 5},
+  {label: 'Disarm Valves', time: 6}
 ];
 
 class CountdownTimer extends Component {

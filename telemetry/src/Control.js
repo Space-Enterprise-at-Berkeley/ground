@@ -237,6 +237,7 @@ class Control extends Component {
                     <SwitchButton
                       open={comms.doNothing}
                       close={comms.doNothing}
+                      
                       text='Enable Static Press & Flow'
                       change={e => {this.setState({flow_en: e.target.checked});}}
                       />
@@ -249,6 +250,7 @@ class Control extends Component {
                       successText='Fuel EReg'
                       failText = 'LOX EReg'
                       disabled = {!this.state.flow_en}
+                      noFeedback = {true}
                     />
                   </Grid>
                   <Grid item={1} xs={6}>
@@ -259,15 +261,18 @@ class Control extends Component {
                       successText='Fuel EReg'
                       failText='LOX EReg'
                       disabled = {!this.state.flow_en}
+                      noFeedback = {true}
+
                     />
                   </Grid>
                   <Grid item={1} xs={6}>
-                    <ButtonGroupFlow
+                    <ButtonGroup
                       open={this.beginFlowAll}
                       close={this.abortAll}
                       field='__' // change this?
                       text='Begin Flow'
                       disabled = {!this.state.flow_en}
+                      noFeedback = {true}
                     />
                   </Grid>
                 </Grid>
