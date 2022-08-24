@@ -95,9 +95,7 @@ class ButtonGroup extends Component {
           <Box component="span" display="block">{text}</Box>
         </Grid>
         <Grid item>
-          <Box borderRadius={4} {...statusBox} bgcolor={this.props.noFeedback ? (
-            this.props.disabled ? theme.palette.error.main : theme.palette.warning.main) : 
-            (open ? theme.palette.success.main : theme.palette.error.main)}/>
+          <Box borderRadius={4} {...statusBox} bgcolor={this.props.noFeedback ? (this.props.disabled ? theme.palette.error.main : theme.palette.warning.main) :  (open ? theme.palette.success.main : theme.palette.error.main)}/>
         </Grid>
         <Grid item >
           <Button

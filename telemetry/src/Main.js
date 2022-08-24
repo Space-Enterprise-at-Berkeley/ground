@@ -184,8 +184,9 @@ class Main extends Component {
                     decimals: 1
                   }}
                   field6={{
-    
-                    field: '_',
+                    name: 'Igniter Voltage',
+                    field: 'acHeater3Voltage',
+                    decimals: 1
                   }}
                 />
               </Grid>
@@ -221,8 +222,8 @@ class Main extends Component {
                         displayname: 'LOX Encoder Angle'
                       },
                       {
-                        name: 'EREG_LOX_ENCODER_ANGLE',
-                        color: [62, 237, 141],
+                        name: 'EREG_LOX_ANGLE_SETPOINT',
+                        color: [27, 102, 101],
                         unit: 'Ticks',
                         displayname: "LOX Encoder Setpoint"
                       }
