@@ -467,9 +467,7 @@ class App {
     this.addIPC('close-ERegACCh0', this.actCtrlr1.closeActCh0);
     this.addIPC('time-ERegACCh0', (e, val) => this.actCtrlr1.actCh0ms(val));
 
-    this.addIPC('open-loxTankVentRBV', this.actCtrlr2.openActCh0);
-    this.addIPC('close-loxTankVentRBV', this.actCtrlr2.closeActCh0);
-    this.addIPC('time-loxTankVentRBV', (e, val) => this.actCtrlr2.actCh0ms(val)); //wtf why is this still like this
+
 
     this.addIPC('open-ERegACCh2', this.actCtrlr1.openActCh2);
     this.addIPC('close-ERegACCh2', this.actCtrlr1.closeActCh2);
@@ -533,6 +531,10 @@ class App {
     this.addIPC('open-ERegACCh1', this.actCtrlr1.openActCh1);
     this.addIPC('close-ERegACCh1', this.actCtrlr1.closeActCh1);
     this.addIPC('time-ERegACCh1', (e, val) => this.actCtrlr1.actCh1ms(val));
+
+    this.addIPC('open-loxTankVentRBV', this.actCtrlr2.openActCh0);
+    this.addIPC('close-loxTankVentRBV', this.actCtrlr2.closeActCh0);
+    this.addIPC('time-loxTankVentRBV', (e, val) => this.actCtrlr2.actCh0ms(val)); //wtf why is this still like this
 
     this.addIPC('open-fuelTankVentRBV', this.actCtrlr2.openActCh2);
     this.addIPC('close-fuelTankVentRBV', this.actCtrlr2.closeActCh2);

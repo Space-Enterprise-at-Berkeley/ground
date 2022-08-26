@@ -96,140 +96,234 @@ class Aux1 extends Component {
               <Grid item={1} xs={4} className={classes.item}>
                 <SixValueSquare
                   field1={{
-                    name: 'FC',
-                    field: 'flightBattVoltage',
-                    unit: 'V',
-                    decimals: 1
-                  }}
-                  field2={{
-                    name: 'AC 1',
-                    field: '_',
-                    unit: 'V',
-                    decimals: 1
-                  }}
-                  field3={{
-                    name: 'AC 2',
-                    field: '_',
+                    name: 'AC1 Ch0 Voltage',
+                    field: 'ERegACCh0voltage',
                     unit: 'V',
                     decimals: 1
                   }}
                   field4={{
-                    name: 'DAQ 1',
-                    field: 'daq1BattVoltage',
+                    name: 'AC1 Ch0 Current',
+                    field: 'ERegACCh0curent',
+                    unit: 'A',
+                    decimals: 1
+                  }}
+                  field2={{
+                    name: 'AC1 Ch1 Voltage',
+                    field: 'ERegACCh1voltage',
                     unit: 'V',
                     decimals: 1
                   }}
                   field5={{
-                    name: 'DAQ 2',
-                    field: 'daq2BattVoltage',
+                    name: 'AC1 Ch1 Current',
+                    field: 'ERegACCh1current',
+                    unit: 'A',
+                    decimals: 1
+                  }}
+                  field3={{
+                    name: 'AC1 Ch2 Voltage',
+                    field: 'ERegACCh2voltage',
                     unit: 'V',
                     decimals: 1
                   }}
                   field6={{
-                    name: 'AC 3',
-                    field: 'ac3Voltage',
-                    unit: 'V',
+                    name: 'AC1 Ch2 Current',
+                    field: 'ERegACCh2current',
+                    unit: 'A',
                     decimals: 1
                   }}
-                />
-              </Grid>
-              <Grid item={1} xs={8} className={classes.item}>
-                <Graph
-                  fields={
-                    [
-                      {
-                        name: 'engineTop1TC', // engine temp 1
-                        color: [221, 0, 0],
-                        unit: 'degC'
-                      },
-                      {
-                        name: 'engineTop2TC', // engine temp 2
-                        color: [0, 127, 254],
-                        unit: 'degC'
-                      },
-                      {
-                        name: 'engineBottom1TC', // engine temp 3
-                        color: [0, 187, 0],
-                        unit: 'degC'
-                      },
-                      {
-                        name: 'engineBottom2TC', // engine temp 3
-                        color: [245, 185, 66],
-                        unit: 'degC'
-                      },
-                    ]
-                  }
                 />
               </Grid>
               <Grid item={1} xs={4} className={classes.item}>
                 <SixValueSquare
                   field1={{
-                    name: 'FC',
-                    field: 'flightBattCurrent',
-                    unit: 'A',
+                    name: 'AC1 Ch3 Voltage',
+                    field: 'ERegACCh3voltage',
+                    unit: 'V',
                     decimals: 1
                   }}
                   field2={{
-                    name: 'AC 1',
-                    field: '_',
-                    unit: 'A',
+                    name: 'AC1 Ch5 Voltage',
+                    field: 'ERegACCh5voltage',
+                    unit: 'V',
                     decimals: 1
                   }}
                   field3={{
-                    name: 'AC 2',
-                    field: '_',
-                    unit: 'A',
+                    name: 'AC1 Ch6 Voltage',
+                    field: 'ERegACCh6voltage',
+                    unit: 'V',
                     decimals: 1
                   }}
                   field4={{
-                    name: 'DAQ 1',
-                    field: 'daq1CurrentDraw',
+                    name: 'AC1 Ch3 Current',
+                    field: 'ERegACCh3current',
                     unit: 'A',
                     decimals: 1
                   }}
                   field5={{
-                    name: 'DAQ 2',
-                    field: 'daq2CurrentDraw',
+                    name: 'AC1 Ch5 Current',
+                    field: 'ERegACCh5current',
                     unit: 'A',
                     decimals: 1
                   }}
                   field6={{
-                    name: 'AC 3',
-                    field: 'ac3CurrentDraw',
+                    name: 'AC1 Ch6 Current',
+                    field: 'ERegACCh6current',
                     unit: 'A',
                     decimals: 1
                   }}
                 />
-              </Grid>
+              </Grid> 
+              <Grid item={1} xs={4} className={classes.item}>
+                <SixValueSquare
+                  field1={{
+                    name: 'AC1 24V1 Voltage',
+                    field: 'acHeater3Voltage',
+                    unit: 'A',
+                    decimals: 1
+                  }}
+                  field2={{
+                    name: 'AC1 24V2 Voltage',
+                    field: 'acHeater4Voltage',
+                    unit: 'A',
+                    decimals: 1
+                  }}
+                  field3={{
+                    name: 'AC2 Ch0 Voltage',
+                    field: 'loxTankVentRBVvoltage',
+                    unit: 'V',
+                    decimals: 1
+                  }}
+                  field4={{
+                    name: 'AC1 24V1 Current',
+                    field: 'acHeater3Current',
+                    unit: 'A',
+                    decimals: 1
+                  }}
+                  field5={{
+                    name: 'AC1 24V2 Current',
+                    field: 'acHeater4Current',
+                    unit: 'A',
+                    decimals: 1
+                  }}
+                  field6={{
+                    name: 'AC2 Ch0 Current', //AC2 Lin Act 1
+                    field: 'loxTankVentRBVcurrent', 
+                    unit: 'A',
+                    decimals: 1
+                  }}
+                />
+              </Grid> 
+              <Grid item={1} xs={4} className={classes.item}>
+                <SixValueSquare
+                  field1={{
+                    name: 'AC2 Ch2 Voltage',
+                    field: 'fuelTankVentRBVvoltage',
+                    unit: 'A',
+                    decimals: 1
+                  }}
+                  field2={{
+                    name: 'AC2 Ch3 Voltage',
+                    field: 'fuelPrechillRBVvoltage',
+                    unit: 'A',
+                    decimals: 1
+                  }}
+                  field3={{
+                    name: 'AC2 Ch4 Voltage',
+                    field: 'purgeFlowRBVvoltage',
+                    unit: 'V',
+                    decimals: 1
+                  }}
+                  field4={{
+                    name: 'AC2 Ch2 Current',
+                    field: 'fuelTankVentRBVcurrent',
+                    unit: 'A',
+                    decimals: 1
+                  }}
+                  field5={{
+                    name: 'AC2 Ch3 Current',
+                    field: 'fuelPrechillRBVvoltage',
+                    unit: 'A',
+                    decimals: 1
+                  }}
+                  field6={{
+                    name: 'AC2 Ch4 Current', //AC2 Lin Act 1
+                    field: 'purgeFlowRBVcurrent', 
+                    unit: 'A',
+                    decimals: 1
+                  }}
+                />
+              </Grid> 
               <Grid item={1} xs={8} className={classes.item}>
                 <Graph
                   fields={
                     [
                       {
-                        name: 'injectorTC', // engine temp 1
-                        color: [221, 0, 0],
-                        unit: 'degC'
-                      },
-                      {
-                        name: 'engineMid1TC', // engine temp 2
-                        color: [0, 127, 254],
-                        unit: 'degC'
-                      },
-                      {
-                        name: 'engineMid2TC', // engine temp 3
-                        color: [0, 187, 0],
-                        unit: 'degC'
-                      },
-                      {
-                        name: 'engineTop3TC', // engine temp 3
-                        color: [245, 185, 66],
-                        unit: 'degC'
+                        name: 'TC0', // lox PT temp
+                        displayname: 'TC 0',
+                        color: [123, 35, 162],
+                        unit: '°C'
                       },
                     ]
                   }
                 />
               </Grid>
-              <Grid item={1} xs={4} className={classes.item}>
+              <Grid item={1} xs={6} className={classes.item}>
+                <Graph
+                  fields={
+                    [
+                      {
+                        name: 'TC1', // engine temp 1
+                        color: [221, 0, 0],
+                        unit: '°C'
+                      },
+                      {
+                        name: 'TC2', // engine temp 2
+                        color: [0, 127, 254],
+                        unit: '°C'
+                      },
+                      {
+                        name: 'TC3', // engine temp 3
+                        color: [0, 187, 0],
+                        unit: '°C'
+                      },
+                      {
+                        name: 'TC4', // engine temp 3
+                        color: [245, 185, 66],
+                        unit: '°C'
+                      },
+                    ]
+                  }
+                />
+              </Grid>
+
+              <Grid item={1} xs={6} className={classes.item}>
+                <Graph
+                  fields={
+                    [
+                      {
+                        name: 'LC1', // engine temp 1
+                        color: [221, 0, 0],
+                        unit: 'kg'
+                      },
+                      {
+                        name: 'LC2', // engine temp 2
+                        color: [0, 127, 254],
+                        unit: 'kg'
+                      },
+                      {
+                        name: 'LCsum',
+                        displayname: 'Sum',
+                        color: [41, 171, 76],
+                        unit: 'kg',
+                      }
+
+                    ]
+                  }
+                />
+              </Grid>
+
+              
+              {/* <Grid item={1} xs={4} className={classes.item}>
                 <Graph
                   fields={
                     [
@@ -246,8 +340,8 @@ class Aux1 extends Component {
                     ]
                   }
                 />
-              </Grid>
-              <Grid item={1} xs={8} className={classes.item}>
+              </Grid> */}
+              {/* <Grid item={1} xs={8} className={classes.item}>
                 <Graph
                   fields={
                     [
@@ -274,7 +368,7 @@ class Aux1 extends Component {
                     ]
                   }
                 />
-              </Grid>
+              </Grid> */}
             </Grid>
           </Container>
         </Box>

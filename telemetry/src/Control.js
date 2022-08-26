@@ -410,11 +410,11 @@ class Control extends Component {
                   <Grid item={1} xs={12}>
                     <ButtonGroupRBVTimed
 
-                      open={comms.openERegACCh2}
-                      close={comms.closeERegACCh2}
+                      open={comms.closeERegACCh2}
+                      close={comms.openERegACCh2}
                       time={comms.timeERegACCh2}
                       field='ERegACCh2state'
-                      text='Propane Fill RBV'
+                      text='Igniter Enable Relay'
                     />
                   </Grid>
                   {/* <Grid item={1} xs={6}>
@@ -569,30 +569,34 @@ class Control extends Component {
                   </Grid>
                 </Grid>
               </Grid> */}
-              {/* <Grid item={1} xs={3} className={classes.item}>
+              <Grid item={1} xs={3} className={classes.item}>
                 <Grid container spacing={1} direction='column'>
                   <Grid item>
-                    <ButtonGroup
-                      open={comms.openloxGemsValve}
-                      close={comms.closeloxGemsValve}
-                      field='loxGemsValveState'
-                      text='LOX Gems Valve'
+                    <ButtonGroupRBVTimed
+
+                      open={comms.openloxTankVentRBV}
+                      close={comms.closeloxTankVentRBV}
+                      time={comms.timeloxTankVentRBV}
+                      field='loxTankVentRBVState'
+                      text='Propane Fill RBV'
                     />
                   </Grid>
                   <Grid item>
-                    <ButtonGroup
-                      open={comms.startToggleLoxGemsValve}
-                      close={comms.stopToggleLoxGemsValve}
-                      field='loxGemsValveState'
-                      text='Toggle LOX Gems Valve'
+                    <ButtonGroupRBVTimed
+
+                      open={comms.openfuelTankVentRBV}
+                      close={comms.closefuelTankVentRBV}
+                      time={comms.timefuelTankVentRBV}
+                      field='fuelTankVentRBVState'
+                      text='Press Fill RBV'
                     />
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item={1} xs={3} className={classes.item}>
+              {/* <Grid item={1} xs={3} className={classes.item}>
                 <Grid container spacing={1} direction='column'>
                   <Grid item>
-                    <ButtonGroup
+                    <ButtonGroupRBVTimed
                       open={comms.openfuelGemsValve}
                       close={comms.closefuelGemsValve}
                       field='fuelGemsValveState'
@@ -609,24 +613,28 @@ class Control extends Component {
                   </Grid>
                 </Grid>
               </Grid> */}
-              {/* <Grid item={1} xs={3} className={classes.item}>
+              <Grid item={1} xs={3} className={classes.item}>
                 <Grid container spacing={1} direction='column'>
                   <Grid item>
-                    <ButtonGroup
-                      open={comms.activateLoxTankMidHtr}
-                      close={comms.deactivateLoxTankMidHtr}
-                      text='Main Valve Vent'
+                    <ButtonGroupRBVTimed
+                      open={comms.openfuelPrechillRBV}
+                      close={comms.closefuelPrechillRBV}
+                      time={comms.timefuelPrechillRBV}
+                      field='fuelPrechillRBVState'
+                      text='Press Line Vent RBV'
                     />
                   </Grid>
                   <Grid item>
-                    <ButtonGroup
-                      open={comms.activateLoxTankBottomHtr}
-                      close={comms.deactivateLoxTankBottomHtr}
-                      text='RQD'
+                    <ButtonGroupRBVTimed
+                      open={comms.openPurgeFlowRBV}
+                      close={comms.closePurgeFlowRBV}
+                      time={comms.timePurgeFlowRBV}
+                      field='purgeFlowRBVState'
+                      text='LOX Fill RBV'
                     />
                   </Grid>
                 </Grid>
-              </Grid> */}
+              </Grid>
               <Grid item={1} xs={3} className={classes.item}>
                 
               </Grid>

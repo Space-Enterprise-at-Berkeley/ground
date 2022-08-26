@@ -297,6 +297,29 @@ const INBOUND_PACKET_DEFS = {
     ['acHeater4Current', asFloat],
   ],
 
+  100: [
+    ['LC1', asFloat],
+    ['LC2', asFloat],
+    ['LCsum', asFloat],
+  ],
+
+  110: [
+    ['TC0', asFloat],
+  ],
+  111: [
+    ['TC1', asFloat],
+  ],
+  112: [
+    ['TC2', asFloat],
+  ],
+  113: [
+    ['TC3', asFloat],
+  ],
+  114: [
+    ['TC4', asFloat],
+  ],
+
+
   // // [100:129] DAQs
   // 100: [
   //   ['daqBattVoltage', asFloat],
@@ -314,18 +337,6 @@ const INBOUND_PACKET_DEFS = {
   //   ['daqADC7', asFloat],
   // ],
 
-  // 110: [
-  //   ['daqTC1', asFloat],
-  // ],
-  // 111: [
-  //   ['daqTC2', asFloat],
-  // ],
-  // 112: [
-  //   ['daqTC3', asFloat],
-  // ],
-  // 113: [
-  //   ['daqTC4', asFloat],
-  // ],
 
   // 120: [
   //   ['loadCell1', asFloat],

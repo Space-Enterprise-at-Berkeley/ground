@@ -184,9 +184,7 @@ class Main extends Component {
                     decimals: 1
                   }}
                   field6={{
-                    name: 'Igniter Voltage',
-                    field: 'acHeater3Voltage',
-                    decimals: 1
+                    field: '_',
                   }}
                 />
               </Grid>
