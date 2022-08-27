@@ -292,7 +292,7 @@ const INBOUND_PACKET_DEFS = {
     ['acHeater3Voltage', asFloat], //inbound 24V channel 0
     ['acHeater3Current', asFloat],
   ],
-  79: [
+  80: [
     ['acHeater4Voltage', asFloat], //inbound 24V channel 1
     ['acHeater4Current', asFloat],
   ],
