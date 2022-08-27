@@ -30,10 +30,28 @@ class Interpolation {
     return [buffer.slice(offset).toString("ascii"), buffer.length]
   }
 
-  // static asFlowState(buffer, offset) {
-  //   let num = buffer.readUInt8(offset)
+  static asFlowState(buffer, offset) {
+    let num = buffer.readUInt8(offset)
+    const flowStateMap = [
+      "Flow Preparation State",
+      "Activated Igniter State",
+      "Failed Breakwire Continuity Abort",
+      "Igniter Enabled State",
+      "Armed 2Way State",
+      "Failed Breakwire Discontinuity Abort",
+      "Started Flow State",
+      "Arming Valve Current Fail Abort",
+      "Arming Valve Disabled State",
+      "Ended Flow State",
+      "Received Manual Abort",
+      "Abort Concluded State",
+      "EReg-triggered Abort State",
+      "Load Cell Triggered Abort State",
+      "TC Triggered Abort State"
+    ]
+    return [flowStateMap[num], flowStateMap[num].length]
 
-  // }
+  }
 
   /**
    * Returns the float that is represented by the buffer at the given offset.

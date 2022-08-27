@@ -1,6 +1,6 @@
 const Interpolation = require("./Interpolation");
 
-const { asASCIIString, asFloat, asUInt8, asUInt16, asUInt32 } = Interpolation
+const { asASCIIString, asFloat, asUInt8, asUInt16, asUInt32, asFlowState } = Interpolation
 const { FLOAT, UINT8, UINT32, UINT16 } = Interpolation.TYPES
 
 /**
@@ -234,7 +234,7 @@ const INBOUND_PACKET_DEFS = {
   ],
 
   50: [
-    ['flowState', asUInt8],
+    ['flowState', asFlowState],
   ],
   61: [
     ['acBattVoltage', asFloat],
