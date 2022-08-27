@@ -96,40 +96,48 @@ class Aux1 extends Component {
               <Grid item={1} xs={4} className={classes.item}>
                 <SixValueSquare
                   field1={{
-                    name: 'AC1 Ch0 Voltage',
+                    name: 'Fuel Tank Vent RBV Voltage',
                     field: 'ERegACCh0voltage',
                     unit: 'V',
-                    decimals: 1
+                    decimals: 1,
+                    threshold: 5
+
                   }}
                   field4={{
-                    name: 'AC1 Ch0 Current',
-                    field: 'ERegACCh0curent',
+                    name: 'Fuel Tank Vent RBV Current',
+                    field: 'ERegACCh0current',
                     unit: 'A',
-                    decimals: 1
+                    decimals: 1,
+                    threshold: 0.1
                   }}
                   field2={{
                     name: 'AC1 Ch1 Voltage',
                     field: 'ERegACCh1voltage',
                     unit: 'V',
-                    decimals: 1
+                    decimals: 1,
+                    threshold: 5
                   }}
                   field5={{
                     name: 'AC1 Ch1 Current',
                     field: 'ERegACCh1current',
                     unit: 'A',
-                    decimals: 1
+                    decimals: 1,
+                    threshold: 0.1
+
                   }}
                   field3={{
                     name: 'AC1 Ch2 Voltage',
                     field: 'ERegACCh2voltage',
                     unit: 'V',
-                    decimals: 1
+                    decimals: 1,
+                    threshold: 5
                   }}
                   field6={{
                     name: 'AC1 Ch2 Current',
                     field: 'ERegACCh2current',
                     unit: 'A',
-                    decimals: 1
+                    decimals: 1,
+                    threshold: 0.1
                   }}
                 />
               </Grid>
@@ -139,37 +147,43 @@ class Aux1 extends Component {
                     name: 'AC1 Ch3 Voltage',
                     field: 'ERegACCh3voltage',
                     unit: 'V',
-                    decimals: 1
+                    decimals: 1,
+                    threshold: 5
                   }}
                   field2={{
                     name: 'AC1 Ch5 Voltage',
                     field: 'ERegACCh5voltage',
                     unit: 'V',
-                    decimals: 1
+                    decimals: 1,
+                    threshold: 5
                   }}
                   field3={{
                     name: 'AC1 Ch6 Voltage',
                     field: 'ERegACCh6voltage',
                     unit: 'V',
-                    decimals: 1
+                    decimals: 1,
+                    threshold: 5
                   }}
                   field4={{
                     name: 'AC1 Ch3 Current',
                     field: 'ERegACCh3current',
                     unit: 'A',
-                    decimals: 1
+                    decimals: 1,
+                    threshold: 0.05
                   }}
                   field5={{
                     name: 'AC1 Ch5 Current',
                     field: 'ERegACCh5current',
                     unit: 'A',
-                    decimals: 1
+                    decimals: 1,
+                    threshold: 0.05
                   }}
                   field6={{
                     name: 'AC1 Ch6 Current',
                     field: 'ERegACCh6current',
                     unit: 'A',
-                    decimals: 1
+                    decimals: 1,
+                    threshold: 0.05
                   }}
                 />
               </Grid> 
@@ -178,38 +192,44 @@ class Aux1 extends Component {
                   field1={{
                     name: 'AC1 24V1 Voltage',
                     field: 'acHeater3Voltage',
-                    unit: 'A',
-                    decimals: 1
+                    unit: 'V',
+                    decimals: 1,
+                    threshold: 5
                   }}
                   field2={{
                     name: 'AC1 24V2 Voltage',
                     field: 'acHeater4Voltage',
-                    unit: 'A',
-                    decimals: 1
+                    unit: 'V',
+                    decimals: 1,
+                    threshold: 5
                   }}
                   field3={{
                     name: 'AC2 Ch0 Voltage',
                     field: 'loxTankVentRBVvoltage',
                     unit: 'V',
-                    decimals: 1
+                    decimals: 1,
+                    threshold: 5
                   }}
                   field4={{
                     name: 'AC1 24V1 Current',
                     field: 'acHeater3Current',
                     unit: 'A',
-                    decimals: 1
+                    decimals: 1,
+                    threshold: 0.05
                   }}
                   field5={{
                     name: 'AC1 24V2 Current',
                     field: 'acHeater4Current',
                     unit: 'A',
-                    decimals: 1
+                    decimals: 1,
+                    threshold: 0.05
                   }}
                   field6={{
                     name: 'AC2 Ch0 Current', //AC2 Lin Act 1
                     field: 'loxTankVentRBVcurrent', 
                     unit: 'A',
-                    decimals: 1
+                    decimals: 1,
+                    threshold: 0.05
                   }}
                 />
               </Grid> 
@@ -218,38 +238,44 @@ class Aux1 extends Component {
                   field1={{
                     name: 'AC2 Ch2 Voltage',
                     field: 'fuelTankVentRBVvoltage',
-                    unit: 'A',
-                    decimals: 1
+                    unit: 'V',
+                    decimals: 1,
+                    threshold: 5
                   }}
                   field2={{
                     name: 'AC2 Ch3 Voltage',
                     field: 'fuelPrechillRBVvoltage',
-                    unit: 'A',
-                    decimals: 1
+                    unit: 'V',
+                    decimals: 1,
+                    threshold: 5
                   }}
                   field3={{
                     name: 'AC2 Ch4 Voltage',
                     field: 'purgeFlowRBVvoltage',
                     unit: 'V',
-                    decimals: 1
+                    decimals: 1,
+                    threshold: 5
                   }}
                   field4={{
                     name: 'AC2 Ch2 Current',
                     field: 'fuelTankVentRBVcurrent',
                     unit: 'A',
-                    decimals: 1
+                    decimals: 1,
+                    threshold: 0.05
                   }}
                   field5={{
                     name: 'AC2 Ch3 Current',
-                    field: 'fuelPrechillRBVvoltage',
+                    field: 'fuelPrechillRBVcurrent',
                     unit: 'A',
-                    decimals: 1
+                    decimals: 1,
+                    threshold: 0.05
                   }}
                   field6={{
                     name: 'AC2 Ch4 Current', //AC2 Lin Act 1
                     field: 'purgeFlowRBVcurrent', 
                     unit: 'A',
-                    decimals: 1
+                    decimals: 1,
+                    threshold: 0.05
                   }}
                 />
               </Grid> 

@@ -201,7 +201,7 @@ class App {
         acLinAct5Current: 'ERegACCh4current',
         
         acLinAct6State: 'ERegACCh5state',
-        acLinAct6Voltage: 'ERecACCh5voltage',
+        acLinAct6Voltage: 'ERegACCh5voltage',
         acLinAct6Current: 'ERegACCh5current',
 
         acLinAct7State: 'ERegACCh6state',

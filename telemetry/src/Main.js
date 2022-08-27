@@ -197,13 +197,13 @@ class Main extends Component {
                         name: 'EREG_FUEL_ENCODER_ANGLE',
                         color: [221, 0, 0],
                         unit: 'Ticks',
-                        displayname: 'Fuel Encoder Angle'
+                        displayname: 'Fuel Enc Angle'
                       },
                       {
                         name: 'EREG_FUEL_ANGLE_SETPOINT',
                         color: [0,0,221],
                         unit: 'Ticks',
-                        displayname: 'Fuel Angle Setpoint'
+                        displayname: 'Fuel Enc Setpoint'
                       }
                     ]
                   }
@@ -217,13 +217,13 @@ class Main extends Component {
                         name: 'EREG_LOX_ENCODER_ANGLE',
                         color: [148, 42, 235],
                         unit: 'Ticks',
-                        displayname: 'LOX Encoder Angle'
+                        displayname: 'LOX Enc Angle'
                       },
                       {
                         name: 'EREG_LOX_ANGLE_SETPOINT',
                         color: [27, 102, 101],
                         unit: 'Ticks',
-                        displayname: "LOX Encoder Setpoint"
+                        displayname: "LOX Enc Setpoint"
                       }
                     ]
                   }
