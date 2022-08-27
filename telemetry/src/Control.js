@@ -370,7 +370,7 @@ class Control extends Component {
                     <ButtonGroup
                       open={comms.openERegAC24VCh0}
                       close={comms.closeERegAC24VCh0}
-                      text='24VChan0'
+                      text='Igniter'
                       // disabled={!this.state.HPS_en}
                     />
                   </Grid>
@@ -453,7 +453,7 @@ class Control extends Component {
                         open={comms.openERegAC24VCh1}
                         close={comms.closeERegAC24VCh1}
                         field='_'
-                        text='24VChan1'
+                        text='Breakwire'
                       />
                   </Grid>
 

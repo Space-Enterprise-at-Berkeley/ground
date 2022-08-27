@@ -190,42 +190,42 @@ class Aux1 extends Component {
               <Grid item={1} xs={4} className={classes.item}>
                 <SixValueSquare
                   field1={{
-                    name: 'AC1 24V1 Voltage',
+                    name: 'Igniter Voltage',
                     field: 'acHeater3Voltage',
                     unit: 'V',
                     decimals: 1,
                     threshold: 5
                   }}
                   field2={{
-                    name: 'AC1 24V2 Voltage',
+                    name: 'Breakwire Voltage',
                     field: 'acHeater4Voltage',
                     unit: 'V',
                     decimals: 1,
                     threshold: 5
                   }}
                   field3={{
-                    name: 'AC2 Ch0 Voltage',
+                    name: 'Propane Fill Voltage',
                     field: 'loxTankVentRBVvoltage',
                     unit: 'V',
                     decimals: 1,
                     threshold: 5
                   }}
                   field4={{
-                    name: 'AC1 24V1 Current',
+                    name: 'Igniter Current',
                     field: 'acHeater3Current',
                     unit: 'A',
                     decimals: 1,
                     threshold: 0.05
                   }}
                   field5={{
-                    name: 'AC1 24V2 Current',
+                    name: 'Breakwire Current',
                     field: 'acHeater4Current',
                     unit: 'A',
                     decimals: 1,
                     threshold: 0.05
                   }}
                   field6={{
-                    name: 'AC2 Ch0 Current', //AC2 Lin Act 1
+                    name: 'Propane Fill Current', //AC2 Lin Act 1
                     field: 'loxTankVentRBVcurrent', 
                     unit: 'A',
                     decimals: 1,
@@ -236,42 +236,42 @@ class Aux1 extends Component {
               <Grid item={1} xs={4} className={classes.item}>
                 <SixValueSquare
                   field1={{
-                    name: 'AC2 Ch2 Voltage',
+                    name: 'Press Fill',
                     field: 'fuelTankVentRBVvoltage',
                     unit: 'V',
                     decimals: 1,
                     threshold: 5
                   }}
                   field2={{
-                    name: 'AC2 Ch3 Voltage',
+                    name: 'Press Line Vent',
                     field: 'fuelPrechillRBVvoltage',
                     unit: 'V',
                     decimals: 1,
                     threshold: 5
                   }}
                   field3={{
-                    name: 'AC2 Ch4 Voltage',
+                    name: 'LOX Fill RBV',
                     field: 'purgeFlowRBVvoltage',
                     unit: 'V',
                     decimals: 1,
                     threshold: 5
                   }}
                   field4={{
-                    name: 'AC2 Ch2 Current',
+                    name: 'Press Fill',
                     field: 'fuelTankVentRBVcurrent',
                     unit: 'A',
                     decimals: 1,
                     threshold: 0.05
                   }}
                   field5={{
-                    name: 'AC2 Ch3 Current',
+                    name: 'Press Line Vent',
                     field: 'fuelPrechillRBVcurrent',
                     unit: 'A',
                     decimals: 1,
                     threshold: 0.05
                   }}
                   field6={{
-                    name: 'AC2 Ch4 Current', //AC2 Lin Act 1
+                    name: 'LOX Fill RBV', //AC2 Lin Act 1
                     field: 'purgeFlowRBVcurrent', 
                     unit: 'A',
                     decimals: 1,
