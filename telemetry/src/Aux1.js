@@ -9,6 +9,7 @@ import Settings from './components/Settings';
 import Navbar from './components/Navbar';
 import Graph from './components/Graph';
 import SixValueSquare from './components/SixValueSquare';
+import FourValueSquare from './components/FourValueSquare';
 
 import comms from './api/Comms';
 
@@ -96,7 +97,7 @@ class Aux1 extends Component {
               <Grid item={1} xs={4} className={classes.item}>
                 <SixValueSquare
                   field1={{
-                    name: 'Fuel Tank Vent RBV Voltage',
+                    name: 'Fuel Tank Vent RBV',
                     field: 'ERegACCh0voltage',
                     unit: 'V',
                     decimals: 1,
@@ -104,21 +105,21 @@ class Aux1 extends Component {
 
                   }}
                   field4={{
-                    name: 'Fuel Tank Vent RBV Current',
+                    name: 'Fuel Tank Vent RBV',
                     field: 'ERegACCh0current',
                     unit: 'A',
                     decimals: 1,
                     threshold: 0.1
                   }}
                   field2={{
-                    name: 'AC1 Ch1 Voltage',
+                    name: 'LOX Tank Vent',
                     field: 'ERegACCh1voltage',
                     unit: 'V',
                     decimals: 1,
                     threshold: 5
                   }}
                   field5={{
-                    name: 'AC1 Ch1 Current',
+                    name: 'LOX Tank Vent',
                     field: 'ERegACCh1current',
                     unit: 'A',
                     decimals: 1,
@@ -126,14 +127,14 @@ class Aux1 extends Component {
 
                   }}
                   field3={{
-                    name: 'AC1 Ch2 Voltage',
+                    name: 'Igniter Enable Relay',
                     field: 'ERegACCh2voltage',
                     unit: 'V',
                     decimals: 1,
                     threshold: 5
                   }}
                   field6={{
-                    name: 'AC1 Ch2 Current',
+                    name: 'Igniter Enable Relay',
                     field: 'ERegACCh2current',
                     unit: 'A',
                     decimals: 1,
@@ -144,42 +145,42 @@ class Aux1 extends Component {
               <Grid item={1} xs={4} className={classes.item}>
                 <SixValueSquare
                   field1={{
-                    name: 'AC1 Ch3 Voltage',
+                    name: '2 Way',
                     field: 'ERegACCh3voltage',
                     unit: 'V',
                     decimals: 1,
                     threshold: 5
                   }}
                   field2={{
-                    name: 'AC1 Ch5 Voltage',
+                    name: 'Fuel Gems',
                     field: 'ERegACCh5voltage',
                     unit: 'V',
                     decimals: 1,
                     threshold: 5
                   }}
                   field3={{
-                    name: 'AC1 Ch6 Voltage',
+                    name: 'LOX Gems',
                     field: 'ERegACCh6voltage',
                     unit: 'V',
                     decimals: 1,
                     threshold: 5
                   }}
                   field4={{
-                    name: 'AC1 Ch3 Current',
+                    name: '2 Way',
                     field: 'ERegACCh3current',
                     unit: 'A',
                     decimals: 1,
                     threshold: 0.05
                   }}
                   field5={{
-                    name: 'AC1 Ch5 Current',
+                    name: 'Fuel Gems',
                     field: 'ERegACCh5current',
                     unit: 'A',
                     decimals: 1,
                     threshold: 0.05
                   }}
                   field6={{
-                    name: 'AC1 Ch6 Current',
+                    name: 'LOX Gems',
                     field: 'ERegACCh6current',
                     unit: 'A',
                     decimals: 1,
@@ -190,42 +191,42 @@ class Aux1 extends Component {
               <Grid item={1} xs={4} className={classes.item}>
                 <SixValueSquare
                   field1={{
-                    name: 'Igniter Voltage',
+                    name: 'Igniter',
                     field: 'acHeater3Voltage',
                     unit: 'V',
                     decimals: 1,
                     threshold: 5
                   }}
                   field2={{
-                    name: 'Breakwire Voltage',
+                    name: 'Breakwire',
                     field: 'acHeater4Voltage',
                     unit: 'V',
                     decimals: 1,
                     threshold: 5
                   }}
                   field3={{
-                    name: 'Propane Fill Voltage',
+                    name: 'Propane Fill',
                     field: 'loxTankVentRBVvoltage',
                     unit: 'V',
                     decimals: 1,
                     threshold: 5
                   }}
                   field4={{
-                    name: 'Igniter Current',
+                    name: 'Igniter',
                     field: 'acHeater3Current',
                     unit: 'A',
                     decimals: 1,
                     threshold: 0.05
                   }}
                   field5={{
-                    name: 'Breakwire Current',
+                    name: 'Breakwire',
                     field: 'acHeater4Current',
                     unit: 'A',
                     decimals: 1,
                     threshold: 0.05
                   }}
                   field6={{
-                    name: 'Propane Fill Current', //AC2 Lin Act 1
+                    name: 'Propane Fill', //AC2 Lin Act 1
                     field: 'loxTankVentRBVcurrent', 
                     unit: 'A',
                     decimals: 1,

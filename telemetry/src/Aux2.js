@@ -7,6 +7,7 @@ import { Box, Container, Grid } from '@material-ui/core';
 
 import Graph from './components/Graph';
 import SixValueSquare from './components/SixValueSquare';
+import FourValueSquare from './components/FourValueSquare';
 
 import comms from './api/Comms';
 

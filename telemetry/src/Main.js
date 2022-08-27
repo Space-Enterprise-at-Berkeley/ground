@@ -12,6 +12,7 @@ import Graph from './components/Graph';
 import Navbar from './components/Navbar';
 import Settings from './components/Settings';
 import SixValueSquare from './components/SixValueSquare';
+import FourValueSquare from './components/FourValueSquare';
 import TankHeaterSquare from './components/TankHeaterSquare';
 import MessageDisplaySquare from "./components/MessageDisplaySquare";
 
@@ -157,35 +158,35 @@ class Main extends Component {
                 />
               </Grid>
               <Grid item={1} xs={4} className={classes.item}>
-                <SixValueSquare
+                <FourValueSquare
                   field1={{
                     name: 'Fuel Flow Pressure',
                     field: 'FUEL_PRESSURE_SETPOINT',
-                    decimals: 0
+                    decimals: 1
                   }}
                   field2={{
                     name: 'LOX Flow Pressure',
                     field: 'LOX_PRESSURE_SETPOINT',
-                    decimals: 0
+                    decimals: 1
                   }}
                   field3={{
-                    // name: 'Flow State',
-                    // field: 'flowState',
-                    // decimals: 0
-                  }}
-                  field4={{
                     name: 'Fuel Burntime',
                     field: 'FUEL_burn_duration',
                     decimals: 1
                   }}
-                  field5={{
-                    name: 'LOX Burntime',
+                  field4={{
+                    name: 'Fuel Burntime',
                     field: 'LOX_burn_duration',
                     decimals: 1
                   }}
-                  field6={{
-                    field: '_',
-                  }}
+                  // field5={{
+                  //   name: 'LOX Burntime',
+                  //   field: 'LOX_burn_duration',
+                  //   decimals: 1
+                  // }}
+                  // field6={{
+                  //   field: '_',
+                  // }}
                 />
               </Grid>
               
