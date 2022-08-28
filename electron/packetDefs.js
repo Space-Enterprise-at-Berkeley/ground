@@ -318,6 +318,9 @@ const INBOUND_PACKET_DEFS = {
   114: [
     ['TC4', asFloat],
   ],
+  221: [
+    ['fuelCapFill', asFloat],
+  ]
 
 
   // // [100:129] DAQs

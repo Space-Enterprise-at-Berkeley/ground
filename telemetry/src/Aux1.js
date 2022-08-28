@@ -280,7 +280,21 @@ class Aux1 extends Component {
                   }}
                 />
               </Grid> 
-              <Grid item={1} xs={8} className={classes.item}>
+              <Grid item={1} xs={4} className={classes.item}>
+                <Graph
+                  fields={
+                    [
+                      {
+                        name: 'fuelCapFill', // lox PT temp
+                        displayname: 'fuelCapFill',
+                        color: [123, 35, 162],
+                        unit: 'pF'
+                      },
+                    ]
+                  }
+                />
+              </Grid>
+              <Grid item={1} xs={4} className={classes.item}>
                 <Graph
                   fields={
                     [
