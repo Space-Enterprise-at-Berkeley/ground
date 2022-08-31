@@ -1,6 +1,6 @@
 const Interpolation = require("./Interpolation");
 
-const { asASCIIString, asFloat, asUInt8, asUInt16, asUInt32, asFlowState } = Interpolation
+const { asASCIIString, asFloat, asUInt8, asUInt16, asUInt32, asFlowState, asAutoVentTriggered, asLCAbortTriggered, asTCAbortTriggered } = Interpolation
 const { FLOAT, UINT8, UINT32, UINT16 } = Interpolation.TYPES
 
 /**
@@ -319,8 +319,21 @@ const INBOUND_PACKET_DEFS = {
     ['TC4', asFloat],
   ],
   221: [
-    ['fuelCapFill', asFloat],
-  ]
+    ['loxCapFill', asFloat],
+  ],
+
+
+  51: [
+    ['autoVentTriggered', asAutoVentTriggered],
+  ],
+
+  30: [
+    ['tcAbortTriggered', asTCAbortTriggered],
+  ],
+
+  31: [
+    ['lcAbortTriggered', asLCAbortTriggered],
+  ],
 
 
   // // [100:129] DAQs

@@ -53,6 +53,21 @@ class Interpolation {
 
   }
 
+  static asAutoVentTriggered(buffer, offset) {
+    const out = "Autovent Triggered";
+    return [out, out.length];
+  }
+
+  static asLCAbortTriggered(buffer, offset) {
+    const out = "LC Abort Triggered";
+    return [out, out.length];
+  }
+
+  static asTCAbortTriggered(buffer, offset) {
+    const out = "TC Abort Triggered";
+    return [out, out.length]; 
+  }
+
   /**
    * Returns the float that is represented by the buffer at the given offset.
    * @param buffer {Buffer} the source buffer
