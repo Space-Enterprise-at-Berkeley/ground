@@ -141,11 +141,8 @@ class Control extends Component {
           <Container maxWidth='xl' className={classes.container}>
             <Grid container={true} spacing={1} className={classes.row}>
               {/* START OF FIRST BUTTON COLUMN */}
-              <Grid item={1} xs={4} className={classes.item}>
-                <Grid container={true} spacing={1}>
+              <Grid item={1} xs={4} className={classes.item}> {/*go away i dont like this line*/}
 
-
-                  </Grid>
 
                 <Grid container={true} spacing={1}>
                   <Grid item={1} xs={6}>
