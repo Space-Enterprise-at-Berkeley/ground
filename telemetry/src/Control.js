@@ -254,7 +254,7 @@ class Control extends Component {
                       noFeedback = {true}
                     />
                   </Grid>
-                  <Grid item={1} xs={6}>
+                  {/* <Grid item={1} xs={6}>
                     <ButtonGroup
                       open={comms.startOneSidedFuel}
                       close={comms.startOneSidedLOX}
@@ -265,7 +265,7 @@ class Control extends Component {
                       noFeedback = {true}
 
                     />
-                  </Grid>
+                  </Grid> */}
                   <Grid item={1} xs={6}>
                     <ButtonGroup
                       open={this.beginFlowAll}
@@ -454,6 +454,17 @@ class Control extends Component {
                         close={comms.closeERegAC24VCh1}
                         field='_'
                         text='Breakwire'
+                      />
+                  </Grid>
+                  <Grid item={1} xs={12}>
+                    <ButtonGroup
+                      open={comms.startOneSidedFuel}
+                      close={comms.startOneSidedLOX}
+                      text='Start Single Propellant Flow'
+                      successText='Fuel EReg'
+                      failText='LOX EReg'
+                      disabled = {!this.state.flow_en}
+                      noFeedback = {true}
                       />
                   </Grid>
 
