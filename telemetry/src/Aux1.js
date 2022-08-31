@@ -285,10 +285,11 @@ class Aux1 extends Component {
                   fields={
                     [
                       {
-                        name: 'fuelCapFill', // lox PT temp
-                        displayname: 'fuelCapFill',
+                        name: 'loxCapFill', // lox PT temp
+                        displayname: 'loxCapFill',
                         color: [123, 35, 162],
-                        unit: 'pF'
+                        unit: 'pF',
+                        decimals: 0
                       },
                     ]
                   }
