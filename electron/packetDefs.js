@@ -354,11 +354,11 @@ const INBOUND_PACKET_DEFS = {
   // ],
 
 
-  // 120: [
-  //   ['loadCell1', asFloat],
-  //   ['loadCell2', asFloat],
-  //   ['loadCellSum', asFloat],
-  // ],
+  120: [
+    ['loadCell1', asFloat],
+    ['loadCell2', asFloat],
+    ['loadCellSum', asFloat],
+  ],
   // 121: [
   //   ['fastLoadCell1', asFloat],
   //   ['fastLoadCell2', asFloat],
