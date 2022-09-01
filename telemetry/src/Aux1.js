@@ -343,17 +343,19 @@ class Aux1 extends Component {
                   fields={
                     [
                       {
-                        name: 'LC1', // engine temp 1
+                        name: 'loadCell1', // engine temp 1
+                        displayname: 'LC1',
                         color: [221, 0, 0],
                         unit: 'kg'
                       },
                       {
-                        name: 'LC2', // engine temp 2
+                        name: 'loadCell2', // engine temp 2
+                        displayname: 'LC2',
                         color: [0, 127, 254],
                         unit: 'kg'
                       },
                       {
-                        name: 'LCsum',
+                        name: 'loadCellSum',
                         displayname: 'Sum',
                         color: [41, 171, 76],
                         unit: 'kg',
