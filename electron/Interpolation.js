@@ -38,7 +38,7 @@ class Interpolation {
       "Failed Breakwire Continuity Abort",
       "Igniter Enabled State",
       "Armed 2Way State",
-      "Igniter Current Failed OR Breakwire Discontinuity Abort",
+      "Breakwire Discontinuity Abort",
       "Started Flow State",
       "Arming Valve Current Fail Abort",
       "Arming Valve Disabled State",

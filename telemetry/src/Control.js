@@ -81,7 +81,7 @@ class Control extends Component {
     // comms.closefuelPrechillRBV();
     // comms.closePurgeFlowRBV(); //TODO change mappings to close packets automatically for EReg
 
-    this.beginFlowTimeout = setTimeout(comms.beginERegFlow, 2400);
+    this.beginFlowTimeout = setTimeout(comms.beginERegFlow, 200);
   }
 
   abortAll() {
@@ -286,7 +286,7 @@ class Control extends Component {
                       close={comms.closeERegACCh4}
                       time={comms.timeERegACCh4}
                       field='ERegACCh4state'
-                      text='Channel 5 RBV'
+                      text='Press Fill RBV'
                     />
                   </Grid>
                   <Grid item={1} xs={6}>
