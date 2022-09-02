@@ -286,7 +286,7 @@ class Control extends Component {
                       close={comms.closeERegACCh4}
                       time={comms.timeERegACCh4}
                       field='ERegACCh4state'
-                      text='Channel 5 RBV'
+                      text='Press Fill RBV'
                     />
                   </Grid>
                   <Grid item={1} xs={6}>
