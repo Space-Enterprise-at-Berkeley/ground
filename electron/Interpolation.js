@@ -6,7 +6,7 @@ const LC1_OFFSET = 0;
 const LC1_SCALE = 0;
 
 const LC2_OFFSET = 0;
-const LC2_SCALE = 0;
+const LC2_SCALE = -1;
 
 class Interpolation {
   static firstTimeStamps = {}
@@ -66,6 +66,10 @@ class Interpolation {
   static asTCAbortTriggered(buffer, offset) {
     const out = "TC Abort Triggered";
     return [out, out.length]; 
+  }
+
+  static asNegativeLoadCell(buffer, offset) {
+    return [-buffer.readFloatLE(offset), 4]
   }
 
   /**

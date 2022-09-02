@@ -1,6 +1,6 @@
 const Interpolation = require("./Interpolation");
 
-const { asASCIIString, asFloat, asUInt8, asUInt16, asUInt32, asFlowState, asAutoVentTriggered, asLCAbortTriggered, asTCAbortTriggered } = Interpolation
+const { asASCIIString, asFloat, asUInt8, asUInt16, asUInt32, asFlowState, asAutoVentTriggered, asLCAbortTriggered, asTCAbortTriggered, asNegativeLoadCell} = Interpolation
 const { FLOAT, UINT8, UINT32, UINT16 } = Interpolation.TYPES
 
 /**
@@ -356,7 +356,7 @@ const INBOUND_PACKET_DEFS = {
 
   120: [
     ['loadCell1', asFloat],
-    ['loadCell2', asFloat],
+    ['loadCell2', asNegativeLoadCell],
     ['loadCellSum', asFloat],
   ],
   // 121: [
