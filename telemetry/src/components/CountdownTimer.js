@@ -13,7 +13,7 @@ import Wav4 from '../media/4.wav';
 import Wav3 from '../media/3.wav';
 import Wav2 from '../media/2.wav';
 import Wav1 from '../media/1.wav';
-import Wav0 from '../media/updog.wav';
+import Wav0 from '../media/yes.mp3';
 
 const styles = theme => ({
   root: {
