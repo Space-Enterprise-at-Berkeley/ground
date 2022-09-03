@@ -353,12 +353,6 @@ const INBOUND_PACKET_DEFS = {
   //   ['daqADC7', asFloat],
   // ],
 
-
-  120: [
-    ['loadCell1', asFloat],
-    ['loadCell2', asNegativeLoadCell],
-    ['loadCellSum', asFloat],
-  ],
   // 121: [
   //   ['fastLoadCell1', asFloat],
   //   ['fastLoadCell2', asFloat],

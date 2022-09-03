@@ -74,6 +74,8 @@ class Board {
     // [  u_int8  |  u_int8  |              u_int32                |        u_int16    |     defined in doc    ]
     const id = buf.readUInt8(0);
     const len = buf.readUInt8(1);
+    
+    // console.debug(`CURRENT ID: ${id}`)
 
     const runTime = buf.readUInt32LE(2);
     const timestamp = this.calculateTimestamp(runTime);
@@ -101,6 +103,12 @@ class Board {
       let offset = 0;
 
       for (const [_, parser, __] of packetDef) {
+        
+        if (id == 0 && dataBuf.length == 7) {
+          console.debug(`bad previous packet of id 0 & data length of 7`)
+          return null
+        }
+        // console.debug(`databuf - ${dataBuf.length}, offset - ${offset}`)
         const [value, byteLen] = parser(dataBuf, offset);
         values.push(value);
         offset += byteLen;

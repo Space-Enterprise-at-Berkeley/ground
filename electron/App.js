@@ -90,14 +90,14 @@ class App {
         daqADC6: null,
         daqADC7: null,
 
-        daqTC1: 'engineTop4TC',
-        daqTC2: 'engineBottom3TC',
-        daqTC3: 'engineBottom4TC',
-        daqTC4: 'propTankTC',
+        daqTC1: 'tc0',
+        daqTC2: 'tc1',
+        daqTC3: 'tc2',
+        daqTC4: 'tc3',
 
-        loadCell1: 'thrust3',
-        loadCell2: 'thrust4',
-        loadCellSum: 'totalThrust34',
+        loadCell1: 'thrust1',
+        loadCell2: 'thrust2',
+        loadCellSum: 'totalThrust',
 
         capacitor1: null,
         capacitor2: null,
