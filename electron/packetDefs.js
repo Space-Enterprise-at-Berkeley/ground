@@ -297,7 +297,7 @@ const INBOUND_PACKET_DEFS = {
     ['acHeater4Current', asFloat],
   ],
 
-  100: [
+  120: [
     ['LC1', asFloat],
     ['LC2', asFloat],
     ['LCsum', asFloat],

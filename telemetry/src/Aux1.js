@@ -280,57 +280,25 @@ class Aux1 extends Component {
                   }}
                 />
               </Grid> 
-              <Grid item={1} xs={4} className={classes.item}>
+
+
+              <Grid item={1} xs={8} className={classes.item}>
                 <Graph
                   fields={
                     [
                       {
-                        name: 'loxCapFill', // lox PT temp
-                        displayname: 'loxCapFill',
-                        color: [123, 35, 162],
-                        unit: 'pF',
-                        decimals: 0
-                      },
-                    ]
-                  }
-                />
-              </Grid>
-              <Grid item={1} xs={4} className={classes.item}>
-                <Graph
-                  fields={
-                    [
-                      {
-                        name: 'TC0', // lox PT temp
-                        displayname: 'TC 0',
-                        color: [123, 35, 162],
-                        unit: '°C'
-                      },
-                    ]
-                  }
-                />
-              </Grid>
-              <Grid item={1} xs={6} className={classes.item}>
-                <Graph
-                  fields={
-                    [
-                      {
-                        name: 'TC1', // engine temp 1
+                        name: 'TC0', // engine temp 1
                         color: [221, 0, 0],
                         unit: '°C'
                       },
                       {
-                        name: 'TC2', // engine temp 2
+                        name: 'TC1', // engine temp 2
                         color: [0, 127, 254],
                         unit: '°C'
                       },
                       {
-                        name: 'TC3', // engine temp 3
+                        name: 'TC2', // engine temp 3
                         color: [0, 187, 0],
-                        unit: '°C'
-                      },
-                      {
-                        name: 'TC4', // engine temp 3
-                        color: [245, 185, 66],
                         unit: '°C'
                       },
                     ]
@@ -343,19 +311,19 @@ class Aux1 extends Component {
                   fields={
                     [
                       {
-                        name: 'loadCell1', // engine temp 1
+                        name: 'LC1', // engine temp 1
                         displayname: 'LC1',
                         color: [221, 0, 0],
                         unit: 'kg'
                       },
                       {
-                        name: 'loadCell2', // engine temp 2
+                        name: 'LC2', // engine temp 2
                         displayname: 'LC2',
                         color: [0, 127, 254],
                         unit: 'kg'
                       },
                       {
-                        name: 'loadCellSum',
+                        name: 'LCsum',
                         displayname: 'Sum',
                         color: [41, 171, 76],
                         unit: 'kg',
