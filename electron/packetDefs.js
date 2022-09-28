@@ -156,65 +156,48 @@ const INBOUND_PACKET_DEFS = {
   // ],
 
   // [60:89] ACTUATOR CONTROLLERS
-  0: [
-    ['EREG_FUEL_HP_PT', asFloat],
-    ['EREG_FUEL_LP_PT', asFloat],
-    ['EREG_FUEL_INJECTOR_PT', asFloat],
-    ['EREG_FUEL_ENCODER_ANGLE', asFloat],
-    ['EREG_FUEL_ANGLE_SETPOINT', asFloat],
-    ['EREG_FUEL_PRESSURE_SETPOINT', asFloat],
-    ['EREG_FUEL_MOTOR_POWER', asFloat],
-    ['EREG_FUEL_PRESSURE_CONTROL_P', asFloat],
-    ['EREG_FUEL_PRESSURE_CONTROL_I', asFloat],
-    ['EREG_FUEL_PRESSURE_CONTROL_D', asFloat],
-    
-  ],
 
 
-  1: [
-    ['EREG_LOX_HP_PT', asFloat],
-    ['EREG_LOX_LP_PT', asFloat],
-    ['EREG_LOX_INJECTOR_PT', asFloat],
-    ['EREG_LOX_ENCODER_ANGLE', asFloat],
-    ['EREG_LOX_ANGLE_SETPOINT', asFloat],
-    ['EREG_LOX_PRESSURE_SETPOINT', asFloat],
-    ['EREG_LOX_MOTOR_POWER', asFloat],
-    ['EREG_LOX_PRESSURE_CONTROL_P', asFloat],
-    ['EREG_LOX_PRESSURE_CONTROL_I', asFloat],
-    ['EREG_LOX_PRESSURE_CONTROL_D', asFloat],
-    
-  ],
 
+  1: [ // telemetry
+    ['EREG_HP_PT', asFloat],
+    ['EREG_LP_PT', asFloat],
 
-  2: [ 
-    ['fuelMainValveState', asUInt8],
+    ['EREG_ENCODER_ANGLE', asFloat],
+    ['EREG_ANGLE_SETPOINT', asFloat],
+    ['EREG_PRESSURE_SETPOINT', asFloat],
+    ['EREG_MOTOR_POWER', asFloat],
+    ['EREG_PRESSURE_CONTROL_P', asFloat],
+    ['EREG_PRESSURE_CONTROL_I', asFloat],
+    ['EREG_PRESSURE_CONTROL_D', asFloat],
+
   ],
   
-  3: [
-    ['loxMainValveState', asUInt8],
+
+  2: [ // config
+    ['EREG_PRESSURE_SETPOINT', asFloat],
+    ['EREG_KP_OUTER', asFloat],
+    ['EREG_KL_OUTER', asFloat],
+    ['EREG_KD_OUTER', asFloat],
+    ['EREG_KP_INNER', asFloat],
+    ['EREG_KL_INNER', asFloat],
+    ['EREG_KD_INNER', asFloat],
+    ['EREG_FLOW_DURATION', asFloat],
+  ],
+  
+  3: [ // diagnostic
+    ['EREG_DIRECTION_TEST_PASS', asUInt8],
+    ['SERVO_TEST_PASS', asUInt8],
+
   ],
 
-  4: [ //config packet
-    ['FUEL_PRESSURE_SETPOINT', asFloat],
-    ['FUEL_outer_K_p', asFloat],
-    ['FUEL_outer_K_i', asFloat],
-    ['FUEL_outer_K_d', asFloat],
-    ['FUEL_inner_K_p', asFloat],
-    ['FUEL_inner_K_i', asFloat],
-    ['FUEL_inner_K_d', asFloat],
-    ['FUEL_burn_duration', asFloat]
+  4: [ //command  fail
+    ['EREG_ERROR_CODE', asUInt8],
   ],
 
-  5: [ //config packet
-  ['LOX_PRESSURE_SETPOINT', asFloat],
-  ['LOX_outer_K_p', asFloat],
-  ['LOX_outer_K_i', asFloat],
-  ['LOX_outer_K_d', asFloat],
-  ['LOX_inner_K_p', asFloat],
-  ['LOX_inner_K_i', asFloat],
-  ['LOX_inner_K_d', asFloat],
-  ['LOX_burn_duration', asFloat]
-],
+  5: [ // flow state
+    ['EREG_STATE', asUInt8],
+  ],
 
 
   12: [ 
@@ -368,6 +351,17 @@ const INBOUND_PACKET_DEFS = {
   //   ['capValFiltered', asFloat],
   //   ['capTemperature', asFloat],
   // ],
+
+  301: [  // thermocouples
+    ['EREGDAQ_TC1', asFloat],
+    ['EREGDAQ_TC2', asFloat],
+    ['EREGDAQ_TC3', asFloat],
+    ['EREGDAQ_TC4', asFloat],
+  ],
+  302: [ // Load Cells
+    ['EREGDAQ_LC1', asFloat],
+    ['EREGDAQ_LC2', asFloat],
+  ],
 }
 
 /** @type {Object.<Number,Array.<Number>>} */
@@ -424,6 +418,21 @@ const OUTBOUND_PACKET_DEFS = {
   19: [UINT8],
   20: [UINT8],
   21: [UINT8],
+
+  // EReg Outbound from dashboard
+  200: [],
+  201: [],
+  202: [FLOAT],
+  203: [],
+  204: [],
+  205: [],
+  206: [UINT8],
+
+  // EReg outbound from dashboard
+  251: [UINT8, UINT32],
+  252: [UINT8, UINT32],
+  253: [UINT8, UINT32],
+
 }
 
 module.exports = { INBOUND_PACKET_DEFS, OUTBOUND_PACKET_DEFS }

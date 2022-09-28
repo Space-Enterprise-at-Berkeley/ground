@@ -275,6 +275,156 @@ class App {
       () => this.updateState(Date.now(), { actCtrlr2Connected: false }),
       (rate) => this.updateState(Date.now(), { actCtrlr2Kbps: rate }));
 
+
+
+    this.fuelTankEReg = new EReg(this.port, '10.0.0.11', { 
+      // fuel ereg telemetry, to dashboard from ereg
+      EREG_HP_PT: 'fuelTankERegHPT',
+      EREG_LP_PT: 'fuelTankERegLPT',
+      EREG_ENCODER_ANGLE: 'fuelTankERegEncoderAngle',
+      EREG_ANGLE_SETPOINT: 'fuelTankERegAngleSetPoint',
+      EREG_PRESSURE_SETPOINT: 'fuelTankERegPressureSetpoint',
+      EREG_MOTOR_POWER: 'fuelTankERegMotorPower',
+      EREG_PRESSURE_CONTROL_P: 'fuelTankERegPTerm',
+      EREG_PRESSURE_CONTROL_I: 'fuelTankERegITerm',
+      EREG_PRESSURE_CONTROL_D: 'fuelTankERegDTerm',
+
+      EREG_PRESSURE_SETPOINT: 'fuelTankERegPressureSetpoint',
+      EREG_KP_OUTER: 'fuelTankERegKPOuter',
+      EREG_KL_OUTER: 'fuelTankERegKLOuter',
+      EREG_KD_OUTER: 'fuelTankERegKDOuter',
+      EREG_KP_INNER: 'fuelTankERegKPInner',
+      EREG_KL_INNER: 'fuelTankERegKLInner',
+      EREG_KD_INNER: 'fuelTankERegKDInner',
+      EREG_FLOW_DURATION: 'fuelTankERegFlowDuration',
+
+      EREG_DIRECTION_TEST_PASS: 'fuelTankERegDirectionTestPass',
+      SERVO_TEST_PASS: 'fuelTankERegServoTestPass',
+
+      EREG_ERROR_CODE: 'fuelTankERegErrorCode',
+
+      EREG_STATE: 'fuelTankERegEregState',
+
+
+    },
+    () => this.updateState(Date.now(), { fuelTankERegConnected: true }),
+    () => this.updateState(Date.now(), { fuelTankERegConnected: false }),
+    (rate) => this.updateState(Date.now(), { fuelTankERegKbps: rate })); 
+
+  this.loxTankEReg = new EReg(this.port, '10.0.0.11', { 
+      //add values here
+      EREG_HP_PT: 'LoxTankERegHPT',
+      EREG_LP_PT: 'LoxTankERegLPT',
+      EREG_ENCODER_ANGLE: 'LoxTankERegEncoderAngle',
+      EREG_ANGLE_SETPOINT: 'LoxTankERegAngleSetPoint',
+      EREG_PRESSURE_SETPOINT: 'LoxTankERegPressureSetpoint',
+      EREG_MOTOR_POWER: 'LoxTankERegMotorPower',
+      EREG_PRESSURE_CONTROL_P: 'LoxTankERegPTerm',
+      EREG_PRESSURE_CONTROL_I: 'LoxTankERegITerm',
+      EREG_PRESSURE_CONTROL_D: 'LoxTankERegDTerm',
+
+      EREG_PRESSURE_SETPOINT: 'LoxTankERegPressureSetpoint',
+      EREG_KP_OUTER: 'LoxTankERegKPOuter',
+      EREG_KL_OUTER: 'LoxTankERegKLOuter',
+      EREG_KD_OUTER: 'LoxTankERegKDOuter',
+      EREG_KP_INNER: 'LoxTankERegKPInner',
+      EREG_KL_INNER: 'LoxTankERegKLInner',
+      EREG_KD_INNER: 'LoxTankERegKDInner',
+      EREG_FLOW_DURATION: 'LoxTankERegFlowDuration',
+
+      EREG_DIRECTION_TEST_PASS: 'LoxTankERegDirectionTestPass',
+      SERVO_TEST_PASS: 'LoxTankERegServoTestPass',
+
+      EREG_ERROR_CODE: 'LoxTankERegErrorCode',
+
+      EREG_STATE: 'LoxTankERegEregState',
+
+    },
+    () => this.updateState(Date.now(), { loxTankERegConnected: true }),
+    () => this.updateState(Date.now(), { loxTankERegConnected: false }),
+    (rate) => this.updateState(Date.now(), { loxTankERegKbps: rate })); 
+
+  this.fuelInjectorEReg = new EReg(this.port, '10.0.0.11', { 
+      //add values here
+      EREG_HP_PT: 'FuelInjectorERegHPT',
+      EREG_LP_PT: 'FuelInjectorERegLPT',
+      EREG_ENCODER_ANGLE: 'FuelInjectorERegEncoderAngle',
+      EREG_ANGLE_SETPOINT: 'FuelInjectorERegAngleSetPoint',
+      EREG_PRESSURE_SETPOINT: 'FuelInjectorERegPressureSetpoint',
+      EREG_MOTOR_POWER: 'FuelInjectorERegMotorPower',
+      EREG_PRESSURE_CONTROL_P: 'FuelInjectorERegPTerm',
+      EREG_PRESSURE_CONTROL_I: 'FuelInjectorERegITerm',
+      EREG_PRESSURE_CONTROL_D: 'FuelInjectorERegDTerm',
+
+      EREG_PRESSURE_SETPOINT: 'FuelInjectorERegPressureSetpoint',
+      EREG_KP_OUTER: 'FuelInjectorERegKPOuter',
+      EREG_KL_OUTER: 'FuelInjectorERegKLOuter',
+      EREG_KD_OUTER: 'FuelInjectorERegKDOuter',
+      EREG_KP_INNER: 'FuelInjectorERegKPInner',
+      EREG_KL_INNER: 'FuelInjectorERegKLInner',
+      EREG_KD_INNER: 'FuelInjectorERegKDInner',
+      EREG_FLOW_DURATION: 'FuelInjectorERegFlowDuration',
+
+      REG_DIRECTION_TEST_PASS: 'FuelInjectorERegDirectionTestPass:',
+      SERVO_TEST_PASS: 'FuelInjectorERegServoTestPass',
+
+      EREG_ERROR_CODE: 'FuelInjectorERegErrorCode',
+      
+      EREG_STATE: 'FuelInjectorERegEregState',
+
+    },
+    () => this.updateState(Date.now(), { fuelInjectorConnected: true }),
+    () => this.updateState(Date.now(), { fuelInjectorConnected: false }),
+    (rate) => this.updateState(Date.now(), { fuelInjectorKbps: rate })); 
+
+    this.loxInjectorEReg = new EReg(this.port, '10.0.0.11', { 
+      //add values here
+      EREG_HP_PT: 'LoxInjectorERegHPT',
+      EREG_LP_PT: 'LoxInjectorERegLPT',
+      EREG_ENCODER_ANGLE: 'LoxInjectorERegEncoderAngle',
+      EREG_ANGLE_SETPOINT: 'LoxInjectorERegAngleSetPoint',
+      EREG_PRESSURE_SETPOINT: 'LoxInjectorERegPressureSetpoint',
+      EREG_MOTOR_POWER: 'LoxInjectorERegMotorPower',
+      EREG_PRESSURE_CONTROL_P: 'LoxInjectorERegPTerm',
+      EREG_PRESSURE_CONTROL_I: 'LoxInjectorERegITerm',
+      EREG_PRESSURE_CONTROL_D: 'LoxInjectorERegDTerm',
+
+      EREG_PRESSURE_SETPOINT: 'LoxInjectorERegPressureSetpoint',
+      EREG_KP_OUTER: 'LoxInjectorERegKPOuter',
+      EREG_KL_OUTER: 'LoxInjectorERegKLOuter',
+      EREG_KD_OUTER: 'LoxInjectorERegKDOuter',
+      EREG_KP_INNER: 'LoxInjectorERegKPInner',
+      EREG_KL_INNER: 'LoxInjectorERegKLInner',
+      EREG_KD_INNER: 'LoxInjectorERegKDInner',
+      EREG_FLOW_DURATION: 'LoxInjectorERegFlowDuration',
+
+      EREG_DIRECTION_TEST_PASS: 'LoxInjectorERegDirectionTestPass',
+      SERVO_TEST_PASS: 'LoxInjectorERegServoTestPass',
+
+      EREG_ERROR_CODE: 'LoxInjectorERegErrorCode',
+      
+      EREG_STATE: 'LoxInjectorERegEregState',
+
+    },
+    () => this.updateState(Date.now(), { loxInjectorERegConnected: true }),
+    () => this.updateState(Date.now(), { loxInjectorERegConnected: false }),
+    (rate) => this.updateState(Date.now(), { loxInjectorERegKbps: rate })); 
+
+  this.eregdaq = new ERegDAQ(this.port, '10.0.0.11', { 
+      //add values here
+      EREGDAQ_TC1: 'ERegDAQ_TC1',
+      EREGDAQ_TC2: 'ERegDAQ_TC2',
+      EREGDAQ_TC3: 'ERegDAQ_TC3',
+      EREGDAQ_TC4: 'ERegDAQ_TC4',
+      EREGDAQ_LC1: 'ERegDAQ_LC1',
+      EREGDAQ_LC2: 'ERegDAQ_LC2',
+
+
+    },
+    () => this.updateState(Date.now(), { daq1Connected: true }),
+    () => this.updateState(Date.now(), { daq1Connected: false }),
+    (rate) => this.updateState(Date.now(), { daq1Kbps: rate })); 
+
     // Begin TouchBar
     this.abort = this.addBackendFunc('abort', this.flightComputer.abort)
     // End TouchBar
@@ -552,7 +702,59 @@ class App {
     this.addIPC('close-prechillFlowRBV', this.actCtrlr2.closeActCh5);
     this.addIPC('time-prechillFlowRBV', (e, val) => this.actCtrlr2.actCh5ms(val));
 
+
+    // FuelTankEReg
+    this.addIPC('start-propellantFlowFuelTankEreg', this.fuelTankEReg.startPropellantFlow);
+    this.addIPC('abort-eregFuelTankEreg', this.fuelTankEReg.abortEReg);
+    this.addIPC('set-motorEncoderFuelTankEreg', (e, val) => this.fuelTankEReg.setMotorEncoder(val));
+    this.addIPC('pressurize-propellantStaticFuelTankEreg', this.fuelTankEReg.pressurizePropellantStatic);
+    this.addIPC('run-diagnosticFuelTankEreg', this.fuelTankEReg.runDiagnostic);
+    this.addIPC('zero-encodersFuelTankEreg', this.fuelTankEReg.zeroEncoders);
+    this.addIPC('actuate-mainValveFuelTankEreg', (e, val) => this.fuelTankEReg.actuateMainValve(val));
+    
+    //  loxTankEReg
+    this.addIPC('start-propellantFlowLoxTankEreg', this.LoxTankEReg.startPropellantFlow);
+    this.addIPC('abort-eregLoxTankEreg', this.LoxTankEReg.abortEReg);
+    this.addIPC('set-motorEncoderLoxTankEreg', (e, val) => this.LoxTankEReg.setMotorEncoder(val));
+    this.addIPC('pressurize-propellantStaticLoxTankEreg', this.LoxTankEReg.pressurizePropellantStatic);
+    this.addIPC('run-diagnosticLoxTankEreg', this.LoxTankEReg.runDiagnostic);
+    this.addIPC('zero-encodersLoxTankEreg', this.LoxTankEReg.zeroEncoders);
+    this.addIPC('actuate-mainValveLoxTankEreg', (e, val) => this.LoxTankEReg.actuateMainValve(val));
+
+    // fuelInjectorEReg
+    this.addIPC('start-propellantFlowFuelInjectorEreg', this.fuelInjectorEReg.startPropellantFlow);
+    this.addIPC('abort-eregFuelInjectorEreg', this.fuelInjectorEReg.abortEReg);
+    this.addIPC('set-motorEncoderFuelInjectorEreg', (e, val) => this.fuelInjectorEReg.setMotorEncoder(val));
+    this.addIPC('pressurize-propellantStaticFuelInjectorEreg', this.fuelInjectorEReg.pressurizePropellantStatic);
+    this.addIPC('run-diagnosticFuelInjectorEreg', this.fuelInjectorEReg.runDiagnostic);
+    this.addIPC('zero-encodersFuelInjectorEreg', this.fuelInjectorEReg.zeroEncoders);
+    this.addIPC('actuate-mainValveFuelInjectorEreg', (e, val) => this.fuelInjectorEReg.actuateMainValve(val));
+    // loxInjectorEReg
+    this.addIPC('start-propellantFlowLoxInjectorEreg', this.LoxInjectorEReg.startPropellantFlow);
+    this.addIPC('abort-eregLoxInjectorEreg', this.LoxInjectorEReg.abortEReg);
+    this.addIPC('set-motorEncoderLoxInjectorEreg', (e, val) => this.LoxInjectorEReg.setMotorEncoder(val));
+    this.addIPC('pressurize-propellantStaticLoxInjectorEreg', this.LoxInjectorEReg.pressurizePropellantStatic);
+    this.addIPC('run-diagnosticLoxInjectorEreg', this.LoxInjectorEReg.runDiagnostic);
+    this.addIPC('zero-encodersLoxInjectorEreg', this.LoxInjectorEReg.zeroEncoders);
+    this.addIPC('actuate-mainValveLoxInjectorEreg', (e, val) => this.LoxInjectorEReg.actuateMainValve(val));  
+
+
+    // eregdaq
+
+    this.addIPC('open-RBV0eregdaq', this.eregdaq.openRBV0);
+    this.addIPC('close-RBV0eregdaq', this.eregdaq.closeRBV0);
+    this.addIPC('act-RBV0eregdaq', (e, val) => this.eregdaq.actRBV0(val));
+
+    this.addIPC('open-RBV1eregdaq', this.eregdaq.openRBV1);
+    this.addIPC('close-RBV1eregdaq', this.eregdaq.closeRBV1);
+    this.addIPC('act-RBV1eregdaq', (e, val) => this.eregdaq.actRBV1(val));
+
+    this.addIPC('open-RBV2eregdaq', this.eregdaq.openRBV2);
+    this.addIPC('close-RBV2eregdaq', this.eregdaq.closeRBV2);
+    this.addIPC('act-RBV2eregdaq', (e, val) => this.eregdaq.actRBV2(val));
+
   }
+
 }
 
 module.exports = App;

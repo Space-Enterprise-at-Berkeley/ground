@@ -2,51 +2,7 @@ const Board = require('../Board');
 
 class FlightV2 extends Board {
   constructor(port, address, mapping, onConnect, onDisconnect, onRate) {
-
     super(port, address, mapping, () => { this.sendPacket(152, []); onConnect(); }, onDisconnect, onRate);
-
-    this.openloxGemsValve = this.openloxGemsValve.bind(this);
-    this.closeloxGemsValve = this.closeloxGemsValve.bind(this);
-
-    this.openfuelGemsValve = this.openfuelGemsValve.bind(this);
-    this.closefuelGemsValve = this.closefuelGemsValve.bind(this);
-
-    this.startToggleLoxGemsValve = this.startToggleLoxGemsValve.bind(this);
-    this.stopToggleLoxGemsValve = this.stopToggleLoxGemsValve.bind(this);
-
-    this.startToggleFuelGemsValve = this.startToggleFuelGemsValve.bind(this);
-    this.stopToggleFuelGemsValve = this.stopToggleFuelGemsValve.bind(this);
-
-    this.openarmValve = this.openarmValve.bind(this);
-    this.closearmValve = this.closearmValve.bind(this);
-
-    this.activateIgniter = this.activateIgniter.bind(this);
-    this.deactivateIgniter = this.deactivateIgniter.bind(this);
-
-    this.openloxMainValve = this.openloxMainValve.bind(this);
-    this.closeloxMainValve = this.closeloxMainValve.bind(this);
-
-    this.openfuelMainValve = this.openfuelMainValve.bind(this);
-    this.closefuelMainValve = this.closefuelMainValve.bind(this);
-
-    this.activateLoxTankBottomHtr = this.activateLoxTankBottomHtr.bind(this);
-    this.deactivateLoxTankBottomHtr = this.deactivateLoxTankBottomHtr.bind(this);
-
-    this.activateLoxTankMidHtr = this.activateLoxTankMidHtr.bind(this);
-    this.deactivateLoxTankMidHtr = this.deactivateLoxTankMidHtr.bind(this);
-
-    this.activateLoxTankTopHtr = this.activateLoxTankTopHtr.bind(this);
-    this.deactivateLoxTankTopHtr = this.deactivateLoxTankTopHtr.bind(this);
-
-    this.beginFlow = this.beginFlow.bind(this);
-    this.abort = this.abort.bind(this);
-
-    this.enableFastReadRate = this.enableFastReadRate.bind(this);
-    this.disableFastReadRate = this.disableFastReadRate.bind(this);
-
-    this.enableIgniter = this.enableIgniter.bind(this);
-    this.disableIgniter = this.disableIgniter.bind(this);
-
   }
 
   openloxGemsValve() { return this.sendPacket(126, [1]); }
