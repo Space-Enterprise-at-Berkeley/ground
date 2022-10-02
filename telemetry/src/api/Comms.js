@@ -7,7 +7,6 @@ class Comms {
     this.subscribers = {};
     this.universalSubscribers = [];
     this.darkmodeListeners = [];
-    this.ipc = ipc;
     this.stateUpdate = this.stateUpdate.bind(this);
     this.darkmodeUpdate = this.darkmodeUpdate.bind(this);
 
@@ -136,6 +135,8 @@ class Comms {
     this.actuateFuelERegMainValve = this.actuateFuelERegMainValve.bind(this);
     this.actuateLOXERegMainValve = this.actuateLOXERegMainValve.bind(this);
 
+    this.zeroFuelTankEReg = this.zeroFuelTankEReg.bind(this);
+
     // this.openPressurantVentRBV = this.openPressurantVentRBV.bind(this);
     // this.closePressurantVentRBV = this.closePressurantVentRBV.bind(this);
     // this.timePressurantVentRBV = this.timePressurantVentRBV.bind(this);
@@ -247,25 +248,25 @@ class Comms {
   }
 
   connect() {
-    this.ipc.on('state-update', this.stateUpdate);
-    this.ipc.on('set-darkmode', this.darkmodeUpdate);
+    ipcRenderer.on('state-update', this.stateUpdate);
+    ipcRenderer.on('set-darkmode', this.darkmodeUpdate);
   }
 
   destroy() {
-    this.ipc.removeListener('state-update', this.stateUpdate);
-    this.ipc.removeListener('set-darkmode', this.darkmodeUpdate);
+    ipcRenderer.removeListener('state-update', this.stateUpdate);
+    ipcRenderer.removeListener('set-darkmode', this.darkmodeUpdate);
   }
 
   //----------Universal Parser--------
 
   async sendCustomMessage(messageDestination, message) {
-    return await this.ipc.invoke('send-custom-message', messageDestination, message)
+    return await ipcRenderer.invoke('send-custom-message', messageDestination, message)
   }
 
   //----------Dashboard Data----------
 
   async setProcedureState(procState) {
-    return await this.ipc.invoke('set-procedure-state', procState)
+    return await ipcRenderer.invoke('set-procedure-state', procState)
   }
 
   async doNothing() {
@@ -275,154 +276,154 @@ class Comms {
   //----------Flight Computer----------
 
   async openMainWindows() {
-    return await this.ipc.invoke('open-main-windows');
+    return await ipcRenderer.invoke('open-main-windows');
   }
 
   async openAuxWindows() {
-    return await this.ipc.invoke('open-aux-windows');
+    return await ipcRenderer.invoke('open-aux-windows');
   }
 
   async connectInflux(host, port, protocol, username, password) {
-    return await this.ipc.invoke('connect-influx', host, port, protocol, username, password);
+    return await ipcRenderer.invoke('connect-influx', host, port, protocol, username, password);
   }
 
   async getDatabases() {
-    return await this.ipc.invoke('get-databases');
+    return await ipcRenderer.invoke('get-databases');
   }
 
   async setDatabase(database) {
-    return await this.ipc.invoke('set-database', database);
+    return await ipcRenderer.invoke('set-database', database);
   }
 
   async setDarkMode(isDark) {
-    return await this.ipc.invoke('set-darkmode', isDark);
+    return await ipcRenderer.invoke('set-darkmode', isDark);
   }
 
   async getFlightConnected() {
-    return await this.ipc.invoke('flight-connected');
+    return await ipcRenderer.invoke('flight-connected');
   }
 
   async getDaq1Connected() {
-    return await this.ipc.invoke('daq1-connected');
+    return await ipcRenderer.invoke('daq1-connected');
   }
 
   async getDaq2Connected() {
-    return await this.ipc.invoke('daq2-connected');
+    return await ipcRenderer.invoke('daq2-connected');
   }
 
   async getDaq3Connected() {
-    return await this.ipc.invoke('daq3-connected');
+    return await ipcRenderer.invoke('daq3-connected');
   }
 
   async getDaq4Connected() {
-    return await this.ipc.invoke('daq4-connected');
+    return await ipcRenderer.invoke('daq4-connected');
   }
 
   async getActCtrlr1Connected() {
-    return await this.ipc.invoke('actctrlr1-connected');
+    return await ipcRenderer.invoke('actctrlr1-connected');
   }
 
   async getActCtrlr2Connected() {
-    return await this.ipc.invoke('actctrlr2-connected');
+    return await ipcRenderer.invoke('actctrlr2-connected');
   }
 
   async openloxGemsValve() {
-    return await this.ipc.invoke('open-loxGemsValve');
+    return await ipcRenderer.invoke('open-loxGemsValve');
   }
 
   async closeloxGemsValve() {
-    return await this.ipc.invoke('close-loxGemsValve');
+    return await ipcRenderer.invoke('close-loxGemsValve');
   }
 
   async openfuelGemsValve() {
     
-    return await this.ipc.invoke('open-fuelGemsValve');
+    return await ipcRenderer.invoke('open-fuelGemsValve');
   }
 
   async closefuelGemsValve() {
-    return await this.ipc.invoke('close-fuelGemsValve');
+    return await ipcRenderer.invoke('close-fuelGemsValve');
   }
 
   async startToggleLoxGemsValve() {
-    return await this.ipc.invoke('start-toggleLoxGemsValve');
+    return await ipcRenderer.invoke('start-toggleLoxGemsValve');
   }
 
   async stopToggleLoxGemsValve() {
-    return await this.ipc.invoke('stop-toggleLoxGemsValve');
+    return await ipcRenderer.invoke('stop-toggleLoxGemsValve');
   }
 
   async startToggleFuelGemsValve() {
-    return await this.ipc.invoke('start-toggleFuelGemsValve');
+    return await ipcRenderer.invoke('start-toggleFuelGemsValve');
   }
 
   async stopToggleFuelGemsValve() {
-    return await this.ipc.invoke('stop-toggleFuelGemsValve');
+    return await ipcRenderer.invoke('stop-toggleFuelGemsValve');
   }
 
   async openarmValve() {
-    return await this.ipc.invoke('open-armValve');
+    return await ipcRenderer.invoke('open-armValve');
   }
 
   async closearmValve() {
-    return await this.ipc.invoke('close-armValve');
+    return await ipcRenderer.invoke('close-armValve');
   }
 
   async openloxMainValve() {
-    return await this.ipc.invoke('open-loxMainValve');
+    return await ipcRenderer.invoke('open-loxMainValve');
   }
 
   async closeloxMainValve() {
-    return await this.ipc.invoke('close-loxMainValve');
+    return await ipcRenderer.invoke('close-loxMainValve');
   }
 
   async openfuelMainValve() {
-    return await this.ipc.invoke('open-fuelMainValve');
+    return await ipcRenderer.invoke('open-fuelMainValve');
   }
 
   async closefuelMainValve() {
-    return await this.ipc.invoke('close-fuelMainValve');
+    return await ipcRenderer.invoke('close-fuelMainValve');
   }
 
   async activateIgniter() {
-    return await this.ipc.invoke('activate-igniter');
+    return await ipcRenderer.invoke('activate-igniter');
   }
 
   async deactivateIgniter() {
-    return await this.ipc.invoke('deactivate-igniter');
+    return await ipcRenderer.invoke('deactivate-igniter');
   }
 
   async beginFlow() {
-    return await this.ipc.invoke('beginFlow');
+    return await ipcRenderer.invoke('beginFlow');
   }
 
   async abort() {
-    return await this.ipc.invoke('abort');
+    return await ipcRenderer.invoke('abort');
   }
 
   async enableFastRead() {
-    return await this.ipc.invoke('enable-fastReadRate');
+    return await ipcRenderer.invoke('enable-fastReadRate');
   }
 
   async disableFastRead() {
-    return await this.ipc.invoke('disable-fastReadRate');
+    return await ipcRenderer.invoke('disable-fastReadRate');
   }
 
   async enableIgniter() {
-    return await this.ipc.invoke('enable-igniter');
+    return await ipcRenderer.invoke('enable-igniter');
   }
 
   async disableIgniter() {
-    return await this.ipc.invoke('disable-igniter');
+    return await ipcRenderer.invoke('disable-igniter');
   }
 
-  async activateLoxTankBottomHtr() { return await this.ipc.invoke('activate-loxTankBottomHtr'); }
-  async deactivateLoxTankBottomHtr() { return await this.ipc.invoke('deactivate-loxTankBottomHtr'); }
+  async activateLoxTankBottomHtr() { return await ipcRenderer.invoke('activate-loxTankBottomHtr'); }
+  async deactivateLoxTankBottomHtr() { return await ipcRenderer.invoke('deactivate-loxTankBottomHtr'); }
 
-  async activateLoxTankMidHtr() { return await this.ipc.invoke('activate-loxTankMidHtr'); }
-  async deactivateLoxTankMidHtr() { return await this.ipc.invoke('deactivate-loxTankMidHtr'); }
+  async activateLoxTankMidHtr() { return await ipcRenderer.invoke('activate-loxTankMidHtr'); }
+  async deactivateLoxTankMidHtr() { return await ipcRenderer.invoke('deactivate-loxTankMidHtr'); }
 
-  async activateLoxTankTopHtr() { return await this.ipc.invoke('activate-loxTankTopHtr'); }
-  async deactivateLoxTankTopHtr() { return await this.ipc.invoke('deactivate-loxTankTopHtr'); }
+  async activateLoxTankTopHtr() { return await ipcRenderer.invoke('activate-loxTankTopHtr'); }
+  async deactivateLoxTankTopHtr() { return await ipcRenderer.invoke('deactivate-loxTankTopHtr'); }
 
 
   //---------------DAQ 1---------------
@@ -432,131 +433,131 @@ class Comms {
   //-------Actuator Controller 1-------
 
   async setfuelTankTopHeater(val) {
-    return await this.ipc.invoke('set-fuelTankTopHeater', val);
+    return await ipcRenderer.invoke('set-fuelTankTopHeater', val);
   }
 
   async setfuelTankMidHeater(val) {
-    return await this.ipc.invoke('set-fuelTankMidHeater', val);
+    return await ipcRenderer.invoke('set-fuelTankMidHeater', val);
   }
 
   async openPressurantFlowRBV() {
-    return await this.ipc.invoke('open-pressurantFlowRBV');
+    return await ipcRenderer.invoke('open-pressurantFlowRBV');
   }
 
   async closePressurantFlowRBV() {
-    return await this.ipc.invoke('close-pressurantFlowRBV');
+    return await ipcRenderer.invoke('close-pressurantFlowRBV');
   }
 
   async timePressurantFlowRBV(val) {
-    return await this.ipc.invoke('time-pressurantFlowRBV', val);
+    return await ipcRenderer.invoke('time-pressurantFlowRBV', val);
   }
 
   async openERegACCh3() {
-    return await this.ipc.invoke('open-ERegACCh3');
+    return await ipcRenderer.invoke('open-ERegACCh3');
   }
 
   async closeERegACCh3() {
-    return await this.ipc.invoke('close-ERegACCh3');
+    return await ipcRenderer.invoke('close-ERegACCh3');
   }
 
   async timeERegACCh3(val) {
-    return await this.ipc.invoke('time-ERegACCh3', val);
+    return await ipcRenderer.invoke('time-ERegACCh3', val);
   }
 
   async openERegACCh5() {
-    return await this.ipc.invoke('open-ERegACCh5');
+    return await ipcRenderer.invoke('open-ERegACCh5');
   }
 
   async closeERegACCh5() {
-    return await this.ipc.invoke('close-ERegACCh5');
+    return await ipcRenderer.invoke('close-ERegACCh5');
   }
 
   async timeERegACCh5(val) {
-    return await this.ipc.invoke('time-ERegACCh5', val);
+    return await ipcRenderer.invoke('time-ERegACCh5', val);
   }
   
   async openERegACCh6() {
-    return await this.ipc.invoke('open-ERegACCh6');
+    return await ipcRenderer.invoke('open-ERegACCh6');
   }
 
   async closeERegACCh6() {
-    return await this.ipc.invoke('close-ERegACCh6');
+    return await ipcRenderer.invoke('close-ERegACCh6');
   }
 
   async timeERegACCh6(val) {
-    return await this.ipc.invoke('time-ERegACCh6', val);
+    return await ipcRenderer.invoke('time-ERegACCh6', val);
   }
 
   async openERegAC24VCh0(val) {
-    return await this.ipc.invoke('open-ERegAC24VCh0', val);
+    return await ipcRenderer.invoke('open-ERegAC24VCh0', val);
   }
 
   async closeERegAC24VCh0(val) {
-    return await this.ipc.invoke('close-ERegAC24VCh0', val);
+    return await ipcRenderer.invoke('close-ERegAC24VCh0', val);
   }
 
   async openERegAC24VCh1(val) {
-    return await this.ipc.invoke('open-ERegAC24VCh1', val);
+    return await ipcRenderer.invoke('open-ERegAC24VCh1', val);
   }
 
   async closeERegAC24VCh1(val) {
-    return await this.ipc.invoke('close-ERegAC24VCh1', val);
+    return await ipcRenderer.invoke('close-ERegAC24VCh1', val);
   }
 
   async sendFuelERegDiag(val) {
-    return await this.ipc.invoke('send-FuelERegDiag');
+    return await ipcRenderer.invoke('send-FuelERegDiag');
   }
 
   async sendLOXERegDiag(val) {
-    return await this.ipc.invoke('send-LOXERegDiag');
+    return await ipcRenderer.invoke('send-LOXERegDiag');
   }
 
   async startOneSidedFuel(val) {
-    return await this.ipc.invoke('start-oneSidedFuel');
+    return await ipcRenderer.invoke('start-oneSidedFuel');
   }
 
   async startOneSidedLOX(val) {
-    return await this.ipc.invoke('start-oneSidedLOX')
+    return await ipcRenderer.invoke('start-oneSidedLOX')
   }
 
   async beginERegFlow(val) {
-    return await this.ipc.invoke('begin-ERegFlow');
+    return await ipcRenderer.invoke('begin-ERegFlow');
   }
 
   async abortEReg(val) {
-    return await this.ipc.invoke('abort-EReg');
+    return await ipcRenderer.invoke('abort-EReg');
   }
 
   async setFuelERegEncoder(val) {
-    return await this.ipc.invoke('set-FuelERegEncoder', val);
+    return await ipcRenderer.invoke('set-FuelERegEncoder', val);
   }
 
   async setLOXERegEncoder(val) {
-    return await this.ipc.invoke('set-LOXERegEncoder', val);
+    return await ipcRenderer.invoke('set-LOXERegEncoder', val);
   }
 
   async pressERegFuelStatic(val) {
-    return await this.ipc.invoke('press-ERegFuelStatic');
+    return await ipcRenderer.invoke('press-ERegFuelStatic');
   }
 
   async pressERegLOXStatic(val) {
-    return await this.ipc.invoke('press-ERegLOXStatic');
+    return await ipcRenderer.invoke('press-ERegLOXStatic');
   }
 
   async zeroERegFuelEncoder(val) {
-    return await this.ipc.invoke('zero-ERegFuelEncoder');
+    return await ipcRenderer.invoke('zero-ERegFuelEncoder');
   }
 
   async zeroERegLOXEncoder(val) {
-    return await this.ipc.invoke('zero-ERegLOXEncoder');
+    return await ipcRenderer.invoke('zero-ERegLOXEncoder');
   }
 
   async actuateFuelERegMainValve(val) {
-    return await this.ipc.invoke('actuate-FuelERegMainValve', val);
+    return await ipcRenderer.invoke('actuate-FuelERegMainValve', val);
   }
 
   async actuateLOXERegMainValve(val) {
-    return await this.ipc.invoke('actuate-LOXERegMainValve', val);
+    return await ipcRenderer.invoke('actuate-LOXERegMainValve', val);
   }
 
   // ========= NEW EREG PACKETS ================
@@ -564,284 +565,284 @@ class Comms {
   // FUEL TANK
 
   async startFlowFuelTankEReg() {
-    return await this.ipc.invoke('start-propellantFlowFuelTankEreg');
+    return await ipcRenderer.invoke('start-propellantFlowFuelTankEreg');
   }
 
   async abortFuelTankEReg() {
-    return await this.ipc.invoke('abort-eregFuelTankEreg');
+    return await ipcRenderer.invoke('abort-eregFuelTankEreg');
   }
 
   async setEncoderFuelTankEReg(val) {
-    return await this.ipc.invoke('set-motorEncoderFuelTankEreg', val);
+    return await ipcRenderer.invoke('set-motorEncoderFuelTankEreg', val);
   }
 
   async staticPressurizeFuelTankEReg() {
-    return await this.ipc.invoke('pressurize-propellantStaticFuelTankEreg');
+    return await ipcRenderer.invoke('pressurize-propellantStaticFuelTankEreg');
   }
 
   async diagnosticFuelTankEReg() {
-    return await this.ipc.invoke('run-diagnosticFuelTankEreg');
+    return await ipcRenderer.invoke('run-diagnosticFuelTankEreg');
   }
 
   async zeroFuelTankEReg() {
-    return await this.ipc.invoke('zero-encodersFuelTankEreg');
+    return await ipcRenderer.invoke('zero-encodersFuelTankEreg');
   }
 
   async actuateMainValveFuelTankEReg(val) {
-    return await this.ipc.invoke('actuate-mainValveFuelTankEreg', val);
+    return await ipcRenderer.invoke('actuate-mainValveFuelTankEreg', val);
   }
 
   // LOX TANK
 
   async startFlowLoxTankEReg() {
-    return await this.ipc.invoke('start-propellantFlowLoxTankEreg');
+    return await ipcRenderer.invoke('start-propellantFlowLoxTankEreg');
   }
 
   async abortLoxTankEReg() {
-    return await this.ipc.invoke('abort-eregLoxTankEreg');
+    return await ipcRenderer.invoke('abort-eregLoxTankEreg');
   }
 
   async setEncoderLoxTankEReg(val) {
-    return await this.ipc.invoke('set-motorEncoderLoxTankEreg', val);
+    return await ipcRenderer.invoke('set-motorEncoderLoxTankEreg', val);
   }
 
   async staticPressurizeLoxTankEReg() {
-    return await this.ipc.invoke('pressurize-propellantStaticLoxTankEreg');
+    return await ipcRenderer.invoke('pressurize-propellantStaticLoxTankEreg');
   }
 
   async diagnosticLoxTankEReg() {
-    return await this.ipc.invoke('run-diagnosticLoxTankEreg');
+    return await ipcRenderer.invoke('run-diagnosticLoxTankEreg');
   }
 
   async zeroLoxTankEReg() {
-    return await this.ipc.invoke('zero-encodersLoxTankEreg');
+    return await ipcRenderer.invoke('zero-encodersLoxTankEreg');
   }
 
   async actuateMainValveLoxTankEReg(val) {
-    return await this.ipc.invoke('actuate-mainValveLoxTankEreg', val);
+    return await ipcRenderer.invoke('actuate-mainValveLoxTankEreg', val);
   }
 
   // Fuel Injector
 
   async startFlowFuelInjectorEReg() {
-    return await this.ipc.invoke('start-propellantFlowFuelInjectorEreg');
+    return await ipcRenderer.invoke('start-propellantFlowFuelInjectorEreg');
   }
 
   async abortFuelInjectorEReg() {
-    return await this.ipc.invoke('abort-eregFuelInjectorEreg');
+    return await ipcRenderer.invoke('abort-eregFuelInjectorEreg');
   }
 
   async setEncoderFuelInjectorEReg(val) {
-    return await this.ipc.invoke('set-motorEncoderFuelInjectorEreg', val);
+    return await ipcRenderer.invoke('set-motorEncoderFuelInjectorEreg', val);
   }
 
   async staticPressurizeFuelInjectorEReg() {
-    return await this.ipc.invoke('pressurize-propellantStaticFuelInjectorEreg');
+    return await ipcRenderer.invoke('pressurize-propellantStaticFuelInjectorEreg');
   }
 
   async diagnosticFuelInjectorEReg() {
-    return await this.ipc.invoke('run-diagnosticFuelInjectorEreg');
+    return await ipcRenderer.invoke('run-diagnosticFuelInjectorEreg');
   }
 
   async zeroFuelInjectorEReg() {
-    return await this.ipc.invoke('zero-encodersFuelInjectorEreg');
+    return await ipcRenderer.invoke('zero-encodersFuelInjectorEreg');
   }
 
   async actuateMainValveFuelInjectorEReg(val) {
-    return await this.ipc.invoke('actuate-mainValveFuelInjectorEreg', val);
+    return await ipcRenderer.invoke('actuate-mainValveFuelInjectorEreg', val);
   }
 
   // Lox Injector
 
   async startFlowLoxInjectorEReg() {
-    return await this.ipc.invoke('start-propellantFlowLoxInjectorEreg');
+    return await ipcRenderer.invoke('start-propellantFlowLoxInjectorEreg');
   }
 
   async abortLoxInjectorEReg() {
-    return await this.ipc.invoke('abort-eregLoxInjectorEreg');
+    return await ipcRenderer.invoke('abort-eregLoxInjectorEreg');
   }
 
   async setEncoderLoxInjectorEReg(val) {
-    return await this.ipc.invoke('set-motorEncoderLoxInjectorEreg', val);
+    return await ipcRenderer.invoke('set-motorEncoderLoxInjectorEreg', val);
   }
 
   async staticPressurizeLoxInjectorEReg() {
-    return await this.ipc.invoke('pressurize-propellantStaticLoxInjectorEreg');
+    return await ipcRenderer.invoke('pressurize-propellantStaticLoxInjectorEreg');
   }
 
   async diagnosticLoxInjectorEReg() {
-    return await this.ipc.invoke('run-diagnosticLoxInjectorEreg');
+    return await ipcRenderer.invoke('run-diagnosticLoxInjectorEreg');
   }
 
   async zeroLoxInjectorEReg() {
-    return await this.ipc.invoke('zero-encodersLoxInjectorEreg');
+    return await ipcRenderer.invoke('zero-encodersLoxInjectorEreg');
   }
 
   async actuateMainValveLoxInjectorEReg(val) {
-    return await this.ipc.invoke('actuate-mainValveLoxInjectorEreg', val);
+    return await ipcRenderer.invoke('actuate-mainValveLoxInjectorEreg', val);
   }
 
-  // async openLOxVentRBV() {return await this.ipc.invoke('open-LOxVentRBV'); }
-  // async closeLOxVentRBV() {return await this.ipc.invoke('close-LOxVentRBV'); }
-  // async timeLOxVentRBV(val) {return await this.ipc.invoke('time-LOxVentRBV', val); }
+  // async openLOxVentRBV() {return await ipcRenderer.invoke('open-LOxVentRBV'); }
+  // async closeLOxVentRBV() {return await ipcRenderer.invoke('close-LOxVentRBV'); }
+  // async timeLOxVentRBV(val) {return await ipcRenderer.invoke('time-LOxVentRBV', val); }
 
   async openloxTankVentRBV() {
-    return await this.ipc.invoke('open-loxTankVentRBV');
+    return await ipcRenderer.invoke('open-loxTankVentRBV');
   }
 
 
   async closeloxTankVentRBV() {
-    return await this.ipc.invoke('close-loxTankVentRBV');
+    return await ipcRenderer.invoke('close-loxTankVentRBV');
   }
 
   async timeloxTankVentRBV(val) {
-    return await this.ipc.invoke('time-loxTankVentRBV', val);
+    return await ipcRenderer.invoke('time-loxTankVentRBV', val);
   }
 
 
   async openERegACCh0() {
-    return await this.ipc.invoke('open-ERegACCh0');
+    return await ipcRenderer.invoke('open-ERegACCh0');
   }
 
   async closeERegACCh0() {
-    return await this.ipc.invoke('close-ERegACCh0');
+    return await ipcRenderer.invoke('close-ERegACCh0');
   }
 
   async timeERegACCh0(val) {
-    return await this.ipc.invoke('time-ERegACCh0', val);
+    return await ipcRenderer.invoke('time-ERegACCh0', val);
   }
 
   async openPressurantVentRBV() {
-    return await this.ipc.invoke('open-pressurantVentRBV');
+    return await ipcRenderer.invoke('open-pressurantVentRBV');
   }
 
   async closePressurantVentRBV() {
-    return await this.ipc.invoke('close-pressurantVentRBV');
+    return await ipcRenderer.invoke('close-pressurantVentRBV');
   }
 
   async timePressurantVentRBV(val) {
-    return await this.ipc.invoke('time-pressurantVentRBV', val);
+    return await ipcRenderer.invoke('time-pressurantVentRBV', val);
   }
 
   //-------Actuator Controller 2-------
 
   async setfuelTankBottomHeater(val) {
-    return await this.ipc.invoke('set-fuelTankBottomHeater', val);
+    return await ipcRenderer.invoke('set-fuelTankBottomHeater', val);
   }
 
   async setloxTankTopHeater(val) {
-    return await this.ipc.invoke('set-loxTankTopHeater', val);
+    return await ipcRenderer.invoke('set-loxTankTopHeater', val);
   }
 
-  // async openLOxRQD() {return await this.ipc.invoke('open-LOxRQD'); }
-  // async closeLOxRQD() {return await this.ipc.invoke('close-LOxRQD'); }
-  // async timeLOxRQD(val) {return await this.ipc.invoke('time-LOxRQD', val); }
+  // async openLOxRQD() {return await ipcRenderer.invoke('open-LOxRQD'); }
+  // async closeLOxRQD() {return await ipcRenderer.invoke('close-LOxRQD'); }
+  // async timeLOxRQD(val) {return await ipcRenderer.invoke('time-LOxRQD', val); }
 
-  // async openPropaneVentRBV() {return await this.ipc.invoke('open-propaneVentRBV'); }
-  // async closePropaneVentRBV() {return await this.ipc.invoke('close-propaneVentRBV'); }
-  // async timePropaneVentRBV(val) {return await this.ipc.invoke('time-propaneVentRBV', val); }
+  // async openPropaneVentRBV() {return await ipcRenderer.invoke('open-propaneVentRBV'); }
+  // async closePropaneVentRBV() {return await ipcRenderer.invoke('close-propaneVentRBV'); }
+  // async timePropaneVentRBV(val) {return await ipcRenderer.invoke('time-propaneVentRBV', val); }
 
   async openERegACCh1() {
-    return await this.ipc.invoke('open-ERegACCh1');
+    return await ipcRenderer.invoke('open-ERegACCh1');
   }
 
   async closeERegACCh1() {
-    return await this.ipc.invoke('close-ERegACCh1');
+    return await ipcRenderer.invoke('close-ERegACCh1');
   }
 
   async timeERegACCh1(val) {
-    return await this.ipc.invoke('time-ERegACCh1', val);
+    return await ipcRenderer.invoke('time-ERegACCh1', val);
   }
 
-  // async openPropaneRQD() {return await this.ipc.invoke('open-propaneRQD'); }
-  // async closePropaneRQD() {return await this.ipc.invoke('close-propaneRQD'); }
-  // async timePropaneRQD(val) {return await this.ipc.invoke('time-propaneRQD', val); }
+  // async openPropaneRQD() {return await ipcRenderer.invoke('open-propaneRQD'); }
+  // async closePropaneRQD() {return await ipcRenderer.invoke('close-propaneRQD'); }
+  // async timePropaneRQD(val) {return await ipcRenderer.invoke('time-propaneRQD', val); }
 
   async openfuelTankVentRBV() {
-    return await this.ipc.invoke('open-fuelTankVentRBV');
+    return await ipcRenderer.invoke('open-fuelTankVentRBV');
   }
 
   async closefuelTankVentRBV() {
-    return await this.ipc.invoke('close-fuelTankVentRBV');
+    return await ipcRenderer.invoke('close-fuelTankVentRBV');
   }
 
   async timefuelTankVentRBV(val) {
-    return await this.ipc.invoke('time-fuelTankVentRBV', val);
+    return await ipcRenderer.invoke('time-fuelTankVentRBV', val);
   }
 
   //-------Actuator Controller 3-------
 
   async setloxTankMidHeater(val) {
-    return await this.ipc.invoke('set-loxTankMidHeater', val);
+    return await ipcRenderer.invoke('set-loxTankMidHeater', val);
   }
 
   async setloxTankBottomHeater(val) {
-    return await this.ipc.invoke('set-loxTankBottomHeater', val);
+    return await ipcRenderer.invoke('set-loxTankBottomHeater', val);
   }
 
   async openERegACCh2() {
-    return await this.ipc.invoke('open-ERegACCh2');
+    return await ipcRenderer.invoke('open-ERegACCh2');
   }
 
   async closeERegACCh2() {
-    return await this.ipc.invoke('close-ERegACCh2');
+    return await ipcRenderer.invoke('close-ERegACCh2');
   }
 
   async timeERegACCh2(val) {
-    return await this.ipc.invoke('time-ERegACCh2', val);
+    return await ipcRenderer.invoke('time-ERegACCh2', val);
   }
 
   async openERegACCh4() {
-    return await this.ipc.invoke('open-ERegACCh4');
+    return await ipcRenderer.invoke('open-ERegACCh4');
   }
 
   async closeERegACCh4() {
-    return await this.ipc.invoke('close-ERegACCh4');
+    return await ipcRenderer.invoke('close-ERegACCh4');
   }
 
   async timeERegACCh4(val) {
-    return await this.ipc.invoke('time-ERegACCh4', val);
+    return await ipcRenderer.invoke('time-ERegACCh4', val);
   }
 
   async openPrechillFlowRBV() {
-    return await this.ipc.invoke('open-prechillFlowRBV');
+    return await ipcRenderer.invoke('open-prechillFlowRBV');
   }
 
   async closePrechillFlowRBV() {
-    return await this.ipc.invoke('close-prechillFlowRBV');
+    return await ipcRenderer.invoke('close-prechillFlowRBV');
   }
 
   async timePrechillFlowRBV(val) {
-    return await this.ipc.invoke('time-prechillFlowRBV', val);
+    return await ipcRenderer.invoke('time-prechillFlowRBV', val);
   }
 
   async openfuelPrechillRBV() {
-    return await this.ipc.invoke('open-fuelPrechillRBV');
+    return await ipcRenderer.invoke('open-fuelPrechillRBV');
   }
 
   async closefuelPrechillRBV() {
-    return await this.ipc.invoke('close-fuelPrechillRBV');
+    return await ipcRenderer.invoke('close-fuelPrechillRBV');
   }
 
   async timefuelPrechillRBV(val) {
-    return await this.ipc.invoke('time-fuelPrechillRBV', val);
+    return await ipcRenderer.invoke('time-fuelPrechillRBV', val);
   }
 
   async openPurgeFlowRBV() {
-    return await this.ipc.invoke('open-purgeFlowRBV');
+    return await ipcRenderer.invoke('open-purgeFlowRBV');
   }
 
   async closePurgeFlowRBV() {
-    return await this.ipc.invoke('close-purgeFlowRBV');
+    return await ipcRenderer.invoke('close-purgeFlowRBV');
   }
 
   async timePurgeFlowRBV(val) {
-    return await this.ipc.invoke('time-purgeFlowRBV', val);
+    return await ipcRenderer.invoke('time-purgeFlowRBV', val);
   }
 
-  // async extendIgniterInserter() {return await this.ipc.invoke('extend-igniterInserter')}
-  // async retractIgniterInserter() {return await this.ipc.invoke('retract-igniterInserter')}
-  // async timeIgniterInserter() {return await this.ipc.invoke('time-igniterInserter')}
+  // async extendIgniterInserter() {return await ipcRenderer.invoke('extend-igniterInserter')}
+  // async retractIgniterInserter() {return await ipcRenderer.invoke('retract-igniterInserter')}
+  // async timeIgniterInserter() {return await ipcRenderer.invoke('time-igniterInserter')}
 
 }
 
