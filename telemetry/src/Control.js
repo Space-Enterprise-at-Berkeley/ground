@@ -149,7 +149,7 @@ class Control extends Component {
                     <ButtonGroupRBVTimed
                       open={() => comms.setFuelERegEncoder(1000)}
                       close={() => comms.setFuelERegEncoder(0)}
-                      time={comms.setFuelERegEncoder}
+                      time={comms.setEncoderFuelTankEReg}
                       text='Set Fuel EReg Encoder (0-1000)'
                       successText='1000'
                       failText ='0'
@@ -161,7 +161,7 @@ class Control extends Component {
                     <ButtonGroupRBVTimed
                       open={() => comms.setLOXERegEncoder(1000)}
                       close={() => comms.setLOXERegEncoder(0)}
-                      time={comms.setLOXERegEncoder}
+                      time={comms.setEncoderLoxTankEReg}
                       text='Set LOX EReg Encoder (0-1000)'
                       successText='1000'
                       failText ='0'
@@ -174,8 +174,8 @@ class Control extends Component {
 
                   <Grid item={1} xs={6}>
                     <ButtonGroup
-                      open={comms.zeroERegFuelEncoder}
-                      close={comms.zeroERegLOXEncoder}
+                      open={comms.zeroFuelTankEReg}
+                      close={comms.zeroLoxTankEReg}
                       text='Zero Encoder'
                       successText='Fuel EReg'
                       failText='LOX EReg'
@@ -184,8 +184,8 @@ class Control extends Component {
 
                   <Grid item={1} xs={6}>
                     <ButtonGroup
-                      open={comms.sendFuelERegDiag}
-                      close={comms.sendLOXERegDiag}
+                      open={comms.diagnosticFuelTankEReg}
+                      close={comms.diagnosticLoxTankEReg}
                       text='Run Diagnostic'
                       successText='Fuel EReg'
                       failText='LOX EReg'
@@ -193,16 +193,16 @@ class Control extends Component {
                   </Grid>
                   <Grid item={1} xs={6}>
                     <ButtonGroup
-                      open={() => comms.actuateFuelERegMainValve(1)}
-                      close={() => comms.actuateFuelERegMainValve(0)}
+                      open={() => comms.actuateMainValveFuelTankEReg(1)}
+                      close={() => comms.actuateMainValveFuelTankEReg(0)}
                       text='Fuel Main Valve'
                       send_repl = 'SEND'
                       />
                   </Grid>
                   <Grid item={1} xs={6}>
                     <ButtonGroup
-                      open={() => comms.actuateLOXERegMainValve(1)}
-                      close={() => comms.actuateLOXERegMainValve(0)}
+                      open={() => comms.actuateMainValveLoxTankEReg(1)}
+                      close={() => comms.actuateMainValveLoxTankEReg(0)}
                       text='LOX Main Valve'
                       send_repl = 'SEND'
                       />
@@ -220,8 +220,8 @@ class Control extends Component {
                   </Grid>
                   <Grid item={1} xs={6}>
                     <ButtonGroup
-                      open={comms.pressERegFuelStatic}
-                      close={comms.pressERegLOXStatic}
+                      open={comms.staticPressurizeFuelTankEReg}
+                      close={comms.staticPressurizeLoxTankEReg}
                       text='Static Pressurize'
                       successText='Fuel EReg'
                       failText = 'LOX EReg'

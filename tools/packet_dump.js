@@ -6,7 +6,8 @@ server.on('error', (err) => {
   server.close();
 });
 server.on('message', (msg, rinfo) => {
-  console.log(msg.toString());
+  rinfo.address
+  console.log(rinfo.address + ":" + msg.toString() + " ---- " + msg.readUInt8(0));
 });
 server.on('listening', () => {
   const address = server.address();

@@ -102,13 +102,13 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'EREG_FUEL_HP_PT',
+                        name: 'fuelTankERegHPT',
                         displayname: 'Fuel Pressurant PT',
                         color: [255,0,0],
                         unit: 'PSI'
                       },
                       {
-                        name: 'EREG_LOX_HP_PT',
+                        name: 'LoxTankERegHPT',
                         displayname: 'LOX Pressurant PT',
                         color: [0,0,255],
                         unit: 'PSI'
@@ -122,13 +122,13 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'EREG_FUEL_LP_PT',
+                        name: 'fuelTankERegLPT',
                         displayname: 'Fuel Tank PT',
                         color: [0, 126, 254],
                         unit: 'PSI'
                       },
                       {
-                        name: 'EREG_FUEL_PRESSURE_SETPOINT',
+                        name: 'fuelTankERegPressureSetpoint',
                         displayname: 'Fuel Tank Setpoint',
                         color: [80, 219, 38],
                         unit: 'PSI'
@@ -142,13 +142,13 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'EREG_LOX_LP_PT',
+                        name: 'LoxTankERegLPT',
                         displayname: 'LOX Tank PT',
                         color: [236, 38, 78],
                         unit: 'PSI',
                       },
                       {
-                        name: 'EREG_LOX_PRESSURE_SETPOINT',
+                        name: 'LoxTankERegPressureSetpoint',
                         displayname: 'LOX Tank Setpoint',
                         color: [0, 196, 236],
                         unit: 'PSI'
@@ -161,22 +161,22 @@ class Main extends Component {
                 <FourValueSquare
                   field1={{
                     name: 'Fuel Flow Pressure',
-                    field: 'FUEL_PRESSURE_SETPOINT',
+                    field: 'FuelTankConfigERegPressureSetpoint',
                     decimals: 1
                   }}
                   field2={{
                     name: 'LOX Flow Pressure',
-                    field: 'LOX_PRESSURE_SETPOINT',
+                    field: 'LoxTankConfigERegPressureSetpoint',
                     decimals: 1
                   }}
                   field3={{
                     name: 'Fuel Burntime',
-                    field: 'FUEL_burn_duration',
+                    field: 'FuelTankERegFlowDuration',
                     decimals: 1
                   }}
                   field4={{
                     name: 'Fuel Burntime',
-                    field: 'LOX_burn_duration',
+                    field: 'LoxTankERegFlowDuration',
                     decimals: 1
                   }}
                   // field5={{
@@ -195,13 +195,13 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'EREG_FUEL_ENCODER_ANGLE',
+                        name: 'fuelTankERegEncoderAngle',
                         color: [221, 0, 0],
                         unit: 'Ticks',
                         displayname: 'Fuel Enc Angle'
                       },
                       {
-                        name: 'EREG_FUEL_ANGLE_SETPOINT',
+                        name: 'fuelTankERegAngleSetPoint',
                         color: [0,0,221],
                         unit: 'Ticks',
                         displayname: 'Fuel Enc Setpoint'
@@ -215,13 +215,13 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'EREG_LOX_ENCODER_ANGLE',
+                        name: 'LoxTankERegEncoderAngle',
                         color: [148, 42, 235],
                         unit: 'Ticks',
                         displayname: 'LOX Enc Angle'
                       },
                       {
-                        name: 'EREG_LOX_ANGLE_SETPOINT',
+                        name: 'loxTankERegAngleSetPoint',
                         color: [27, 102, 101],
                         unit: 'Ticks',
                         displayname: "LOX Enc Setpoint"
@@ -254,13 +254,13 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'EREG_FUEL_INJECTOR_PT',
+                        name: 'FuelInjectorERegLPT',
                         color: [255, 51, 224],
                         unit: 'PSI',
                         displayname: 'Fuel Injector PT'
                       },
                       {
-                        name: 'EREG_LOX_INJECTOR_PT', // prop PT temp
+                        name: 'LoxInjectorERegLPT', // prop PT temp
                         color: [15, 202, 221],
                         unit: 'PSI',
                         displayname: 'LOX Injector PT'
@@ -275,13 +275,13 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'EREG_FUEL_MOTOR_POWER',
+                        name: 'fuelTankERegMotorPower',
                         displayname: 'Fuel Motor Power',
                         color: [0, 126, 254],
                         unit: 'yes'
                       },
                       {
-                        name: 'EREG_LOX_MOTOR_POWER',
+                        name: 'LoxTankERegMotorPower',
                         displayname: 'LOX Motor Power',
                         color: [0, 187, 0],
                         unit: 'yes'

@@ -175,7 +175,7 @@ const INBOUND_PACKET_DEFS = {
   
 
   2: [ // config
-    ['EREG_PRESSURE_SETPOINT', asFloat],
+    ['EREG_CONFIG_PRESSURE_SETPOINT', asFloat],
     ['EREG_KP_OUTER', asFloat],
     ['EREG_KL_OUTER', asFloat],
     ['EREG_KD_OUTER', asFloat],

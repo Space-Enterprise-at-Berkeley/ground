@@ -7,6 +7,8 @@ const UdpPort = require('./UdpPort');
 const FlightV2 = require('./Boards/FlightV2');
 const DAQ = require('./Boards/DAQ');
 const DAQV3 = require('./Boards/DAQV3');
+const EReg = require('./Boards/EReg');
+const ERegDAQ = require('./Boards/ERegDAQ');
 const ActuatorController = require('./Boards/ActuatorController');
 const InfluxDB = require('./InfluxDB');
 
@@ -277,7 +279,7 @@ class App {
 
 
 
-    this.fuelTankEReg = new EReg(this.port, '10.0.0.11', { 
+    this.fuelTankEReg = new EReg(this.port, '10.0.0.25', { 
       // fuel ereg telemetry, to dashboard from ereg
       EREG_HP_PT: 'fuelTankERegHPT',
       EREG_LP_PT: 'fuelTankERegLPT',
@@ -289,7 +291,7 @@ class App {
       EREG_PRESSURE_CONTROL_I: 'fuelTankERegITerm',
       EREG_PRESSURE_CONTROL_D: 'fuelTankERegDTerm',
 
-      EREG_PRESSURE_SETPOINT: 'fuelTankERegPressureSetpoint',
+      EREG_CONFIG_PRESSURE_SETPOINT: 'fuelTankConfigERegPressureSetpoint',
       EREG_KP_OUTER: 'fuelTankERegKPOuter',
       EREG_KL_OUTER: 'fuelTankERegKLOuter',
       EREG_KD_OUTER: 'fuelTankERegKDOuter',
@@ -311,7 +313,7 @@ class App {
     () => this.updateState(Date.now(), { fuelTankERegConnected: false }),
     (rate) => this.updateState(Date.now(), { fuelTankERegKbps: rate })); 
 
-  this.loxTankEReg = new EReg(this.port, '10.0.0.11', { 
+  this.LoxTankEReg = new EReg(this.port, '10.0.0.26', { 
       //add values here
       EREG_HP_PT: 'LoxTankERegHPT',
       EREG_LP_PT: 'LoxTankERegLPT',
@@ -323,7 +325,7 @@ class App {
       EREG_PRESSURE_CONTROL_I: 'LoxTankERegITerm',
       EREG_PRESSURE_CONTROL_D: 'LoxTankERegDTerm',
 
-      EREG_PRESSURE_SETPOINT: 'LoxTankERegPressureSetpoint',
+      EREG_CONFIG_PRESSURE_SETPOINT: 'LoxTankConfigERegPressureSetpoint',
       EREG_KP_OUTER: 'LoxTankERegKPOuter',
       EREG_KL_OUTER: 'LoxTankERegKLOuter',
       EREG_KD_OUTER: 'LoxTankERegKDOuter',
@@ -344,7 +346,7 @@ class App {
     () => this.updateState(Date.now(), { loxTankERegConnected: false }),
     (rate) => this.updateState(Date.now(), { loxTankERegKbps: rate })); 
 
-  this.fuelInjectorEReg = new EReg(this.port, '10.0.0.11', { 
+  this.fuelInjectorEReg = new EReg(this.port, '10.0.0.27', { 
       //add values here
       EREG_HP_PT: 'FuelInjectorERegHPT',
       EREG_LP_PT: 'FuelInjectorERegLPT',
@@ -356,7 +358,7 @@ class App {
       EREG_PRESSURE_CONTROL_I: 'FuelInjectorERegITerm',
       EREG_PRESSURE_CONTROL_D: 'FuelInjectorERegDTerm',
 
-      EREG_PRESSURE_SETPOINT: 'FuelInjectorERegPressureSetpoint',
+      EREG_CONFIG_PRESSURE_SETPOINT: 'FuelInjectorConfigERegPressureSetpoint',
       EREG_KP_OUTER: 'FuelInjectorERegKPOuter',
       EREG_KL_OUTER: 'FuelInjectorERegKLOuter',
       EREG_KD_OUTER: 'FuelInjectorERegKDOuter',
@@ -377,7 +379,7 @@ class App {
     () => this.updateState(Date.now(), { fuelInjectorConnected: false }),
     (rate) => this.updateState(Date.now(), { fuelInjectorKbps: rate })); 
 
-    this.loxInjectorEReg = new EReg(this.port, '10.0.0.11', { 
+    this.LoxInjectorEReg = new EReg(this.port, '10.0.0.28', { 
       //add values here
       EREG_HP_PT: 'LoxInjectorERegHPT',
       EREG_LP_PT: 'LoxInjectorERegLPT',
@@ -389,7 +391,7 @@ class App {
       EREG_PRESSURE_CONTROL_I: 'LoxInjectorERegITerm',
       EREG_PRESSURE_CONTROL_D: 'LoxInjectorERegDTerm',
 
-      EREG_PRESSURE_SETPOINT: 'LoxInjectorERegPressureSetpoint',
+      EREG_CONFIG_PRESSURE_SETPOINT: 'LoxInjectorConfigERegPressureSetpoint',
       EREG_KP_OUTER: 'LoxInjectorERegKPOuter',
       EREG_KL_OUTER: 'LoxInjectorERegKLOuter',
       EREG_KD_OUTER: 'LoxInjectorERegKDOuter',
