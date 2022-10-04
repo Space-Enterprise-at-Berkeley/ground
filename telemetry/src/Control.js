@@ -148,7 +148,7 @@ class Control extends Component {
                   <Grid item={1} xs={6}>
                     <ButtonGroupRBVTimed
                       open={() => comms.setEncoderFuelTankEReg(1000)}
-                      close={() => comms.setEncoderFuelTankEReg(0)}
+                      close={comms.abortFuelTankEReg}
                       time={comms.setEncoderFuelTankEReg}
                       text='Set Fuel EReg Encoder (0-1000)'
                       successText='1000'
@@ -160,7 +160,7 @@ class Control extends Component {
                   <Grid item={1} xs={6}>
                     <ButtonGroupRBVTimed
                       open={() => comms.setEncoderLoxTankEReg(1000)}
-                      close={() => comms.setEncoderLoxTankEReg(0)}
+                      close={comms.abortLoxTankEReg}
                       time={comms.setEncoderLoxTankEReg}
                       text='Set LOX EReg Encoder (0-1000)'
                       successText='1000'

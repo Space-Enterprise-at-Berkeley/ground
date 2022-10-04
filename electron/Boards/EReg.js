@@ -8,8 +8,8 @@ class EReg extends Board {
     this.setMotorEncoder = this.setMotorEncoder.bind(this);
     this.pressurizePropellantStatic = this.pressurizePropellantStatic.bind(this);
     this.runDiagnostic = this.runDiagnostic.bind(this);
-    this.zeroEncoders = this.zeroEncoders.bind(this);
     this.actuateMainValve = this.actuateMainValve.bind(this);
+    this.abortEreg = this.abortEreg.bind(this);
   }
   startPropellantFlow () { return this.sendPacket(200, []); }
   abortEreg () { return this.sendPacket(201, []); }

@@ -707,7 +707,7 @@ class App {
 
     // FuelTankEReg
     this.addIPC('start-propellantFlowFuelTankEreg', this.fuelTankEReg.startPropellantFlow);
-    this.addIPC('abort-eregFuelTankEreg', this.fuelTankEReg.abortEReg);
+    this.addIPC('abort-eregFuelTankEreg', this.fuelTankEReg.abortEreg);
     this.addIPC('set-motorEncoderFuelTankEreg', (e, val) => this.fuelTankEReg.setMotorEncoder(val));
     this.addIPC('pressurize-propellantStaticFuelTankEreg', this.fuelTankEReg.pressurizePropellantStatic);
     this.addIPC('run-diagnosticFuelTankEreg', this.fuelTankEReg.runDiagnostic);
@@ -716,7 +716,7 @@ class App {
     
     //  loxTankEReg
     this.addIPC('start-propellantFlowLoxTankEreg', this.LoxTankEReg.startPropellantFlow);
-    this.addIPC('abort-eregLoxTankEreg', this.LoxTankEReg.abortEReg);
+    this.addIPC('abort-eregLoxTankEreg', this.LoxTankEReg.abortEreg);
     this.addIPC('set-motorEncoderLoxTankEreg', (e, val) => this.LoxTankEReg.setMotorEncoder(val));
     this.addIPC('pressurize-propellantStaticLoxTankEreg', this.LoxTankEReg.pressurizePropellantStatic);
     this.addIPC('run-diagnosticLoxTankEreg', this.LoxTankEReg.runDiagnostic);

@@ -123,6 +123,11 @@ class Comms {
 
     this.abortEReg = this.abortEReg.bind(this);
 
+    this.abortFuelTankEReg = this.abortFuelTankEReg.bind(this);
+    this.abortLoxTankEReg = this.abortLoxTankEReg.bind(this);
+    this.abortFuelInjectorEReg = this.abortFuelInjectorEReg.bind(this);
+    this.abortLoxInjectorEReg = this.abortLoxInjectorEReg.bind(this);
+
     this.setFuelERegEncoder = this.setFuelERegEncoder.bind(this);
     this.setLOXERegEncoder = this.setLOXERegEncoder.bind(this);
 
