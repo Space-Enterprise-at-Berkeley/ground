@@ -335,14 +335,14 @@ class Aux1 extends Component {
               </Grid>
 
               
-              {/* <Grid item={1} xs={4} className={classes.item}>
+              <Grid item={1} xs={4} className={classes.item}>
                 <Graph
                   fields={
                     [
                       {
-                        name: 'loxTankPTTemp', // lox PT temp
+                        name: 'loxCapVal', // lox PT temp
                         color: [123, 35, 162],
-                        unit: 'degC'
+                        unit: 'F'
                       },
                       // {
                       //   name: 'loxGemsTemp', // lox gems temp
@@ -352,7 +352,7 @@ class Aux1 extends Component {
                     ]
                   }
                 />
-              </Grid> */}
+              </Grid>
               {/* <Grid item={1} xs={8} className={classes.item}>
                 <Graph
                   fields={

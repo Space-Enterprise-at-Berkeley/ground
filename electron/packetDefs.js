@@ -341,11 +341,11 @@ const INBOUND_PACKET_DEFS = {
   //   ['fastLoadCell2', asFloat],
   //   // ['fastLoadCellSum', asFloat],
   // ],
-  // 221: [
-  //   ['capVal', asFloat],
-  //   ['capValFiltered', asFloat],
-  //   ['capTemperature', asFloat],
-  // ],
+  221: [
+    ['capVal', asFloat],
+    ['capValFiltered', asFloat],
+    ['capTemperature', asFloat],
+  ],
   // 222: [
   //   ['capVal', asFloat],
   //   ['capValFiltered', asFloat],
