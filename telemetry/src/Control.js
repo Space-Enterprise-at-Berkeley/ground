@@ -168,46 +168,34 @@ class Control extends Component {
                       send_repl = 'SEND'
                     />
                   </Grid>
-
                 </Grid>
-                <Grid container={true} spacing={1}>
 
+                  <Grid container={true} spacing={1}>
                   <Grid item={1} xs={6}>
-                    <ButtonGroup
-                      open={comms.zeroFuelTankEReg}
-                      close={comms.zeroLoxTankEReg}
-                      text='Zero Encoder'
-                      successText='Fuel EReg'
-                      failText='LOX EReg'
+                    <ButtonGroupRBVTimed
+                      open={comms.closeERegACCh5}
+                      close={comms.openERegACCh5}
+                      time={comms.timeERegACCh5}
+                      field='ERegACCh5state'
+                      text='Fuel Gems'
                     />
                   </Grid>
 
                   <Grid item={1} xs={6}>
-                    <ButtonGroup
-                      open={comms.diagnosticFuelTankEReg}
-                      close={comms.diagnosticLoxTankEReg}
-                      text='Run Diagnostic'
-                      successText='Fuel EReg'
-                      failText='LOX EReg'
+                    <ButtonGroupRBVTimed
+
+                      open={comms.closeERegACCh6}
+                      close={comms.openERegACCh6}
+                      time={comms.timeERegACCh6}
+                      field='ERegACCh6state'
+                      text='Lox Gems'
                     />
                   </Grid>
-                  <Grid item={1} xs={6}>
-                    <ButtonGroup
-                      open={() => comms.actuateMainValveFuelTankEReg(1)}
-                      close={() => comms.actuateMainValveFuelTankEReg(0)}
-                      text='Fuel Main Valve'
-                      send_repl = 'SEND'
-                      />
-                  </Grid>
-                  <Grid item={1} xs={6}>
-                    <ButtonGroup
-                      open={() => comms.actuateMainValveLoxTankEReg(1)}
-                      close={() => comms.actuateMainValveLoxTankEReg(0)}
-                      text='LOX Main Valve'
-                      send_repl = 'SEND'
-                      />
-                  </Grid>
+                  
+                  
+
                 </Grid>
+                
                 <Grid container={true} spacing={1}>
                 <Grid item={1} xs={6}>
                     <SwitchButton
@@ -246,8 +234,50 @@ class Control extends Component {
 
                 </Grid>
               </Grid>
+
               {/* START OF SECOND BUTTON COLUMN */}
               <Grid item={1} xs={4} className={classes.item}>
+              <Grid container={true} spacing={1}>
+                <Grid item={1} xs={6}>
+                      <ButtonGroup
+                        open={comms.zeroFuelTankEReg}
+                        close={comms.zeroLoxTankEReg}
+                        text='Zero Encoder'
+                        successText='Fuel EReg'
+                        failText='LOX EReg'
+                      />
+                    </Grid>
+
+                    <Grid item={1} xs={6}>
+                      <ButtonGroup
+                        open={comms.diagnosticFuelTankEReg}
+                        close={comms.diagnosticLoxTankEReg}
+                        text='Run Diagnostic'
+                        successText='Fuel EReg'
+                        failText='LOX EReg'
+                      />
+                    </Grid>
+                  </Grid>
+
+                  <Grid container={true} spacing={1}>
+                  <Grid item={1} xs={6}>
+                    <ButtonGroup
+                      open={() => comms.actuateMainValveFuelTankEReg(1)}
+                      close={() => comms.actuateMainValveFuelTankEReg(0)}
+                      text='Fuel Main Valve'
+                      send_repl = 'SEND'
+                      />
+                  </Grid>
+                  <Grid item={1} xs={6}>
+                    <ButtonGroup
+                      open={() => comms.actuateMainValveLoxTankEReg(1)}
+                      close={() => comms.actuateMainValveLoxTankEReg(0)}
+                      text='LOX Main Valve'
+                      send_repl = 'SEND'
+                      />
+                  </Grid>
+                </Grid>
+
                 <Grid container={true} spacing={1}>
                   <Grid item={1} xs={6}>
                     <ButtonGroupRBVTimed
@@ -272,16 +302,6 @@ class Control extends Component {
                   <Grid item={1} xs={6}>
                     <ButtonGroupRBVTimed
 
-                      open={comms.closeERegACCh3}
-                      close={comms.openERegACCh3} //CHANGED BECAUSE WE"RE USING DIODES
-                      time={comms.timeERegACCh3} 
-                      field='ERegACCh3state'
-                      text='Two Way'
-                    />
-                  </Grid>
-                  <Grid item={1} xs={6}>
-                    <ButtonGroupRBVTimed
-
                       open={comms.openERegACCh4}
                       close={comms.closeERegACCh4}
                       time={comms.timeERegACCh4}
@@ -289,16 +309,7 @@ class Control extends Component {
                       text='Press Fill RBV'
                     />
                   </Grid>
-                  <Grid item={1} xs={6}>
-                    <ButtonGroupRBVTimed
 
-                      open={comms.closeERegACCh6}
-                      close={comms.openERegACCh6}
-                      time={comms.timeERegACCh6}
-                      field='ERegACCh6state'
-                      text='Lox Gems'
-                    />
-                  </Grid>
                   <Grid item={1} xs={6}>
                     <ButtonGroup
                       open={comms.openERegAC24VCh0}
@@ -347,18 +358,20 @@ class Control extends Component {
                   </Grid>
 
                 </Grid>
-                <Grid container={true} spacing={1}>
-     
-                  <Grid item={1} xs={12}>
-                    <ButtonGroupRBVTimed
 
-                      open={comms.closeERegACCh5}
-                      close={comms.openERegACCh5}
-                      time={comms.timeERegACCh5}
-                      field='ERegACCh5state'
-                      text='Fuel Gems'
+                <Grid container={true} spacing={1}>
+                  <Grid item={1} xs={12}></Grid>
+
+                    <ButtonGroup
+                      open={comms.closeERegACCh3}
+                      close={comms.openERegACCh3} //CHANGED BECAUSE WE"RE USING DIODES
+                      text='Two Way'
                     />
                   </Grid>
+
+                <Grid container={true} spacing={1}>
+     
+                  
 
                   <Grid item={1} xs={12}>
                     <ButtonGroup
