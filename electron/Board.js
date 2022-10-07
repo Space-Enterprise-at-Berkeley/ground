@@ -182,7 +182,7 @@ class Board {
       this.firstRecvTime = -1;
       this.firstRecvOffset = -1;
       this.onDisconnect();
-    }, 1000);
+    }, 2000);
   }
 }
 

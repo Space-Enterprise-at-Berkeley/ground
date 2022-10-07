@@ -221,7 +221,7 @@ class Main extends Component {
                         displayname: 'LOX Enc Angle'
                       },
                       {
-                        name: 'loxTankERegAngleSetPoint',
+                        name: 'LoxTankERegAngleSetPoint',
                         color: [27, 102, 101],
                         unit: 'Ticks',
                         displayname: "LOX Enc Setpoint"
