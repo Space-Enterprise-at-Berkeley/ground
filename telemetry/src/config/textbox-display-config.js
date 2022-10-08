@@ -31,6 +31,9 @@ export const ROOT_OPTION_GROUPING = {
       children: [
         { key: 'flightConnected' },
         { key: 'EReg1Connected' },
+        { key: 'EReg2Connected' },
+        { key: 'EReg3Connected' },
+        { key: 'EReg4Connected' },
         { key: 'daq1Connected' },
         { key: 'daq2Connected' },
         { key: 'actCtrlr1Connected' },

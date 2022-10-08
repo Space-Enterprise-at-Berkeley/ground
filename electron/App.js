@@ -338,9 +338,9 @@ class App {
       EReg_STATE: 'LoxTankERegERegState',
 
     },
-    () => this.updateState(Date.now(), { loxTankERegConnected: true }),
-    () => this.updateState(Date.now(), { loxTankERegConnected: false }),
-    (rate) => this.updateState(Date.now(), { loxTankERegKbps: rate })); 
+    () => this.updateState(Date.now(), { EReg2Connected: true }),
+    () => this.updateState(Date.now(), { EReg2Connected: false }),
+    (rate) => this.updateState(Date.now(), { EReg2kbps: rate })); 
 
   this.fuelInjectorEReg = new EReg(this.port, '10.0.0.27', { 
       //add values here
@@ -369,9 +369,9 @@ class App {
       EReg_STATE: 'FuelInjectorERegERegState',
 
     },
-    () => this.updateState(Date.now(), { fuelInjectorConnected: true }),
-    () => this.updateState(Date.now(), { fuelInjectorConnected: false }),
-    (rate) => this.updateState(Date.now(), { fuelInjectorKbps: rate })); 
+    () => this.updateState(Date.now(), { EReg3Connected: true }),
+    () => this.updateState(Date.now(), { EReg3Connected: false }),
+    (rate) => this.updateState(Date.now(), { EReg3kbps: rate })); 
 
     this.LoxInjectorEReg = new EReg(this.port, '10.0.0.28', { 
       //add values here
@@ -400,9 +400,9 @@ class App {
       EReg_STATE: 'LoxInjectorERegERegState',
 
     },
-    () => this.updateState(Date.now(), { loxInjectorERegConnected: true }),
-    () => this.updateState(Date.now(), { loxInjectorERegConnected: false }),
-    (rate) => this.updateState(Date.now(), { loxInjectorERegKbps: rate })); 
+    () => this.updateState(Date.now(), { EReg4Connected: true }),
+    () => this.updateState(Date.now(), { EReg4Connected: false }),
+    (rate) => this.updateState(Date.now(), { EReg4kbps: rate })); 
 
   this.ERegdaq = new ERegDAQ(this.port, '10.0.0.11', { 
       //add values here
@@ -415,9 +415,9 @@ class App {
 
 
     },
-    () => this.updateState(Date.now(), { daq1Connected: true }),
-    () => this.updateState(Date.now(), { daq1Connected: false }),
-    (rate) => this.updateState(Date.now(), { daq1Kbps: rate })); 
+    () => this.updateState(Date.now(), { EReg4DAQ: true }),
+    () => this.updateState(Date.now(), { EReg4DAQ: false }),
+    (rate) => this.updateState(Date.now(), { EReg4DAQ: rate })); 
 
     // Begin TouchBar
     this.abort = this.addBackendFunc('abort', this.flightComputer.abort)
@@ -551,6 +551,9 @@ class App {
 
     this.addIPC('flight-connected', () => this.flightComputer.isConnected);
     this.addIPC('EReg1-connected', () => this.EReg1Connected.isConnected);
+    this.addIPC('EReg2-connected', () => this.EReg2Connected.isConnected);
+    this.addIPC('EReg3-connected', () => this.EReg3Connected.isConnected);
+    this.addIPC('EReg4-connected', () => this.EReg4Connected.isConnected);
     this.addIPC('daq1-connected', () => this.daq1.isConnected);
     this.addIPC('daq2-connected', () => this.daq2.isConnected);
     this.addIPC('daq3-connected', () => this.daq3.isConnected);
