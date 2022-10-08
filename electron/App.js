@@ -108,7 +108,7 @@ class App {
       () => this.updateState(Date.now(), { daq2Connected: false }),
       (rate) => this.updateState(Date.now(), { daq2Kbps: rate }));
 
-    this.daq3 = new DAQ(this.port, '10.0.0.31', {
+    this.daq3 = new DAQ(this.port, '10.0.0.33', {
         firmwareCommitHash: 'daq3CommitHash',
 
         daqBattVoltage: null,
