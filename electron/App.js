@@ -717,7 +717,7 @@ class App {
 
     // fuelInjectorEReg
     this.addIPC('start-propellantFlowFuelInjectorEreg', this.fuelInjectorEReg.startPropellantFlow);
-    this.addIPC('abort-eregFuelInjectorEreg', this.fuelInjectorEReg.abortEReg);
+    this.addIPC('abort-eregFuelInjectorEreg', this.fuelInjectorEReg.abortEreg);
     this.addIPC('set-motorEncoderFuelInjectorEreg', (e, val) => this.fuelInjectorEReg.setMotorEncoder(val));
     this.addIPC('pressurize-propellantStaticFuelInjectorEreg', this.fuelInjectorEReg.pressurizePropellantStatic);
     this.addIPC('run-diagnosticFuelInjectorEreg', this.fuelInjectorEReg.runDiagnostic);
