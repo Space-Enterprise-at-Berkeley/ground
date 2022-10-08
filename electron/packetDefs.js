@@ -160,41 +160,41 @@ const INBOUND_PACKET_DEFS = {
 
 
   1: [ // telemetry
-    ['EREG_HP_PT', asFloat],
-    ['EREG_LP_PT', asFloat],
+    ['EReg_HP_PT', asFloat],
+    ['EReg_LP_PT', asFloat],
 
-    ['EREG_ENCODER_ANGLE', asFloat],
-    ['EREG_ANGLE_SETPOINT', asFloat],
-    ['EREG_PRESSURE_SETPOINT', asFloat],
-    ['EREG_MOTOR_POWER', asFloat],
-    ['EREG_PRESSURE_CONTROL_P', asFloat],
-    ['EREG_PRESSURE_CONTROL_I', asFloat],
-    ['EREG_PRESSURE_CONTROL_D', asFloat],
+    ['EReg_ENCODER_ANGLE', asFloat],
+    ['EReg_ANGLE_SETPOINT', asFloat],
+    ['EReg_PRESSURE_SETPOINT', asFloat],
+    ['EReg_MOTOR_POWER', asFloat],
+    ['EReg_PRESSURE_CONTROL_P', asFloat],
+    ['EReg_PRESSURE_CONTROL_I', asFloat],
+    ['EReg_PRESSURE_CONTROL_D', asFloat],
 
   ],
   
 
   2: [ // config
-    ['EREG_CONFIG_PRESSURE_SETPOINT', asFloat],
-    ['EREG_KP_OUTER', asFloat],
-    ['EREG_KL_OUTER', asFloat],
-    ['EREG_KD_OUTER', asFloat],
-    ['EREG_KP_INNER', asFloat],
-    ['EREG_KL_INNER', asFloat],
-    ['EREG_KD_INNER', asFloat],
-    ['EREG_FLOW_DURATION', asFloat],
+    ['EReg_CONFIG_PRESSURE_SETPOINT', asFloat],
+    ['EReg_KP_OUTER', asFloat],
+    ['EReg_KL_OUTER', asFloat],
+    ['EReg_KD_OUTER', asFloat],
+    ['EReg_KP_INNER', asFloat],
+    ['EReg_KL_INNER', asFloat],
+    ['EReg_KD_INNER', asFloat],
+    ['EReg_FLOW_DURATION', asFloat],
   ],
   
   3: [ // diagnostic
-    ['EREG_DIAGNOSTIC_MESSAGE', asDiagnosticMessage],
+    ['EReg_DIAGNOSTIC_MESSAGE', asDiagnosticMessage],
   ],
 
   4: [ //command  fail
-    ['EREG_ERROR_CODE', asUInt8],
+    ['EReg_ERROR_CODE', asUInt8],
   ],
 
   5: [ // flow state
-    ['EREG_STATE', asUInt8],
+    ['EReg_STATE', asUInt8],
   ],
 
 
@@ -351,14 +351,14 @@ const INBOUND_PACKET_DEFS = {
   // ],
 
   301: [  // thermocouples
-    ['EREGDAQ_TC1', asFloat],
-    ['EREGDAQ_TC2', asFloat],
-    ['EREGDAQ_TC3', asFloat],
-    ['EREGDAQ_TC4', asFloat],
+    ['ERegDAQ_TC1', asFloat],
+    ['ERegDAQ_TC2', asFloat],
+    ['ERegDAQ_TC3', asFloat],
+    ['ERegDAQ_TC4', asFloat],
   ],
   302: [ // Load Cells
-    ['EREGDAQ_LC1', asFloat],
-    ['EREGDAQ_LC2', asFloat],
+    ['ERegDAQ_LC1', asFloat],
+    ['ERegDAQ_LC2', asFloat],
   ],
 }
 
@@ -389,14 +389,14 @@ const OUTBOUND_PACKET_DEFS = {
   // [170..199] Sent to Actuator Controller
 
   // EReg packets
-  1: [UINT8], //begin one sided flow -> [fuel ereg ? 1 : 0]
+  1: [UINT8], //begin one sided flow -> [fuel EReg ? 1 : 0]
   2: [], //start flow
   3: [], //abort
-  4: [UINT8, FLOAT], // set encoder to value; [fuel ereg ? 1 : 0, encoderValue]
+  4: [UINT8, FLOAT], // set encoder to value; [fuel EReg ? 1 : 0, encoderValue]
   5: [UINT8, UINT8], //open main valve
   6: [UINT8, UINT8], //close main valve
-  7: [UINT8], //static press -> [fuel ereg ? 1 : 0]
-  8: [UINT8], //Zero encoder; [fuel ereg ? 1 : 0]
+  7: [UINT8], //static press -> [fuel EReg ? 1 : 0]
+  8: [UINT8], //Zero encoder; [fuel EReg ? 1 : 0]
   9: [UINT8], //Begin AC flow
 
 

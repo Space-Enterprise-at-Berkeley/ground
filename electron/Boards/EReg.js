@@ -9,10 +9,10 @@ class EReg extends Board {
     this.pressurizePropellantStatic = this.pressurizePropellantStatic.bind(this);
     this.runDiagnostic = this.runDiagnostic.bind(this);
     this.actuateMainValve = this.actuateMainValve.bind(this);
-    this.abortEreg = this.abortEreg.bind(this);
+    this.abortEReg = this.abortEReg.bind(this);
   }
   startPropellantFlow () { return this.sendPacket(200, []); }
-  abortEreg () { return this.sendPacket(201, []); }
+  abortEReg () { return this.sendPacket(201, []); }
   setMotorEncoder (value) { return this.sendPacket(202, [value]); } // float
   pressurizePropellantStatic () { return this.sendPacket(203, []); }
   runDiagnostic () { return this.sendPacket(204, []); }

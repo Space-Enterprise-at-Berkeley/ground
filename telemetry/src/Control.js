@@ -297,9 +297,7 @@ class Control extends Component {
                     />
                   </Grid>
                 </Grid>
-                <br></br>
-                <br></br>
-                <br></br>
+
                 <Grid container={true} spacing={1}>
                   <Grid item={1} xs={6}>
                     <ButtonGroupRBVTimed

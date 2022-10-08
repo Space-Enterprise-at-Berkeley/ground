@@ -565,126 +565,126 @@ class Comms {
     return await ipcRenderer.invoke('actuate-LOXERegMainValve', val);
   }
 
-  // ========= NEW EREG PACKETS ================
+  // ========= NEW EReg PACKETS ================
 
   // FUEL TANK
 
   async startFlowFuelTankEReg() {
-    return await ipcRenderer.invoke('start-propellantFlowFuelTankEreg');
+    return await ipcRenderer.invoke('start-propellantFlowFuelTankEReg');
   }
 
   async abortFuelTankEReg() {
-    return await ipcRenderer.invoke('abort-eregFuelTankEreg');
+    return await ipcRenderer.invoke('abort-ERegFuelTankEReg');
   }
 
   async setEncoderFuelTankEReg(val) {
-    return await ipcRenderer.invoke('set-motorEncoderFuelTankEreg', val);
+    return await ipcRenderer.invoke('set-motorEncoderFuelTankEReg', val);
   }
 
   async staticPressurizeFuelTankEReg() {
-    return await ipcRenderer.invoke('pressurize-propellantStaticFuelTankEreg');
+    return await ipcRenderer.invoke('pressurize-propellantStaticFuelTankEReg');
   }
 
   async diagnosticFuelTankEReg() {
-    return await ipcRenderer.invoke('run-diagnosticFuelTankEreg');
+    return await ipcRenderer.invoke('run-diagnosticFuelTankEReg');
   }
 
   async zeroFuelTankEReg() {
-    return await ipcRenderer.invoke('zero-encodersFuelTankEreg');
+    return await ipcRenderer.invoke('zero-encodersFuelTankEReg');
   }
 
   async actuateMainValveFuelTankEReg(val) {
-    return await ipcRenderer.invoke('actuate-mainValveFuelTankEreg', val);
+    return await ipcRenderer.invoke('actuate-mainValveFuelTankEReg', val);
   }
 
   // LOX TANK
 
   async startFlowLoxTankEReg() {
-    return await ipcRenderer.invoke('start-propellantFlowLoxTankEreg');
+    return await ipcRenderer.invoke('start-propellantFlowLoxTankEReg');
   }
 
   async abortLoxTankEReg() {
-    return await ipcRenderer.invoke('abort-eregLoxTankEreg');
+    return await ipcRenderer.invoke('abort-ERegLoxTankEReg');
   }
 
   async setEncoderLoxTankEReg(val) {
-    return await ipcRenderer.invoke('set-motorEncoderLoxTankEreg', val);
+    return await ipcRenderer.invoke('set-motorEncoderLoxTankEReg', val);
   }
 
   async staticPressurizeLoxTankEReg() {
-    return await ipcRenderer.invoke('pressurize-propellantStaticLoxTankEreg');
+    return await ipcRenderer.invoke('pressurize-propellantStaticLoxTankEReg');
   }
 
   async diagnosticLoxTankEReg() {
-    return await ipcRenderer.invoke('run-diagnosticLoxTankEreg');
+    return await ipcRenderer.invoke('run-diagnosticLoxTankEReg');
   }
 
   async zeroLoxTankEReg() {
-    return await ipcRenderer.invoke('zero-encodersLoxTankEreg');
+    return await ipcRenderer.invoke('zero-encodersLoxTankEReg');
   }
 
   async actuateMainValveLoxTankEReg(val) {
-    return await ipcRenderer.invoke('actuate-mainValveLoxTankEreg', val);
+    return await ipcRenderer.invoke('actuate-mainValveLoxTankEReg', val);
   }
 
   // Fuel Injector
 
   async startFlowFuelInjectorEReg() {
-    return await ipcRenderer.invoke('start-propellantFlowFuelInjectorEreg');
+    return await ipcRenderer.invoke('start-propellantFlowFuelInjectorEReg');
   }
 
   async abortFuelInjectorEReg() {
-    return await ipcRenderer.invoke('abort-eregFuelInjectorEreg');
+    return await ipcRenderer.invoke('abort-ERegFuelInjectorEReg');
   }
 
   async setEncoderFuelInjectorEReg(val) {
-    return await ipcRenderer.invoke('set-motorEncoderFuelInjectorEreg', val);
+    return await ipcRenderer.invoke('set-motorEncoderFuelInjectorEReg', val);
   }
 
   async staticPressurizeFuelInjectorEReg() {
-    return await ipcRenderer.invoke('pressurize-propellantStaticFuelInjectorEreg');
+    return await ipcRenderer.invoke('pressurize-propellantStaticFuelInjectorEReg');
   }
 
   async diagnosticFuelInjectorEReg() {
-    return await ipcRenderer.invoke('run-diagnosticFuelInjectorEreg');
+    return await ipcRenderer.invoke('run-diagnosticFuelInjectorEReg');
   }
 
   async zeroFuelInjectorEReg() {
-    return await ipcRenderer.invoke('zero-encodersFuelInjectorEreg');
+    return await ipcRenderer.invoke('zero-encodersFuelInjectorEReg');
   }
 
   async actuateMainValveFuelInjectorEReg(val) {
-    return await ipcRenderer.invoke('actuate-mainValveFuelInjectorEreg', val);
+    return await ipcRenderer.invoke('actuate-mainValveFuelInjectorEReg', val);
   }
 
   // Lox Injector
 
   async startFlowLoxInjectorEReg() {
-    return await ipcRenderer.invoke('start-propellantFlowLoxInjectorEreg');
+    return await ipcRenderer.invoke('start-propellantFlowLoxInjectorEReg');
   }
 
   async abortLoxInjectorEReg() {
-    return await ipcRenderer.invoke('abort-eregLoxInjectorEreg');
+    return await ipcRenderer.invoke('abort-ERegLoxInjectorEReg');
   }
 
   async setEncoderLoxInjectorEReg(val) {
-    return await ipcRenderer.invoke('set-motorEncoderLoxInjectorEreg', val);
+    return await ipcRenderer.invoke('set-motorEncoderLoxInjectorEReg', val);
   }
 
   async staticPressurizeLoxInjectorEReg() {
-    return await ipcRenderer.invoke('pressurize-propellantStaticLoxInjectorEreg');
+    return await ipcRenderer.invoke('pressurize-propellantStaticLoxInjectorEReg');
   }
 
   async diagnosticLoxInjectorEReg() {
-    return await ipcRenderer.invoke('run-diagnosticLoxInjectorEreg');
+    return await ipcRenderer.invoke('run-diagnosticLoxInjectorEReg');
   }
 
   async zeroLoxInjectorEReg() {
-    return await ipcRenderer.invoke('zero-encodersLoxInjectorEreg');
+    return await ipcRenderer.invoke('zero-encodersLoxInjectorEReg');
   }
 
   async actuateMainValveLoxInjectorEReg(val) {
-    return await ipcRenderer.invoke('actuate-mainValveLoxInjectorEreg', val);
+    return await ipcRenderer.invoke('actuate-mainValveLoxInjectorEReg', val);
   }
 
   // async openLOxVentRBV() {return await ipcRenderer.invoke('open-LOxVentRBV'); }
