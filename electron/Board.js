@@ -23,10 +23,10 @@ class Board {
 
   setupDataRateMonitor() {
     setInterval(() => {
-      const kbps = this.bytesRecv * 8 / 1000;
+      const kbps = this.bytesRecv * 4 / 1000;
       this.bytesRecv = 0;
       this.onRate(kbps);
-    }, 1000);
+    }, 2000);
   }
 
   sendPacket(id, values) {
