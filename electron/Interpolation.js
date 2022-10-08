@@ -184,6 +184,15 @@ class Interpolation {
     return (value - LC2_OFFSET) * LC2_SCALE
   }
 
+  static asDiagnosticMessage(buffer, offset) {
+    let out = "diagnostic: direction "
+    (buffer.readUInt8(0) > 0) ?   out += "pass, servo " : out += "fail, servo ";
+    (buffer.readUInt8(1) > 0) ?   out += "pass" : out += "fail"; 
+
+    return out;
+  }
+
+ 
 
   static interpolateSolenoidErrors(value) {
     // value is binary where each "1" indicates an error for that solenoid

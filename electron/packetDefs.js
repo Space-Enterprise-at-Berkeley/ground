@@ -1,6 +1,6 @@
 const Interpolation = require("./Interpolation");
 
-const { asASCIIString, asFloat, asUInt8, asUInt16, asUInt32, asFlowState, asAutoVentTriggered, asLCAbortTriggered, asTCAbortTriggered, asNegativeLoadCell} = Interpolation
+const { asASCIIString, asFloat, asUInt8, asUInt16, asUInt32, asFlowState, asAutoVentTriggered, asLCAbortTriggered, asTCAbortTriggered, asNegativeLoadCell, asDiagnosticMessage} = Interpolation
 const { FLOAT, UINT8, UINT32, UINT16 } = Interpolation.TYPES
 
 /**
@@ -186,9 +186,7 @@ const INBOUND_PACKET_DEFS = {
   ],
   
   3: [ // diagnostic
-    ['EREG_DIRECTION_TEST_PASS', asUInt8],
-    ['SERVO_TEST_PASS', asUInt8],
-
+    ['EREG_DIAGNOSTIC_MESSAGE', asDiagnosticMessage],
   ],
 
   4: [ //command  fail

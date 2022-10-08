@@ -300,8 +300,6 @@ class App {
       EREG_KD_INNER: 'fuelTankERegKDInner',
       EREG_FLOW_DURATION: 'fuelTankERegFlowDuration',
 
-      EREG_DIRECTION_TEST_PASS: 'fuelTankERegDirectionTestPass',
-      SERVO_TEST_PASS: 'fuelTankERegServoTestPass',
 
       EREG_ERROR_CODE: 'fuelTankERegErrorCode',
 
@@ -334,8 +332,6 @@ class App {
       EREG_KD_INNER: 'LoxTankERegKDInner',
       EREG_FLOW_DURATION: 'LoxTankERegFlowDuration',
 
-      EREG_DIRECTION_TEST_PASS: 'LoxTankERegDirectionTestPass',
-      SERVO_TEST_PASS: 'LoxTankERegServoTestPass',
 
       EREG_ERROR_CODE: 'LoxTankERegErrorCode',
 
@@ -367,8 +363,6 @@ class App {
       EREG_KD_INNER: 'FuelInjectorERegKDInner',
       EREG_FLOW_DURATION: 'FuelInjectorERegFlowDuration',
 
-      REG_DIRECTION_TEST_PASS: 'FuelInjectorERegDirectionTestPass:',
-      SERVO_TEST_PASS: 'FuelInjectorERegServoTestPass',
 
       EREG_ERROR_CODE: 'FuelInjectorERegErrorCode',
       
@@ -400,8 +394,6 @@ class App {
       EREG_KD_INNER: 'LoxInjectorERegKDInner',
       EREG_FLOW_DURATION: 'LoxInjectorERegFlowDuration',
 
-      EREG_DIRECTION_TEST_PASS: 'LoxInjectorERegDirectionTestPass',
-      SERVO_TEST_PASS: 'LoxInjectorERegServoTestPass',
 
       EREG_ERROR_CODE: 'LoxInjectorERegErrorCode',
       
