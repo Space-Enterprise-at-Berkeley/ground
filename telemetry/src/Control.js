@@ -12,6 +12,7 @@ import ButtonGroup from './components/ButtonGroup';
 import ButtonGroupFlow from './components/ButtonGroupFlow';
 import ButtonGroupRBV from './components/ButtonGroupRBV';
 import ButtonGroupRBVTimed from './components/ButtonGroupRBVTimed';
+import ButtonGroupSingle from './components/ButtonGroupSingle';
 import ButtonGroupRQD from './components/ButtonGroupRQD';
 import ButtonGroupHeater from './components/ButtonGroupHeater';
 import ButtonGroupHeaterCtrlLoop from './components/ButtonGroupHeaterCtrlLoop';
@@ -60,6 +61,7 @@ class Control extends Component {
     this.playUpdog = this.playUpdog.bind(this);
     this.beginFlowAll = this.beginFlowAll.bind(this);
     this.abortAll = this.abortAll.bind(this);
+    this.beginERegCharacterization = this.beginERegCharacterization.bind(this);
     this.setStartCountdownCallback = this.setStartCountdownCallback.bind(this);
     this.setStopCountdownCallback = this.setStopCountdownCallback.bind(this);
     this.startCountdown = this.startCountdown.bind(this);
@@ -97,6 +99,16 @@ class Control extends Component {
 
     this.stopCountdown();
     clearTimeout(this.beginFlowTimeout)
+  }
+
+  beginERegCharacterization() {
+    comms.diagnosticLoxInjectorEReg();
+    comms.diagnosticFuelInjectorEReg();
+
+    comms.startFlowFuelTankEReg();
+    comms.startFlowLoxTankEReg();
+
+
   }
 
   setStartCountdownCallback(callback) {
@@ -253,32 +265,41 @@ class Control extends Component {
               </Grid>
               {/* START OF SECOND BUTTON COLUMN */}
               <Grid item={1} xs={4} className={classes.item}>
-                <Grid container={true} spacing={1}>
+                <Grid container={true} spacing={2}>
+
+
                   <Grid item={1} xs={6}>
                   <Button4Group
                       open1={comms.diagnosticFuelTankEReg}
                       open2={comms.diagnosticLoxTankEReg}
                       open3={comms.diagnosticFuelInjectorEReg}
                       open4={comms.diagnosticLoxInjectorEReg}
-                      button1Text='FT Diagnostic'
-                      button2Text='LT Diagnostic'
-                      button3Text='FI Diagnostic'
-                      button4Text='LI Diagnostic'
+                      button1Text='Fuel Tank'
+                      button2Text='LOX Tank'
+                      button3Text='Fuel Injector'
+                      button4Text='LOX Injector'
+                      text='Diagnostics'
                     />
                   </Grid>
+
+
                   <Grid item={1} xs={6}>
                   <Button4Group
                       open1={comms.zeroFuelTankEReg}
                       open2={comms.zeroLoxTankEReg}
                       open3={comms.zeroFuelInjectorEReg}
                       open4={comms.zeroLoxInjectorEReg}
-                      button1Text='Zero FT'
-                      button2Text='Zero LT'
-                      button3Text='Zero FI'
-                      button4Text='Zero LI'
+                      button1Text='Fuel Tank'
+                      button2Text='LOX Tank'
+                      button3Text='Fuel Injector'
+                      button4Text='LOX Injector'
+                      text='Zero Encoders'
                     />
                   </Grid>
                 </Grid>
+                <br></br>
+                <br></br>
+                <br></br>
                 <Grid container={true} spacing={1}>
                   <Grid item={1} xs={6}>
                     <ButtonGroupRBVTimed
@@ -455,11 +476,16 @@ class Control extends Component {
                       text='Press Line Vent RBV'
                     />
                   </Grid>
-
                 </Grid>
               </Grid>
               <Grid item={1} xs={3} className={classes.item}>
-                
+              <Grid item>
+                    <ButtonGroupSingle
+                      open={this.beginERegCharacterization}
+                      successText="Start"
+                      text='Begin EReg Characterization'
+                    />
+                  </Grid>
               </Grid>
             </Grid>
           </Container>

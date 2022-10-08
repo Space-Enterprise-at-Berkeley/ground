@@ -27,13 +27,13 @@ const styles = theme => ({
     transition: 'none',
   },
   openStatusBox: {
-    padding: theme.spacing(0.5),
+    padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.primary,
     backgroundColor: theme.palette.success.main
   },
   closedStatusBox: {
-    padding: theme.spacing(0.5),
+    padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.primary,
     backgroundColor: theme.palette.error.main
@@ -47,43 +47,48 @@ const statusBox = {
   style: { width: '9rem', height: '1rem' },
 };
 
-class Button4Group extends Component {
+class ButtonGroupSingle extends Component {
   constructor(props) {
     super(props);
-    this.setOpen1 = this.setOpen1.bind(this);
-    this.setOpen2 = this.setOpen2.bind(this);
-    this.setOpen3 = this.setOpen3.bind(this);
-    this.setOpen4 = this.setOpen4.bind(this);
+    this.state = {
+      open: false,
+      openClicked: false,
+    };
+    this.noFeedback = this.noFeedback || false;    
+    this.updateOpen = this.updateOpen.bind(this);
+    this.setOpen = this.setOpen.bind(this);
+    this.setClosed = this.setClosed.bind(this);
   }
 
-  setOpen1() {
-    const { open1 } = this.props;
-    open1();
+  updateOpen(timestamp, value) {
+    this.setState({open: value});
   }
 
-  setOpen2() {
-    const { open2 } = this.props;
-    open2();
+  setOpen() {
+    const { open } = this.props;
+    this.setState({openClicked: true});
+    open();
   }
 
-  setOpen3() {
-    const { open3 } = this.props;
-    open3();
-  }
-
-  setOpen4() {
-    const { open4 } = this.props;
-    open4();
+  setClosed() {
+    const { close } = this.props;
+    this.setState({openClicked: false});
+    close();
   }
 
   componentDidMount() {
+    const { field } = this.props;
+    comms.addSubscriber(field, this.updateOpen);
   }
 
   componentWillUnmount() {
+    const { field } = this.props;
+    comms.removeSubscriber(field, this.updateOpen);
   }
 
   render() {
     const { classes, theme, text } = this.props;
+    const { open, openClicked } = this.state;
     return (
       <Grid container spacing={1} direction="column" alignItems='center'>
         <Grid item>
@@ -93,61 +98,33 @@ class Button4Group extends Component {
           <Box borderRadius={4} {...statusBox} bgcolor={this.props.noFeedback ? (this.props.disabled ? theme.palette.error.main : theme.palette.warning.main) :  (open ? theme.palette.success.main : theme.palette.error.main)}/>
         </Grid> */}
         <Grid item >
-
-          <Button
+          {/* <Button
           color='secondary'
           variant='outlined'
-          className={classes.openButtonOutline}
-          onClick={this.setOpen1}
+          className={!openClicked ? classes.closedButton : classes.closedButtonOutline}
+          onClick={this.setClosed}
           disabled={this.props.disabled || false}
           disableRipple
           size='small'
           >
-            {this.props.button1Text || "Close"}
-          </Button>
-
+            {this.props.failText || "Close"}
+          </Button> */}
           <Button
           color='primary'
           variant='outlined'
-          className={classes.openButtonOutline}
-          onClick={this.setOpen2}
+          className={openClicked ? classes.openButton : classes.openButtonOutline}
+          onClick={this.setOpen}
           disabled={this.props.disabled || false}
           disableRipple
           size='small'
           >
-            {this.props.button2Text || "Open"}
-          </Button>
-
-        </Grid>
-        
-        
-        <Grid item >
-          <Button
-            color='primary'
-            variant='contained'
-          className={classes.openButtonOutline}
-          onClick={this.setOpen3}
-          disabled={this.props.disabled || false}
-          disableRipple
-          size='small'
-          >
-            {this.props.button3Text || "Close"}
-          </Button>
-          <Button
-          color='primary'
-          variant='outlined'
-          className={classes.openButtonOutline}
-          onClick={this.setOpen4}
-          disabled={this.props.disabled || false}
-          disableRipple
-          size='small'
-          >
-            {this.props.button4Text || "Open"}
+            {this.props.successText || "Open"}
           </Button>
         </Grid>
+        <br></br>
       </Grid>
     );
   }
 }
 
-export default withTheme(withStyles(styles)(Button4Group));
+export default withTheme(withStyles(styles)(ButtonGroupSingle));
