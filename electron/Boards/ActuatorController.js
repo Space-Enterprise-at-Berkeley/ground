@@ -59,6 +59,9 @@ class ActuatorController extends Board {
 
     this.actuateFuelERegMainValve = this.actuateFuelERegMainValve.bind(this);
     this.actuateLOXERegMainValve = this.actuateLOXERegMainValve.bind(this);
+
+
+    this.abortFlow = this.abortFlow.bind(this);
   }
 
 
@@ -145,6 +148,8 @@ class ActuatorController extends Board {
       console.log("what erwere")
     }
   }
+
+  abortFlow() {return this.sendPacket(201, []);}
 
 }
 

@@ -30,6 +30,7 @@ export const ROOT_OPTION_GROUPING = {
       highlight: 'rgba(255,243,0,0.4)',
       children: [
         { key: 'flightConnected' },
+        { key: 'EReg1Connected' },
         { key: 'daq1Connected' },
         { key: 'daq2Connected' },
         { key: 'actCtrlr1Connected' },

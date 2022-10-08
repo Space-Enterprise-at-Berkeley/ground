@@ -88,7 +88,11 @@ class Control extends Component {
   }
 
   abortAll() {
-    comms.abortEReg();
+    comms.abortFuelInjectorEReg();
+    comms.abortFuelTankEReg();
+    comms.abortLoxInjectorEReg();
+    comms.abortLoxTankEReg();
+    comms.abortFlow();
 
     // comms.openloxTankVentRBV();
     // comms.openfuelTankVentRBV();

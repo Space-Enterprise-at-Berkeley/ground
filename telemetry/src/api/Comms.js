@@ -24,6 +24,7 @@ class Comms {
     //----------Flight Computer----------
 
     this.getFlightConnected = this.getFlightConnected.bind(this);
+    this.getEReg1Connected = this.getEReg1Connected.bind(this);
     this.getDaq1Connected = this.getDaq1Connected.bind(this);
     this.getDaq2Connected = this.getDaq2Connected.bind(this);
     this.getDaq3Connected = this.getDaq3Connected.bind(this);
@@ -121,7 +122,8 @@ class Comms {
 
     this.beginERegFlow = this.beginERegFlow.bind(this);
 
-    this.abortEReg = this.abortEReg.bind(this);
+
+    this.abortFlow = this.abortFlow.bind(this);
 
     this.abortFuelTankEReg = this.abortFuelTankEReg.bind(this);
     this.abortLoxTankEReg = this.abortLoxTankEReg.bind(this);
@@ -200,6 +202,7 @@ class Comms {
       if (subs !== undefined) {
         const val = update[k];
         for (let s of subs) {
+          console.log("HII");
           s(timestamp, val);
         }
       }
@@ -306,6 +309,10 @@ class Comms {
 
   async getFlightConnected() {
     return await ipcRenderer.invoke('flight-connected');
+  }
+
+  async getEReg1Connected() {
+    return await ipcRenderer.invoke('EReg1-connected');
   }
 
   async getDaq1Connected() {
@@ -421,6 +428,8 @@ class Comms {
     return await ipcRenderer.invoke('disable-igniter');
   }
 
+  
+
   async activateLoxTankBottomHtr() { return await ipcRenderer.invoke('activate-loxTankBottomHtr'); }
   async deactivateLoxTankBottomHtr() { return await ipcRenderer.invoke('deactivate-loxTankBottomHtr'); }
 
@@ -529,9 +538,10 @@ class Comms {
     return await ipcRenderer.invoke('begin-ERegFlow');
   }
 
-  async abortEReg(val) {
-    return await ipcRenderer.invoke('abort-EReg');
+  async abortFlow(val) {
+    return await ipcRenderer.invoke('abort-ERegFlow');
   }
+
 
   async setFuelERegEncoder(val) {
     return await ipcRenderer.invoke('set-FuelERegEncoder', val);

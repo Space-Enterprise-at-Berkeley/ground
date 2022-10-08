@@ -307,9 +307,9 @@ class App {
 
 
     },
-    () => this.updateState(Date.now(), { fuelTankERegConnected: true }),
-    () => this.updateState(Date.now(), { fuelTankERegConnected: false }),
-    (rate) => this.updateState(Date.now(), { fuelTankERegKbps: rate })); 
+    () => this.updateState(Date.now(), { EReg1Connected: true }),
+    () => this.updateState(Date.now(), { EReg1Connected: false }),
+    (rate) => this.updateState(Date.now(), { EReg1kbps: rate })); 
 
   this.LoxTankEReg = new EReg(this.port, '10.0.0.26', { 
       //add values here
@@ -550,6 +550,7 @@ class App {
     // Flight Computer
 
     this.addIPC('flight-connected', () => this.flightComputer.isConnected);
+    this.addIPC('EReg1-connected', () => this.EReg1Connected.isConnected);
     this.addIPC('daq1-connected', () => this.daq1.isConnected);
     this.addIPC('daq2-connected', () => this.daq2.isConnected);
     this.addIPC('daq3-connected', () => this.daq3.isConnected);
@@ -647,7 +648,7 @@ class App {
 
     this.addIPC('begin-ERegFlow', this.actCtrlr1.beginERegFlow);
 
-    this.addIPC('abort-EReg', this.actCtrlr1.abortEReg);
+    this.addIPC('abort-ERegFlow', this.actCtrlr1.abortFlow);
 
     this.addIPC('set-LOXERegEncoder', (e, val)=>this.actCtrlr1.setLOXERegEncoder(val));
     this.addIPC('set-FuelERegEncoder', (e, val)=>this.actCtrlr1.setFuelERegEncoder(val));
