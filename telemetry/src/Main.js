@@ -248,13 +248,13 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'fuelTankERegAngleSetPoint',
+                        name: 'FuelInjectorERegEncoderAngle',
                         color: [255, 51, 224],
                         unit: 'Ticks',
                         displayname: 'Fuel Injector Enc Angle'
                       },
                       {
-                        name: 'fuelTankERegPressureSetpoint',
+                        name: 'FuelInjectorERegAngleSetPoint',
                         color: [15, 202, 221],
                         unit: 'Ticks',
                         displayname: 'Fuel Injector Enc Setpoint'
