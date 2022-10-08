@@ -732,7 +732,6 @@ class App {
     this.addIPC('zero-encodersLoxInjectorEReg', this.LoxInjectorEReg.zeroEncoders);
     this.addIPC('actuate-mainValveLoxInjectorEReg', (e, val) => this.LoxInjectorEReg.actuateMainValve(val));  
 
-
     // ERegdaq
 
     this.addIPC('open-RBV0ERegdaq', this.ERegdaq.openRBV0);

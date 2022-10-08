@@ -269,13 +269,13 @@ class Main extends Component {
                   fields={
                     [
                       {
-                        name: 'LoxTankERegEncoderAngle',
+                        name: 'LoxInjectorERegEncoderAngle',
                         displayname: 'LOX Injector Enc Angle',
                         color: [0, 126, 254],
                         unit: 'Ticks'
                       },
                       {
-                        name: 'LoxTankERegAngleSetPoint',
+                        name: 'LoxInjectorERegAngleSetPoint',
                         displayname: 'Fuel Injector Enc Setpoint',
                         color: [0, 187, 0],
                         unit: 'Ticks'
