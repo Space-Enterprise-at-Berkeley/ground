@@ -165,7 +165,8 @@ class App {
       loadCell2: null,
       loadCellSum: null,
 
-      capVal: 'fuelCapVal',
+      loxCapVal: 'loxCapVal',
+      fuelCapVal: 'fuelCapVal',
       capValFiltered: 'fuelCapValFiltered',
       capTemperature: 'fuelCapTemp',
     },

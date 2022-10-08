@@ -302,6 +302,9 @@ const INBOUND_PACKET_DEFS = {
   221: [
     ['loxCapFill', asFloat],
   ],
+  222: [
+    ['fuelCapFill', asFloat],
+  ],
 
 
   51: [
@@ -340,15 +343,15 @@ const INBOUND_PACKET_DEFS = {
   //   // ['fastLoadCellSum', asFloat],
   // ],
   221: [
-    ['capVal', asFloat],
-    ['capValFiltered', asFloat],
-    ['capTemperature', asFloat],
+    ['loxCapVal', asFloat],
+    ['loxCapValFiltered', asFloat],
+    ['loxCapTemperature', asFloat],
   ],
-  // 222: [
-  //   ['capVal', asFloat],
-  //   ['capValFiltered', asFloat],
-  //   ['capTemperature', asFloat],
-  // ],
+  222: [
+    ['fuelCapVal', asFloat],
+    ['fuelCapValFiltered', asFloat],
+    ['fuelCapTemperature', asFloat],
+  ],
 
   301: [  // thermocouples
     ['ERegDAQ_TC1', asFloat],

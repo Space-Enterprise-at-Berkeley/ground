@@ -438,11 +438,11 @@ class Control extends Component {
                   <Grid item>
                     <ButtonGroupRBVTimed
 
-                      open={comms.openloxTankVentRBV}
-                      close={comms.closeloxTankVentRBV}
-                      time={comms.timeloxTankVentRBV}
-                      field='loxTankVentRBVState'
-                      text='Propane Fill RBV'
+                      open={comms.openERegACCh0}
+                      close={comms.closeERegACCh0}
+                      time={comms.timeERegACCh0}
+                      field='fuelVentRBVState'
+                      text='Fuel Vent RBV'
                     />
                   </Grid>
                   <Grid item>
@@ -462,11 +462,11 @@ class Control extends Component {
                 <Grid container spacing={1} direction='column'>
                 <Grid item>
                     <ButtonGroupRBVTimed
-                      open={comms.openPurgeFlowRBV}
-                      close={comms.closePurgeFlowRBV}
-                      time={comms.timePurgeFlowRBV}
-                      field='purgeFlowRBVState'
-                      text='LOX Fill RBV'
+                      open={comms.openERegACCh1}
+                      close={comms.closeERegACCh1}
+                      time={comms.timeERegACCh1}
+                      field='loxVentRBVState'
+                      text='Lox Vent RBV'
                     />
                   </Grid>
                   <Grid item>
