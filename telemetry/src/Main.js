@@ -103,8 +103,14 @@ class Main extends Component {
                     [
                       {
                         name: 'fuelTankERegHPT',
-                        displayname: 'Pressurant PT',
+                        displayname: 'Fuel Pressurant PT',
                         color: [255,0,0],
+                        unit: 'PSI'
+                      },
+                      {
+                        name: 'LoxTankERegHPT',
+                        displayname: 'Lox Pressurant PT',
+                        color: [0,255,0],
                         unit: 'PSI'
                       }
                     ]
