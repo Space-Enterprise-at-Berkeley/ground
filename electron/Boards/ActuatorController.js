@@ -46,15 +46,7 @@ class ActuatorController extends Board {
     this.closeActCh6 = this.closeActCh6.bind(this);
     this.actCh6ms = this.actCh6ms.bind(this);
 
-    this.sendFuelEregDiag = this.sendFuelEregDiag.bind(this);
-    this.sendLOXEregDiag = this.sendLOXEregDiag.bind(this);
-
-    this.startOneSidedFuel = this.startOneSidedFuel.bind(this);
-    this.startOneSidedLOX = this.startOneSidedLOX.bind(this);
-
     this.beginERegFlow = this.beginERegFlow.bind(this);
-
-    this.abortEReg = this.abortEReg.bind(this);
 
     this.setLOXERegEncoder = this.setLOXERegEncoder.bind(this);
     this.setFuelERegEncoder = this.setFuelERegEncoder.bind(this);
@@ -111,15 +103,7 @@ class ActuatorController extends Board {
   closeActCh6() { return this.sendPacket(16, [1, 0.0]); }
   actCh6ms(time) { return this.sendPacket(16, [(time > 0) ? 2 : 3, Math.abs(time)]); }
 
-  sendFuelEregDiag() {return this.sendPacket(9, [0]);}
-  sendLOXEregDiag() {return this.sendPacket(9, [1]);}
-
-  startOneSidedFuel() {return this.sendPacket(1, [0]);}
-  startOneSidedLOX() {return this.sendPacket(1, [1]);}
-
-  beginERegFlow() {return this.sendPacket(2, []);}
-
-  abortEReg() {return this.sendPacket(3, []);}
+  beginERegFlow() {return this.sendPacket(9, []);}
 
   setFuelERegEncoder(value) {
     if ((value <= 600) && (value > 0)) {

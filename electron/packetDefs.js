@@ -397,7 +397,7 @@ const OUTBOUND_PACKET_DEFS = {
   6: [UINT8, UINT8], //close main valve
   7: [UINT8], //static press -> [fuel ereg ? 1 : 0]
   8: [UINT8], //Zero encoder; [fuel ereg ? 1 : 0]
-  9: [UINT8], //Run diagnostic; [fuel ereg ? 1 : 0]
+  9: [UINT8], //Begin AC flow
 
 
 

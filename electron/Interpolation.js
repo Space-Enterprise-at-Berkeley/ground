@@ -185,11 +185,13 @@ class Interpolation {
   }
 
   static asDiagnosticMessage(buffer, offset) {
-    let out = "diagnostic: direction "
+    console.log(buffer.readUInt8(0));
+    console.log(buffer.readUInt8(1));
+    var out = "diagnostic: direction "
     (buffer.readUInt8(0) > 0) ?   out += "pass, servo " : out += "fail, servo ";
     (buffer.readUInt8(1) > 0) ?   out += "pass" : out += "fail"; 
 
-    return out;
+    return [out, out.length];
   }
 
  
