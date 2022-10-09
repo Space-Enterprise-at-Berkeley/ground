@@ -105,7 +105,7 @@ class Main extends Component {
                         name: 'fuelTankERegHPT',
                         displayname: 'Fuel Pressurant PT',
                         color: [255,0,0],
-                        unit: 'PSIGJEF'
+                        unit: 'PSI'
                       },
                       {
                         name: 'LoxTankERegHPT',
@@ -124,85 +124,32 @@ class Main extends Component {
                       {
                         name: 'fuelTankERegLPT',
                         displayname: 'Fuel Tank PT',
-                        color: [0, 126, 254],
+                        color: [255, 144, 59],
                         unit: 'PSI'
                       },
                       {
                         name: 'fuelTankERegPressureSetpoint',
                         displayname: 'Fuel Tank Setpoint',
-                        color: [80, 219, 38],
+                        color: [13, 6, 0],
                         unit: 'PSI'
                       }
                     ]
                   }
                 />
               </Grid>
-              <Grid item={1} xs={4} className={classes.item}>
-                <Graph
-                  fields={
-                    [
-                      {
-                        name: 'LoxTankERegLPT',
-                        displayname: 'LOX Tank PT',
-                        color: [236, 38, 78],
-                        unit: 'PSI',
-                      },
-                      {
-                        name: 'LoxTankERegPressureSetpoint',
-                        displayname: 'LOX Tank Setpoint',
-                        color: [0, 196, 236],
-                        unit: 'PSI'
-                      }
-                    ]
-                  }
-                />
-              </Grid>
-              <Grid item={1} xs={4} className={classes.item}>
-                <FourValueSquare
-                  field1={{
-                    name: 'Fuel Flow Pressure',
-                    field: 'fuelTankConfigERegPressureSetpoint',
-                    decimals: 1
-                  }}
-                  field2={{
-                    name: 'LOX Flow Pressure',
-                    field: 'LoxTankConfigERegPressureSetpoint',
-                    decimals: 1
-                  }}
-                  field3={{
-                    name: 'Fuel Burntime',
-                    field: 'fuelTankERegFlowDuration',
-                    decimals: 1
-                  }}
-                  field4={{
-                    name: 'Lox Burntime',
-                    field: 'LoxTankERegFlowDuration',
-                    decimals: 1
-                  }}
-                  // field5={{
-                  //   name: 'LOX Burntime',
-                  //   field: 'LOX_burn_duration',
-                  //   decimals: 1
-                  // }}
-                  // field6={{
-                  //   field: '_',
-                  // }}
-                />
-              </Grid>
-              
               <Grid item={1} xs={4} className={classes.item}>
                 <Graph
                   fields={
                     [
                       {
                         name: 'fuelTankERegEncoderAngle',
-                        color: [221, 0, 0],
+                        color: [255, 144, 59],
                         unit: 'Ticks',
                         displayname: 'Fuel Enc Angle'
                       },
                       {
                         name: 'fuelTankERegAngleSetPoint',
-                        color: [0,0,221],
+                        color: [13, 6, 0],
                         unit: 'Ticks',
                         displayname: 'Fuel Enc Setpoint'
                       }
@@ -210,19 +157,86 @@ class Main extends Component {
                   }
                 />
               </Grid>
+
+              <Grid item={1} xs={4} className={classes.item}>
+                <Graph
+                  fields={
+                    [
+                      {
+                        name: 'LoxTankERegLPT',
+                        displayname: 'LOX Tank PT',
+                        color: [255, 115, 239],
+                        unit: 'PSI',
+                      },
+                      {
+                        name: 'LoxTankERegPressureSetpoint',
+                        displayname: 'LOX Tank Setpoint',
+                        color: [4, 0, 255],
+                        unit: 'PSI'
+                      }
+                    ]
+                  }
+                />
+              </Grid>
+
+              <Grid item={1} xs={4} className={classes.item}>
+                <Graph
+                  fields={
+                    [
+                      {
+                        name: 'FuelInjectorERegLPT',
+                        color: [145, 33, 255],
+                        unit: 'PSI',
+                        displayname: 'Fuel Injector PT'
+                      },
+                      {
+                        name: 'FuelInjectorERegPressureSetpoint',
+                        color: [247, 84, 84],
+                        unit: 'PSI',
+                        displayname: 'Fuel Injector Setpoint'
+                      },
+
+                    ]
+                  }
+                />
+              </Grid>
+
+
+              
+              <Grid item={1} xs={4} className={classes.item}>
+                <Graph
+                  fields={
+                    [
+                      {
+                        name: 'LoxInjectorERegLPT',
+                        color: [0, 126, 254],
+                        unit: 'PSI',
+                        displayname: 'LOX Injector PT'
+                      },
+                      {
+                        name: 'LoxInjectorERegPressureSetpoint',
+                        color: [0, 187, 0],
+                        unit: 'PSI',
+                        displayname: 'LOX Injector Setpoint'
+                      },
+                    ]
+                  }
+                />
+              </Grid>
+
               <Grid item={1} xs={4} className={classes.item}>
                 <Graph
                   fields={
                     [
                       {
                         name: 'LoxTankERegEncoderAngle',
-                        color: [148, 42, 235],
+                        color: [255, 115, 239],
                         unit: 'Ticks',
                         displayname: 'LOX Enc Tank Angle'
                       },
                       {
                         name: 'LoxTankERegAngleSetPoint',
-                        color: [27, 102, 101],
+                        color: [4, 0, 255],
                         unit: 'Ticks',
                         displayname: "LOX Enc Tank Setpoint"
                       }
@@ -231,37 +245,18 @@ class Main extends Component {
                 />
               </Grid>
               <Grid item={1} xs={4} className={classes.item}>
-                <MessageDisplaySquare/>
-                {/* <Graph
-                  fields={
-                    [
-                      {
-                        name: 'loxGemsPT',
-                        color: [0, 126, 254],
-                        unit: 'psi'
-                      },
-                      {
-                        name: 'propGemsPT',
-                        color: [0, 187, 0],
-                        unit: 'psi'
-                      },
-                    ]
-                  }
-                /> */}
-              </Grid>
-              <Grid item={1} xs={4} className={classes.item}>
                 <Graph
                   fields={
                     [
                       {
                         name: 'FuelInjectorERegEncoderAngle',
-                        color: [255, 51, 224],
+                        color: [145, 33, 255],
                         unit: 'Ticks',
                         displayname: 'Fuel Injector Enc Angle'
                       },
                       {
                         name: 'FuelInjectorERegAngleSetPoint',
-                        color: [15, 202, 221],
+                        color: [247, 84, 84],
                         unit: 'Ticks',
                         displayname: 'Fuel Injector Enc Setpoint'
                       },
@@ -270,6 +265,7 @@ class Main extends Component {
                   }
                 />
               </Grid>
+
               <Grid item={1} xs={4} className={classes.item}>
                 <Graph
                   fields={
@@ -282,57 +278,20 @@ class Main extends Component {
                       },
                       {
                         name: 'LoxInjectorERegAngleSetPoint',
-                        displayname: 'Fuel Injector Enc Setpoint',
+                        displayname: 'LOX Injector Enc Setpoint',
                         color: [0, 187, 0],
                         unit: 'Ticks'
                       },
-
-
-                      // {
-                      //   name: 'engineTC4',
-                      //   color: [0, 126, 254],
-                      //   unit: 'ºC'
-                      // },
-                      // {
-                      //   name: 'engineTC5',
-                      //   color: [0, 187, 0],
-                      //   unit: 'ºC'
-                      // },
-                      // {
-                      //   name: 'engineTC6',
-                      //   color: [123, 35, 162],
-                      //   unit: 'ºC'
-                      // },
-                      // {
-                      //   name: 'engineTC7',
-                      //   color: [35, 123, 162],
-                      //   unit: 'ºC'
-                      // },
-
-                      // {
-                      //   name: 'engineTC8',
-                      //   color: [0, 126, 254],
-                      //   unit: 'ºC'
-                      // },
-                      // {
-                      //   name: 'engineTC9',
-                      //   color: [0, 187, 0],
-                      //   unit: 'ºC'
-                      // },
-                      // {
-                      //   name: 'engineTC10',
-                      //   color: [123, 35, 162],
-                      //   unit: 'ºC'
-                      // },
-                      // {
-                      //   name: 'engineTC11',
-                      //   color: [35, 123, 162],
-                      //   unit: 'ºC'
-                      // },
                     ]
                   }
                 />
               </Grid>
+
+              
+              
+
+
+              
             </Grid>
           </Container>
         </Box>
