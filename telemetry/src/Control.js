@@ -66,6 +66,8 @@ class Control extends Component {
     this.setStopCountdownCallback = this.setStopCountdownCallback.bind(this);
     this.startCountdown = this.startCountdown.bind(this);
     this.stopCountdown = this.stopCountdown.bind(this);
+    this.startLOXFlows = this.startLOXFlows.bind(this);
+    this.startFuelFlows = this.startFuelFlows.bind(this);
   }
 
   handleDarkMode(isDark) {
@@ -103,6 +105,16 @@ class Control extends Component {
 
     this.stopCountdown();
     clearTimeout(this.beginFlowTimeout)
+  }
+
+  startLOXFlows() {
+    comms.startFlowLoxInjectorEReg();
+    comms.startFlowLoxTankEReg();
+  }
+
+  startFuelFlows() {
+    comms.startFlowFuelInjectorEReg();
+    comms.startFlowFuelTankEReg();
   }
 
   beginERegCharacterization() {
@@ -404,11 +416,11 @@ class Control extends Component {
                   </Grid>
                   <Grid item={1} xs={12}>
                     <ButtonGroup
-                      open={comms.startOneSidedFuel}
-                      close={comms.startOneSidedLOX}
-                      text='Start Single Propellant Flow'
-                      successText='Fuel EReg'
-                      failText='LOX EReg'
+                      open={this.startLOXFlows}
+                      close={this.startFuelFlows}
+                      text='Start LOX Side Flows'
+                      successText='LOX EReg'
+                      failText='Fuel EReg'
                       disabled = {!this.state.flow_en}
                       noFeedback = {true}
                       />

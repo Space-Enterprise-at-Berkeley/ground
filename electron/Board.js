@@ -26,7 +26,7 @@ class Board {
       const kbps = this.bytesRecv * 4 / 1000;
       this.bytesRecv = 0;
       this.onRate(kbps);
-    }, 2000);
+    }, 3000);
   }
 
   sendPacket(id, values) {
@@ -182,7 +182,7 @@ class Board {
       this.firstRecvTime = -1;
       this.firstRecvOffset = -1;
       this.onDisconnect();
-    }, 2000);
+    }, 3000);
   }
 }
 

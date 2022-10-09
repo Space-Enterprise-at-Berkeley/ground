@@ -161,7 +161,7 @@ class Main extends Component {
                 <FourValueSquare
                   field1={{
                     name: 'Fuel Flow Pressure',
-                    field: 'FuelTankConfigERegPressureSetpoint',
+                    field: 'fuelTankConfigERegPressureSetpoint',
                     decimals: 1
                   }}
                   field2={{
@@ -171,11 +171,11 @@ class Main extends Component {
                   }}
                   field3={{
                     name: 'Fuel Burntime',
-                    field: 'FuelTankERegFlowDuration',
+                    field: 'fuelTankERegFlowDuration',
                     decimals: 1
                   }}
                   field4={{
-                    name: 'Fuel Burntime',
+                    name: 'Lox Burntime',
                     field: 'LoxTankERegFlowDuration',
                     decimals: 1
                   }}
