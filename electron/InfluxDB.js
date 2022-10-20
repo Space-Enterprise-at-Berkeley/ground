@@ -1,7 +1,5 @@
-const Influx = require('influx');
-const throttle = require('lodash.throttle');
-
-const BATCH_SIZE = 10000;
+const Influx = require("influx");
+const throttle = require("lodash.throttle");
 
 const procedureSteps = {
   0: "Setup",
@@ -9,8 +7,8 @@ const procedureSteps = {
   2: "Prop Fill",
   3: "LOx Fill",
   4: "Pre-Chill",
-  5: "Burn"
-}
+  5: "Burn",
+};
 
 class InfluxDB {
   constructor() {
@@ -32,7 +30,8 @@ class InfluxDB {
     this.clearProcedureStep = this.clearProcedureStep.bind(this);
     this.handleStateUpdate = this.handleStateUpdate.bind(this);
     this._pushSysLog = this._pushSysLog.bind(this);
-    this.throttledSysLogPush = throttle(this._pushSysLog, 250)
+    this.throttledSysLogPush = throttle(this._pushSysLog, 250);
+    this.lastTimeStamp = Date.now();
   }
 
   connect(host, port, protocol, username, password) {
@@ -72,56 +71,68 @@ class InfluxDB {
   }
 
   async _pushSysLog() {
-    const sysLogBuffer = [...this.sysLogBuffer]
-    if (sysLogBuffer.length === 0) return
-    this.sysLogBuffer = []
-    console.debug("writing # to influx", sysLogBuffer.length)
-    await this.influx.writePoints(sysLogBuffer, { database: this.database, precision: 'ms' }
-    )
+    const sysLogBuffer = [...this.sysLogBuffer];
+    if (sysLogBuffer.length === 0) return;
+    this.sysLogBuffer = [];
+    console.debug("writing # to influx", sysLogBuffer.length);
+    await this.influx.writePoints(sysLogBuffer, {
+      database: this.database,
+      precision: "ms",
+    });
   }
 
   async handleSysLogUpdate(timestamp, message, additionalTags = {}) {
     this.sysLogBuffer.push({
-      measurement: 'syslog',
+      measurement: "syslog",
       tags: { ...this.tags, ...additionalTags },
       fields: {
         // TODO: can implement severity at one point?
         message,
       },
-      timestamp
-    })
+      timestamp,
+    });
 
-    console.debug("pushed to syslog queue", this.sysLogBuffer[this.sysLogBuffer.length - 1].fields.message)
+    console.debug(
+      "pushed to syslog queue",
+      this.sysLogBuffer[this.sysLogBuffer.length - 1].fields.message
+    );
 
     if (this.influx === null) return;
     if (this.database === null) return;
 
-    console.debug("sysLogBufferLength", this.sysLogBuffer.length)
+    console.debug("sysLogBufferLength", this.sysLogBuffer.length);
 
-    this.throttledSysLogPush()
+    this.throttledSysLogPush();
   }
 
   async handleStateUpdate(timestamp, update) {
     if (this.influx === null) return;
     if (this.database === null) return;
+
     for (let k of Object.keys(update)) {
-      if(isNaN(update[k])) continue;
+      if (isNaN(update[k])) continue;
       this.pointsBuffer.push({
         measurement: k,
         tags: this.tags,
         fields: { value: update[k].message ? update[k].message : update[k] },
-        timestamp: timestamp
+        timestamp: timestamp,
       });
     }
-    if (this.pointsBuffer.length > BATCH_SIZE) {
-      const buffer = this.pointsBuffer;
-      this.pointsBuffer = [];
-      // try {
-        await this.influx.writePoints(buffer, { database: this.database, precision: 'ms' });
-      // } catch(err) {
-      //   // log this maybe?
-      // }
-      return true;
+
+    const currentTime = Date.now()
+    const timeElapsed = currentTime - this.lastTimeStamp;
+    if (timeElapsed > 1000) {
+      this.lastTimeStamp = currentTime
+      try {
+        await this.influx.writePoints(this.pointsBuffer, {
+          database: this.database,
+          precision: "ms",
+        });
+        this.pointsBuffer = [];
+        return true;
+      } catch (e) {
+        return false;
+      }
     }
     return false;
   }
