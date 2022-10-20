@@ -344,6 +344,14 @@ class Control extends Component {
                 />
               </Grid>
               <Grid item xs={4}></Grid>
+              <Grid item xs={6}>
+                <SwitchButton
+                  open={comms.enableFastReadRate}
+                  close={comms.disableFastReadRate}
+                  field="_"
+                  text="Enable Fast Read"
+                />
+              </Grid>
               <Grid item xs={4}>
                 <SwitchButton
                   open={comms.enableFlightMode}

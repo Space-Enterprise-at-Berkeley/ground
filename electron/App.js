@@ -51,7 +51,7 @@ class App {
         engineTC0: 'engineTop1TC',
         engineTC1: 'engineTop2TC',
         engineTC2: 'engineBottom1TC',
-        // engineTC3: 'engineBottom2TC',
+        engineTC3: 'engineBottom2TC',
       },
       () => this.updateState(Date.now(), { flightConnected: true }),
       () => this.updateState(Date.now(), { flightConnected: false }),

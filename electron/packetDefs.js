@@ -94,9 +94,9 @@ const INBOUND_PACKET_DEFS = {
   22: [
     ['engineTC2', asFloat],
   ],
-  // 23: [
-  //   ['engineTC3', asFloat],
-  // ],
+  23: [
+    ['engineTC3', asFloat],
+  ],
 
   28: [
     // ['apogeeCheck', asUInt8],

@@ -172,7 +172,7 @@ const Block1 = [
 const Block2 = [
   {
     name: "BBox Data Written",
-    field: "dataWritten",
+    field: "storageUsed",
     unit: "KB",
     decimals: 1,
   },
