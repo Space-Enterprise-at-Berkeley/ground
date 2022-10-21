@@ -99,9 +99,13 @@ class Board {
       let offset = 0;
 
       for (const [_, parser, __] of packetDef) {
-        const [value, byteLen] = parser(dataBuf, offset);
-        values.push(value);
-        offset += byteLen;
+        try {
+          const [value, byteLen] = parser(dataBuf, offset);
+          values.push(value);
+          offset += byteLen;
+        } catch(err) {
+          console.error("error with parsing packet: " + id);
+        }
       }
 
       return new Packet(id, values, timestamp);
@@ -140,7 +144,6 @@ class Board {
       const [_fieldName, _, interpolator] = fieldDef
       let value
       if (interpolator) {
-        value = interpolator(_value)
         if (value.isExtended) {
           const { additionalFields } = value
           Object.assign(update, additionalFields)
