@@ -232,9 +232,7 @@ const INBOUND_PACKET_DEFS = {
     ['autoBurnTime', asUInt32],
     ['autoIgniterAbortEnabled', asUInt8],
     ['autoBreakwireAbortEnabled', asUInt8],
-    ['autoThrustAbortEnabled', asUInt8],
   ],
-
 
 
   // ACTUATOR CONTROLLER 1
