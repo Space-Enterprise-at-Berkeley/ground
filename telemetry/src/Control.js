@@ -346,10 +346,10 @@ class Control extends Component {
               <Grid item xs={4}></Grid>
               <Grid item xs={6}>
                 <SwitchButton
-                  open={comms.enableFastReadRate}
-                  close={comms.disableFastReadRate}
+                  open={comms.enableFlightMode}
+                  close={comms.disableFlightMode}
                   field="_"
-                  text="Enable Fast Read"
+                  text="Flight Mode"
                 />
               </Grid>
               <Grid item xs={4}>

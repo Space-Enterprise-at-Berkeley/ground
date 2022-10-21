@@ -363,9 +363,9 @@ class App {
     this.addIPC('close-fuelFillRBV', this.actCtrlr1.closeActCh1);
     this.addIPC('time-fuelFillRBV', (e, val) => this.actCtrlr1.actCh1ms(val));
 
-    this.addIPC('open-loxFillRBV', this.actCtrlr1.openActCh3);
-    this.addIPC('close-loxFillRBV', this.actCtrlr1.closeActCh3);
-    this.addIPC('time-loxFillRBV', (e, val) => this.actCtrlr1.actCh3ms(val));
+    this.addIPC('open-loxFillRBV', this.actCtrlr1.openActCh4);
+    this.addIPC('close-loxFillRBV', this.actCtrlr1.closeActCh4);
+    this.addIPC('time-loxFillRBV', (e, val) => this.actCtrlr1.actCh4ms(val));
 
     this.addIPC('open-pressurantFillVentRBV', this.actCtrlr1.openActCh2);
     this.addIPC('close-pressurantFillVentRBV', this.actCtrlr1.closeActCh2);
