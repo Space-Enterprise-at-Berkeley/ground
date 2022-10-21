@@ -5,6 +5,9 @@ class Ground extends Board {
 
     super(port, address, mapping, () => { this.sendPacket(152, []); onConnect(); }, onDisconnect, onRate);
 
+    this.enablelaunchMode = this.enablelaunchMode.bind(this);
+    this.disablelaunchMode = this.disablelaunchMode.bind(this);
+
     this.openarmValve = this.openarmValve.bind(this);
     this.closearmValve = this.closearmValve.bind(this);
 
@@ -30,6 +33,8 @@ class Ground extends Board {
     this.disableIgniter = this.disableIgniter.bind(this);
   }
 
+  enablelaunchMode() { return this.sendPacket(42, [1]); }
+  disablelaunchMode() { return this.sendPacket(42, [0]); }
 
   openarmValve() { return this.sendPacket(130, [1]); }
   closearmValve() { return this.sendPacket(130, [0]); }
@@ -52,8 +57,8 @@ class Ground extends Board {
   beginFlow() { return this.sendPacket(150, []); }
   abort() { return this.sendPacket(151, []); }
 
-  enableIgniter() { return this.sendPacket(138, [1]); }
-  disableIgniter() { return this.sendPacket(138, [0]); }
+  enableIgniter() { return this.sendPacket(137, [1]); }
+  disableIgniter() { return this.sendPacket(137, [0]); }
 
 }
 

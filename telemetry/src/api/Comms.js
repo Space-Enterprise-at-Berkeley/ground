@@ -25,9 +25,6 @@ class Comms {
     this.getFlightConnected = this.getFlightConnected.bind(this);
     this.getGroundConnected = this.getGroundConnected.bind(this);
     this.getDaq1Connected = this.getDaq1Connected.bind(this);
-    // this.getDaq2Connected = this.getDaq2Connected.bind(this);
-    // this.getDaq3Connected = this.getDaq3Connected.bind(this);
-    // this.getDaq4Connected = this.getDaq4Connected.bind(this);
     this.getActCtrlr1Connected = this.getActCtrlr1Connected.bind(this);
 
     // Flight Computer
@@ -48,7 +45,16 @@ class Comms {
     this.closePressurantFlowRBV = this.closePressurantFlowRBV.bind(this);
     this.timePressurantFlowRBV = this.timePressurantFlowRBV.bind(this);
 
+    this.enableFastRead = this.enableFastRead.bind(this);
+    this.disableFastRead = this.disableFastRead.bind(this);
+
+    this.enableFastRead = this.enableFastRead.bind(this);
+    this.disableFastRead = this.disableFastRead.bind(this);
+
     // Ground Computer
+    
+    this.enablelaunchMode = this.enablelaunchMode.bind(this);
+    this.disablelaunchMode = this.disablelaunchMode.bind(this);
 
     this.openarmValve = this.openarmValve.bind(this);
     this.closearmValve = this.closearmValve.bind(this);
@@ -70,9 +76,6 @@ class Comms {
 
     this.beginFlow = this.beginFlow.bind(this);
     this.abort = this.abort.bind(this);
-
-    this.enableFastRead = this.enableFastRead.bind(this);
-    this.disableFastRead = this.disableFastRead.bind(this);
 
     this.enableIgniter = this.enableIgniter.bind(this);
     this.disableIgniter = this.disableIgniter.bind(this);
@@ -261,6 +264,9 @@ class Comms {
   async disableFlightMode() { return await this.ipc.invoke('disable-flightMode'); }
 
   // Ground Computer
+
+  async enablelaunchMode() { return await this.ipc.invoke('enable-launchMode'); }
+  async disablelaunchMode() { return await this.ipc.invoke('disable-launchMode'); }
 
   async openarmValve() { return await this.ipc.invoke('open-armValve'); }
   async closearmValve() { return await this.ipc.invoke('close-armValve'); }

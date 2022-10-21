@@ -51,7 +51,7 @@ class App {
         engineTC0: 'engineTop1TC',
         engineTC1: 'engineTop2TC',
         engineTC2: 'engineBottom1TC',
-        // engineTC3: 'engineBottom2TC',
+        engineTC3: 'engineBottom2TC',
       },
       () => this.updateState(Date.now(), { flightConnected: true }),
       () => this.updateState(Date.now(), { flightConnected: false }),
@@ -326,6 +326,9 @@ class App {
 
     // Ground Computer
 
+    this.addIPC('enable-launchMode', this.groundComputer.enablelaunchMode);
+    this.addIPC('disable-launchMode', this.groundComputer.disablelaunchMode);
+
     this.addIPC('open-armValve', this.groundComputer.openarmValve);
     this.addIPC('close-armValve', this.groundComputer.closearmValve);
 
@@ -344,9 +347,6 @@ class App {
     this.addIPC('open-pressRQD', this.groundComputer.openPressRQD);
     this.addIPC('close-pressRQD', this.groundComputer.closePressRQD);
 
-    this.addIPC('open-mainValvePurge', this.groundComputer.openmainValvePurge);
-    this.addIPC('close-mainValvePurge', this.groundComputer.closemainValvePurge);
-
     this.addIPC('beginFlow', this.groundComputer.beginFlow);
     this.addIPC('abort', this.groundComputer.abort);
 
@@ -363,9 +363,9 @@ class App {
     this.addIPC('close-fuelFillRBV', this.actCtrlr1.closeActCh1);
     this.addIPC('time-fuelFillRBV', (e, val) => this.actCtrlr1.actCh1ms(val));
 
-    this.addIPC('open-loxFillRBV', this.actCtrlr1.openActCh3);
-    this.addIPC('close-loxFillRBV', this.actCtrlr1.closeActCh3);
-    this.addIPC('time-loxFillRBV', (e, val) => this.actCtrlr1.actCh3ms(val));
+    this.addIPC('open-loxFillRBV', this.actCtrlr1.openActCh4);
+    this.addIPC('close-loxFillRBV', this.actCtrlr1.closeActCh4);
+    this.addIPC('time-loxFillRBV', (e, val) => this.actCtrlr1.actCh4ms(val));
 
     this.addIPC('open-pressurantFillVentRBV', this.actCtrlr1.openActCh2);
     this.addIPC('close-pressurantFillVentRBV', this.actCtrlr1.closeActCh2);

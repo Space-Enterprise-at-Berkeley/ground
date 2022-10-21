@@ -212,31 +212,31 @@ class Control extends Component {
                       text='Both Valves'
                     />
                   </Grid> */}
-            <Grid item xs={6}>
-              <ButtonGroup
-                // open={comms.openarmValve}
-                // close={comms.closearmValve}
-                field="armVent"
-                text="Arm Vent"
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <ButtonGroup
-                open={comms.openloxMainValve}
-                close={comms.closeloxMainValve}
-                field="loxMainValveState"
-                text="LOX Main"
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <ButtonGroup
-                open={comms.openfuelMainValve}
-                close={comms.closefuelMainValve}
-                field="fuelMainValveState"
-                text="Prop Main"
-              />
-            </Grid>
-            {/* <Grid item xs={6}>
+              <Grid item xs={6}>
+                <ButtonGroup
+                  open={comms.openMainValveVent}
+                  close={comms.closeMainValveVent}
+                  field="mainValveVentState"
+                  text="Main Valve Vent"
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <ButtonGroup
+                  open={comms.openloxMainValve}
+                  close={comms.closeloxMainValve}
+                  field="loxMainValveState"
+                  text="LOX Main"
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <ButtonGroup
+                  open={comms.openfuelMainValve}
+                  close={comms.closefuelMainValve}
+                  field="fuelMainValveState"
+                  text="Fuel Main"
+                />
+              </Grid>
+              {/* <Grid item xs={6}>
                     <ButtonGroup
                       open={comms.openMainValveVent}
                       close={comms.closeMainValveVent}
@@ -271,96 +271,104 @@ class Control extends Component {
                       text='Begin Flow'
                     />
                   </Grid> */}
-            <Grid item xs={6}>
-              <SwitchButton
-                open={comms.enableIgniter}
-                close={comms.disableIgniter}
-                field="_"
-                text="Igniter Enable"
-              />
+              <Grid item xs={6}>
+                <SwitchButton
+                  open={comms.enableIgniter}
+                  close={comms.disableIgniter}
+                  field="igniterEnableState"
+                  text="Igniter Enable"
+                />
+              </Grid>
             </Grid>
-          </Grid>
 
-          {/* START OF SECOND BUTTON COLUMN */}
-          <Grid container xs={6} className={classes.item}>
-            <Grid item xs={4}>
-              <ButtonGroupRBVTimed
-                open={comms.openPressurantFillRBV}
-                close={comms.closePressurantFillRBV}
-                time={comms.timePressurantFillRBV}
-                field="pressurantFillRBVstate"
-                text="N2 Fill RBV"
-              />
-            </Grid>
-            <Grid item xs={4}>
-              <ButtonGroupRBVTimed
-                open={comms.openPressurantFillVentRBV}
-                close={comms.closePressurantFillVentRBV}
-                time={comms.timePressurantFillVentRBV}
-                field="pressurantFillVentRBVstate"
-                text="N2 Fill Vent"
-              />
-            </Grid>
-            <Grid item xs={4}>
-              <ButtonGroup
-                open={comms.openPressRQD}
-                close={comms.closePressRQD}
-                field="pressurantRQD"
-                text="N2 RQD"
-              />
-            </Grid>
-            <Grid item xs={4}>
-              <ButtonGroupRBVTimed
-                open={comms.openloxFillRBV}
-                close={comms.closeloxFillRBV}
-                time={comms.timeloxFillRBV}
-                field="loxFillRBVstate"
-                text="LOX Fill RBV"
-              />
-            </Grid>
-            <Grid item xs={4}>
-              <ButtonGroupRBVTimed
-                open={comms.openfuelFillRBV}
-                close={comms.closefuelFillRBV}
-                time={comms.timefuelFillRBV}
-                field="fuelFillRBVstate"
-                text="Fuel Fill RBV"
-              />
-            </Grid>
-            <Grid item xs={4}></Grid>
-            <Grid item xs={4}>
-              <ButtonGroup
-                open={comms.openMainValvePurge}
-                close={comms.closeMainValvePurge}
-                field="mainValvePurgeState"
-                text="N2 Purge"
-              />
-            </Grid>
-            <Grid item xs={4}></Grid>
-            <Grid item xs={4}>
-              <SwitchButton
-                open={comms.enableFlightMode}
-                close={comms.disableFlightMode}
-                field="_"
-                text="Launch Enable"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <BigButton
-                // onClick ?
-                text="Launch"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <BigButton
-                onClick={() => {
-                  comms.abort();
-                }}
-                text="Abort"
-                isRed
-              />
-            </Grid>
-            {/* <Grid item xs={6}>
+            {/* START OF SECOND BUTTON COLUMN */}
+            <Grid container xs={6} className={classes.item}>
+              <Grid item xs={4}>
+                <ButtonGroupRBVTimed
+                  open={comms.openPressurantFillRBV}
+                  close={comms.closePressurantFillRBV}
+                  time={comms.timePressurantFillRBV}
+                  field="pressurantFillRBVstate"
+                  text="N2 Fill RBV"
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <ButtonGroupRBVTimed
+                  open={comms.openPressurantFillVentRBV}
+                  close={comms.closePressurantFillVentRBV}
+                  time={comms.timePressurantFillVentRBV}
+                  field="pressurantFillVentRBVstate"
+                  text="N2 Fill Vent"
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <ButtonGroup
+                  open={comms.openPressRQD}
+                  close={comms.closePressRQD}
+                  field="pressRQDState"
+                  text="N2 RQD"
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <ButtonGroupRBVTimed
+                  open={comms.openloxFillRBV}
+                  close={comms.closeloxFillRBV}
+                  time={comms.timeloxFillRBV}
+                  field="loxFillRBVstate"
+                  text="LOX Fill RBV"
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <ButtonGroupRBVTimed
+                  open={comms.openfuelFillRBV}
+                  close={comms.closefuelFillRBV}
+                  time={comms.timefuelFillRBV}
+                  field="fuelFillRBVstate"
+                  text="Fuel Fill RBV"
+                />
+              </Grid>
+              <Grid item xs={4}></Grid>
+              <Grid item xs={4}>
+                {/* <ButtonGroup
+                  open={comms.openMainValvePurge}
+                  close={comms.closeMainValvePurge}
+                  field="mainValvePurgeState"
+                  text="N2 Purge"
+                /> */}
+              </Grid>
+              <Grid item xs={4}></Grid>
+              <Grid item xs={6}>
+                <SwitchButton
+                  open={comms.enableFlightMode}
+                  close={comms.disableFlightMode}
+                  field="_"
+                  text="Flight Mode"
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <SwitchButton
+                  open={comms.enablelaunchMode}
+                  close={comms.disablelaunchMode}
+                  field="flightEnable"
+                  text="Launch Enable"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <BigButton
+                  // onClick ?
+                  text="Launch"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <BigButton
+                  onClick={() => {
+                    comms.abort();
+                  }}
+                  text="Abort"
+                  isRed
+                />
+              </Grid>
+              {/* <Grid item xs={6}>
                     <SwitchButton
                       open={comms.enableIgniter}
                       close={comms.disableIgniter}

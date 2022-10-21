@@ -94,9 +94,9 @@ const INBOUND_PACKET_DEFS = {
   22: [
     ['engineTC2', asFloat],
   ],
-  // 23: [
-  //   ['engineTC3', asFloat],
-  // ],
+  23: [
+    ['engineTC3', asFloat],
+  ],
 
   28: [
     // ['apogeeCheck', asUInt8],
@@ -145,6 +145,10 @@ const INBOUND_PACKET_DEFS = {
 
 
 // SENT BY GROUND COMPUTER  
+
+  42: [
+    ['flightEnable', asUInt8],
+  ],
 
   60: [
     ['armValveVoltage', asFloat],
@@ -223,7 +227,7 @@ const INBOUND_PACKET_DEFS = {
   81: [
     ['rqdPT', asFloat],
     ['mainValveBottlePT', asFloat],
-  ],  
+  ],
 
 
 
@@ -232,9 +236,7 @@ const INBOUND_PACKET_DEFS = {
     ['autoBurnTime', asUInt32],
     ['autoIgniterAbortEnabled', asUInt8],
     ['autoBreakwireAbortEnabled', asUInt8],
-    ['autoThrustAbortEnabled', asUInt8],
   ],
-
 
 
   // ACTUATOR CONTROLLER 1
@@ -354,6 +356,7 @@ const OUTBOUND_PACKET_DEFS = {
 
   // Sent to Ground Computer
 
+  42:  [UINT8], // Flight Enable
   126: [UINT8], // Lox gems
   127: [UINT8], // Fuel gems
   128: [UINT8], // Lox gems toggle
@@ -365,7 +368,6 @@ const OUTBOUND_PACKET_DEFS = {
   135: [UINT8], // Main valve vent
   136: [UINT8], // Press RQD
   137: [UINT8], // Enable igniter relay
-  138: [UINT8], // Main valve purge
 
   // 140: [UINT8], // Formerly Fast Read Rate, now deprecated
 
