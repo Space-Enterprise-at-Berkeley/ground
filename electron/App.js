@@ -326,6 +326,9 @@ class App {
 
     // Ground Computer
 
+    this.addIPC('enable-launchMode', this.groundComputer.enablelaunchMode);
+    this.addIPC('disable-launchMode', this.groundComputer.disablelaunchMode);
+
     this.addIPC('open-armValve', this.groundComputer.openarmValve);
     this.addIPC('close-armValve', this.groundComputer.closearmValve);
 

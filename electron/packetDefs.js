@@ -146,6 +146,10 @@ const INBOUND_PACKET_DEFS = {
 
 // SENT BY GROUND COMPUTER  
 
+  42: [
+    ['flightEnable', asUInt8],
+  ],
+
   60: [
     ['armValveVoltage', asFloat],
     ['armValveCurrent', asFloat],
@@ -352,6 +356,7 @@ const OUTBOUND_PACKET_DEFS = {
 
   // Sent to Ground Computer
 
+  42:  [UINT8], // Flight Enable
   126: [UINT8], // Lox gems
   127: [UINT8], // Fuel gems
   128: [UINT8], // Lox gems toggle
