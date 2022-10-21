@@ -21,9 +21,6 @@ class FlightV3 extends Board {
     this.closePressFlowRBV = this.closePressFlowRBV.bind(this);
     this.pressFlowRBVms = this.pressFlowRBVms.bind(this);
 
-    this.enableFastReadRate = this.enableFastReadRate.bind(this);
-    this.disableFastReadRate = this.disableFastReadRate.bind(this);
-
     this.enableFlightMode = this.enableFlightMode.bind(this);
     this.disableFlightMode = this.disableFlightMode.bind(this);
 
@@ -44,9 +41,6 @@ class FlightV3 extends Board {
   openPressFlowRBV() { return this.sendPacket(169, [0, 0.0]); }
   closePressFlowRBV() { return this.sendPacket(169, [1, 0.0]); }
   pressFlowRBVms(time) { return this.sendPacket(169, [(time > 0) ? 2 : 3, Math.abs(time)]); }
-
-  enableFastReadRate() { return this.sendPacket(140, [1]); }
-  disableFastReadRate() { return this.sendPacket(140, [0]); }
 
   enableFlightMode() { return this.sendPacket(29, [1]); }
   disableFlightMode() { return this.sendPacket(29, [0]); }
