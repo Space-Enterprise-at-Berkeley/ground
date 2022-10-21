@@ -344,9 +344,6 @@ class App {
     this.addIPC('open-pressRQD', this.groundComputer.openPressRQD);
     this.addIPC('close-pressRQD', this.groundComputer.closePressRQD);
 
-    this.addIPC('open-mainValvePurge', this.groundComputer.openmainValvePurge);
-    this.addIPC('close-mainValvePurge', this.groundComputer.closemainValvePurge);
-
     this.addIPC('beginFlow', this.groundComputer.beginFlow);
     this.addIPC('abort', this.groundComputer.abort);
 

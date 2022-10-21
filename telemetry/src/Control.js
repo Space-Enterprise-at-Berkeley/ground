@@ -221,10 +221,10 @@ class Control extends Component {
                   </Grid> */}
               <Grid item xs={6}>
                 <ButtonGroup
-                  // open={comms.openarmValve}
-                  // close={comms.closearmValve}
-                  field="armVent"
-                  text="Arm Vent"
+                  open={comms.openMainValveVent}
+                  close={comms.closeMainValveVent}
+                  field="mainValveVentState"
+                  text="Main Valve Vent"
                 />
               </Grid>
               <Grid item xs={6}>
@@ -240,7 +240,7 @@ class Control extends Component {
                   open={comms.openfuelMainValve}
                   close={comms.closefuelMainValve}
                   field="fuelMainValveState"
-                  text="Prop Main"
+                  text="Fuel Main"
                 />
               </Grid>
               {/* <Grid item xs={6}>
@@ -282,7 +282,7 @@ class Control extends Component {
                 <SwitchButton
                   open={comms.enableIgniter}
                   close={comms.disableIgniter}
-                  field="_"
+                  field="igniterEnableState"
                   text="Igniter Enable"
                 />
               </Grid>
@@ -312,7 +312,7 @@ class Control extends Component {
                 <ButtonGroup
                   open={comms.openPressRQD}
                   close={comms.closePressRQD}
-                  field="pressurantRQD"
+                  field="pressRQDState"
                   text="N2 RQD"
                 />
               </Grid>
@@ -336,12 +336,12 @@ class Control extends Component {
               </Grid>
               <Grid item xs={4}></Grid>
               <Grid item xs={4}>
-                <ButtonGroup
+                {/* <ButtonGroup
                   open={comms.openMainValvePurge}
                   close={comms.closeMainValvePurge}
                   field="mainValvePurgeState"
                   text="N2 Purge"
-                />
+                /> */}
               </Grid>
               <Grid item xs={4}></Grid>
               <Grid item xs={6}>
@@ -354,8 +354,8 @@ class Control extends Component {
               </Grid>
               <Grid item xs={4}>
                 <SwitchButton
-                  open={comms.enableFlightMode}
-                  close={comms.disableFlightMode}
+                  open={comms.enablelaunchMode}
+                  close={comms.disablelaunchMode}
                   field="_"
                   text="Launch Enable"
                 />

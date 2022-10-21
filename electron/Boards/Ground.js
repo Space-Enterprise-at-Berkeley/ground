@@ -52,8 +52,8 @@ class Ground extends Board {
   beginFlow() { return this.sendPacket(150, []); }
   abort() { return this.sendPacket(151, []); }
 
-  enableIgniter() { return this.sendPacket(138, [1]); }
-  disableIgniter() { return this.sendPacket(138, [0]); }
+  enableIgniter() { return this.sendPacket(137, [1]); }
+  disableIgniter() { return this.sendPacket(137, [0]); }
 
 }
 

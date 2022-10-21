@@ -223,7 +223,7 @@ const INBOUND_PACKET_DEFS = {
   81: [
     ['rqdPT', asFloat],
     ['mainValveBottlePT', asFloat],
-  ],  
+  ],
 
 
 
@@ -363,7 +363,6 @@ const OUTBOUND_PACKET_DEFS = {
   135: [UINT8], // Main valve vent
   136: [UINT8], // Press RQD
   137: [UINT8], // Enable igniter relay
-  138: [UINT8], // Main valve purge
 
   // 140: [UINT8], // Formerly Fast Read Rate, now deprecated
 
