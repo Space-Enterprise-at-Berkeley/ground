@@ -355,16 +355,16 @@ const INBOUND_PACKET_DEFS = {
     ['fuelCapTemperature', asFloat],
   ],
 
-  301: [  // thermocouples
-    ['ERegDAQ_TC1', asFloat],
-    ['ERegDAQ_TC2', asFloat],
-    ['ERegDAQ_TC3', asFloat],
-    ['ERegDAQ_TC4', asFloat],
-  ],
-  302: [ // Load Cells
-    ['ERegDAQ_LC1', asFloat],
-    ['ERegDAQ_LC2', asFloat],
-  ],
+  // 301: [  // thermocouples
+  //   ['ERegDAQ_TC1', asFloat],
+  //   ['ERegDAQ_TC2', asFloat],
+  //   ['ERegDAQ_TC3', asFloat],
+  //   ['ERegDAQ_TC4', asFloat],
+  // ],
+  // 302: [ // Load Cells
+  //   ['ERegDAQ_LC1', asFloat],
+  //   ['ERegDAQ_LC2', asFloat],
+  // ],
 }
 
 /** @type {Object.<Number,Array.<Number>>} */

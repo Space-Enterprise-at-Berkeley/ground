@@ -34,7 +34,7 @@ class Navbar extends Component {
       EReg2Connected: false,
       EReg3Connected: false,
       EReg4Connected: false,
-      daq1Connected: false,
+      ERegDaqConnected: false,
       daq2Connected: false,
       daq3Connected: false,
       daq4Connected: false,
@@ -46,7 +46,7 @@ class Navbar extends Component {
       EReg2kbps: 0,
       EReg3kbps: 0,
       EReg4kbps: 0,
-      daq1Kbps: 0,
+      ERegDaqKbps: 0,
       daq2Kbps: 0,
       daq3Kbps: 0,
       daq4Kbps: 0,
@@ -59,7 +59,7 @@ class Navbar extends Component {
     this.updateEReg2Connected = this.updateEReg2Connected.bind(this);
     this.updateEReg3Connected = this.updateEReg3Connected.bind(this);
     this.updateEReg4Connected = this.updateEReg4Connected.bind(this);
-    this.updateDaq1Connected = this.updateDaq1Connected.bind(this);
+    this.updateERegDaqConnected = this.updateERegDaqConnected.bind(this);
     this.updateDaq2Connected = this.updateDaq2Connected.bind(this);
     this.updateDaq3Connected = this.updateDaq3Connected.bind(this);
     this.updateDaq4Connected = this.updateDaq4Connected.bind(this);
@@ -71,7 +71,7 @@ class Navbar extends Component {
     this.updateEReg2kbps = this.updateEReg2kbps.bind(this);
     this.updateEReg3kbps = this.updateEReg3kbps.bind(this);
     this.updateEReg4kbps = this.updateEReg4kbps.bind(this);
-    this.updateDaq1Kbps = this.updateDaq1Kbps.bind(this);
+    this.updateERegDaqKbps = this.updateERegDaqKbps.bind(this);
     this.updateDaq2Kbps = this.updateDaq2Kbps.bind(this);
     this.updateDaq3Kbps = this.updateDaq3Kbps.bind(this);
     this.updateDaq4Kbps = this.updateDaq4Kbps.bind(this);
@@ -84,7 +84,7 @@ class Navbar extends Component {
   updateEReg2Connected(timestamp, value) {this.setState({EReg2Connected: value}); }
   updateEReg3Connected(timestamp, value) {this.setState({EReg3Connected: value}); }
   updateEReg4Connected(timestamp, value) {this.setState({EReg4Connected: value}); }
-  updateDaq1Connected(timestamp, value) { this.setState({ daq1Connected: value }); }
+  updateERegDaqConnected(timestamp, value) { this.setState({ ERegDaqConnected: value }); }
   updateDaq2Connected(timestamp, value) { this.setState({ daq2Connected: value }); }
   updateDaq3Connected(timestamp, value) { this.setState({ daq3Connected: value }); }
   updateDaq4Connected(timestamp, value) { this.setState({ daq4Connected: value }); }
@@ -96,7 +96,7 @@ class Navbar extends Component {
   updateEReg2kbps(timestamp, value) { this.setState({ EReg2kbps: value}); }
   updateEReg3kbps(timestamp, value) { this.setState({ EReg3kbps: value}); }
   updateEReg4kbps(timestamp, value) { this.setState({ EReg4kbps: value}); }
-  updateDaq1Kbps(timestamp, value) { this.setState({ daq1Kbps: value }); }
+  updateERegDaqKbps(timestamp, value) { this.setState({ ERegDaqKbps: value }); }
   updateDaq2Kbps(timestamp, value) { this.setState({ daq2Kbps: value }); }
   updateDaq3Kbps(timestamp, value) { this.setState({ daq3Kbps: value }); }
   updateDaq4Kbps(timestamp, value) { this.setState({ daq4Kbps: value }); }
@@ -109,7 +109,7 @@ class Navbar extends Component {
     comms.addSubscriber('EReg2Connected', this.updateEReg2Connected);
     comms.addSubscriber('EReg3Connected', this.updateEReg3Connected);
     comms.addSubscriber('EReg4Connected', this.updateEReg4Connected);
-    comms.addSubscriber('daq1Connected', this.updateDaq1Connected);
+    comms.addSubscriber('ERegDaqConnected', this.updateERegDaqConnected);
     comms.addSubscriber('daq2Connected', this.updateDaq2Connected);
     comms.addSubscriber('daq3Connected', this.updateDaq3Connected);
     comms.addSubscriber('daq4Connected', this.updateDaq4Connected);
@@ -121,7 +121,7 @@ class Navbar extends Component {
     comms.addSubscriber('EReg2kbps', this.updateEReg2kbps);
     comms.addSubscriber('EReg3kbps', this.updateEReg3kbps);
     comms.addSubscriber('EReg4kbps', this.updateEReg4kbps);
-    comms.addSubscriber('daq1Kbps', this.updateDaq1Kbps);
+    comms.addSubscriber('ERegDaqKbps', this.updateERegDaqKbps);
     comms.addSubscriber('daq2Kbps', this.updateDaq2Kbps);
     comms.addSubscriber('daq3Kbps', this.updateDaq3Kbps);
     comms.addSubscriber('daq4Kbps', this.updateDaq4Kbps);
@@ -134,7 +134,7 @@ class Navbar extends Component {
       EReg2Connected: false,
       EReg3Connected: false,
       EReg4Connected: false,
-      daq1Connected: false,
+      ERegDaqConnected: false,
       actCtrlr1Connected: false,
       actCtrlr2Connected: false,
     });
@@ -146,7 +146,7 @@ class Navbar extends Component {
     comms.removeSubscriber('EReg2Connected', this.updateEReg2Connected);
     comms.removeSubscriber('EReg3Connected', this.updateEReg3Connected);
     comms.removeSubscriber('EReg4Connected', this.updateEReg4Connected);
-    comms.removeSubscriber('daq1Connected', this.updateDaq1Connected);
+    comms.removeSubscriber('ERegDaqConnected', this.updateERegDaqConnected);
     comms.removeSubscriber('daq2Connected', this.updateDaq2Connected);
     comms.removeSubscriber('daq3Connected', this.updateDaq3Connected);
     comms.removeSubscriber('daq4Connected', this.updateDaq4Connected);
@@ -158,7 +158,7 @@ class Navbar extends Component {
     comms.removeSubscriber('EReg2kbps', this.updateEReg2kbps);
     comms.removeSubscriber('EReg3kbps', this.updateEReg3kbps);
     comms.removeSubscriber('EReg4kbps', this.updateEReg4kbps);
-    comms.removeSubscriber('daq1Kbps', this.updateDaq1Kbps);
+    comms.removeSubscriber('ERegDaqKbps', this.updateERegDaqKbps);
     comms.removeSubscriber('daq2Kbps', this.updateDaq2Kbps);
     comms.removeSubscriber('daq3Kbps', this.updateDaq3Kbps);
     comms.removeSubscriber('daq4Kbps', this.updateDaq4Kbps);
@@ -182,6 +182,7 @@ class Navbar extends Component {
             daq4Connected,
             actCtrlr1Connected,
             actCtrlr2Connected,
+            ERegDaqConnected,
             flightKbps,
             EReg1kbps,
             EReg2kbps,
@@ -192,22 +193,24 @@ class Navbar extends Component {
             daq3Kbps,
             daq4Kbps,
             actCtrlr1Kbps,
-            actCtrlr2Kbps } = this.state;
+            actCtrlr2Kbps,
+            ERegDaqKbps } = this.state;
 
     return (
       <AppBar position="static" color="default" elevation={0} className={classes.bar}>
         <Toolbar variant="dense">
           <div className={classes.spacer}/>
           {/* <Button className={flightConnected ? classes.connectedButton : classes.disconnectedButton}>Flight - {flightKbps} kbps</Button> */}
-          <Button className={EReg1kbps > 0 ? classes.connectedButton : classes.disconnectedButton}> Fuel Tank EReg - {EReg1kbps} kbps</Button>
-          <Button className={EReg2kbps > 0 ? classes.connectedButton : classes.disconnectedButton}>LOX Tank EReg - {EReg2kbps} kbps</Button>
-          <Button className={EReg3kbps > 0 ? classes.connectedButton : classes.disconnectedButton}>Fuel Inj EReg - {EReg3kbps} kbps</Button>
-          <Button className={EReg4kbps > 0 ? classes.connectedButton : classes.disconnectedButton}>LOX Inj EReg - {EReg4kbps} kbps</Button>
+          <Button className={EReg1kbps > 0 ? classes.connectedButton : classes.disconnectedButton}>Fuel Tank - {EReg1kbps} kbps</Button>
+          <Button className={EReg2kbps > 0 ? classes.connectedButton : classes.disconnectedButton}>LOX Tank - {EReg2kbps} kbps</Button>
+          <Button className={EReg3kbps > 0 ? classes.connectedButton : classes.disconnectedButton}>Fuel Inj - {EReg3kbps} kbps</Button>
+          <Button className={EReg4kbps > 0 ? classes.connectedButton : classes.disconnectedButton}>LOX Inj - {EReg4kbps} kbps</Button>
           {/* <Button className={daq1Connected ? classes.connectedButton : classes.disconnectedButton}>DAQ1 - {daq1Kbps} kbps</Button> */}
           {/* <Button className={daq2Connected ? classes.connectedButton : classes.disconnectedButton}>DAQ2 - {daq2Kbps} kbps</Button> */}
           {/* <Button className={daq3Connected ? classes.connectedButton : classes.disconnectedButton}>DAQ3 - {daq3Kbps} kbps</Button> */}
           {/* <Button className={daq4Connected ? classes.connectedButton : classes.disconnectedButton}>DAQ4 - {daq4Kbps} kbps</Button> */}
-          <Button className={actCtrlr1Kbps > 0 ? classes.connectedButton : classes.disconnectedButton}>ActCtrlr1 - {actCtrlr1Kbps} kbps</Button>
+          <Button className={actCtrlr1Kbps > 0 ? classes.connectedButton : classes.disconnectedButton}>AC - {actCtrlr1Kbps} kbps</Button>
+          <Button className={ERegDaqKbps > 0 ? classes.connectedButton : classes.disconnectedButton}>DAQ - {ERegDaqKbps} kbps</Button>
           {/* <Button className={actCtrlr2Connected ? classes.connectedButton : classes.disconnectedButton}>ActCtrlr2 - {actCtrlr2Kbps} kbps</Button> */}
           <div className={classes.spacer}/>
           <Tooltip title='Toggle light/dark theme'>

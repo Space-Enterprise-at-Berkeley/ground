@@ -28,7 +28,7 @@ class Comms {
     this.getEReg2Connected = this.getEReg2Connected.bind(this);
     this.getEReg3Connected = this.getEReg3Connected.bind(this);
     this.getEReg4Connected = this.getEReg4Connected.bind(this);
-    this.getDaq1Connected = this.getDaq1Connected.bind(this);
+    this.getERegDaqConnected = this.getERegDaqConnected.bind(this);
     this.getDaq2Connected = this.getDaq2Connected.bind(this);
     this.getDaq3Connected = this.getDaq3Connected.bind(this);
     this.getDaq4Connected = this.getDaq4Connected.bind(this);
@@ -330,8 +330,8 @@ class Comms {
     return await ipcRenderer.invoke('EReg4-connected');
   }
 
-  async getDaq1Connected() {
-    return await ipcRenderer.invoke('daq1-connected');
+  async getERegDaqConnected() {
+    return await ipcRenderer.invoke('ERegDaq1-connected');
   }
 
   async getDaq2Connected() {

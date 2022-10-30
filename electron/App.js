@@ -43,39 +43,6 @@ class App {
       () => this.updateState(Date.now(), { flightConnected: true }),
       () => this.updateState(Date.now(), { flightConnected: false }),
       (rate) => this.updateState(Date.now(), { flightKbps: rate }));
-    this.daq1 = new DAQ(this.port, '10.0.0.11', {
-        firmwareCommitHash: 'daq1CommitHash',
-
-        daqBattVoltage: null,
-        daqBattCurrent: null,
-
-        daqADC0: null,
-        daqADC1: null,
-        daqADC2: null,
-        daqADC3: null,
-        daqADC4: null,
-        daqADC5: null,
-        daqADC6: null,
-        daqADC7: null,
-
-        daqTC1: 'injectorTC',
-        daqTC2: 'engineMid1TC',
-        daqTC3: 'engineMid2TC',
-        daqTC4: 'engineTop3TC',
-
-        loadCell1: 'thrust1',
-        loadCell2: 'thrust2',
-        loadCellSum: 'totalThrust12',
-
-        fastLoadCell1: 'fastThrust1',
-        fastLoadCell2: 'fastThrust2',
-
-        capacitor1: null,
-        capacitor2: null,
-      },
-      () => this.updateState(Date.now(), { daq1Connected: true }),
-      () => this.updateState(Date.now(), { daq1Connected: false }),
-      (rate) => this.updateState(Date.now(), { daq1Kbps: rate }));
 
     this.daq2 = new DAQ(this.port, '10.0.0.12', {
         firmwareCommitHash: 'daq2CommitHash',
@@ -416,9 +383,9 @@ class App {
       ERegDAQ_LC_Sum: 'ERegDAQ_LC_Sum',
 
     },
-    () => this.updateState(Date.now(), { EReg4DAQ: true }),
-    () => this.updateState(Date.now(), { EReg4DAQ: false }),
-    (rate) => this.updateState(Date.now(), { EReg4DAQ: rate })); 
+    () => this.updateState(Date.now(), { ERegDaqConnected: true }),
+    () => this.updateState(Date.now(), { ERegDaqConnected: false }),
+    (rate) => this.updateState(Date.now(), { ERegDaqKbps: rate })); 
 
     // Begin TouchBar
     this.abort = this.addBackendFunc('abort', this.flightComputer.abort)
