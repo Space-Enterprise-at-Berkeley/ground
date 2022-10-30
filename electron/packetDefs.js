@@ -279,26 +279,28 @@ const INBOUND_PACKET_DEFS = {
   ],
 
   120: [
-    ['LC1', asFloat],
-    ['LC2', asFloat],
-    ['LCsum', asFloat],
+    ['ERegDAQ_LC1', asFloat],
+    ['ERegDAQ_LC2', asFloat],
+    ['ERegDAQ_LC_Sum', asFloat],
   ],
 
   110: [
-    ['TC0', asFloat],
+    ['ERegDAQ_TC1', asFloat],
+    ['ERegDAQ_TC2', asFloat],
+    ['ERegDAQ_TC3', asFloat]
   ],
-  111: [
-    ['TC1', asFloat],
-  ],
-  112: [
-    ['TC2', asFloat],
-  ],
-  113: [
-    ['TC3', asFloat],
-  ],
-  114: [
-    ['TC4', asFloat],
-  ],
+  // 111: [
+  //   ['TC1', asFloat],
+  // ],
+  // 112: [
+  //   ['TC2', asFloat],
+  // ],
+  // 113: [
+  //   ['TC3', asFloat],
+  // ],
+  // 114: [
+  //   ['TC4', asFloat],
+  // ],
   221: [
     ['loxCapFill', asFloat],
   ],

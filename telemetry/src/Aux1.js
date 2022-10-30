@@ -287,17 +287,17 @@ class Aux1 extends Component {
                   fields={
                     [
                       {
-                        name: 'TC0', // engine temp 1
+                        name: 'ERegDAQ_TC1', // engine temp 1
                         color: [221, 0, 0],
                         unit: '°C'
                       },
                       {
-                        name: 'TC1', // engine temp 2
+                        name: 'ERegDAQ_TC2', // engine temp 2
                         color: [0, 127, 254],
                         unit: '°C'
                       },
                       {
-                        name: 'TC2', // engine temp 3
+                        name: 'ERegDAQ_TC3', // engine temp 3
                         color: [0, 187, 0],
                         unit: '°C'
                       },
@@ -311,19 +311,19 @@ class Aux1 extends Component {
                   fields={
                     [
                       {
-                        name: 'LC1', // engine temp 1
+                        name: 'ERegDAQ_LC1', // engine temp 1
                         displayname: 'LC1',
                         color: [221, 0, 0],
                         unit: 'kg'
                       },
                       {
-                        name: 'LC2', // engine temp 2
+                        name: 'ERegDAQ_LC2', // engine temp 2
                         displayname: 'LC2',
                         color: [0, 127, 254],
                         unit: 'kg'
                       },
                       {
-                        name: 'LCsum',
+                        name: 'ERegDAQ_LC_Sum',
                         displayname: 'Sum',
                         color: [41, 171, 76],
                         unit: 'kg',

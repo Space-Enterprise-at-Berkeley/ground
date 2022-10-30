@@ -413,7 +413,7 @@ class App {
       ERegDAQ_TC4: 'ERegDAQ_TC4',
       ERegDAQ_LC1: 'ERegDAQ_LC1',
       ERegDAQ_LC2: 'ERegDAQ_LC2',
-
+      ERegDAQ_LC_Sum: 'ERegDAQ_LC_Sum',
 
     },
     () => this.updateState(Date.now(), { EReg4DAQ: true }),
