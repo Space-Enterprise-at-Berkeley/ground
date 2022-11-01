@@ -23,8 +23,11 @@ const styles = (theme) => ({
     height: "100vh",
   },
   container: {
-    height: "100%",
     padding: theme.spacing(1),
+    flexGrow: 1,
+    position: "absolute",
+    top: theme.spacing(6),
+    bottom: "0px",
   },
   row: {
     height: "100%",
