@@ -74,7 +74,7 @@ class Aux1 extends Component {
                   fields={[
                     ["Altitude", "baroAltitude", "m", 2],
                     ["Ascent Speed", "ascentSpeed", "m/s", 2],
-                    ["Temperature", "baroTemperature", "C", 2],
+                    ["Temperature", "baroTemperature", "F", 2],
                     ["X Accel", "accelX", "g", 2],
                     ["Y Accel", "accelY", "g", 2],
                     ["Z Accel", "accelZ", "g", 2],
