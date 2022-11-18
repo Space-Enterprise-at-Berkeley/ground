@@ -79,6 +79,10 @@ class Comms {
 
     //---------------DAQ 1---------------
 
+    this.openERegDAQCh0 = this.openERegDAQCh0.bind(this);
+    this.closeERegDAQCh0 = this.closeERegDAQCh0.bind(this);
+    this.timeERegDAQCh0 = this.timeERegDAQCh0.bind(this);
+
     //---------------DAQ 2---------------
 
     //-------Actuator Controller 1-------
@@ -456,6 +460,18 @@ class Comms {
 
 
   //---------------DAQ 1---------------
+
+  async openERegDAQCh0() {
+    return await ipcRenderer.invoke('open-RBV0ERegdaq');
+  }
+
+  async closeERegDAQCh0() {
+    return await ipcRenderer.invoke('close-RBV0ERegdaq');
+  }
+
+  async timeERegDAQCh0(val) {
+    return await ipcRenderer.invoke('time-RBV0ERegdaq', val);
+  }
 
   //---------------DAQ 2---------------
 

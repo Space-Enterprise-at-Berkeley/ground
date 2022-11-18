@@ -328,10 +328,10 @@ class Control extends Component {
                   <Grid item={1} xs={6}>
                     <ButtonGroupRBVTimed
 
-                      open={comms.openERegACCh4}
-                      close={comms.closeERegACCh4}
-                      time={comms.timeERegACCh4}
-                      field='ERegACCh4state'
+                      open={comms.doNothing}
+                      close={comms.closeERegDAQCh0}
+                      time={comms.timeERegDAQCh0}
+                      field='ERegDAQCh0state'
                       text='Press Fill RBV'
                     />
                   </Grid>
@@ -455,16 +455,6 @@ class Control extends Component {
                       time={comms.timeERegACCh0}
                       field='fuelVentRBVState'
                       text='Fuel Vent RBV'
-                    />
-                  </Grid>
-                  <Grid item>
-                    <ButtonGroupRBVTimed
-
-                      open={comms.openfuelTankVentRBV}
-                      close={comms.closefuelTankVentRBV}
-                      time={comms.timefuelTankVentRBV}
-                      field='fuelTankVentRBVState'
-                      text='Press Fill RBV'
                     />
                   </Grid>
                 </Grid>

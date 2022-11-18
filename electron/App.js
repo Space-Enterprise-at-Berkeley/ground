@@ -708,7 +708,7 @@ class App {
 
     this.addIPC('open-RBV0ERegdaq', this.ERegdaq.openRBV0);
     this.addIPC('close-RBV0ERegdaq', this.ERegdaq.closeRBV0);
-    this.addIPC('act-RBV0ERegdaq', (e, val) => this.ERegdaq.actRBV0(val));
+    this.addIPC('time-RBV0ERegdaq', (e, val) => this.ERegdaq.actRBV0(val));
 
     this.addIPC('open-RBV1ERegdaq', this.ERegdaq.openRBV1);
     this.addIPC('close-RBV1ERegdaq', this.ERegdaq.closeRBV1);
