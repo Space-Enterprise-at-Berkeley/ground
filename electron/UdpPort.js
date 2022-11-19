@@ -37,7 +37,11 @@ class UdpPort {
         const addressLen = msg.readUInt8(0)
         const devAddress = msg.toString("utf8", 1, 1+addressLen)
         board = this.boards[devAddress]
-        msg = msg.slice(1+addressLen)
+        console.log(`addrlen: ${addressLen}, devAddress: ${devAddress}`)
+        console.log(msg);
+        msg = msg.slice(1+addressLen);
+        console.log(msg);
+        console.log("done");
       }else{
         board = this.boards[rinfo.address];
       }

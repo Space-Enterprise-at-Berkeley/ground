@@ -7,8 +7,9 @@ const FPS = 300 // packets per second
 const MAX_PACKET = 5 * 1000 // max number of packets
 // const MAX_PACKET = Math.pow(2, 26)
 
-const PACKET_ID = 10
-const PACKET_GENERATOR = () => ([Math.random() + 12, Math.random() + 12, Math.random() + 12, Math.random() + 12, Math.random() + 12, Math.random() + 12])
+const PACKET_ID = 30
+// const PACKET_GENERATOR = () => ([Math.random() + 12, Math.random() + 12, Math.random() + 12, Math.random() + 12, Math.random() + 12, Math.random() + 12])
+// const PACKET_GENERATOR = ()
 const BOARD_IP = "10.0.0.21"
 
 const TARGET_PORT = 42069
@@ -50,7 +51,7 @@ function sleep(ms) {
         res(false)
       }
 
-      const p = new DevPacket(PACKET_ID, PACKET_GENERATOR(), Date.now() - START)
+      const p = new DevPacket(PACKET_ID, [], Date.now() - START)
       // console.log(`sending #${counter}`)
       const pktBuffer = p.toBuffer()
       const addressBuffer = Buffer.from(BOARD_IP, "utf8")

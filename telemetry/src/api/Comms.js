@@ -206,10 +206,16 @@ class Comms {
     const { timestamp, update } = payload;
     for (let k of Object.keys(update)) {
       const subs = this.subscribers[k];
+      if ((update['tcAbortTriggered'])) {
+        ipcRenderer.invoke('abort-ERegFuelInjectorEReg')
+        ipcRenderer.invoke('abort-ERegLoxInjectorEReg')
+        ipcRenderer.invoke('abort-ERegFuelTankEReg')
+        ipcRenderer.invoke('abort-ERegLoxTankEReg')
+        ipcRenderer.invoke('abort-ERegFlow')
+      }
       if (subs !== undefined) {
         const val = update[k];
         for (let s of subs) {
-          console.log("HII");
           s(timestamp, val);
         }
       }
