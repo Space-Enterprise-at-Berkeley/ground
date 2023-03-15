@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "blessed": "^0.1.81",
     "circular-buffer": "~1.0.3",
     "electron-is-dev": "~1.2.0",
     "influx": "~5.9.2",

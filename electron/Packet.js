@@ -9,59 +9,67 @@ class Packet {
    * @param {Array.<Number|String>} values
    * @param {Number|null} [timestamp]
    */
-  constructor(id, values, timestamp) {
-    if (!timestamp) {
-      this.timestamp = Date.now();
-    } else {
-      this.timestamp = timestamp;
-    }
+  constructor(id=0, values=[], timestamp=Date.now()-Packet.startupTime) {
     this.id = id;
     this.values = values;
-    this.length = this.values.length;
+    this.timestamp = timestamp;
   }
+
+  static startupTime = Date.now();
 
   /**
    * Generates a string representation of the packet that can be transmitted
    * @returns a string representation of the packet
    */
   stringify() {
-    const data = [this.id].concat(this.values.map(v => v.toFixed(2))).toString();
-    const pack = `{${data}|${Packet.fletcher16(Buffer.from(data, 'binary')).toString(16)}}`;
-    // console.log(pack);
-    return pack;
+    return `{${this.id}|${this.values.map(v => {
+      if(v[1] === 'f') {
+        // value is intended as a float
+        return v[0].toFixed(2) + 'f';
+      } else if(v[1] === 'x') {
+        // value is intended as hexademical
+        return '0x' + v[0].toString(16);
+      } else if(v[1] === 'u8') {
+        return v[0].toString() + 'u8';
+      } else if(v[1] === 'u16') {
+        return v[0].toString() + 'u16';
+      } else if(v[1] === 'u32') {
+        return v[0].toString() + 'u32';
+      } else {
+        // invalid value
+      }
+    }).join(',')}}`;
   }
 
   toBuffer() {
-    const packetDef = OUTBOUND_PACKET_DEFS[this.id]
-    if (!packetDef) {
-      console.debug(`[${this.id}] Packet ID is not defined in the OUTBOUND_PACKET_DEFS.`)
-      return
-    }
     /**
      * @type {Array.<Buffer>}
      */
-    const dataBufArr = this.values.map((value, idx) => {
-      switch (packetDef[idx]) {
-        case FLOAT: {
-          const _buf = Buffer.alloc(4)
-          _buf.writeFloatLE(value)
-          return _buf
-        }
-        case UINT8: {
-          const _buf = Buffer.alloc(1)
-          _buf.writeUInt8(value)
-          return _buf
-        }
-        case UINT16: {
-          const _buf = Buffer.alloc(2)
-          _buf.writeUInt16LE(value)
-          return _buf
-        }
-        case UINT32: {
-          const _buf = Buffer.alloc(4)
-          _buf.writeUInt32LE(value)
-          return _buf
-        }
+    const dataBufArr = this.values.map(v => {
+      if(v[1] === 'f') {
+        // value is intended as a float
+        const tmp = Buffer.alloc(4)
+        tmp.writeFloatLE(v[0])
+        return tmp
+      } else if(v[1] === 'x') {
+        // value is intended as hexademical
+        const tmp = Buffer.alloc(1)
+        tmp.writeUint8(v[0])
+        return tmp
+      } else if(v[1] === 'u8') {
+        const tmp = Buffer.alloc(1)
+        tmp.writeUInt8(v[0])
+        return tmp
+      } else if(v[1] === 'u16') {
+        const tmp = Buffer.alloc(2)
+        tmp.writeUInt16LE(v[0])
+        return tmp
+      } else if(v[1] === 'u32') {
+        const tmp = Buffer.alloc(4)
+        tmp.writeUInt32LE(v[0])
+        return tmp
+      } else {
+        // invalid value
       }
     })
 
@@ -70,12 +78,42 @@ class Packet {
     const lenBuf = Buffer.alloc(1)
     lenBuf.writeUInt8(dataBufArr.reduce((acc, cur) => acc + cur.length, 0))
     const tsOffsetBuf = Buffer.alloc(4)
-    tsOffsetBuf.writeUInt32LE(Date.now() - Packet.initTime)
+    tsOffsetBuf.writeUInt32LE(this.timestamp)
 
     const checksumBuf = Buffer.alloc(2)
     checksumBuf.writeUInt16LE(Packet.fletcher16Partitioned([idBuf, lenBuf, tsOffsetBuf, ...dataBufArr]))
 
     return Buffer.concat([idBuf, lenBuf, tsOffsetBuf, checksumBuf, ...dataBufArr])
+  }
+
+  static createPacketFromText(text) {
+    const idSplit = text.split('|');
+    const id = parseInt(idSplit[0].substring(1));
+    const values = idSplit[1].split(',');
+    if(values.length > 0) {
+      values[values.length-1] = values[values.length-1].split('}')[0]
+    }
+
+    for(let i in values) {
+      const oldValue = values[i]
+      if(oldValue[oldValue.length - 1] === 'f') {
+        // value is intended as a float
+        values[i] = [parseFloat(oldValue.substring(0, oldValue.length - 1)), 'f']
+      } else if(oldValue.substring(0, 2) === '0x') {
+        // value is intended as hexademical
+        values[i] = [parseInt(oldValue.substring(2), 16), 'x']
+      } else if(oldValue.substring(oldValue.length - 2) === 'u8') {
+        values[i] = [parseInt(oldValue.substring(0, oldValue.length-2)), 'u8']
+      } else if(oldValue.substring(oldValue.length - 3) === 'u16') {
+        values[i] = [parseInt(oldValue.substring(0, oldValue.length-3)), 'u16']
+      } else if(oldValue.substring(oldValue.length - 3) === 'u32') {
+        values[i] = [parseInt(oldValue.substring(0, oldValue.length-3)), 'u32']
+      } else {
+        // invalid value
+      }
+    }
+    const pkt = new Packet(id, values);
+    return pkt
   }
 
   /**
