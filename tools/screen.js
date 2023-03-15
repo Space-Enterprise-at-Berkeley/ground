@@ -20,6 +20,11 @@ const blessed = require('blessed');
 const dgram = require('dgram');
 const Packet = require('../electron/Packet');
 
+// state variables
+let stateVars = {
+  board: '127.0.0.1',
+  port: 42099
+}
 
 // socket stuff
 server = dgram.createSocket('udp4');
@@ -70,9 +75,25 @@ screen.key(['escape', 'C-c'], (ch, key) => (process.exit(0)));
 // Handle submitting data
 inputBar.on('submit', (text) => {
   if(text.length < 1) {inputBar.focus(); return};
-  let pkt = Packet.createPacketFromText(text);
-  server.send(pkt.toBuffer(), 42099, '10.0.0.88', false);
-  logGreen(pkt.stringify());
+  if(text[0] === '{') {
+    let pkt = Packet.createPacketFromText(text);
+    server.send(pkt.toBuffer(), stateVars.port, stateVars.board, false);
+    logGreen(pkt.stringify() + ` -> [${stateVars.board}:${stateVars.port}]`);
+  } else {
+    switch(text.split(' ')[0]) {
+      case 'set':
+        if(!stateVars[text.split(' ')[1]]) { logBlue("No such variable"); break; }
+        stateVars[text.split(' ')[1]] = text.split(' ')[2]
+        logBlue(`Set ${text.split(' ')[1]} to ${text.split(' ')[2]}`);
+        break;
+      case 'get':
+        if(!stateVars[text.split(' ')[1]]) { logBlue("No such variable"); break; }
+        logBlue(stateVars[text.split(' ')[1]]);
+        break;
+      default:
+        break;
+    }
+  }
   inputBar.focus();
   inputBar.clearValue();
 });
@@ -90,6 +111,10 @@ const logGreen = (text) => {
 
 const logOrange = (text) => {
   log('{bold}{#ffa500-fg}' + text + '{/#ffa500-fg}{/bold}')
+}
+
+const logBlue = (text) => {
+  log('{bold}{#ADD8E6-fg}' + text + '{/#ADD8E6-fg}{/bold}')
 }
 
 
@@ -119,3 +144,13 @@ logOrange("{id|data,data,data,...}");
 logOrange("Where id is a single number, and data can be entered as 2.34f, 0x02, 35u8, 12u16");
 logOrange("For example, to send a packet with id 1 and data 45.734, 0x03, and 134, type:");
 logOrange("{1|45.734f,0x03,134u8}");
+logOrange("");
+logOrange("You can also set and get state variables using the following commands:");
+logOrange("set [variable] [value]");
+logOrange("get [variable]");
+logOrange("Current state variables are:");
+logOrange("board: board IP address to send to (default: 127.0.0.1)");
+logOrange("port: board port to send to (default: 42099)");
+logOrange("For example, to set the board IP to 10.0.0.11, type:");
+logOrange("set board 10.0.0.11");
+logOrange("______________________________________________________________");
