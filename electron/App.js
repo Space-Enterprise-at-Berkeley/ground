@@ -9,6 +9,7 @@ const DAQ = require('./Boards/DAQ');
 const DAQV3 = require('./Boards/DAQV3');
 const EReg = require('./Boards/EReg');
 const ERegDAQ = require('./Boards/ERegDAQ');
+const TVC = require('./Boards/TVC');
 const ActuatorController = require('./Boards/ActuatorController');
 const InfluxDB = require('./InfluxDB');
 
@@ -371,6 +372,39 @@ class App {
     () => this.updateState(Date.now(), { EReg4Connected: true }),
     () => this.updateState(Date.now(), { EReg4Connected: false }),
     (rate) => this.updateState(Date.now(), { EReg4kbps: rate })); 
+
+
+    this.TVCboard = new TVC(this.port, '10.0.0.88', { 
+      // fuel EReg telemetry, to dashboard from EReg
+      // EReg_HP_PT: 'fuelTankERegHPT',
+      // EReg_LP_PT: 'fuelTankERegLPT',
+      // EReg_ENCODER_ANGLE: 'fuelTankERegEncoderAngle',
+      // EReg_ANGLE_SETPOINT: 'fuelTankERegAngleSetPoint',
+      // EReg_PRESSURE_SETPOINT: 'fuelTankERegPressureSetpoint',
+      // EReg_MOTOR_POWER: 'fuelTankERegMotorPower',
+      // EReg_PRESSURE_CONTROL_P: 'fuelTankERegPTerm',
+      // EReg_PRESSURE_CONTROL_I: 'fuelTankERegITerm',
+      // EReg_PRESSURE_CONTROL_D: 'fuelTankERegDTerm',
+
+      // EReg_CONFIG_PRESSURE_SETPOINT: 'fuelTankConfigERegPressureSetpoint',
+      // EReg_KP_OUTER: 'fuelTankERegKPOuter',
+      // EReg_KL_OUTER: 'fuelTankERegKLOuter',
+      // EReg_KD_OUTER: 'fuelTankERegKDOuter',
+      // EReg_KP_INNER: 'fuelTankERegKPInner',
+      // EReg_KL_INNER: 'fuelTankERegKLInner',
+      // EReg_KD_INNER: 'fuelTankERegKDInner',
+      // EReg_FLOW_DURATION: 'fuelTankERegFlowDuration',
+
+
+      // EReg_ERROR_CODE: 'fuelTankERegErrorCode',
+
+      // EReg_STATE: 'fuelTankERegERegState',
+
+
+    },
+    () => this.updateState(Date.now(), { TVCConnected: true }),
+    () => this.updateState(Date.now(), { TVCConnected: false }),
+    (rate) => this.updateState(Date.now(), { TVCkbps: rate })); 
 
   this.ERegdaq = new ERegDAQ(this.port, '10.0.0.11', { 
       //add values here
