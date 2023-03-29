@@ -41,6 +41,8 @@ class Navbar extends Component {
       daq4Connected: false,
       actCtrlr1Connected: false,
       actCtrlr2Connected: false,
+      // lcBoardConnected: false,
+      // tcBoardConnected: false,
 
       flightKbps: 0,
       EReg1kbps: 0,
@@ -54,6 +56,8 @@ class Navbar extends Component {
       daq4Kbps: 0,
       actCtrlr1Kbps: 0,
       actCtrlr2Kbps: 0,
+      // lcBoardKbps: 0,
+      // tcBoardKbps: 0,
     };
 
     this.updateFlightConnected = this.updateFlightConnected.bind(this);
@@ -121,6 +125,8 @@ class Navbar extends Component {
     comms.addSubscriber('daq4Connected', this.updateDaq4Connected);
     comms.addSubscriber('actCtrlr1Connected', this.updateActCtrlr1Connected);
     comms.addSubscriber('actCtrlr2Connected', this.updateActCtrlr2Connected);
+    // comms.addSubscriber('lcBoardConnected', this.updateLCBoardConnected);
+    // comms.addSubscriber('tcBoardConnected', this.updateTCBoardConnected);
 
     comms.addSubscriber('flightKbps', this.updateFlightKbps);
     comms.addSubscriber('EReg1kbps', this.updateEReg1kbps);
@@ -134,6 +140,8 @@ class Navbar extends Component {
     comms.addSubscriber('daq4Kbps', this.updateDaq4Kbps);
     comms.addSubscriber('actCtrlr1Kbps', this.updateActCtrlr1Kbps);
     comms.addSubscriber('actCtrlr2Kbps', this.updateActCtrlr2Kbps);
+    // comms.addSubscriber('lcBoardKbps', this.updateLCBoardKbps);
+    // comms.addSubscriber('tcBoardKbps', this.updateTCBoardKbps);
 
     this.setState({
       flightConnected: false,
@@ -145,6 +153,8 @@ class Navbar extends Component {
       TVCConnected: false,
       actCtrlr1Connected: false,
       actCtrlr2Connected: false,
+      // lcBoardConnected: false,
+      // tcBoardConnected: false,
     });
   }
 
@@ -161,6 +171,8 @@ class Navbar extends Component {
     comms.removeSubscriber('TVCConnected', this.updateTVCConnected);
     comms.removeSubscriber('actCtrlr1Connected', this.updateActCtrlr1Connected);
     comms.removeSubscriber('actCtrlr2Connected', this.updateActCtrlr2Connected);
+    // comms.removeSubscriber('lcBoardConnected', this.updateLCBoardConnected);
+    // comms.removeSubscriber('tcBoardConnected', this.updateTCBoardConnected);
 
     comms.removeSubscriber('flightKbps', this.updateFlightKbps);
     comms.removeSubscriber('EReg1kbps', this.updateEReg1kbps);
@@ -174,6 +186,8 @@ class Navbar extends Component {
     comms.removeSubscriber('daq4Kbps', this.updateDaq4Kbps);
     comms.removeSubscriber('actCtrlr1Kbps', this.updateActCtrlr1Kbps);
     comms.removeSubscriber('actCtrlr2Kbps', this.updateActCtrlr2Kbps);
+    // comms.removeSubscriber('lcBoardKbps', this.updateLCBoardKbps);
+    // comms.removeSubscriber('tcBoardKbps', this.updateTCBoardKbps);
   }
 
   render() {
@@ -198,13 +212,15 @@ class Navbar extends Component {
             EReg2kbps,
             EReg3kbps,
             EReg4kbps,
-            TBCkbps,
+            TVCKbps,
             daq1Kbps,
             daq2Kbps,
             daq3Kbps,
             daq4Kbps,
             actCtrlr1Kbps,
             actCtrlr2Kbps,
+            // lcBoardKbps,
+            // tcBoardKbps,
             ERegDaqKbps } = this.state;
 
     return (
@@ -223,6 +239,8 @@ class Navbar extends Component {
           <Button className={actCtrlr1Kbps > 0 ? classes.connectedButton : classes.disconnectedButton}>AC - {actCtrlr1Kbps} kbps</Button>
           {/* <Button className={ERegDaqKbps > 0 ? classes.connectedButton : classes.disconnectedButton}>DAQ - {ERegDaqKbps} kbps</Button> */}
           <Button className={TVCKbps > 0 ? classes.connectedButton : classes.disconnectedButton}>TVC - {TVCKbps} kbps</Button>
+          {/* <Button className={lcBoardKbps > 0 ? classes.connectedButton : classes.disconnectedButton}>LC - {lcBoardKbps} kbps</Button>
+          <Button className={tcBoardKbps > 0 ? classes.connectedButton : classes.disconnectedButton}>TC - {tcBoardKbps} kbps</Button> */}
           {/* <Button className={actCtrlr2Connected ? classes.connectedButton : classes.disconnectedButton}>ActCtrlr2 - {actCtrlr2Kbps} kbps</Button> */}
           <div className={classes.spacer}/>
           <Tooltip title='Toggle light/dark theme'>
