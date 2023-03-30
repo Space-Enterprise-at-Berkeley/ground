@@ -170,7 +170,6 @@ const INBOUND_PACKET_DEFS = {
     ['EReg_PRESSURE_CONTROL_P', asFloat],
     ['EReg_PRESSURE_CONTROL_I', asFloat],
     ['EReg_PRESSURE_CONTROL_D', asFloat],
-
   ],
   
 
@@ -289,6 +288,15 @@ const INBOUND_PACKET_DEFS = {
     ['ERegDAQ_TC2', asFloat],
     ['ERegDAQ_TC3', asFloat]
   ],
+
+  // TVC
+  42: [
+    ['TVC_encoder_x', asUInt32], 
+    ['TVC_encoder_y', asUInt32]
+  ], 
+
+
+
   // 111: [
   //   ['TC1', asFloat],
   // ],
