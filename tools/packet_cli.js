@@ -12,7 +12,7 @@ let stateVars = {
 
 // socket stuff
 server = dgram.createSocket('udp4');
-server.bind(42069, '0.0.0.0');
+server.bind(42070, '0.0.0.0');
 
 server.on('listening', () => {
   server.setBroadcast(true);
@@ -155,3 +155,24 @@ logOrange("port: board port to send to (default: 42099)");
 logOrange("For example, to set the board IP to 10.0.0.11, type:");
 logOrange("set board 10.0.0.11");
 logOrange("______________________________________________________________");
+
+/*
+const HID = require('node-hid');
+
+const vendorId = 1133; // Replace with your Logitech controller's VID
+const productId = 49686; // Replace with your Logitech controller's PID
+
+const device = new HID.HID(vendorId, productId);
+
+device.on('data', (data) => {
+  let pkt = Packet.createPacketFromText("{1|" + (data[0]-127)*3.5 + "f," + (data[1]-127)*3.5 + "f}");
+    server.send(pkt.toBuffer(), stateVars.port, stateVars.board, false);
+  logGreen(`${data[0]-127} , ${data[1]-127}`)
+  // Parse and process the data according to your controller's HID report format
+});
+
+device.on('error', (error) => {
+  console.log(`Error: ${error}`);
+})
+*/
+

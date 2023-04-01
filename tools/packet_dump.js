@@ -16,6 +16,6 @@ server.on('listening', () => {
     server.send("big yeet", 42069, "10.0.0.42");
   }
 });
-server.bind(42069);
+server.bind(42070);
 
 // Prints: server listening 0.0.0.0:42069
