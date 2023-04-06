@@ -9,40 +9,48 @@
 	},
 	"oreg": {
 		"type": "ereg",
-		"address": "10.0.0.61"
+		"address": "10.0.0.28"
 	},
 	"freg": {
 		"type": "ereg",
-		"address": "10.0.0.62"
+		"address": "10.0.0.27"
 	},
-	"ac1": {
-		"type": "ac",
-		"address": "10.0.0.11"
-	},
-	"ac2": {
-		"type": "ac",
-		"address": "10.0.0.12"
-	},
+	// "ac1": {
+	// 	"type": "ac",
+	// 	"address": "10.0.0.11"
+	// },
+	// "ac2": {
+	// 	"type": "ac",
+	// 	"address": "10.0.0.12"
+	// },
 	"tc": {
 		"type": "tc",
 		"address": "10.0.0.51"
 	},
-	"pt": {
-		"type": "pt",
-		"address": "10.0.0.31"
-	},
+	// "pt": {
+	// 	"type": "pt",
+	// 	"address": "10.0.0.31"
+	// },
 	"lc": {
 		"type": "lc",
-		"address": "10.0.0.21"
+		"address": "10.0.0.21" 
+	},
+	"ac": {
+		"type": "oldac",
+		"address": "10.0.0.19" // TODO CHANGE
+	},
+	"ioreg": {
+		"type": "ereghat",
+		"address": "10.0.0.28"
+	},
+	"ifreg": {
+		"type": "ereghat",
+		"address": "10.0.0.27"
+	},
+	"tvc": {
+		"type": "tvc",
+		"address": "10.0.0.88"
 	}
-	// "ioreg": {
-	// 	"type": "ereg",
-	// 	"address": "10.0.0.28"
-	// },
-	// "ifreg": {
-	// 	"type": "ereg",
-	// 	"address": "10.0.0.27"
-	// },
 	// "rtd": {
 	// 	"type": "flightV4",
 	// 	"address": "10.0.0.81"
