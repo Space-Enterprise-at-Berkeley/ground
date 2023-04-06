@@ -1,26 +1,32 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import { withStyles, withTheme } from '@material-ui/core/styles';
-import { Card, CardContent, CardHeader, Grid, Typography } from '@material-ui/core';
+import { withStyles, withTheme } from "@material-ui/core/styles";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  Grid,
+  Typography,
+} from "@material-ui/core";
 
-import FieldHeater from './FieldHeater';
+import FieldHeater from "./FieldHeater";
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
-    height: '100%'
+    height: "100%",
   },
   cardContent: {
-    height: '100%',
-    padding: '8px',
-    paddingBottom: '8px !important'
+    height: "100%",
+    padding: "8px",
+    paddingBottom: "8px !important",
   },
   container: {
-    height: '100%'
+    height: "100%",
   },
   item: {
-    height: '33%',
-    textAlign: 'center'
-  }
+    height: "33%",
+    textAlign: "center",
+  },
 });
 
 class TankHeaterSquare extends Component {
@@ -29,59 +35,27 @@ class TankHeaterSquare extends Component {
   }
 
   render() {
-    const { classes, field1, field2, field3, field4, field5, field6 } = this.props;
+    const { classes, field1, field2, field3, field4, field5, field6 } =
+      this.props;
+    const fields = [field1, field2, field3, field4, field5, field6];
     return (
       <Card className={classes.root}>
         <CardContent className={classes.cardContent}>
           <Grid container spacing={1} className={classes.container}>
             <Grid item xs={12}>
-              <Typography align='center' variant='h5'>
+              <Typography align="center" variant="h5">
                 Tank Heaters
               </Typography>
             </Grid>
-            <Grid item xs={6} className={classes.item}>
-              <FieldHeater
-                name={field1.name}
-                field={field1.field}
-                decimals={field1.decimals}
-              />
-            </Grid>
-            <Grid item xs={6} className={classes.item}>
-              <FieldHeater
-                name={field2.name}
-                field={field2.field}
-                decimals={field2.decimals}
-              />
-            </Grid>
-            <Grid item xs={6} className={classes.item}>
-              <FieldHeater
-                name={field3.name}
-                field={field3.field}
-                decimals={field3.decimals}
-              />
-            </Grid>
-
-            <Grid item xs={6} className={classes.item}>
-              <FieldHeater
-                name={field4.name}
-                field={field4.field}
-                decimals={field4.decimals}
-              />
-            </Grid>
-            <Grid item xs={6} className={classes.item}>
-              <FieldHeater
-                name={field5.name}
-                field={field5.field}
-                decimals={field5.decimals}
-              />
-            </Grid>
-            <Grid item xs={6} className={classes.item}>
-              <FieldHeater
-                name={field6.name}
-                field={field6.field}
-                decimals={field6.decimals}
-              />
-            </Grid>
+            {fields.map((field) => {
+              <Grid item xs={6} className={classes.item}>
+                <FieldHeater
+                  name={field.name}
+                  field={field.field}
+                  decimals={field.decimals}
+                />
+              </Grid>;
+            })}
           </Grid>
         </CardContent>
       </Card>

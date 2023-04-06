@@ -20,45 +20,36 @@ import { GENERIC_FILTERS, ROOT_OPTION_GROUPING } from "../config/textbox-display
 
 const BOARD_CONNECTION_FIELDS = [
   "flightConnected",
-  "EReg1Connected",
-  "EReg2Connected",
-  "EReg3Connected",
-  "EReg4Connected",
+  "groundConnected",
   "daq1Connected",
-  "daq2Connected",
-  "daq3Connected",
-  "daq4Connected",
+  // "daq2Connected",
+  // "daq3Connected",
+  // "daq4Connected",
   "actCtrlr1Connected",
-  "actCtrlr2Connected"
+  // "actCtrlr2Connected"
 ]
 
 const BOARD_NAMES = {
   "flightConnected": "Flight Comp",
-  "EReg1Connected": "EReg 1",
-  "EReg2Connected": "EReg 2",
-  "EReg3Connected": "EReg 3",
-  "EReg4Connected": "EReg 4",
+  "groundConnected": "Ground Comp",
   "daq1Connected": "DAQ1",
-  "daq2Connected": "DAQ2",
-  "daq3Connected": "DAQ3",
-  "daq4Connected": "DAQ4",
+  // "daq2Connected": "DAQ2",
+  // "daq3Connected": "DAQ3",
+  // "daq4Connected": "DAQ4",
   "actCtrlr1Connected": "Act Ctrlr1",
-  "actCtrlr2Connected": "Act Ctrlr2"
+  // "actCtrlr2Connected": "Act Ctrlr2"
 }
 
 const FORMAL_BOARD_NAMES = {
   "SysLog": "sys-log",
   "flightConnected": "flightComputer",
-  "EReg1Connected": "EReg1",
-  "EReg2Connected": "EReg2",
-  "EReg3Connected": "EReg3",
-  "EReg4Connected": "EReg4",
+  "groundConnected": "groundComputer",
   "daq1Connected": "daq1",
-  "daq2Connected": "daq2",
-  "daq3Connected": "daq3",
-  "daq4Connected": "daq4",
+  // "daq2Connected": "daq2",
+  // "daq3Connected": "daq3",
+  // "daq4Connected": "daq4",
   "actCtrlr1Connected": "actCtrlr1",
-  "actCtrlr2Connected": "actCtrlr2"
+  // "actCtrlr2Connected": "actCtrlr2"
 }
 
 const styles = style => ({

@@ -1,49 +1,54 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import '@fontsource/roboto';
-import { createTheme, withStyles, ThemeProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Box from '@material-ui/core/Box';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import "@fontsource/roboto";
+import {
+  createTheme,
+  withStyles,
+  ThemeProvider,
+} from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Box from "@material-ui/core/Box";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
 
-import comms from './api/Comms';
-import ButtonGroup from './components/ButtonGroup';
-import ButtonGroupFlow from './components/ButtonGroupFlow';
-import ButtonGroupRBV from './components/ButtonGroupRBV';
-import ButtonGroupRBVTimed from './components/ButtonGroupRBVTimed';
-import ButtonGroupSingle from './components/ButtonGroupSingle';
-import ButtonGroupRQD from './components/ButtonGroupRQD';
-import ButtonGroupHeater from './components/ButtonGroupHeater';
-import ButtonGroupHeaterCtrlLoop from './components/ButtonGroupHeaterCtrlLoop';
-import BigButton from './components/BigButton';
-import Procedures from './components/Procedures';
-import SwitchButton from './components/SwitchButton'
-import StateWindow from './components/StateWindow'
-import Button4Group from './components/Button4Group';
+import comms from "./api/Comms";
+import ButtonGroup from "./components/Buttons/ButtonGroup";
+import ButtonGroupFlow from "./components/Buttons/ButtonGroupFlow";
+import ButtonGroupRBV from "./components/Buttons/ButtonGroupRBV";
+import ButtonGroupRBVTimed from "./components/Buttons/ButtonGroupRBVTimed";
+import ButtonGroupRQD from "./components/Buttons/ButtonGroupRQD";
+import ButtonGroupHeater from "./components/Buttons/ButtonGroupHeater";
+import ButtonGroupHeaterCtrlLoop from "./components/Buttons/ButtonGroupHeaterCtrlLoop";
+import BigButton from "./components/Buttons/BigButton";
+import Procedures from "./components/Procedures";
+import SwitchButton from "./components/Buttons/SwitchButton";
+import StateWindow from "./components/StateWindow";
 
-import UpdogWav from './media/updog.wav';
-import CountdownTimer from './components/CountdownTimer';
+import UpdogWav from "./media/updog.wav";
+import CountdownTimer from "./components/CountdownTimer";
 
-const PAGE_TITLE = "Telemetry: Controls"
+const PAGE_TITLE = "Telemetry: Controls";
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
     flexGrow: 1,
-    height: '100vh',
+    height: "100vh",
   },
   container: {
     flexGrow: 1,
-    height: '100vh',
-    padding: theme.spacing(1)
+    position: "absolute",
+    top: theme.spacing(6),
+    bottom: "0px",
+    padding: theme.spacing(1),
   },
   row: {
-    // height: '100%'
-    borderBottom: '0.5px solid',
-    borderColor: theme.palette.text.primary
+    height: '100%',
+    borderBottom: "0.5px solid",
+    borderColor: theme.palette.text.primary,
   },
   item: {
-    height: '100%'
+    height: "100%",
+    padding: theme.spacing(1),
   },
 });
 
@@ -54,77 +59,44 @@ class Control extends Component {
       isDark: false,
       showSettings: false,
       HPS_en: false,
-      flow_en: false
+      launchDisabled: true
     };
 
-    this.handleDarkMode = this.handleDarkMode.bind(this);
     this.playUpdog = this.playUpdog.bind(this);
-    this.beginFlowAll = this.beginFlowAll.bind(this);
+    this.beginLaunchSequence = this.beginLaunchSequence.bind(this);
     this.abortAll = this.abortAll.bind(this);
-    this.beginERegCharacterization = this.beginERegCharacterization.bind(this);
     this.setStartCountdownCallback = this.setStartCountdownCallback.bind(this);
     this.setStopCountdownCallback = this.setStopCountdownCallback.bind(this);
     this.startCountdown = this.startCountdown.bind(this);
     this.stopCountdown = this.stopCountdown.bind(this);
-    this.startLOXFlows = this.startLOXFlows.bind(this);
-    this.startFuelFlows = this.startFuelFlows.bind(this);
-  }
-
-  handleDarkMode(isDark) {
-    this.setState({ isDark });
   }
 
   playUpdog() {
-    (new Audio(UpdogWav)).play();
+    new Audio(UpdogWav).play();
   }
 
-  beginFlowAll() {
+  beginLaunchSequence() {
     this.startCountdown();
     // comms.closeloxTankVentRBV();
     // comms.closefuelTankVentRBV();
-    // comms.closeERegACCh2();
+    // comms.closeloxPrechillRBV();
     // comms.closefuelPrechillRBV();
-    // comms.closePurgeFlowRBV(); //TODO change mappings to close packets automatically for EReg
+    // comms.closePurgeFlowRBV();
 
-    this.beginFlowTimeout = setTimeout(comms.beginERegFlow, 4200);
+    this.sendFlowTimeout = setTimeout(comms.beginFlow, 7310);
   }
 
   abortAll() {
-    comms.abortFuelInjectorEReg();
-    comms.abortFuelTankEReg();
-    comms.abortLoxInjectorEReg();
-    comms.abortLoxTankEReg();
-    comms.abortFlow();
+    clearTimeout(this.sendFlowTimeout);
+      
+    comms.abort();
 
     // comms.openloxTankVentRBV();
     // comms.openfuelTankVentRBV();
     // comms.openPurgeFlowRBV();
-    // comms.openERegACCh2();
-    // comms.openfuelPrechillRBV(); //TODO OPEN VENTS
-
-
+    // comms.openloxPrechillRBV();
+    // comms.openfuelPrechillRBV();
     this.stopCountdown();
-    clearTimeout(this.beginFlowTimeout)
-  }
-
-  startLOXFlows() {
-    comms.startFlowLoxInjectorEReg();
-    comms.startFlowLoxTankEReg();
-  }
-
-  startFuelFlows() {
-    comms.startFlowFuelInjectorEReg();
-    comms.startFlowFuelTankEReg();
-  }
-
-  beginERegCharacterization() {
-    comms.diagnosticLoxInjectorEReg();
-    comms.diagnosticFuelInjectorEReg();
-
-    comms.startFlowFuelTankEReg();
-    comms.startFlowLoxTankEReg();
-
-
   }
 
   setStartCountdownCallback(callback) {
@@ -146,12 +118,12 @@ class Control extends Component {
   componentDidMount() {
     document.title = PAGE_TITLE;
     comms.connect();
-    comms.addDarkModeListener(this.handleDarkMode);
+    // comms.addDarkModeListener(this.handleDarkMode);
   }
 
   componentWillUnmount() {
     // make sure that when there's a hot reload, we disconnect comms before its connected again
-    comms.removeDarkModeListener(this.handleDarkMode);
+    // comms.removeDarkModeListener(this.handleDarkMode);
     comms.destroy();
   }
 
@@ -159,347 +131,287 @@ class Control extends Component {
     const { classes } = this.props;
     const theme = createTheme({
       palette: {
-        type: this.state.isDark ? 'dark' : 'light'
-      }
+        type: this.state.isDark ? "dark" : "light",
+      },
     });
 
     return (
-      <ThemeProvider theme={theme}>
-        <CssBaseline/>
-        <Box>
-          <Container maxWidth='xl' className={classes.container}>
-            <Grid container={true} spacing={1} className={classes.row}>
-              {/* START OF FIRST BUTTON COLUMN */}
-              <Grid item={1} xs={4} className={classes.item}> {/*go away i dont like this line*/}
-
-
-                <Grid container={true} spacing={1}>
-                  <Grid item={1} xs={6}>
-                    <ButtonGroupRBVTimed
-                      open={() => comms.setEncoderFuelTankEReg(1000)}
-                      close={comms.abortFuelTankEReg}
-                      time={comms.setEncoderFuelTankEReg}
-                      text='Set Fuel Tank EReg Encoder (0-1000)'
-                      successText='1000'
-                      failText ='0'
-                      send_repl = 'SEND'
-                    />
-                  </Grid>
-
-                  <Grid item={1} xs={6}>
-                    <ButtonGroupRBVTimed
-                      open={() => comms.setEncoderLoxTankEReg(1000)}
-                      close={comms.abortLoxTankEReg}
-                      time={comms.setEncoderLoxTankEReg}
-                      text='Set LOX Tank EReg Encoder (0-1000)'
-                      successText='1000'
-                      failText ='0'
-                      send_repl = 'SEND'
-                    />
-                  </Grid>
-
-                </Grid>
-                <Grid container={true} spacing={1}>
-
-                  <Grid item={1} xs={6}>
-                  <ButtonGroupRBVTimed
-                      open={() => comms.setEncoderFuelInjectorEReg(1000)}
-                      close={comms.abortFuelInjectorEReg}
-                      time={comms.setEncoderFuelInjectorEReg}
-                      text='Set Fuel Injector EReg Encoder (0-1000)'
-                      successText='1000'
-                      failText ='0'
-                      send_repl = 'SEND'
-                    />
-                  </Grid>
-
-                  <Grid item={1} xs={6}>
-                  <ButtonGroupRBVTimed
-                      open={() => comms.setEncoderLoxInjectorEReg(1000)}
-                      close={comms.abortLoxInjectorEReg}
-                      time={comms.setEncoderLoxInjectorEReg}
-                      text='Set LOX Injector EReg Encoder (0-1000)'
-                      successText='1000'
-                      failText ='0'
-                      send_repl = 'SEND'
-                    />
-                  </Grid>
-                  <Grid item={1} xs={6}>
+      <Container maxWidth="xl" className={classes.container}>
+        <Grid container className={classes.row}>
+          {/* START OF FIRST BUTTON COLUMN */}
+          <Grid container columns={2} xs={4} className={classes.item}>
+            <Grid item xs={6}>
+              <ButtonGroupRBVTimed
+                open={comms.openPressurantFlowRBV}
+                close={comms.closePressurantFlowRBV}
+                time={comms.timePressurantFlowRBV}
+                field="pressurantFlowRBVstate"
+                text="Pressurant Flow RBV"
+                disabled={!this.state.HPS_en}
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <SwitchButton
+                text="Pressurant Enable"
+                open={comms.doNothing}
+                close={comms.doNothing}
+                field="HPSEnable"
+                change={(e) => {
+                  this.setState({ HPS_en: e.target.checked });
+                }}
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <ButtonGroup
+                open={comms.openloxGemsValve}
+                close={comms.closeloxGemsValve}
+                field="loxGemsValveState"
+                text="LOX Gems Valve"
+              />
+            </Grid>
+            {/* <Grid item>
                     <ButtonGroup
-                      open={() => comms.actuateMainValveFuelTankEReg(1)}
-                      close={() => comms.actuateMainValveFuelTankEReg(0)}
-                      text='Fuel Main Valve'
-                      send_repl = 'SEND'
-                      />
-                  </Grid>
-                  <Grid item={1} xs={6}>
+                      open={comms.startToggleLoxGemsValve}
+                      close={comms.stopToggleLoxGemsValve}
+                      field='loxGemsValveState'
+                      text='Toggle LOX Gems Valve'
+                    />
+                  </Grid> */}
+            <Grid item xs={6}>
+              <ButtonGroup
+                open={comms.openfuelGemsValve}
+                close={comms.closefuelGemsValve}
+                field="fuelGemsValveState"
+                text="Fuel Gems Valve"
+              />
+            </Grid>
+            {/* <Grid item>
                     <ButtonGroup
-                      open={() => comms.actuateMainValveLoxTankEReg(1)}
-                      close={() => comms.actuateMainValveLoxTankEReg(0)}
-                      text='LOX Main Valve'
-                      send_repl = 'SEND'
-                      />
-                  </Grid>
-                </Grid>
-                <Grid container={true} spacing={1}>
-                <Grid item={1} xs={6}>
-                    <SwitchButton
-                      open={comms.doNothing}
-                      close={comms.doNothing}
-                      
-                      text='Enable Static Press & Flow'
-                      change={e => {this.setState({flow_en: e.target.checked});}}
-                      />
-                  </Grid>
-                  <Grid item={1} xs={6}>
+                      open={comms.startToggleFuelGemsValve}
+                      close={comms.stopToggleFuelGemsValve}
+                      field='fuelGemsValveState'
+                      text='Toggle Fuel Gems Valve'
+                    />
+                  </Grid> */}
+            <Grid item xs={6}>
+              <ButtonGroup
+                open={comms.openarmValve}
+                close={comms.closearmValve}
+                field="armValveState"
+                text="Arm Main Valves"
+              />
+            </Grid>
+            {/* <Grid item xs={6}>
                     <ButtonGroup
-                      open={comms.staticPressurizeFuelTankEReg}
-                      close={comms.staticPressurizeLoxTankEReg}
-                      text='Static Pressurize'
-                      successText='Fuel EReg'
-                      failText = 'LOX EReg'
-                      disabled = {!this.state.flow_en}
-                      noFeedback = {true}
+                      open={() => {
+                        comms.openloxMainValve()
+                        comms.openfuelMainValve()
+                      }}
+                      close={() => {
+                        comms.closeloxMainValve()
+                        comms.closefuelMainValve()
+                      }}
+                      field='loxMainValveState'
+                      text='Both Valves'
+                    />
+                  </Grid> */}
+              <Grid item xs={6}>
+                <ButtonGroup
+                  open={comms.openMainValveVent}
+                  close={comms.closeMainValveVent}
+                  field="mainValveVentState"
+                  text="Main Valve Vent"
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <ButtonGroup
+                  open={comms.openloxMainValve}
+                  close={comms.closeloxMainValve}
+                  field="loxMainValveState"
+                  text="LOX Main"
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <ButtonGroup
+                  open={comms.openfuelMainValve}
+                  close={comms.closefuelMainValve}
+                  field="fuelMainValveState"
+                  text="Fuel Main"
+                />
+              </Grid>
+              <Grid item xs={6}> 
+                    <ButtonGroup
+                      open={comms.openLoxDomeHeater} //todo remap
+                      close={comms.closeLoxDomeHeater}
+                      field='loxDomeHeaterState'
+                      text='LOx Dome Heater'
                     />
                   </Grid>
-
-                  <Grid item={1} xs={6}>
+                  <Grid item xs={6}>
                     <ButtonGroup
+                      open={comms.openFuelDomeHeater} //todo remap
+                      close={comms.closeFuelDomeHeater}
+                      field='fuelDomeHeaterState'
+                      text='Fuel Dome Heater'
+                    />
+                  </Grid>
+            <Grid item xs={6}>
+              <ButtonGroupFlow
+                open={comms.activateIgniter}
+                close={comms.deactivateIgniter}
+                field="igniterState"
+                text="Igniter"
+                successText="Activate"
+                failText="Deactivate"
+                onActuateCallback={this.playUpdog}
+              />
+            </Grid>
+            {/* <Grid item xs={6}>
+                    <ButtonGroupFlow
                       open={this.beginFlowAll}
                       close={this.abortAll}
                       field='__' // change this?
                       text='Begin Flow'
-                      disabled = {!this.state.flow_en}
-                      noFeedback = {true}
                     />
-                  </Grid>
-                </Grid>
-                <Grid container={true} spacing={1}>
-
-
-                </Grid>
+                  </Grid> */}
+              <Grid item xs={6}>
+                <SwitchButton
+                  open={comms.enableIgniter}
+                  close={comms.disableIgniter}
+                  field="igniterEnableState"
+                  text="Igniter Enable"
+                />
               </Grid>
-              {/* START OF SECOND BUTTON COLUMN */}
-              <Grid item={1} xs={4} className={classes.item}>
-                <Grid container={true} spacing={2}>
+            </Grid>
 
+            {/* START OF SECOND BUTTON COLUMN */}
+            <Grid container xs={6} className={classes.item}>
+              <Grid item xs={4}>
+                <ButtonGroupRBVTimed
+                  open={comms.openPressurantFillRBV}
+                  close={comms.closePressurantFillRBV}
+                  time={comms.timePressurantFillRBV}
+                  field="pressurantFillRBVstate"
+                  text="N2 Fill RBV"
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <ButtonGroupRBVTimed
+                  open={comms.openPressurantFillVentRBV}
+                  close={comms.closePressurantFillVentRBV}
+                  time={comms.timePressurantFillVentRBV}
+                  field="pressurantFillVentRBVstate"
+                  text="N2 Fill Vent"
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <ButtonGroup
+                  open={comms.openPressRQD}
+                  close={comms.closePressRQD}
+                  field="pressRQDState"
+                  text="N2 RQD"
+                />
+              </Grid>
 
-                  <Grid item={1} xs={6}>
-                  <Button4Group
-                      open1={comms.diagnosticFuelTankEReg}
-                      open2={comms.diagnosticLoxTankEReg}
-                      open3={comms.diagnosticFuelInjectorEReg}
-                      open4={comms.diagnosticLoxInjectorEReg}
-                      button1Text='Fuel Tank'
-                      button2Text='LOX Tank'
-                      button3Text='Fuel Injector'
-                      button4Text='LOX Injector'
-                      text='Diagnostics'
+              <Grid item xs={4}>
+                <ButtonGroupRBVTimed
+                  open={comms.closeloxFillRBV}
+                  close={comms.openloxFillRBV}
+                  time={comms.timeloxFillRBV}
+                  field="loxFillRBVstate"
+                  text="LOX Fill RBV"
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <ButtonGroupRBVTimed
+                  open={comms.openfuelFillRBV}
+                  close={comms.closefuelFillRBV}
+                  time={comms.timefuelFillRBV}
+                  field="fuelFillRBVstate"
+                  text="Fuel Fill RBV"
+                />
+              </Grid>
+              <Grid item xs={4}></Grid>
+              <Grid item xs={4}>
+                {/* <ButtonGroup
+                  open={comms.openMainValvePurge}
+                  close={comms.closeMainValvePurge}
+                  field="mainValvePurgeState"
+                  text="N2 Purge"
+                /> */}
+              </Grid>
+              <Grid item xs={4}></Grid>
+              <Grid item xs={6}>
+                <SwitchButton
+                  open={comms.enableFlightMode}
+                  close={comms.disableFlightMode}
+                  field="flightMode"
+                  text="Flight Mode"
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <SwitchButton
+                  open={() => {comms.enableLaunch(); this.setState({launchDisabled: false})}}
+                  close={() => {comms.disableLaunch(); this.setState({launchDisabled: true})}}
+                  field="launchEnable"
+                  text="Launch Enable"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <BigButton
+                  disabled={this.state.launchDisabled}
+                  onClick={this.beginLaunchSequence}
+                  text="Launch"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <BigButton
+                  onClick={this.abortAll}
+                  text="Abort"
+                  isRed
+                />
+              </Grid>
+              {/* <Grid item xs={6}>
+                    <SwitchButton
+                      open={comms.enableIgniter}
+                      close={comms.disableIgniter}
+                      field='_'
+                      text='Igniter Enable'
                     />
-                  </Grid>
-
-
-                  <Grid item={1} xs={6}>
-                  <Button4Group
-                      open1={comms.zeroFuelTankEReg}
-                      open2={comms.zeroLoxTankEReg}
-                      open3={comms.zeroFuelInjectorEReg}
-                      open4={comms.zeroLoxInjectorEReg}
-                      button1Text='Fuel Tank'
-                      button2Text='LOX Tank'
-                      button3Text='Fuel Injector'
-                      button4Text='LOX Injector'
-                      text='Zero Encoders'
-                    />
-                  </Grid>
-                </Grid>
-
-                <Grid container={true} spacing={1}>
-                  <Grid item={1} xs={6}>
-                    <ButtonGroupRBVTimed
-
-                      open={comms.closeERegACCh3}
-                      close={comms.openERegACCh3} //CHANGED BECAUSE WE"RE USING DIODES
-                      time={comms.timeERegACCh3} 
-                      field='ERegACCh3state'
-                      text='Two Way'
-                    />
-                  </Grid>
-                  <Grid item={1} xs={6}>
-                    <ButtonGroupRBVTimed
-
-                      open={comms.doNothing}
-                      close={comms.closeERegDAQCh0}
-                      time={comms.timeERegDAQCh0}
-                      field='ERegDAQCh0state'
-                      text='Press Fill RBV'
-                    />
-                  </Grid>
-                  <Grid item={1} xs={6}>
-                    <ButtonGroupRBVTimed
-
-                      open={comms.closeERegACCh6}
-                      close={comms.openERegACCh6}
-                      time={comms.timeERegACCh6}
-                      field='ERegACCh6state'
-                      text='Lox Gems'
-                    />
-                  </Grid>
-                  <Grid item={1} xs={6}>
-                    <ButtonGroup
-                      open={comms.openERegAC24VCh0}
-                      close={comms.closeERegAC24VCh0}
-                      text='Igniter'
-                      // disabled={!this.state.HPS_en}
-                    />
-                  </Grid>
-                  
-
-                </Grid>
-                <Grid container={true} spacing={1}>
-                  <Grid item={1} xs={12}>
-                    <BigButton
-                      onClick={() => {this.abortAll()}}
-                      text='Abort'
-                      isRed
-                    />
-                  </Grid>
-                </Grid>
-                <Grid container={true} spacing={1}>
-
-                </Grid>
-                <Grid container={true} spacing={1}>
-                  <Grid item={1} xs={12}>
+                  </Grid> */}
+            {/* <Grid item xs={12}>
                     <StateWindow
                       onUpdate={comms.setProcedureState}
                       onState0Enter={comms.startCheckout}
                       onState0Exit={comms.endCheckout}
                     />
-                  </Grid>
-                </Grid>
-              </Grid>
-              {/* START OF THIRD BUTTON COLUMN */}
-              <Grid item={1} xs={2} className={classes.item}>
-                <Grid container={true} spacing={1}>
-                  <Grid item={1} xs={12}>
-                    <ButtonGroupRBVTimed
-
-                      open={comms.closeERegACCh2}
-                      close={comms.openERegACCh2}
-                      time={comms.timeERegACCh2}
-                      field='ERegACCh2state'
-                      text='Igniter Enable Relay'
-                    />
-                  </Grid>
-
-                </Grid>
-                <Grid container={true} spacing={1}>
-     
-                  <Grid item={1} xs={12}>
-                    <ButtonGroupRBVTimed
-
-                      open={comms.closeERegACCh5}
-                      close={comms.openERegACCh5}
-                      time={comms.timeERegACCh5}
-                      field='ERegACCh5state'
-                      text='Fuel Gems'
-                    />
-                  </Grid>
-
-                  <Grid item={1} xs={12}>
-                    <ButtonGroup
-                        open={comms.openERegAC24VCh1}
-                        close={comms.closeERegAC24VCh1}
+                  </Grid> */}
+            {/* <Grid item xs={12}>
+                    <SwitchButton
+                        open={comms.enableFlightMode}
+                        close={comms.disableFlightMode}
                         field='_'
-                        text='Breakwire'
+                        text='Flight Mode' 
                       />
-                  </Grid>
-                  <Grid item={1} xs={12}>
-                    <ButtonGroup
-                      open={this.startLOXFlows}
-                      close={this.startFuelFlows}
-                      text='Start LOX Side Flows'
-                      successText='LOX EReg'
-                      failText='Fuel EReg'
-                      disabled = {!this.state.flow_en}
-                      noFeedback = {true}
-                      />
-                  </Grid>
+                  </Grid> */}
+          </Grid>
 
-                </Grid>
-                <Grid container={true} spacing={1}>
-
-                </Grid>
-
-
-
-              </Grid>
-              {/* START OF PROCEDURE COLUMN */}
-              <Grid item={1} xs={2} className={classes.item}>
-                <Grid container={true} spacing={1}>
-                  <CountdownTimer setStartCountdownCallback={this.setStartCountdownCallback} setStopCountdownCallback={this.setStopCountdownCallback}/>
-                </Grid>
-              </Grid>
-
-
+          {/* START OF PROCEDURE COLUMN */}
+          <Grid item xs={2} className={classes.item}>
+            <Grid container={true} spacing>
+              <CountdownTimer
+                setStartCountdownCallback={this.setStartCountdownCallback}
+                setStopCountdownCallback={this.setStopCountdownCallback}
+              />
             </Grid>
-            <Grid container={true} spacing={1}>
-
-              <Grid item={1} xs={3} className={classes.item}>
-                <Grid container spacing={1} direction='column'>
-                  <Grid item>
-                    <ButtonGroupRBVTimed
-
-                      open={comms.openERegACCh0}
-                      close={comms.closeERegACCh0}
-                      time={comms.timeERegACCh0}
-                      field='fuelVentRBVState'
-                      text='Fuel Vent RBV'
-                    />
-                  </Grid>
-                </Grid>
-              </Grid>
-
-              <Grid item={1} xs={3} className={classes.item}>
-                <Grid container spacing={1} direction='column'>
-                <Grid item>
-                    <ButtonGroupRBVTimed
-                      open={comms.openERegACCh1}
-                      close={comms.closeERegACCh1}
-                      time={comms.timeERegACCh1}
-                      field='loxVentRBVState'
-                      text='Lox Vent RBV'
-                    />
-                  </Grid>
-                  <Grid item>
-                    <ButtonGroupRBVTimed
-                      open={comms.openfuelPrechillRBV}
-                      close={comms.closefuelPrechillRBV}
-                      time={comms.timefuelPrechillRBV}
-                      field='fuelPrechillRBVState'
-                      text='Press Line Vent RBV'
-                    />
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item={1} xs={3} className={classes.item}>
-              <Grid item>
-                    <ButtonGroupSingle
-                      open={this.beginERegCharacterization}
-                      successText="Start"
-                      text='Begin EReg Characterization'
-                    />
-                  </Grid>
-              </Grid>
-            </Grid>
-          </Container>
-        </Box>
-      </ThemeProvider>
+          </Grid>
+        </Grid>
+      </Container>
     );
   }
 }
 
 Control.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 export default withStyles(styles)(Control);

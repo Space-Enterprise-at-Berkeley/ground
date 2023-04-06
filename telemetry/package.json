@@ -12,16 +12,22 @@
     "@testing-library/user-event": "~7.2.1",
     "clsx": "~1.1.1",
     "lodash.throttle": "~4.1.1",
+    "mapbox-gl": "~2.6.1",
     "moment": "~2.29.1",
     "react": "~17.0.2",
     "react-dom": "~17.0.2",
+    "react-map-gl": "~6.1.18",
     "react-router-dom": "~5.3.0",
     "react-scripts": "~4.0.3",
     "react-virtuoso": "~2.2.1",
+    "three": "~0.136.0",
+    "three-orbit-controls": "~82.1.0",
     "webgl-plot": "~0.6.3"
   },
   "scripts": {
     "start": "cross-env BROWSER=none PORT=3000 react-scripts start",
+    "start-with-ssl-thing": "cross-env BROWSER=none PORT=3000 react-scripts --openssl-legacy-provider start",
+    "debug": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

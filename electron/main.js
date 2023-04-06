@@ -1,83 +1,56 @@
-const { app, BrowserWindow, ipcMain, globalShortcut, TouchBar } = require('electron');
+const { app, BrowserWindow, ipcMain, TouchBar } = require('electron');
 const { TouchBarLabel, TouchBarButton, TouchBarSpacer, TouchBarPopover, TouchBarSegmentedControl, TouchBarScrubber } = TouchBar
 const isDev = require('electron-is-dev');
 const path = require('path');
 const url = require('url');
 
 const App = require('./App');
+const readConfig = require('./configParser');
 
-const isMainDev = (process.env.VARIANT === 'main');
+const port = parseInt(process.argv[2])
+const config = readConfig(process.argv[3]);
+const windowsList = process.argv.length <= 4 ? Object.keys(config.windows) : process.argv.slice(4);
 
-let backendApp = new App();
+let backendApp = new App(config, port);
 let selector, window1, window2;
-function createWindow (isMain) {
-  let url1, url2;
-  if(isMain) {
-    // main windows
-    url1 = (isDev ? 'http://127.0.0.1:3000#/main' : `file://${path.join(__dirname, '../index.html#main')}`);
-    url2 = (isDev ? 'http://127.0.0.1:3000#/control' : `file://${path.join(__dirname, '../index.html#control')}`);
-  } else {
-    // aux windows
-    url1 = (isDev ? 'http://127.0.0.1:3000#/aux1' : `file://${path.join(__dirname, '../index.html#aux1')}`);
-    url2 = (isDev ? 'http://127.0.0.1:3000#/aux2' : `file://${path.join(__dirname, '../index.html#aux2')}`);
-  }
+function createWindow () {
 
   // TouchBar Start
   const touchBar = createTouchBar(backendApp);
   // TouchBar End
 
-  window1 = new BrowserWindow({
-    show: false,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-      devTools: isDev,
-    },
-  });
-  window1.maximize();
-  if(!isDev) {
-    window1.removeMenu();
-  }
-  window1.loadURL(url1);
-  window1.setTouchBar(touchBar)
-  window1.on('closed', function () {
-    backendApp.removeWebContents(window1.webContents);
-    window1 = null;
-  });
-  window1.webContents.once('did-finish-load', () => {
-    backendApp.addWebContents(window1.webContents);
-    if(backendApp.webContents.length === 2){
-      backendApp.initApp()
+  for (let windowName of windowsList) {
+    let b64config = Buffer.from(JSON.stringify(config)).toString("base64");
+    let url = (isDev ? `http://127.0.0.1:3000#/${windowName}&${b64config}` : `file://${path.join(__dirname, `../index.html#${windowName}&${b64config}`)}`);
+    let window = new BrowserWindow({
+      show: false,
+      webPreferences: {
+        preload: path.join(__dirname, 'preload.js'),
+        devTools: isDev
+      },
+      icon: __dirname + '/Icons/Icons.icns'
+    });
+    window.maximize();
+    if(!isDev) {
+      window.removeMenu();
     }
-  });
-  window1.once('ready-to-show', () => {
-    window1.show();
-  });
+    window.loadURL(url);
+    window.setTouchBar(touchBar)
+    window.on('closed', function () {
+      // backendApp.removeWebContents(window.webContents);
+      window = null;
+    });
+    window.webContents.once('did-finish-load', () => {
+      backendApp.addWebContents(window.webContents);
+      if(backendApp.webContents.length === windowsList.length){
+        // backendApp.initApp()
+      }
+    });
+    window.once('ready-to-show', () => {
+      window.show();
+    });
+  }
 
-  window2 = new BrowserWindow({
-    show: false,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-      devTools: isDev,
-    },
-  });
-  window2.maximize();
-  if(!isDev) {
-    window2.removeMenu();
-  }
-  window2.loadURL(url2);
-  window2.setTouchBar(touchBar)
-  window2.on('closed', function () {
-    window2 = null;
-  });
-  window2.webContents.once('did-finish-load', () => {
-    backendApp.addWebContents(window2.webContents);
-    if(backendApp.webContents.length === 2){
-      backendApp.initApp()
-    }
-  });
-  window2.once('ready-to-show', () => {
-    window2.show();
-  });
 }
 
 function createSelectorWindow() {
@@ -88,6 +61,7 @@ function createSelectorWindow() {
       preload: path.join(__dirname, 'preload.js'),
       devTools: isDev,
     },
+    icon: __dirname + '/Icons/Icons.icns'
   });
   selector.setSize(200, 100);
   selector.center();
@@ -122,15 +96,19 @@ function createSelectorWindow() {
 // Some APIs can only be used after this event occurs
 app.on('ready', () => {
   // createSelectorWindow();
-  const ret = globalShortcut.register('F17', () => {
-    backendApp.abort();
-  })
+  // const ret = globalShortcut.register('F17', () => {
+  //   backendApp.abort();
+  // })
 
-  if(isDev) {
-    createWindow(isMainDev);
-  } else {
-    createSelectorWindow();
-  }
+  backendApp.initApp()
+
+  createWindow()
+
+  // if(isDev) {
+  //   createWindow(isMainDev);
+  // } else {
+  //   createSelectorWindow();
+  // }
 });
 
 
@@ -142,8 +120,8 @@ app.on('window-all-closed', function () {
 
 app.on('before-quit', () => {
   console.log('quitting');
-  backendApp.removeWebContents(window1.webContents);
-  backendApp.removeWebContents(window2.webContents);
+  // backendApp.removeWebContents(window1.webContents);
+  // backendApp.removeWebContents(window2.webContents);
 });
 
 ipcMain.handle('app-info', async (event) => {

@@ -34,7 +34,8 @@ class Field extends Component {
   }
 
   handleValueUpdate(timestamp, value) {
-    this.value = value;
+    const { modifyValue } = this.props;
+    this.value = modifyValue ? modifyValue(value, timestamp) : value;
     if(this.animationID === null) {
       this.animationID = requestAnimationFrame(this.updateDisplay);
     }
@@ -43,8 +44,8 @@ class Field extends Component {
   updateDisplay() {
     this.animationID = null;
     this.valRef.current.innerHTML = this.value.toFixed(this.decimals);
-    if(this.value > this.props.threshold) {
-      this.colorRef.current.style.backgroundColor = '#27AE60';
+    if(this.value > this.props.threshold && this.props.threshold !== null) {
+      this.colorRef.current.style.backgroundColor = this.props.thresholdColor;
     } else {
       this.colorRef.current.style.backgroundColor = '';
     }
@@ -62,7 +63,7 @@ class Field extends Component {
   }
 
   render() {
-    const { classes, name, unit } = this.props;
+    const { classes, field, name, unit } = this.props;
     return (
       <Grid container spacing={1} alignItems='center' className={classes.root}>
         <Grid item xs={12}>
@@ -71,9 +72,9 @@ class Field extends Component {
               {name}
             </Typography>
             <Typography variant='h3' className={classes.value} ref={this.valRef}>
-              {(0).toFixed(this.decimals)}
+              {field === null ? "" : (0).toFixed(this.decimals)}
             </Typography>
-            <Typography variant='h4' className={classes.unit}>
+            <Typography variant='h6' className={classes.unit}>
               {unit}
             </Typography>
           </div>

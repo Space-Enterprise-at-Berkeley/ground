@@ -1,68 +1,58 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import '@fontsource/roboto';
-import { createTheme, withStyles, ThemeProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { Box, Container, Grid } from '@material-ui/core';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import "@fontsource/roboto";
+import {
+  withStyles,
+} from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Box from "@material-ui/core/Box";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
 
-import Settings from './components/Settings';
-import Navbar from './components/Navbar';
-import Graph from './components/Graph';
-import SixValueSquare from './components/SixValueSquare';
-import FourValueSquare from './components/FourValueSquare';
+import comms from "./api/Comms";
+import Graph from "./components/Graph";
+import Navbar from "./components/Navbar";
+import Settings from "./components/Settings";
+import SixValueSquare from "./components/SixValueSquare";
+import TankHeaterSquare from "./components/TankHeaterSquare";
+import MessageDisplaySquare from "./components/MessageDisplaySquare";
+import RocketOrientation from "./components/RocketOrientation";
+import Map from "./components/Map";
 
-import comms from './api/Comms';
+const PAGE_TITLE = "Telemetry: Aux 1";
 
-const PAGE_TITLE = "Telemetry: Aux #1"
-
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
     flexGrow: 1,
-    height: '100vh',
+    height: "100vh",
   },
   container: {
     flexGrow: 1,
-    position: 'absolute',
+    position: "absolute",
     top: theme.spacing(6),
     // height: '100vh',
-    bottom: '0px',
-    padding: theme.spacing(1)
+    bottom: "0px",
+    padding: theme.spacing(1),
   },
   row: {
-    height: '100%'
+    height: "100%",
   },
   item: {
-    height: '33%'
+    height: "50%",
   },
   navbarGrid: {
     // height: theme.spacing(2)
-  }
+  },
 });
 
 class Aux1 extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isDark: false,
-      showSettings: false,
-    };
+    this.lastAscentSpeedValue = 0;
+    this.lastAscentSpeedTime = window.performance.now();
+    this.rocValues = [];
 
-    this.changeLightDark = this.changeLightDark.bind(this);
-    this.openSettings = this.openSettings.bind(this);
-    this.closeSettings = this.closeSettings.bind(this);
-  }
-
-  changeLightDark() {
-    comms.setDarkMode(!this.state.isDark);
-    this.setState({ isDark: !this.state.isDark });
-  }
-
-  openSettings() {
-    this.setState({ showSettings: true });
-  }
-
-  closeSettings() {
-    this.setState({ showSettings: false });
+    this.calcAscentSpeed = this.calcAscentSpeed.bind(this);
   }
 
   componentDidMount() {
@@ -75,321 +65,78 @@ class Aux1 extends Component {
     comms.destroy();
   }
 
+  calcAscentSpeed(value) {
+    
+    const currentAscentSpeedTime = window.performance.now();
+    const delta_altitude_roc = (value - this.lastAscentSpeedValue) * 1000.0 / (currentAscentSpeedTime - this.lastAscentSpeedTime);
+    
+    this.rocValues.unshift(delta_altitude_roc);
+    if (this.rocValues.length > 30) {
+      this.rocValues.pop();
+    }
+    this.lastAscentSpeedTime = currentAscentSpeedTime;
+    this.lastAscentSpeedValue = value;
+
+    let sum = 0;
+    for (let rocVal of this.rocValues) {
+      sum += Number(rocVal);
+    }
+    return sum / this.rocValues.length;
+  }
+
   render() {
     const { classes } = this.props;
-    const theme = createTheme({
-      palette: {
-        type: this.state.isDark ? 'dark' : 'light'
-      }
-    });
 
     return (
-      <ThemeProvider theme={theme}>
-        <CssBaseline/>
+      <React.Fragment>
+        <CssBaseline />
         <Box>
-          <Settings open={this.state.showSettings} closeSettings={this.closeSettings}/>
-          <Navbar
-            changeLightDark={this.changeLightDark}
-            openSettings={this.openSettings}
-          />
-          <Container maxWidth='xl' className={classes.container}>
+          <Container maxWidth="xl" className={classes.container}>
             <Grid container={true} spacing={1} className={classes.row}>
-              <Grid item={1} xs={4} className={classes.item}>
-                <SixValueSquare
-                  field1={{
-                    name: 'Fuel Tank Vent RBV',
-                    field: 'ERegACCh0voltage',
-                    unit: 'V',
-                    decimals: 1,
-                    threshold: 5
-
-                  }}
-                  field4={{
-                    name: 'Fuel Tank Vent RBV',
-                    field: 'ERegACCh0current',
-                    unit: 'A',
-                    decimals: 1,
-                    threshold: 0.1
-                  }}
-                  field2={{
-                    name: 'LOX Tank Vent',
-                    field: 'ERegACCh1voltage',
-                    unit: 'V',
-                    decimals: 1,
-                    threshold: 5
-                  }}
-                  field5={{
-                    name: 'LOX Tank Vent',
-                    field: 'ERegACCh1current',
-                    unit: 'A',
-                    decimals: 1,
-                    threshold: 0.1
-
-                  }}
-                  field3={{
-                    name: 'Igniter Enable Relay',
-                    field: 'ERegACCh2voltage',
-                    unit: 'V',
-                    decimals: 1,
-                    threshold: 5
-                  }}
-                  field6={{
-                    name: 'Igniter Enable Relay',
-                    field: 'ERegACCh2current',
-                    unit: 'A',
-                    decimals: 1,
-                    threshold: 0.1
-                  }}
-                />
-              </Grid>
-              <Grid item={1} xs={4} className={classes.item}>
-                <SixValueSquare
-                  field1={{
-                    name: '2 Way',
-                    field: 'ERegACCh3voltage',
-                    unit: 'V',
-                    decimals: 1,
-                    threshold: 5
-                  }}
-                  field2={{
-                    name: 'Fuel Gems',
-                    field: 'ERegACCh5voltage',
-                    unit: 'V',
-                    decimals: 1,
-                    threshold: 5
-                  }}
-                  field3={{
-                    name: 'LOX Gems',
-                    field: 'ERegACCh6voltage',
-                    unit: 'V',
-                    decimals: 1,
-                    threshold: 5
-                  }}
-                  field4={{
-                    name: '2 Way',
-                    field: 'ERegACCh3current',
-                    unit: 'A',
-                    decimals: 1,
-                    threshold: 0.05
-                  }}
-                  field5={{
-                    name: 'Fuel Gems',
-                    field: 'ERegACCh5current',
-                    unit: 'A',
-                    decimals: 1,
-                    threshold: 0.05
-                  }}
-                  field6={{
-                    name: 'LOX Gems',
-                    field: 'ERegACCh6current',
-                    unit: 'A',
-                    decimals: 1,
-                    threshold: 0.05
-                  }}
-                />
-              </Grid> 
-              <Grid item={1} xs={4} className={classes.item}>
-                <SixValueSquare
-                  field1={{
-                    name: 'Igniter',
-                    field: 'acHeater3Voltage',
-                    unit: 'V',
-                    decimals: 1,
-                    threshold: 5
-                  }}
-                  field2={{
-                    name: 'Breakwire',
-                    field: 'acHeater4Voltage',
-                    unit: 'V',
-                    decimals: 1,
-                    threshold: 5
-                  }}
-                  field3={{
-                    name: 'Propane Fill',
-                    field: 'loxTankVentRBVvoltage',
-                    unit: 'V',
-                    decimals: 1,
-                    threshold: 5
-                  }}
-                  field4={{
-                    name: 'Igniter',
-                    field: 'acHeater3Current',
-                    unit: 'A',
-                    decimals: 1,
-                    threshold: 0.05
-                  }}
-                  field5={{
-                    name: 'Breakwire',
-                    field: 'acHeater4Current',
-                    unit: 'A',
-                    decimals: 1,
-                    threshold: 0.05
-                  }}
-                  field6={{
-                    name: 'Propane Fill', //AC2 Lin Act 1
-                    field: 'loxTankVentRBVcurrent', 
-                    unit: 'A',
-                    decimals: 1,
-                    threshold: 0.05
-                  }}
-                />
-              </Grid> 
-              <Grid item={1} xs={4} className={classes.item}>
-                <SixValueSquare
-                  field1={{
-                    name: 'Press Fill',
-                    field: 'fuelTankVentRBVvoltage',
-                    unit: 'V',
-                    decimals: 1,
-                    threshold: 5
-                  }}
-                  field2={{
-                    name: 'Press Line Vent',
-                    field: 'fuelPrechillRBVvoltage',
-                    unit: 'V',
-                    decimals: 1,
-                    threshold: 5
-                  }}
-                  field3={{
-                    name: 'LOX Fill RBV',
-                    field: 'purgeFlowRBVvoltage',
-                    unit: 'V',
-                    decimals: 1,
-                    threshold: 5
-                  }}
-                  field4={{
-                    name: 'Press Fill',
-                    field: 'fuelTankVentRBVcurrent',
-                    unit: 'A',
-                    decimals: 1,
-                    threshold: 0.05
-                  }}
-                  field5={{
-                    name: 'Press Line Vent',
-                    field: 'fuelPrechillRBVcurrent',
-                    unit: 'A',
-                    decimals: 1,
-                    threshold: 0.05
-                  }}
-                  field6={{
-                    name: 'LOX Fill RBV', //AC2 Lin Act 1
-                    field: 'purgeFlowRBVcurrent', 
-                    unit: 'A',
-                    decimals: 1,
-                    threshold: 0.05
-                  }}
-                />
-              </Grid> 
-
-
-              <Grid item={1} xs={8} className={classes.item}>
-                <Graph
-                  fields={
-                    [
-                      {
-                        name: 'ERegDAQ_TC1', // engine temp 1
-                        color: [221, 0, 0],
-                        unit: '°C'
-                      },
-                      {
-                        name: 'ERegDAQ_TC2', // engine temp 2
-                        color: [0, 127, 254],
-                        unit: '°C'
-                      },
-                      {
-                        name: 'ERegDAQ_TC3', // engine temp 3
-                        color: [0, 187, 0],
-                        unit: '°C'
-                      },
-                    ]
-                  }
-                />
-              </Grid>
-
               <Grid item={1} xs={6} className={classes.item}>
-                <Graph
-                  fields={
-                    [
-                      {
-                        name: 'ERegDAQ_LC1', // engine temp 1
-                        displayname: 'LC1',
-                        color: [221, 0, 0],
-                        unit: 'kg'
-                      },
-                      {
-                        name: 'ERegDAQ_LC2', // engine temp 2
-                        displayname: 'LC2',
-                        color: [0, 127, 254],
-                        unit: 'kg'
-                      },
-                      {
-                        name: 'ERegDAQ_LC_Sum',
-                        displayname: 'Sum',
-                        color: [41, 171, 76],
-                        unit: 'kg',
-                      }
-
-                    ]
-                  }
+                <SixValueSquare
+                  fields={[
+                    ["Altitude", "baroAltitude", "m", 2],
+                    ["Velocity", "baroAltitude", "m/s", 2, null, this.calcAscentSpeed],
+                    ["Apogee Time", "apogeeTime", "us", 0, 1],
+                    ["X Accel", "accelX", "g", 2],
+                    ["Y Accel", "accelY", "g", 2],
+                    ["Z Accel", "accelZ", "g", 2],
+                  ]}
                 />
               </Grid>
-
-              
-              <Grid item={1} xs={4} className={classes.item}>
-                <Graph
-                  fields={
-                    [
-                      {
-                        name: 'loxCapVal', // lox PT temp
-                        color: [123, 35, 162],
-                        unit: 'F'
-                      },
-                      {
-                        name: 'fuelCapVal', // lox gems temp
-                        color: [0, 126, 254],
-                        unit: 'F'
-                      },
-                    ]
-                  }
+              <Grid item={1} xs={6} className={classes.item}>
+                <Map fieldLat={"gpsLatitude"} fieldLong={"gpsLongitude"} />
+              </Grid>
+              <Grid item={1} xs={6} className={classes.item}>
+                <SixValueSquare
+                  fields={[
+                    ["BBox Data Written", "dataWritten", "KB", 1, 1],
+                    ["BreakWire1", "breakWire1Voltage", null, 0, 0.5],
+                    ["BreakWire2", "breakWire2Voltage", null, 0, 0.5],
+                    ["GPS Latitude", "gpsLatitude", "", 4],
+                    ["GPS Longitude", "gpsLongitude", "", 4],
+                    ["GPS Sat Count", "numGpsSats", "", 1],
+                  ]}
                 />
               </Grid>
-              {/* <Grid item={1} xs={8} className={classes.item}>
-                <Graph
-                  fields={
-                    [
-                      {
-                        name: 'engineTop4TC', // engine temp 1
-                        color: [221, 0, 0],
-                        unit: 'degC'
-                      },
-                      {
-                        name: 'engineBottom3TC', // engine temp 2
-                        color: [0, 127, 254],
-                        unit: 'degC'
-                      },
-                      {
-                        name: 'engineBottom4TC', // engine temp 3
-                        color: [0, 187, 0],
-                        unit: 'degC'
-                      },
-                      {
-                        name: 'propTankTC', // engine temp 3
-                        color: [245, 185, 66],
-                        unit: 'degC'
-                      },
-                    ]
-                  }
+              <Grid item={1} xs={6} className={classes.item}>
+                <RocketOrientation
+                  fieldQW={"qW"}
+                  fieldQX={"qX"}
+                  fieldQY={"qY"}
+                  fieldQZ={"qZ"}
                 />
-              </Grid> */}
+              </Grid>
             </Grid>
           </Container>
         </Box>
-      </ThemeProvider>
+      </React.Fragment>
     );
   }
 }
 
 Aux1.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 export default withStyles(styles)(Aux1);

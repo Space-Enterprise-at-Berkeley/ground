@@ -4,7 +4,9 @@ import { withStyles, withTheme } from '@material-ui/core/styles';
 import { Grid, Button, Box } from '@material-ui/core';
 import Switch from '@material-ui/core/Switch';
 
-import comms from '../api/Comms';
+import comms from '../../api/Comms';
+import GroupLabel from './GroupLabel';
+import { buttonAction } from '../../util';
 
 const styles = theme => ({
   switchBase: {
@@ -75,6 +77,7 @@ class ButtonGroupRBV extends Component {
   componentDidMount() {
     const { field } = this.props;
     comms.addSubscriber(field, this.updateStatus);
+    setTimeout(this.setClosed, 10);
   }
 
   componentWillUnmount() {
@@ -98,13 +101,7 @@ class ButtonGroupRBV extends Component {
         break;
     }
     return (
-      <Grid container spacing={1} direction="column" alignItems='center'>
-        <Grid item>
-          <Box component="span" display="block">{text}</Box>
-        </Grid>
-        <Grid item>
-          <Box borderRadius={4} {...statusBox} bgcolor={status ? theme.palette.success.main : theme.palette.error.main}/>
-        </Grid>
+      <GroupLabel text={text} barColor={status ? theme.palette.success.main : theme.palette.error.main}>
         <Grid item>
           <Switch
             focusVisibleClassName={classes.focusVisible}
@@ -117,7 +114,7 @@ class ButtonGroupRBV extends Component {
             onChange={this.changeState}
           />
         </Grid>
-      </Grid>
+      </GroupLabel>
     );
   }
 }

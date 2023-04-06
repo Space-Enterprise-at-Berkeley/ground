@@ -19,11 +19,11 @@ read [these](https://nodejs.org/en/download/) instructions
 to install it. Once node is installed, clone this repository:
 `git clone https://github.com/Space-Enterprise-at-Berkeley/ground.git`
 
-Then, `cd` into this directory and run `npm i`. This will install all the
-dependencies required by this project that are defined in
+
+Then, `cd` into this directory and run `npm i`. If running on a Mac M1, run `arch -x86_64 npm i` instead.
+This will install all the dependencies required by this project that are defined in
 the `package.json` file. Next, `cd` into the `telemetry` directory
-and run `npm i`. The `telemetry` directory contains all the code for the web based UI. 
-~~The `remote` directory contains all the code for the web page
+and run `npm i`. The `telemetry` directory contains all the code for the web based UI. If running on a Mac M1, run `export NODE_OPTIONS=--openssl-legacy-provider`. This will need to be run every time a new Terminal session is begun. ~~The `remote` directory contains all the code for the web page
 that can be loaded on your phone to view pressure values
 remotely over wifi.~~
 
@@ -41,7 +41,7 @@ a new directory in your home directory called `GroundStation`,
 where it will store data files.
 
 To start the ground station, first `cd` from the top level, project `ground` directory into the `telemetry` directory
-and run `npm start`. This will start the "backend" of the Dashboard. Next open a **new** terminal window (the previous one must stay open for the dashboard to work) and make sure you are in the top level `ground` directory. As of now, the dashboard has 2 different views: **Main** and **Aux**, with Main having the command window and one telemetry window, and Aux having 2 additional telemetry windows. Run `npm run start-main` or `npm run start-aux` to open either the main or aux versions of the ground station. 
+and run `npm run start`. This will start the "backend" of the Dashboard. Next open a **new** terminal window (the previous one must stay open for the dashboard to work) and make sure you are in the top level `ground` directory. Run `npm run start [port] [config file] [...window IDs]` to open either all the windows from a config or a specified list. 
 
 ~~If you would like to run the remote viewing web page, open a new
 terminal window and `cd` into the `remote` directory. Then run
@@ -49,10 +49,10 @@ terminal window and `cd` into the `remote` directory. Then run
 
 ## Receiving Telemetry & Sending Commands. 
 The dashboard receives packets from all boards over ethernet - meaning that in order to receive telemetry you must have be connected directly to a board with an ethernet cable or connected to a network switch that has one or more boards connected. 
-You must also have your computer network settings configured correctly to receive packets - your computer needs to appear on the network with a static ip of either `10.0.0.69` or `10.0.0.70`. As long as your computer's static ip has been configured appropriately, once any board is on the network and powered up, packets will start to be received and displayed (and the corresponding datarate indicator on the top bar will turn green)
+You must also have your computer network settings configured correctly to receive packets - your computer needs to appear on the network with a static ip of either `10.0.0.169` or `10.0.0.170`. As long as your computer's static ip has been configured appropriately, once any board is on the network and powered up, packets will start to be received and displayed (and the corresponding datarate indicator on the top bar will turn green)
 
 ## Storing Data. 
-The dashboard is capable of pushing data to a server running an influx instance, to allow data to be stored and accessed at a later time. Data can be pushed to the remote influx server (`influx.andycate.com`) or can be pushed to an influx instance running locally on your computer or on any server on the local network. Which influx instance and which specific database can be configured via the influx settings button in the top right corner of the dashboard. 
+The dashboard is capable of pushing data to a server running an influx instance, to allow data to be stored and accessed at a later time. Data can be pushed to the remote influx server (`influx.berkeleyse.com`) or can be pushed to an influx instance running locally on your computer or on any server on the local network. Which influx instance and which specific database can be configured via the influx settings button in the top right corner of the dashboard. 
 
 
 ## Packaging the app

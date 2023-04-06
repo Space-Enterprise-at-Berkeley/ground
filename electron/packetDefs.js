@@ -1,6 +1,6 @@
 const Interpolation = require("./Interpolation");
 
-const { asASCIIString, asFloat, asUInt8, asUInt16, asUInt32, asFlowState, asAutoVentTriggered, asLCAbortTriggered, asTCAbortTriggered, asNegativeLoadCell, asDiagnosticMessage} = Interpolation
+const { asASCIIString, asFloat, asUInt8, asUInt16, asUInt32, asUInt32fromustos} = Interpolation
 const { FLOAT, UINT8, UINT32, UINT16 } = Interpolation.TYPES
 
 /**
@@ -13,437 +13,419 @@ const { FLOAT, UINT8, UINT32, UINT16 } = Interpolation.TYPES
  */
 /** @type {Object.<Number,Array.<[String,Parser,Interpolator|null]>|Array.<[String,Parser]>>} */
 const INBOUND_PACKET_DEFS = {
-  // [1..59] Sent by Flight Computer
-  // 0: [
-  //   ['firmwareCommitHash', asASCIIString],
-  // ],
-  // 1: [
-  //   ['flightBattVoltage', asFloat],
-  //   ['flightBattCurrent', asFloat],
-  //   ['flightBattPower', asFloat]
-  // ],
-  // 2: [
-  //   ['flightSupply12Voltage', asFloat],
-  //   ['flightSupply12Current', asFloat],
-  //   ['flightSupply12Power', asFloat]
-  // ],
-  // 3: [
-  //   ['flightSupply8Voltage', asFloat],
-  //   ['flightSupply8Current', asFloat],
-  //   ['flightSupply8Power', asFloat]
-  // ],
-  // 9: [
-  //   ['pressurantPTROC', asFloat],
-  // ],
-  // // [10..59] Sent by Flight Computer
-  // 10: [
-  //   ['loxTankPT', asFloat],
-  //   ['fuelTankPT', asFloat],
-  //   ['loxInjectorPT', asFloat],
-  //   ['fuelInjectorPT', asFloat],
-  //   ['pressurantPT', asFloat],
-  //   ['loxDomePT', asFloat],
-  //   ['fuelDomePT', asFloat]
-  // ],
 
-  // 20: [
-  //   ['engineTop1TC', asFloat],
-  // ],
-  // 21: [
-  //   ['engineTop2TC', asFloat],
-  // ],
-  // 22: [
-  //   ['engineBottom1TC', asFloat],
-  // ],
-  // 23: [
-  //   ['engineBottom2TC', asFloat],
-  // ],
-
-  // 28: [
-  //   ['loxGemsVoltage', asFloat],
-  //   ['loxGemsCurrent', asFloat],
-  // ],
-  // 29: [
-  //   ['fuelGemsVoltage', asFloat],
-  //   ['fuelGemsCurrent', asFloat],
-  // ],
-  // 30: [
-  //   ['armValveVoltage', asFloat],
-  //   ['armValveCurrent', asFloat],
-  // ],
-  // 31: [
-  //   ['igniterVoltage', asFloat],
-  //   ['igniterCurrent', asFloat],
-  // ],
-  // 32: [
-  //   ['loxMainValveVoltage', asFloat],
-  //   ['loxMainValveCurrent', asFloat],
-  // ],
-  // 33: [
-  //   ['fuelMainValveVoltage', asFloat],
-  //   ['fuelMainValveCurrent', asFloat],
-  // ],
-  // 34: [
-  //   ['breakwireVoltage', asFloat],
-  //   ['breakwireCurrent', asFloat],
-  // ],
-
-  // 35: [
-  //   ['RQDVoltage', asFloat],
-  //   ['RQDCurrent', asFloat],
-  // ],
-  // 36: [
-  //   ['mainValveVentVoltage', asFloat],
-  //   ['mainValveVentCurrent', asFloat],
-  // ],
-  // 37: [
-  //   ['loxTankTopHtrVoltage', asFloat],
-  //   ['loxTankTopHtrCurrent', asFloat],
-  // ],
-  // 38: [
-  //   ['igniterEnableVoltage', asFloat],
-  //   ['igniterEnableCurrent', asFloat],
-  // ],
-
-  // 40: [
-  //   ['armValveState', asUInt8],
-  // ],
-  // 41: [
-  //   ['igniterState', asUInt8],
-  // ],
-  // 42: [
-  //   ['loxMainValveState', asUInt8],
-  // ],
-  // 43: [
-  //   ['fuelMainValveState', asUInt8],
-  // ],
-  // 45: [
-  //   ['RQDState', asUInt8],
-  // ],
-  // 46: [
-  //   ['mainValveVentState', asUInt8],
-  // ],
-  // 47: [
-  //   ['loxTankTopHtrState', asUInt8],
-  // ],
-  // 48: [
-  //   ['igniterEnableState', asUInt8],
-  // ],
-
-  // 49: [
-  //   ['actuatorStates', asUInt8],
-  // ],
-
-  // 50: [
-  //   ['flowState', asUInt8],
-  // ],
-  // 51: [
-  //   ['autoVentStatus', asUInt8],
-  // ],
-  // 52: [
-  //   ['loxGemsValveState', asUInt8],
-  // ],
-  // 53: [
-  //   ['fuelGemsValveState', asUInt8],
-  // ],
-
-  // 152: [
-  //   ['autoLoxLead', asUInt32],
-  //   ['autoBurnTime', asUInt32],
-  //   ['autoIgniterAbortEnabled', asUInt8],
-  //   ['autoBreakwireAbortEnabled', asUInt8],
-  //   ['autoThrustAbortEnabled', asUInt8],
-  // ],
-
-  // [60:89] ACTUATOR CONTROLLERS
+  0: [
+    ['firmwareCommitHash', asASCIIString],
+  ],
 
 
+// SENT BY FLIGHT COMPUTER
 
-  1: [ // telemetry
-    ['EReg_HP_PT', asFloat],
-    ['EReg_LP_PT', asFloat],
+  3: [
+    ['supply8Voltage', asFloat],
+    ['supply8Current', asFloat],
+    ['supply8Power', asFloat]
+  ],
 
-    ['EReg_ENCODER_ANGLE', asFloat],
-    ['EReg_ANGLE_SETPOINT', asFloat],
-    ['EReg_PRESSURE_SETPOINT', asFloat],
-    ['EReg_MOTOR_POWER', asFloat],
-    ['EReg_PRESSURE_CONTROL_P', asFloat],
-    ['EReg_PRESSURE_CONTROL_I', asFloat],
-    ['EReg_PRESSURE_CONTROL_D', asFloat],
+
+  // [4..6] Sensor breakouts, sent by Flight Computer
+
+  // IMU
+  4: [
+    ['qW', asFloat],
+    ['qX', asFloat],
+    ['qY', asFloat],
+    ['qZ', asFloat],
+    ['accelX', asFloat],
+    ['accelY', asFloat],
+    ['accelZ', asFloat],
+  ],
+
+  // Barometer
+  5: [
+    ['baroAltitude', asFloat],
+    ['baroPressure', asFloat],
+    ['baroTemperature', asFloat],
+  ],
+
+  // GPS
+  6: [
+    ['gpsLatitude', asFloat],
+    ['gpsLongitude', asFloat],
+    ['gpsAltitude', asFloat],
+    ['gpsSpeed', asFloat],
+    ['validGpsFix', asUInt8],
+    ['numGpsSats', asUInt8]
+  ],
+
+
+  10: [
+    ['loxTankPT', asFloat],
+    ['fuelTankPT', asFloat],
+    ['loxInjectorPT', asFloat],
+    ['fuelInjectorPT', asFloat],
+    ['pressurantPT', asFloat],
+    ['loxDomePT', asFloat],
+    ['fuelDomePT', asFloat]
+  ],
+
+  11: [
+    ['loxGemsVoltage', asFloat],
+    ['loxGemsCurrent', asFloat],
+  ],
+
+  12: [
+    ['fuelGemsVoltage', asFloat],
+    ['fuelGemsCurrent', asFloat],
+  ],
+
+  13: [
+    ['pressurantFlowRBVstate', asUInt8],
+    ['pressurantFlowRBVvoltage', asFloat],
+    ['pressurantFlowRBVcurrent', asFloat],
+  ], 
+
+  20: [
+    ['engineTC0', asFloat],
+  ],
+  21: [
+    ['engineTC1', asFloat],
+  ],
+  22: [
+    ['engineTC2', asFloat],
+  ],
+  23: [
+    ['engineTC3', asFloat],
+  ],
+
+  28: [
+    // ['apogeeCheck', asUInt8],
+    ['apogeeTime', asUInt32],
+    ['apogeeAltitude', asFloat],
+    // ['apogeesFound', asUInt8],
+    // ['mainChuteDeployTime', asUInt32],
+  ],
+
+  29: [
+    ['vehicleState', asUInt8],
+  ],
+
+  30: [
+    ['storageUsed', asUInt32], 
+    ['isRecording', asUInt8],
+  ], 
+
+  31: [
+    ['loxGemsValveState', asUInt8],
   ],
   
-
-  2: [ // config
-    ['EReg_CONFIG_PRESSURE_SETPOINT', asFloat],
-    ['EReg_KP_OUTER', asFloat],
-    ['EReg_KL_OUTER', asFloat],
-    ['EReg_KD_OUTER', asFloat],
-    ['EReg_KP_INNER', asFloat],
-    ['EReg_KL_INNER', asFloat],
-    ['EReg_KD_INNER', asFloat],
-    ['EReg_FLOW_DURATION', asFloat],
-  ],
-  
-  3: [ // diagnostic
-    ['EReg_DIAGNOSTIC_MESSAGE', asDiagnosticMessage],
+  32: [
+    ['fuelGemsValveState', asUInt8],
   ],
 
-  4: [ //command  fail
-    ['EReg_ERROR_CODE', asUInt8],
+  34: [
+    ['breakWire1Voltage', asFloat], 
+    ['breakWire1Current', asFloat], // not used, we only care about continuity reading
+  ], 
+
+  35: [
+    ['breakWire2Voltage', asFloat],
+    ['breakWire2Current', asFloat], // not used, we only care about continuity reading
+  ], 
+
+  38: [
+    ['loxCapVal', asFloat],
+    ['loxCapValFiltered', asFloat],
+    ['loxCapTemp', asFloat],
   ],
 
-  5: [ // flow state
-    ['EReg_STATE', asUInt8],
+  39: [
+    ['fuelCapVal', asFloat],
+    ['fuelCapValFiltered', asFloat],
+    ['fuelCapTemp', asFloat],
+  ],
+
+  40: [
+    ['flightOCEvent', asUInt16]
+  ],
+
+  41: [
+    ['autoVentStatus', asUInt8],
   ],
 
 
-  12: [ 
-    ['fuelDiagnosticMsg', asASCIIString],
+// SENT BY GROUND COMPUTER  
+
+  42: [
+    ['flightEnable', asUInt8],
   ],
 
-  13: [ 
-    ['loxDiagnosticMsg', asASCIIString],
+  56: [
+    ['loxDSideTC', asFloat], //dometc0
   ],
 
-  14: [ //command fail msg
-    ['fuelCommandFailMsg', asASCIIString],
+  57: [
+    ['loxDTopTC', asFloat], //dometc1
   ],
 
-  15: [
-    ['loxCommandFailMsg', asASCIIString],
+  58: [
+    ['fuelDTopTC', asFloat], //dometc2
   ],
 
-  50: [
-    ['flowState', asFlowState],
+  59: [
+    ['fuelDSideTC', asFloat], //dometc3
+  ],
+
+  60: [
+    ['armValveVoltage', asFloat],
+    ['armValveCurrent', asFloat],
   ],
   61: [
+    ['igniterVoltage', asFloat],
+    ['igniterCurrent', asFloat],
+  ],
+  62: [
+    ['loxMainValveVoltage', asFloat],
+    ['loxMainValveCurrent', asFloat],
+  ],
+  63: [
+    ['fuelMainValveVoltage', asFloat],
+    ['fuelMainValveCurrent', asFloat],
+  ],
+  64: [
+    ['breakwireVoltage', asFloat],
+    ['breakwireCurrent', asFloat],
+  ],
+
+  65: [
+    ['mainValveVentVoltage', asFloat],
+    ['mainValveVentCurrent', asFloat],
+  ],
+
+  66: [
+    ['RQDVoltage', asFloat],
+    ['RQDCurrent', asFloat],
+  ],
+
+  67: [
+    ['igniterEnableVoltage', asFloat],
+    ['igniterEnableCurrent', asFloat],
+  ],
+
+  68: [
+    ['mainValvePurgeVoltage', asFloat],
+    ['mainValvePurgeCurrent', asFloat],
+  ],
+
+  70: [
+    ['armValveState', asUInt8],
+  ],
+  71: [
+    ['igniterState', asUInt8],
+  ],
+  72: [
+    ['loxMainValveState', asUInt8],
+  ],
+  73: [
+    ['fuelMainValveState', asUInt8],
+  ],
+  75: [
+    ['mainValveVentState', asUInt8],
+  ],
+  76: [
+    ['pressRQDState', asUInt8],
+  ],
+  77: [
+    ['igniterEnableState', asUInt8],
+  ],
+  78: [
+    ['mainValvePurgeState', asUInt8],
+  ], 
+
+  79: [
+    ['actuatorStates', asUInt8],
+  ],
+
+  80: [
+    ['flowState', asUInt8],
+  ],
+
+  81: [
+    ['rqdPT', asFloat],
+    ['purgePT', asFloat],
+    ['mainValvePT', asFloat],
+  ],
+
+
+
+  152: [
+    ['autoLoxLead', asUInt32fromustos],
+    ['autoBurnTime', asUInt32fromustos],
+    ['autoIgniterAbortEnabled', asUInt8],
+    ['autoBreakwireAbortEnabled', asUInt8],
+  ],
+
+
+  // ACTUATOR CONTROLLER 1
+
+  88: [
     ['acBattVoltage', asFloat],
     ['acBattCurrent', asFloat],
   ],
-  62: [
+  89: [
     ['acSupply12Voltage', asFloat],
     ['acSupply12Current', asFloat],
   ],
-  70: [
-    ['acLinAct1State', asUInt8],
+  90: [
+    ['acLinAct1State', asUInt8], //0
     ['acLinAct1Voltage', asFloat],
     ['acLinAct1Current', asFloat],
   ],
-  71: [
-    ['acLinAct2State', asUInt8],
+  91: [
+    ['acLinAct2State', asUInt8], //1
     ['acLinAct2Voltage', asFloat],
     ['acLinAct2Current', asFloat],
   ],
-  72: [
-    ['acLinAct3State', asUInt8],
+  92: [
+    ['acLinAct3State', asUInt8], //2
     ['acLinAct3Voltage', asFloat],
     ['acLinAct3Current', asFloat],
   ],
-  73: [
-    ['acLinAct4State', asUInt8],
+  93: [
+    ['acLinAct4State', asUInt8], //3
     ['acLinAct4Voltage', asFloat],
     ['acLinAct4Current', asFloat],
   ],
-  74: [
-    ['acLinAct5State', asUInt8],
+  94: [
+    ['acLinAct5State', asUInt8], //4
     ['acLinAct5Voltage', asFloat],
     ['acLinAct5Current', asFloat],
   ],
-  75: [
+  95: [
     ['acLinAct6State', asUInt8],
     ['acLinAct6Voltage', asFloat],
     ['acLinAct6Current', asFloat],
   ],
-  76: [
+  96: [
     ['acLinAct7State', asUInt8],
     ['acLinAct7Voltage', asFloat],
     ['acLinAct7Current', asFloat],
   ],
 
-  77: [
-    ['acHeater1Voltage', asFloat], //inbound 12V channel 0
+  100: [
+    ['acHeater1Voltage', asFloat],
     ['acHeater1Current', asFloat],
   ],
-  78: [
-    ['acHeater2Voltage', asFloat], //inbound 12V channel 1
+  101: [
+    ['acHeater2Voltage', asFloat],
     ['acHeater2Current', asFloat],
   ],
-  79: [
-    ['acHeater3Voltage', asFloat], //inbound 24V channel 0
-    ['acHeater3Current', asFloat],
+  102: [
+    ['loxDomeHeaterVoltage', asFloat],
+    ['loxDomeHeaterCurrent', asFloat],
   ],
-  80: [
-    ['acHeater4Voltage', asFloat], //inbound 24V channel 1
-    ['acHeater4Current', asFloat],
+  103: [
+    ['fuelDomeHeaterVoltage', asFloat],
+    ['fuelDomeHeaterCurrent', asFloat],
+  ],
+  104: [
+    ['loxDomeHeaterState', asUInt8],
+  ],
+  105: [
+    ['fuelDomeHeaterState', asUInt8],
   ],
 
-  120: [
-    ['ERegDAQ_LC1', asFloat],
-    ['ERegDAQ_LC2', asFloat],
-    ['ERegDAQ_LC_Sum', asFloat],
-  ],
+
+  // DAQs
 
   110: [
-    ['ERegDAQ_TC1', asFloat],
-    ['ERegDAQ_TC2', asFloat],
-    ['ERegDAQ_TC3', asFloat]
+    ['daqBattVoltage', asFloat],
+    ['daqBattCurrent', asFloat],
   ],
 
-  // TVC
-  42: [
-    ['TVC_encoder_x', asUInt32], 
-    ['TVC_encoder_y', asUInt32]
-  ], 
-
-
-
-  // 111: [
-  //   ['TC1', asFloat],
-  // ],
-  // 112: [
-  //   ['TC2', asFloat],
-  // ],
-  // 113: [
-  //   ['TC3', asFloat],
-  // ],
-  // 114: [
-  //   ['TC4', asFloat],
-  // ],
-  221: [
-    ['loxCapFill', asFloat],
-  ],
-  222: [
-    ['fuelCapFill', asFloat],
+  111: [
+    ['daqADC0', asFloat],
+    ['daqADC1', asFloat],
+    ['daqADC2', asFloat],
+    ['daqADC3', asFloat],
+    ['daqADC4', asFloat],
+    ['daqADC5', asFloat],
+    ['daqADC6', asFloat],
+    ['daqADC7', asFloat],
   ],
 
-
-  51: [
-    ['autoVentTriggered', asAutoVentTriggered],
+  112: [
+    ['daqTC0', asFloat],
+  ],
+  113: [
+    ['daqTC1', asFloat],
+  ],
+  114: [
+    ['daqTC2', asFloat],
+  ],
+  115: [
+    ['daqTC3', asFloat],
   ],
 
-  30: [
-    ['tcAbortTriggered', asTCAbortTriggered],
+  116: [
+    ['loadCell0', asFloat],
+    ['loadCell1', asFloat],
+    ['loadCell2', asFloat],
+    ['loadCellSum', asFloat],
   ],
 
-  31: [
-    ['lcAbortTriggered', asLCAbortTriggered],
-  ],
+  153: [
+    ['dataWritten', asUInt32],
+  ]
 
-
-  // // [100:129] DAQs
-  // 100: [
-  //   ['daqBattVoltage', asFloat],
-  //   ['daqBattCurrent', asFloat],
-  // ],
-
-  // 101: [
-  //   ['daqADC0', asFloat],
-  //   ['daqADC1', asFloat],
-  //   ['daqADC2', asFloat],
-  //   ['daqADC3', asFloat],
-  //   ['daqADC4', asFloat],
-  //   ['daqADC5', asFloat],
-  //   ['daqADC6', asFloat],
-  //   ['daqADC7', asFloat],
-  // ],
-
-  // 121: [
-  //   ['fastLoadCell1', asFloat],
-  //   ['fastLoadCell2', asFloat],
-  //   // ['fastLoadCellSum', asFloat],
-  // ],
-  221: [
-    ['loxCapVal', asFloat],
-    ['loxCapValFiltered', asFloat],
-    ['loxCapTemperature', asFloat],
-  ],
-  222: [
-    ['fuelCapVal', asFloat],
-    ['fuelCapValFiltered', asFloat],
-    ['fuelCapTemperature', asFloat],
-  ],
-
-  // 301: [  // thermocouples
-  //   ['ERegDAQ_TC1', asFloat],
-  //   ['ERegDAQ_TC2', asFloat],
-  //   ['ERegDAQ_TC3', asFloat],
-  //   ['ERegDAQ_TC4', asFloat],
-  // ],
-  // 302: [ // Load Cells
-  //   ['ERegDAQ_LC1', asFloat],
-  //   ['ERegDAQ_LC2', asFloat],
-  // ],
 }
 
 /** @type {Object.<Number,Array.<Number>>} */
 const OUTBOUND_PACKET_DEFS = {
   // Windows enable port packet
   0: [UINT8],
-  // [130..169] Sent to Flight Computer
+
+  // Sent to Flight Computer
+  
+  29: [UINT8], // Flight mode enable/disable  
+  169: [UINT8, UINT32], // Press Flow RBV
+
+  // Sent to Ground Computer
+
+  42:  [UINT8], // Flight Enable
   126: [UINT8], // Lox gems
   127: [UINT8], // Fuel gems
   128: [UINT8], // Lox gems toggle
   129: [UINT8], // Fuel gems toggle
-  130: [UINT8],
-  131: [UINT8],
-  132: [UINT8],
-  133: [UINT8],
-  135: [UINT8],
-  136: [UINT8],
-  137: [UINT8],
-  138: [UINT8],
+  130: [UINT8], // Arm valve
+  131: [UINT8], // Igniter
+  132: [UINT8], // Lox main valve
+  133: [UINT8], // Fuel main valve
+  135: [UINT8], // Press RQD
+  136: [UINT8], // Main valve vent
+  137: [UINT8], // Enable igniter relay
 
-  140: [UINT8],
+  // 140: [UINT8], // Formerly Fast Read Rate, now deprecated
 
-  150: [],
-  151: [],
-  152: [],
+  150: [], // Begin Flow
+  151: [], // Abort Flow
+  152: [], // Automation settings
 
-  // [170..199] Sent to Actuator Controller
+  153: [UINT8], // erase black box
 
-  // EReg packets
-  1: [UINT8], //begin one sided flow -> [fuel EReg ? 1 : 0]
-  2: [], //start flow
-  3: [], //abort
-  4: [UINT8, FLOAT], // set encoder to value; [fuel EReg ? 1 : 0, encoderValue]
-  5: [UINT8, UINT8], //open main valve
-  6: [UINT8, UINT8], //close main valve
-  7: [UINT8], //static press -> [fuel EReg ? 1 : 0]
-  8: [UINT8], //Zero encoder; [fuel EReg ? 1 : 0]
-  9: [UINT8], //Begin AC flow
+  // Sent to Actuator Controller
 
-
-
-  //AC RBV & 24/12V packets
-  10: [UINT8, UINT32],
-  11: [UINT8, UINT32],
-  12: [UINT8, UINT32],
-  13: [UINT8, UINT32],
-  14: [UINT8, UINT32],
-  15: [UINT8, UINT32],
-  16: [UINT8, UINT32],
-  // 17: [UINT8, UINT32],
-
-
-
-  19: [UINT8],
-  20: [UINT8],
-  21: [UINT8],
-
-  // EReg Outbound from dashboard
-  200: [],
-  201: [],
-  202: [FLOAT],
-  203: [],
-  204: [],
-  205: [],
-  206: [UINT8],
-
-  // EReg outbound from dashboard
-  251: [UINT8, UINT32],
-  252: [UINT8, UINT32],
-  253: [UINT8, UINT32],
-
+  170: [UINT8, UINT32],
+  171: [UINT8, UINT32],
+  172: [UINT8, UINT32],
+  173: [UINT8, UINT32],
+  174: [UINT8, UINT32],
+  175: [UINT8, UINT32],
+  176: [UINT8, UINT32],
+  180: [UINT8],
+  181: [UINT8],
+  182: [UINT8],
+  183: [UINT8],
 }
 
 module.exports = { INBOUND_PACKET_DEFS, OUTBOUND_PACKET_DEFS }

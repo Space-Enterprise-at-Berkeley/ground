@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import { withStyles, withTheme } from '@material-ui/core/styles';
 import { Grid, Button, Box, TextField } from '@material-ui/core';
 
-import comms from '../api/Comms';
+import comms from '../../api/Comms';
+import OpenCloseButtonGroup from './OpenCloseButtonGroup';
 
 const styles = theme => ({
   openButton: {
@@ -46,39 +47,32 @@ const statusBox = {
   style: { width: '9rem', height: '1rem', marginLeft: 'auto', marginRight: 'auto' },
 };
 
-class ButtonGroupHeater extends Component {
+class ButtonGroupHeaterCtrlLoop extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      duty: 0, // duty cycle
+      openClicked: false, // duty cycle
     };
 
-    this.handleDutyChange = this.handleDutyChange.bind(this);
-    this.setDuty = this.setDuty.bind(this);
-    this.setDutyOn = this.setDutyOn.bind(this);
-    this.setDutyOff = this.setDutyOff.bind(this);
+    this.setCtrlLoop = this.setCtrlLoop.bind(this);
+    this.setOn = this.setOn.bind(this);
+    this.setOff = this.setOff.bind(this);
   }
 
-  handleDutyChange(e) {
-    this.setState({duty: parseFloat(e.target.value)});
-  }
-
-  setDuty() {
-    const { duty } = this.state;
+  setCtrlLoop() {
     const { sendDuty } = this.props;
-    sendDuty(duty);
+    sendDuty(300);
+    this.setState({openClicked: null});
   }
-
-  setDutyOn() {
-    const { activate } = this.props;
-    activate();
-    this.setState({duty: 255});
+  setOn() {
+    const { sendDuty } = this.props;
+    sendDuty(255);
+    this.setState({openClicked: true});
   }
-
-  setDutyOff() {
-    const { deactivate } = this.props;
-    deactivate();
-    this.setState({duty: 0});
+  setOff() {
+    const { sendDuty } = this.props;
+    sendDuty(0);
+    this.setState({openClicked: false});
   }
 
   // componentDidMount() {
@@ -93,52 +87,38 @@ class ButtonGroupHeater extends Component {
 
   render() {
     const { classes, theme, text } = this.props;
-    const { duty } = this.state;
+    const { openClicked } = this.state;
     return (
       <Grid container spacing={1} alignItems='center' style={{textAlign: 'center'}}>
         <Grid item xs={12}>
           <Box component="span" display="block">{text}</Box>
         </Grid>
-        {/* <Grid item xs={12}>
-          <Box borderRadius={4} {...statusBox} bgcolor={sColor}/>
-        </Grid> */}
-        {/* <Grid item xs={6}>
-          <TextField
-            type='number'
-            label='duty cycle'
-            value={duty}
-            onChange={this.handleDutyChange}
-          />
-        </Grid> */}
-        <Grid item xs={6}>
-          <Button
-            color='secondary'
-            variant='contained'
-            onClick={this.setDutyOff}
-            className={this.state.duty === 0 ? classes.closeButton : classes.closeButtonOutline}
-            disabled={this.props.disabled || false}
-            disableRipple
-            size='small'
-          >
-            Turn Off
-          </Button>
-        </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={4}>
           <Button
             color='primary'
-            variant='contained'
-            className={this.state.duty === 255 ? classes.openButton : classes.openButtonOutline}
-            onClick={this.setDutyOn}
+            variant={openClicked === null ? 'contained' : 'outlined'}
+            onClick={this.setCtrlLoop}
             disabled={this.props.disabled || false}
             disableRipple
             size='small'
           >
-            Turn On
+            Enable Ctrl Loop
           </Button>
+        </Grid>
+        <Grid item xs={8}>
+          <OpenCloseButtonGroup
+            isOpen={this.state.duty == 0}
+            setOpen={this.setOn}
+            setClosed={this.setOff}
+            disabled={this.props.disabled}
+            succesText={"Turn On"}
+            failText={"Turn Off"}
+          />
+
         </Grid>
       </Grid>
     );
   }
 }
 
-export default withTheme(withStyles(styles)(ButtonGroupHeater));
+export default withTheme(withStyles(styles)(ButtonGroupHeaterCtrlLoop));

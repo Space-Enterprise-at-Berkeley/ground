@@ -113,6 +113,16 @@ class Interpolation {
   }
 
   /**
+   * Returns the unsigned 32 bit int that is represented by the buffer at the given offset.
+   * @param buffer {Buffer} the source buffer
+   * @param offset {Number}
+   * @returns {[Number|Number]}
+   */
+  static asUInt32fromustos(buffer, offset) {
+    return [buffer.readUInt32LE(offset)/1000000, 4]
+  }
+
+  /**
    * @typedef {Object} ExtendedUpdateObject
    * @property {Boolean} isExtended Indicates that this is an extended object
    * @property {any} value The original update value

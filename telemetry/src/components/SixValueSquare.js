@@ -1,27 +1,63 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import { withStyles, withTheme } from '@material-ui/core/styles';
-import { Card, CardContent, Grid } from '@material-ui/core';
+import { withStyles, withTheme } from "@material-ui/core/styles";
+import { Card, CardContent, Grid, useTheme } from "@material-ui/core";
 
-import Field from './Field';
+import Field from "./Field";
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
-    height: '100%'
+    height: "100%",
   },
   cardContent: {
-    height: '100%',
-    padding: '8px',
-    paddingBottom: '8px !important'
+    height: "100%",
+    padding: "8px",
+    paddingBottom: "8px !important",
   },
   container: {
-    height: '100%'
+    height: "100%",
   },
   item: {
-    height: '50%',
-    textAlign: 'center'
-  }
+    height: "50%",
+    textAlign: "center",
+  },
 });
+
+function getFunction(id) {
+  switch (id) {
+    case "none":
+      return v => v;
+    case "plusOne":
+      let plusOne = function(v) {
+        return v + 1;
+      }
+      return plusOne;
+    case "roc":
+      let roc = function(v, ts) {
+        console.log(roc.history);
+        let diff = v - roc.last;
+        let timeDiff = ts - roc.lastTime;
+        roc.last = v;
+        roc.lastTime = ts;
+        roc.history.push(diff);
+        roc.times.push(timeDiff);
+        if (roc.history.length > 10) {
+          roc.history.shift();
+          roc.times.shift();
+        }
+        let sum = 0;
+        for (let i = 0; i < roc.history.length; i ++) {
+          sum += roc.history[i] * 1000 / roc.times[i];
+        }
+        return sum / roc.history.length;
+      }
+      roc.last = 0;
+      roc.lastTime = 0;
+      roc.history = [];
+      roc.times = [];
+      return roc;
+  }
+}
 
 class SixValueSquare extends Component {
   constructor(props) {
@@ -29,66 +65,25 @@ class SixValueSquare extends Component {
   }
 
   render() {
-    const { classes, field1, field2, field3, field4, field5, field6 } = this.props;
+    const { children, classes, fields } = this.props;
     return (
       <Card className={classes.root}>
         <CardContent className={classes.cardContent}>
           <Grid container spacing={1} className={classes.container}>
-            <Grid item xs={4} className={classes.item}>
-              <Field
-                name={field1.name}
-                field={field1.field}
-                unit={field1.unit}
-                decimals={field1.decimals}
-                threshold={field1.threshold}
-              />
-            </Grid>
-            <Grid item xs={4} className={classes.item}>
-              <Field
-                name={field2.name}
-                field={field2.field}
-                unit={field2.unit}
-                decimals={field2.decimals}
-                threshold={field2.threshold}
-              />
-            </Grid>
-            <Grid item xs={4} className={classes.item}>
-              <Field
-                name={field3.name}
-                field={field3.field}
-                unit={field3.unit}
-                decimals={field3.decimals}
-                threshold={field3.threshold}
-              />
-            </Grid>
-
-            <Grid item xs={4} className={classes.item}>
-              <Field
-                name={field4.name}
-                field={field4.field}
-                unit={field4.unit}
-                decimals={field4.decimals}
-                threshold={field4.threshold}
-              />
-            </Grid>
-            <Grid item xs={4} className={classes.item}>
-              <Field
-                name={field5.name}
-                field={field5.field}
-                unit={field5.unit}
-                decimals={field5.decimals}
-                threshold={field5.threshold}
-              />
-            </Grid>
-            <Grid item xs={4} className={classes.item}>
-              <Field
-                name={field6.name}
-                field={field6.field}
-                unit={field6.unit}
-                decimals={field6.decimals}
-                threshold={field6.threshold}
-              />
-            </Grid>
+            {fields.map((obj) => (
+              <Grid item xs={4} className={classes.item}>
+                <Field
+                    field={obj[0]}
+                    name={obj[1]}
+                    unit={obj[2]}
+                    decimals={obj[5] || 1}
+                    threshold={obj[6] || null}
+                    modifyValue={obj[7] ? getFunction(obj[7]) : null}
+                    thresholdColor={obj[8] || '#27AE60'}
+                />
+              </Grid>
+            ))}
+            {children}
           </Grid>
         </CardContent>
       </Card>
