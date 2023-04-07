@@ -3,7 +3,7 @@
 	"influxMap": "$influx_map.jsonc",
 	"windows": {
 		"ereg": "$ereg_window.jsonc",
-		"ereg2": "$ereg_window_2.jsonc",
+		"injereg": "$injereg_window.jsonc",
 		"misc": "$misc_window.jsonc",
 		"sensors": "$sensors_window.jsonc",
 		"controls": "$controls_window.jsonc"

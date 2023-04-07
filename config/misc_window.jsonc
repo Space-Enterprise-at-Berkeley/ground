@@ -6,19 +6,17 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "cap-fill.flightSupply8Voltage",
-					"name": "CF",
+					"field": "ac.ac24Voltage",
+					"name": "AC 24V",
 					"units": "V"
 				},
 				{
-					"field": "ac1.acSupply24Voltage",
-					"name": "AC1",
+					"field": "ac.ac12Voltage",
+					"name": "AC 12V",
 					"units": "V"
 				},
 				{
-					"field": "ac2.acSupply24Voltage",
-					"name": "AC2",
-					"units": "V"
+					"field": null,
 				},
 				{
 					"field": "tc.tcSupply24Voltage",
@@ -31,9 +29,7 @@
 					"units": "V"
 				},
 				{
-					"field": "pt.ptSupply24Voltage",
-					"name": "PT",
-					"units": "V"
+					"field": null,
 				}
 			]
 		},
@@ -41,19 +37,17 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "cap-fill.flightSupply8Current",
-					"name": "CF",
+					"field": "ac.ac24Current",
+					"name": "AC 24V",
 					"units": "mA"
 				},
 				{
-					"field": "ac1.acSupply24Current",
-					"name": "AC1",
+					"field": "ac.ac12Current",
+					"name": "AC 12V",
 					"units": "mA"
 				},
 				{
-					"field": "ac2.acSupply24Current",
-					"name": "AC2",
-					"units": "mA"
+					"field": null,
 				},
 				{
 					"field": "tc.tcSupply24Current",
@@ -66,9 +60,7 @@
 					"units": "mA"
 				},
 				{
-					"field": "pt.ptSupply24Current",
-					"name": "PT",
-					"units": "mA"
+					"field": null,
 				}
 			]
 		},
@@ -286,18 +278,18 @@
 		{
 			"type": "graph",
 			"values": [
-				{
-					"field": "pt.ptValue1", //-0.676 * mean("value") + 2901.7
-					"name": "RTD LOx",
-					"units": "mV",
-					"color": [255, 0, 0]
-				},
-				{
-				 	"field": "pt.ptValue5",
-				 	"name": "RTD Fuel",
-				 	"units": "mV",
-				 	"color": [0, 255, 0]
-				}
+				// {
+				// 	"field": "pt.ptValue1", //-0.676 * mean("value") + 2901.7
+				// 	"name": "RTD LOx",
+				// 	"units": "mV",
+				// 	"color": [255, 0, 0]
+				// },
+				// {
+				//  	"field": "pt.ptValue5",
+				//  	"name": "RTD Fuel",
+				//  	"units": "mV",
+				//  	"color": [0, 255, 0]
+				// }
 			]
 		}
 	]
