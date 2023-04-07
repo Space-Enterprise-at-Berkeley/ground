@@ -55,7 +55,9 @@ class EregHat extends Board {
         ], 
 
         3: [ // diagnostic
-            ['EReg_DIAGNOSTIC_MESSAGE', asDiagnosticMessage],
+           // ['EReg_DIAGNOSTIC_MESSAGE', asDiagnosticMessage],
+           ["motorDirPass", asUInt8],
+           ["servoPass", asUInt8],
         ],
         
         4: [ //command  fail
@@ -82,9 +84,9 @@ class EregHat extends Board {
             ['loxCommandFailMsg', asASCIIString],
         ],
 
-        50: [
-            ['flowState', asFlowState],
-        ],
+        // 50: [
+        //     ['flowState', asUInt8],
+        // ],
     }
   }
 }

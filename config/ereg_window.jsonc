@@ -121,16 +121,24 @@
 					"func": "roc"
 				},
 				{
-					"field": null
+					"field": "ioreg.",
+					"name": "LoxInj SetP",
+					"units": "ticks"
 				},
 				{
-					"field": null
+					"field": "foreg.",
+					"name": "FuelInj SetP",
+					"units": "ticks"
 				},
 				{
-					"field": null
+					"field": "ioreg.",
+					"name": "LoxInj Enc",
+					"units": "ticks"
 				},
 				{
-					"field": null
+					"field": "foreg.",
+					"name": "FuelInj Enc",
+					"units": "ticks"
 				}
 			]
 		},

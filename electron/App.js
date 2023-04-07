@@ -4,12 +4,13 @@ const State = require('./State');
 const UdpPort = require('./UdpPort');
 const InfluxDB = require('./InfluxDB');
 const FlightV4 = require('./Boards/FlightV4');
-const PTBoard = require('./Boards/PTBoard');
+// const PTBoard = require('./Boards/PTBoard');
 const TCBoard = require('./Boards/TCBoard');
 const LCBoard = require('./Boards/LCBoard');
 // const ACBoard = require('./Boards/ACBoard');
 const AC = require('./Boards/ActuatorController');
-const EregHat = require('./Boards/EregHat')
+const EregHat = require('./Boards/EregHat');
+const TVC = require('./Boards/TVC');
 const { initTime, fletcher16Partitioned } = require('./Packet');
 const EregBoard = require('./Boards/EregBoard');
 
@@ -48,13 +49,14 @@ class App {
 
     const boardTypes = {
       "flightV4": FlightV4,
-      "pt": PTBoard,
+      // "pt": PTBoard,
       "tc": TCBoard,
       "lc": LCBoard,
       // "ac": ACBoard,
       "ereg": EregBoard,
       "ereghat": EregHat,
-      "ac": AC
+      "oldac": AC,
+      "tvc": TVC,
     };
 
     for (let boardName in this.config.boards) {

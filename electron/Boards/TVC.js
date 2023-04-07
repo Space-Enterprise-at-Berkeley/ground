@@ -31,24 +31,19 @@ class TVC extends Board {
         ["firmwareCommitHash", asASCIIString]
       ],
 
-      // // 24V Supply Stats
-      // 1: [
-      //   ["tcSupply24Voltage", asFloat],
-      //   ["tcSupply24Current", asFloat],
-      //   ["tcSupply24Power", asFloat]
-      // ],
+      1: [
+        ["tvcEncoderX", asUInt32],
+        ["tvcEncoderY", asUInt32],
+      ],
 
-      // // TC Value
-      // 2: [
-      //   ["tcValue0", asFloat],
-      //   ["tcValue1", asFloat],
-      //   ["tcValue2", asFloat],
-      //   ["tcValue3", asFloat],
-      //   ["tcValue4", asFloat],
-      //   ["tcValue5", asFloat],
-      //   ["tcValue6", asFloat],
-      //   ["tcValue7", asFloat]
-      // ]
+      2: [
+        ["tvcSetpointX", asUInt32],
+        ["tvcSetpointY", asUInt32],
+      ],
+
+      3: [
+        ["tvcMode", asUInt8],
+      ],
     }
   }
 }

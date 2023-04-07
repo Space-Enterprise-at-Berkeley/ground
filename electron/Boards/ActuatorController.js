@@ -15,58 +15,49 @@ class ActuatorController extends Board {
         ["firmwareCommitHash", asASCIIString]
       ],
 
-      61: [
-        [battVoltage, asFloat],
-        [battCurrent, asFloat],
-        [battPower, asFloat],
+      1: [
+        ["ac24Voltage", asFloat],
+        ["ac24Current", asFloat],
+        ["ac24Power", asFloat],
+        ["ac12Voltage", asFloat],
+        ["ac12Current", asFloat],
+        ["ac12Power", asFloat],
       ],
 
-      62: [
-        [supply12Voltage, asFloat],
-        [supply12Current, asFloat],
-        [supply12Power, asFloat],
-      ], 
-
-      70: [
-        ['acLinAct1State', asUInt8], //0
-        ['acLinAct1Voltage', asFloat],
-        ['acLinAct1Current', asFloat],
+      // Actuator States
+      2: [
+        ["actuatorState0", asUInt8],
+        ["actuatorState1", asUInt8],
+        ["actuatorState2", asUInt8],
+        ["actuatorState3", asUInt8],
+        ["actuatorState4", asUInt8],
+        ["actuatorState5", asUInt8],
+        ["actuatorState6", asUInt8],
+        ["actuatorState7", asUInt8]
       ],
 
-      71: [
-        ['acLinAct2State', asUInt8], //0
-        ['acLinAct2Voltage', asFloat],
-        ['acLinAct2Current', asFloat],
-      ], 
-
-      72: [
-        ['acLinAct3State', asUInt8], //0
-        ['acLinAct3Voltage', asFloat],
-        ['acLinAct3Current', asFloat],
-      ], 
-
-      73: [
-        ['acLinAct4State', asUInt8], //0
-        ['acLinAct4Voltage', asFloat],
-        ['acLinAct4Current', asFloat],
-      ], 
-
-      74: [
-        ['acLinAct5State', asUInt8], //0
-        ['acLinAct5Voltage', asFloat],
-        ['acLinAct5Current', asFloat],
+      // Actuator Continuities
+      3: [
+        ["actuatorContinuity0", asFloat],
+        ["actuatorContinuity1", asFloat],
+        ["actuatorContinuity2", asFloat],
+        ["actuatorContinuity3", asFloat],
+        ["actuatorContinuity4", asFloat],
+        ["actuatorContinuity5", asFloat],
+        ["actuatorContinuity6", asFloat],
+        ["actuatorContinuity7", asFloat]
       ],
 
-      75: [
-        ['acLinAct6State', asUInt8], //0
-        ['acLinAct6Voltage', asFloat],
-        ['acLinAct6Current', asFloat],
-      ], 
-
-      76: [
-        ['acLinAct7State', asUInt8], //0
-        ['acLinAct7Voltage', asFloat],
-        ['acLinAct7Current', asFloat],
+      // Actuator Currents
+      4: [
+        ["actuatorCurrent0", asFloat],
+        ["actuatorCurrent1", asFloat],
+        ["actuatorCurrent2", asFloat],
+        ["actuatorCurrent3", asFloat],
+        ["actuatorCurrent4", asFloat],
+        ["actuatorCurrent5", asFloat],
+        ["actuatorCurrent6", asFloat],
+        ["actuatorCurrent7", asFloat]
       ],
 
       80: [
