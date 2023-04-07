@@ -6,14 +6,14 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "oreg.filteredUpstreamPressure1",
-					"name": "O-Reg Press",
+					"field": "ifreg.EReg_LP_PT",
+					"name": "Fuel Injector PT",
 					"units": "PSI",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "freg.filteredUpstreamPressure1",
-					"name": "F-Reg Press",
+					"field": "ifreg.EReg_PRESSURE_SETPOINT",
+					"name": "Setpoint",
 					"units": "PSI",
 					"color": [0, 255, 0]
 				}
@@ -23,15 +23,15 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "oreg.filteredDownstreamPressure1",
-					"name": "LOX Pressure",
-					"units": "PSI",
+					"field": "ioreg.EReg_ENCODER_ANGLE",
+					"name": "LOX Injector Angle",
+					"units": "ticks",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "oreg.pressureSetpoint",
+					"field": "ioreg.EReg_ANGLE_SETPOINT",
 					"name": "Setpoint",
-					"units": "C",
+					"units": "tickss",
 					"color": [0, 255, 0]
 				}
 			]
@@ -40,15 +40,15 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "freg.filteredDownstreamPressure1",
-					"name": "Fuel Pressure",
-					"units": "PSI",
+					"field": "ifreg.EReg_ENCODER_ANGLE",
+					"name": "Fuel Injector Angle",
+					"units": "ticks",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "freg.pressureSetpoint",
+					"field": "ifreg.EReg_ANGLE_SETPOINT",
 					"name": "Setpoint",
-					"units": "C",
+					"units": "ticks",
 					"color": [0, 255, 0]
 				}
 			]
@@ -57,33 +57,29 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "oreg.filteredUpstreamPressure1",
-					"name": "LOX Press",
+					"field": "ioreg.EReg_LP_PT",
+					"name": "LOx Inj PT",
 					"units": "PSI"
 				},
 				{
-					"field": "oreg.filteredDownstreamPressure1",
-					"name": "LOX Tank",
+					"field": "ifreg.EReg_LP_PT",
+					"name": "Fuel Inj PT",
 					"units": "PSI"
 				},
 				{
-					"field": "oreg.pressureSetpoint",
-					"name": "Lox SetP",
+					"field": null
+				},
+				{
+					"field": null
+				},
+				{
+					"field": "ioreg.EReg_PRESSURE_SETPOINT",
+					"name": "Lox Inj SetP",
 					"units": "PSI"
 				},
 				{
-					"field": "freg.filteredUpstreamPressure1",
-					"name": "Fuel Press",
-					"units": "PSI"
-				},
-				{
-					"field": "freg.filteredDownstreamPressure1",
-					"name": "Fuel Tank",
-					"units": "PSI"
-				},
-				{
-					"field": "freg.pressureSetpoint",
-					"name": "Fuel SetP",
+					"field": "ifreg.EReg_PRESSURE_SETPOINT",
+					"name": "Fuel Inj SetP",
 					"units": "PSI"
 				}
 			]
@@ -92,21 +88,45 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "pt.ptValue0",
+					"field": "ioreg.EReg_LP_PT",
 					"name": "LOX Injector PT",
 					"units": "PSI",
 					"color": [255, 0, 0]
-				}
-			]
-		},
-		{
-			"type": "graph",
-			"values": [
+				},
 				{
-					"field": "pt.ptValue4",
-					"name": "Fuel Injector PT",
+					"field": "ioreg.EReg_PRESSURE_SETPOINT",
+					"name": "Setpoint",
 					"units": "PSI",
-					"color": [255, 0, 0]
+					"color": [0, 255, 0]
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "tvc.tvc_mode",
+					"name": "TVC Mode",
+					"units": "",
+				},
+				{
+					"field": null,
+				},
+				{
+					"field": "tvc.tvc_setpoint_x",
+					"name": "TVC X SetP",
+					"units": "ticks"
+				},
+				{
+					"field": "tvc.tvc_setpoint_y",
+					"name": "TVC Y SetP",
+					"units": "ticks"
+				},
+				{
+					"field": null,
+				},
+				{
+					"field": null,
 				}
 			]
 		},
@@ -114,15 +134,15 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "oreg.motorPower",
-					"name": "LOX Motor Power",
-					"units": "%",
+					"field": "tvc.tvc_encoder_x",
+					"name": "TVC X Encoder",
+					"units": "ticks",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "freg.motorPower",
-					"name": "Fuel Motor Power",
-					"units": "%",
+					"field": "tvc.tvc_setpoint_x",
+					"name": "Setpoint",
+					"units": "ticks",
 					"color": [0, 255, 0]
 				}
 			]
@@ -131,15 +151,15 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "oreg.encoderAngle",
-					"name": "LOX Encoder Angle",
-					"units": "",
+					"field": "tvc.tvc_encoder_y",
+					"name": "TVC Y Encoder",
+					"units": "ticks",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "oreg.angleSetpoint",
+					"field": "tvc.tvc_setpoint_y",
 					"name": "Setpoint",
-					"units": "",
+					"units": "ticks",
 					"color": [0, 255, 0]
 				}
 			]

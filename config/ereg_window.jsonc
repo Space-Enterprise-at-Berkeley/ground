@@ -121,22 +121,22 @@
 					"func": "roc"
 				},
 				{
-					"field": "ioreg.",
+					"field": "ioreg.EReg_ANGLE_SETPOINT",
 					"name": "LoxInj SetP",
 					"units": "ticks"
 				},
 				{
-					"field": "foreg.",
+					"field": "foreg.EReg_ANGLE_SETPOINT",
 					"name": "FuelInj SetP",
 					"units": "ticks"
 				},
 				{
-					"field": "ioreg.",
+					"field": "ioreg.EReg_ENCODER_ANGLE",
 					"name": "LoxInj Enc",
 					"units": "ticks"
 				},
 				{
-					"field": "foreg.",
+					"field": "foreg.EReg_ENCODER_ANGLE",
 					"name": "FuelInj Enc",
 					"units": "ticks"
 				}

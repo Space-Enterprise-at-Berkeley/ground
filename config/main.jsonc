@@ -3,11 +3,12 @@
 	"influxMap": "$influx_map.jsonc",
 	"windows": {
 		"ereg": "$ereg_window.jsonc",
+		"ereg2": "$ereg_window_2.jsonc",
 		"misc": "$misc_window.jsonc",
 		"sensors": "$sensors_window.jsonc",
 		"controls": "$controls_window.jsonc"
 	},	
 	"burnTime": 45000, // ms
 	"mode": 2, // 0 = launch, 1 = hotfire, 2 = coldflow, 3 = gasflow
-	"controller": "ac1"
+	"controller": "ac"
 }
