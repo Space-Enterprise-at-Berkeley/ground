@@ -21,6 +21,7 @@ import LaunchButton from "./LaunchButton";
 import ProgressBarsSquare from "./ProgressBarsSquare";
 import RocketOrientation from "./RocketOrientation";
 import Map from "./Map";
+import ProceduresSquare from "./ProceduresSquare";
 
 // const fields = [
 //   [
@@ -226,7 +227,13 @@ class NineGrid extends Component {
                               gpsLatitude={field.gpsLatitude}
                               gpsLongitude={field.gpsLongitude}
                             />
-                        )
+                          )
+                        case "procedures":
+                          return (
+                            <ProceduresSquare
+                              steps={field.steps}
+                            />
+                          )
                         default:
                           return (
                             <ErrorSquare error={`Field type "${field.type}" not found`} />

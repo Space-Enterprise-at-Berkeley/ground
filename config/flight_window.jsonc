@@ -211,7 +211,17 @@
 					"field": null
 				}
 			]
+		},
+		{
+			"type": "procedures",
+			"steps": [
+				"Preparations",
+				"Pressurant Fill",
+				"Propellant Fill",
+				"Pressurization",
+				"Countdown",
+				"Burn"
+			]
 		}
-
 	]
 }
