@@ -15,13 +15,13 @@ const styles = theme => ({
   },
   connectedButton: {
     marginRight: theme.spacing(2),
-    backgroundColor: theme.palette.success.main + ' !important',
-    color: theme.palette.text.primary + ' !important'
+    backgroundColor: '#3B7EA1 !important',
+    color: '#FFFFFF !important'
   },
   disconnectedButton: {
     marginRight: theme.spacing(2),
-    backgroundColor: theme.palette.error.main + ' !important',
-    color: theme.palette.text.primary + ' !important'
+    backgroundColor: '#FDB515 !important',
+    color: '#000000 !important'
   },
 });
 

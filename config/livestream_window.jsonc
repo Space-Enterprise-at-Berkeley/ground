@@ -1,0 +1,101 @@
+{
+	"name": "Livestream",
+	"layout": "9-grid",
+	"slots": [
+        {
+            "type": "six-square",
+            "values": []
+        },
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "oreg.filteredUpstreamPressure1",
+					"name": "LOX High Pressure",
+					"units": "PSI",
+					"color": [59, 126, 161]
+				},
+				{
+					"field": "freg.filteredUpstreamPressure1",
+					"name": "Fuel High Pressure",
+					"units": "PSI",
+					"color": [253, 181, 21]
+				}
+			]
+		},
+        {
+            "type": "six-square",
+            "values": []
+        },
+        {
+			"type": "graph",
+			"values": [
+				{
+					"field": "oreg.filteredDownstreamPressure1",
+					"name": "LOX Tank Pressure",
+					"units": "PSI",
+					"color": [59, 126, 161]
+				},
+				{
+					"field": "oreg.pressureSetpoint",
+					"name": "Setpoint",
+					"units": "C",
+					"color": [253, 181, 21]
+				}
+			]
+		},
+        {
+			"type": "procedures",
+			"steps": [
+				"Preparations",
+				"Pressurant Fill",
+				"Propellant Fill",
+				"Pressurization",
+				"Countdown",
+				"Burn"
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "freg.filteredDownstreamPressure1",
+					"name": "Fuel Tank Pressure",
+					"units": "PSI",
+					"color": [59, 126, 161]
+				},
+				{
+					"field": "freg.pressureSetpoint",
+					"name": "Setpoint",
+					"units": "C",
+					"color": [253, 181, 21]
+				}
+			]
+		},
+        {
+            "type": "six-square",
+            "values": []
+        },
+        {
+			"type": "graph",
+			"values": [
+				{
+					"field": "flight.loxCapVal",
+					"name": "LOX Fill Level",
+					"units": "pF",
+					"color": [59, 126, 161]
+				},
+				{
+					"field": "flight.fuelCapVal",
+					"name": "Fuel Fill Level",
+					"units": "pF",
+					"color": [253, 181, 21]
+				}
+			]
+		},
+        {
+            "type": "six-square",
+            "values": []
+        }
+	]
+}
