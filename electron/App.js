@@ -1,5 +1,6 @@
 const { ipcMain } = require('electron');
 
+const Board = require('./Board');
 const State = require('./State');
 const UdpPort = require('./UdpPort');
 const InfluxDB = require('./InfluxDB');
@@ -52,10 +53,11 @@ class App {
     };
 
     for (let boardName in this.config.boards) {
-      this.boards[boardName] = new boardTypes[this.config.boards[boardName].type](
+      this.boards[boardName] = new Board(
         this.port,
         this.config.boards[boardName].address,
         boardName,
+        {},
         () => {
           let packet = {};
           packet[boardName + ".boardConnected"] = true;
@@ -70,7 +72,8 @@ class App {
           let packet = {};
           packet[boardName + ".boardKbps"] = rate;
           this.updateState(Date.now(), packet);
-        }
+        },
+        this.config.packets[this.config.boards[boardName].type]
       );
     }
 
