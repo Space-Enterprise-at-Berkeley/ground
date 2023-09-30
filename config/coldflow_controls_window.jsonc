@@ -51,7 +51,7 @@
 					"id": "nitrousMain",
 					"type": "valve",
 					"name": "Nitrous Main",
-					"field": "ac1.actuatorState2",
+					"field": "ac1.actuatorState4",
 					"actions": {
 						"enable": {
 							"type": "on",
@@ -72,7 +72,7 @@
 					"id": "ethaneMain",
 					"type": "valve",
 					"name": "Ethane Main",
-					"field": "ac1.actuatorState2",
+					"field": "ac1.actuatorState5",
 					"actions": {
 						"enable": {
 							"type": "on",
@@ -98,31 +98,31 @@
 					"id": "ethaneFill",
 					"type": "timed",
 					"name": "Ethane Fill RBV",
-					"field": "ac2.actuatorState4",
+					"field": "ac3.actuatorState7",
 					"actions": {
 						"enable": {
 							"type": "retract-full",
-							"board": "ac2",
+							"board": "ac3",
 							"packet": 100,
-							"number": 4
+							"number": 7
 						},
 						"disable": {
 							"type": "extend-full",
-							"board": "ac2",
+							"board": "ac3",
 							"packet": 100,
-							"number": 4
+							"number": 7
 						},
 						"enable-timed": {
 							"type": "retract-timed",
-							"board": "ac2",
+							"board": "ac3",
 							"packet": 100,
-							"number": 4
+							"number": 7
 						},
 						"disable-timed": {
 							"type": "extend-timed",
-							"board": "ac2",
+							"board": "ac3",
 							"packet": 100,
-							"number": 4
+							"number": 7
 						}
 					},
 					"green": [0, 1]
@@ -131,31 +131,31 @@
 					"id": "ethaneLineVent",
 					"type": "timed",
 					"name": "ETH Line Vent RBV",
-					"field": "ac2.actuatorState5",
+					"field": "ac3.actuatorState6",
 					"actions": {
 						"enable": {
 							"type": "retract-full",
-							"board": "ac2",
+							"board": "ac3",
 							"packet": 100,
-							"number": 5
+							"number": 6
 						},
 						"disable": {
 							"type": "extend-full",
-							"board": "ac2",
+							"board": "ac3",
 							"packet": 100,
-							"number": 5
+							"number": 6
 						},
 						"enable-timed": {
 							"type": "retract-timed",
-							"board": "ac2",
+							"board": "ac3",
 							"packet": 100,
-							"number": 5
+							"number": 6
 						},
 						"disable-timed": {
 							"type": "extend-timed",
-							"board": "ac2",
+							"board": "ac3",
 							"packet": 100,
-							"number": 5
+							"number": 6
 						}
 					},
 					"green": [0, 1]
@@ -164,7 +164,37 @@
 					"type": null
 				},
 				{
-					"type": null
+					"id": "ethaneVent",
+					"type": "timed",
+					"name": "ETH Vent RBV",
+					"field": "ac3.actuatorState3",
+					"actions": {
+						"enable": {
+							"type": "retract-full",
+							"board": "ac3",
+							"packet": 100,
+							"number": 3
+						},
+						"disable": {
+							"type": "extend-full",
+							"board": "ac3",
+							"packet": 100,
+							"number": 3
+						},
+						"enable-timed": {
+							"type": "retract-timed",
+							"board": "ac3",
+							"packet": 100,
+							"number": 3
+						},
+						"disable-timed": {
+							"type": "extend-timed",
+							"board": "ac3",
+							"packet": 100,
+							"number": 3
+						}
+					},
+					"green": [0, 1]
 				}
 			]
 		},
@@ -224,19 +254,19 @@
 					"id": "nitrousGems",
 					"type": "valve",
 					"name": "Nitrous GEMS",
-					"field": "ac2.actuatorState6",
+					"field": "ac3.actuatorState0",
 					"actions": {
 						"enable": {
 							"type": "on",
-							"board": "ac2",
+							"board": "ac3",
 							"packet": 100,
-							"number": 6
+							"number": 0
 						},
 						"disable": {
 							"type": "off",
-							"board": "ac2",
+							"board": "ac3",
 							"packet": 100,
-							"number": 6
+							"number": 0
 						}
 					},
 					"green": [0, 1]
@@ -245,19 +275,19 @@
 					"id": "ethaneGems",
 					"type": "valve",
 					"name": "Ethane GEMS",
-					"field": "ac2.actuatorState7",
+					"field": "ac3.actuatorState1",
 					"actions": {
 						"enable": {
 							"type": "on",
-							"board": "ac2",
+							"board": "ac3",
 							"packet": 100,
-							"number": 7
+							"number": 1
 						},
 						"disable": {
 							"type": "off",
-							"board": "ac2",
+							"board": "ac3",
 							"packet": 100,
-							"number": 7
+							"number": 1
 						}
 					},
 					"green": [0, 1]
@@ -283,26 +313,42 @@
 				// 	},
 				// 	"green": [0, 1]
 				// },
-				{
-					"id": "propMain",
-					"type": "valve",
-					"name": "eReg Reset",
-					"field": "ac1.actuatorState5",
+				// {
+				// 	"id": "propMain",
+				// 	"type": "valve",
+				// 	"name": "eReg Reset",
+				// 	"field": "ac1.actuatorState5",
+				// 	"actions": {
+				// 		"enable": {
+				// 			"type": "on",
+				// 			"board": "ac1",
+				// 			"packet": 100,
+				// 			"number": 5
+				// 		},
+				// 		"disable": {
+				// 			"type": "off",
+				// 			"board": "ac1",
+				// 			"packet": 100,
+				// 			"number": 5
+				// 		}
+				// 	},
+				// 	"green": [0, 1]
+				// },
+                {
+					"id": "launchEnable",
+					"type": "switch",
+					"name": "Flow Enable",
+					"field": "",
 					"actions": {
 						"enable": {
-							"type": "on",
-							"board": "ac1",
-							"packet": 100,
-							"number": 5
+							"type": "enable",
+							"id": "launch"
 						},
 						"disable": {
-							"type": "off",
-							"board": "ac1",
-							"packet": 100,
-							"number": 5
+							"type": "disable",
+							"id": "launch"
 						}
-					},
-					"green": [0, 1]
+					}
 				}
 			]
 		},
@@ -381,7 +427,37 @@
 					"type": null
 				},
 				{
-					"type": null
+					"id": "nitrousVent",
+					"type": "timed",
+					"name": "NOS Vent RBV",
+					"field": "ac3.actuatorState2",
+					"actions": {
+						"enable": {
+							"type": "retract-full",
+							"board": "ac3",
+							"packet": 100,
+							"number": 2
+						},
+						"disable": {
+							"type": "extend-full",
+							"board": "ac3",
+							"packet": 100,
+							"number": 2
+						},
+						"enable-timed": {
+							"type": "retract-timed",
+							"board": "ac3",
+							"packet": 100,
+							"number": 2
+						},
+						"disable-timed": {
+							"type": "extend-timed",
+							"board": "ac3",
+							"packet": 100,
+							"number": 2
+						}
+					},
+					"green": [0, 1]
 				}
 			]
 		},
@@ -391,41 +467,6 @@
 		{
 			"type": "four-button",
 			"buttons": [
-				// {
-				// 	"id": "pressFill2",
-				// 	"type": "timed",
-				// 	"name": "eReg Diagnostics",
-				// 	"field": "ac1.actuatorState6",
-				// 	"actions": {
-				// 		"enable": {
-				// 			// "type": "retract-full",
-				// 			// "board": "ac2",
-				// 			// "packet": 100,
-				// 			// "number": 0
-				// 			"type": null
-				// 		},
-				// 		"disable": {
-				// 			"type": "extend-full",
-				// 			"board": "ac1",
-				// 			"packet": 100,
-				// 			"number": 6
-				// 		},
-				// 		"enable-timed": {
-				// 			"type": "retract-timed",
-				// 			"board": "ac1",
-				// 			"packet": 100,
-				// 			"number": 6
-				// 		},
-				// 		"disable-timed": {
-				// 			"type": "extend-timed",
-				// 			"board": "ac1",
-				// 			"packet": 100,
-				// 			"number": 6
-				// 		}
-				// 	},
-				// 	"safe": true,
-				// 	"green": [0, 1]
-				// },
 				{
 					"id": "eregPartialOpen",
 					"type": "ereg-timed",
@@ -445,24 +486,30 @@
 					},
 					"safe": true
 				},
+                {
+					"id": "eregStaticPress",
+					"type": "ereg",
+					"name": "Static Press",
+					"field": "",
+					"actions": {
+						"lox": {
+							"type": "signal",
+							"board": "oreg",
+							"packet": 203
+						},
+						"fuel": {
+							"type": "signal",
+							"board": "freg",
+							"packet": 203
+						}
+					},
+					"safe": true
+				},
 				{
 					"type": null
 				},
-				{
-					"id": "launchEnable",
-					"type": "switch",
-					"name": "Launch Enable",
-					"field": "",
-					"actions": {
-						"enable": {
-							"type": "enable",
-							"id": "launch"
-						},
-						"disable": {
-							"type": "disable",
-							"id": "launch"
-						}
-					}
+                {
+					"type": null
 				}
 			]
 		},
@@ -473,85 +520,85 @@
 			"type": "four-button",
 			"buttons": [
 				{
-					"id": "propMain",
+					"id": "nitrousEmergencyVent",
 					"type": "valve",
 					"name": "NOS EMERGENCY VENT",
-					"field": "ac1.actuatorState5",
+					"field": "ac2.actuatorState0",
 					"actions": {
 						"enable": {
 							"type": "on",
-							"board": "ac1",
+							"board": "ac2",
 							"packet": 100,
-							"number": 5
+							"number": 0
 						},
 						"disable": {
 							"type": "off",
-							"board": "ac1",
+							"board": "ac2",
 							"packet": 100,
-							"number": 5
+							"number": 0
 						}
 					},
 					"green": [0, 1]
 				},
 				{
-					"id": "propMain",
+					"id": "ethaneEmergencyVent",
 					"type": "valve",
 					"name": "ETH EMERGENCY VENT",
-					"field": "ac1.actuatorState5",
+					"field": "ac2.actuatorState2",
 					"actions": {
 						"enable": {
 							"type": "on",
-							"board": "ac1",
+							"board": "ac2",
 							"packet": 100,
-							"number": 5
+							"number": 2
 						},
 						"disable": {
 							"type": "off",
-							"board": "ac1",
+							"board": "ac2",
 							"packet": 100,
-							"number": 5
+							"number": 2
 						}
 					},
 					"green": [0, 1]
 				},
 				{
-					"id": "propMain",
+					"id": "nitrousDump",
 					"type": "valve",
 					"name": "NOS EMERGENCY DUMP",
-					"field": "ac1.actuatorState5",
+					"field": "ac2.actuatorState1",
 					"actions": {
 						"enable": {
 							"type": "on",
-							"board": "ac1",
+							"board": "ac2",
 							"packet": 100,
-							"number": 5
+							"number": 1
 						},
 						"disable": {
 							"type": "off",
-							"board": "ac1",
+							"board": "ac2",
 							"packet": 100,
-							"number": 5
+							"number": 1
 						}
 					},
 					"green": [0, 1]
 				},
                 {
-					"id": "propMain",
+					"id": "ethaneDump",
 					"type": "valve",
 					"name": "ETH EMERGENCY DUMP",
-					"field": "ac1.actuatorState5",
+					"field": "ac2.actuatorState2",
 					"actions": {
 						"enable": {
 							"type": "on",
-							"board": "ac1",
+							"board": "ac2",
 							"packet": 100,
-							"number": 5
+							"number": 2
 						},
 						"disable": {
 							"type": "off",
-							"board": "ac1",
+							"board": "ac2",
 							"packet": 100,
-							"number": 5
+							"number": 2
 						}
 					},
 					"green": [0, 1]
