@@ -3,6 +3,130 @@
 	"layout": "9-grid",
 	"slots": [
 		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "pt2.ptValue0",
+					"name": "Nitrous Tank PT",
+					"units": "PSI",
+					"color": [255, 0, 0]
+				}
+		
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "pt2.ptValue1",
+					"name": "Ethane Tank PT",
+					"units": "PSI",
+					"color": [255, 0, 0]
+				}
+		
+			]
+		},
+		{
+			// roc not established in influx map
+			"type": "six-square",
+			"values": [
+				{
+					"field": "pt2.ptValue0@roc",
+					"name": "Nitrous Tank RoC",
+					"units": "PSI/s"
+				},
+				{
+					"field": "pt2.ptValue1@roc",
+					"name": "Ethane Tank RoC",
+					"units": "PSI/s"
+				},
+				{
+					"field": null
+				},
+				{
+					"field": null
+				},
+				{
+					"field": null
+				},
+				{
+					"field": null
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "lc1.ptValue2",
+					"name": "Nitrous LC 0",
+					"units": "lbs",
+					"color": [0, 255, 255]
+				},
+				{
+					"field": "lc1.ptValue3",
+					"name": "Nitrous LC 1",
+					"units": "lbs",
+					"color": [0, 255, 255]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "lc1.ptValue0",
+					"name": "Ethane LC 0",
+					"units": "lbs",
+					"color": [0, 255, 255]
+				},
+				{
+					"field": "lc1.ptValue1",
+					"name": "Ethane LC 1",
+					"units": "lbs",
+					"color": [0, 255, 255]
+				}
+			]
+		},
+		{
+			// CAP FILL not established in influx map yet
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "pt1.ptValue6@rtd",
+					"name": "Nitrous Tank RTD",
+					"units": "C",
+					"color": [0, 255, 255]
+				},
+				{
+					"field": "pt1.ptValue7@rtd",
+					"name": "Ethane Tank RTD",
+					"units": "C",
+					"color": [0, 255, 255]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "pt2.ptValue2",
+					"name": "Nitrous Fill PT",
+					"units": "PSI",
+					"color": [0, 255, 255]
+				},
+				{
+					"field": "pt2.ptValue3",
+					"name": "Ethane Fill PT",
+					"units": "PSI",
+					"color": [0, 255, 255]
+				}
+			]
+		},
+		{
+			// VENTS (EMERGENCY)
 		}
 	]
 }
