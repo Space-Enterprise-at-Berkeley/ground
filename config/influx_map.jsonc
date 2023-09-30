@@ -35,17 +35,17 @@
 
 	// LC Board 1
 
-	"lc1.ptValue0": "ethaneTankLC0",
-	"lc1.ptValue1": "ethaneTankLC1",
-	"lc1.ptValue2": "nitrousTankLC0",
-	"lc1.ptValue3": "nitrousTankLC1",
+	"lc1.lcValue0": "ethaneTankLC0",
+	"lc1.lcValue1": "ethaneTankLC1",
+	"lc1.lcValue2": "nitrousTankLC0",
+	"lc1.lcValue3": "nitrousTankLC1",
 
 	// LC Board 2
 
-	"lc2.ptValue0": "engineLC0",
-	"lc2.ptValue1": "engineLC1",
-	"lc2.ptValue2": "engineLC2",
-	"lc2.ptValue3": "engineLC3",
+	"lc2.lcValue0": "engineLC0",
+	"lc2.lcValue1": "engineLC1",
+	"lc2.lcValue2": "engineLC2",
+	"lc2.lcValue3": "engineLC3",
 
 	// Actuator Controller 1
 
@@ -96,11 +96,11 @@
 	"ac2.acSupply24Power": "ac2Supply24Power",
 
 	"ac2.actuatorState0": "nitrousEmergencyVentState",
-	"ac2.actuatorState1": "nitrousDumpState",
+	"ac2.actuatorState1": "nitrousDump0State",
 	"ac2.actuatorState2": "ethaneEmergencyVentState",
-	"ac2.actuatorState3": "ethaneDumpState",
-	"ac2.actuatorState4": "",
-	"ac2.actuatorState5": "",
+	"ac2.actuatorState3": "ethaneDump0State",
+	"ac2.actuatorState4": "nitrousDump1State",
+	"ac2.actuatorState5": "ethaneDump1State",
 	"ac2.actuatorState6": "",
 	"ac2.actuatorState7": "",
 
