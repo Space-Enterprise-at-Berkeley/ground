@@ -7,6 +7,8 @@ import comms from "../../api/Comms";
 import GroupLabel from "./GroupLabel";
 import EregButtonGroup from "./EregButtonGroup";
 
+import SafetyFirstWav from "../../media/safetyfirst.wav"
+
 
 class ButtonGroupEreg extends Component {
   constructor(props) {
@@ -28,8 +30,11 @@ class ButtonGroupEreg extends Component {
   }
 
   setOpen() {
-    const { fuel } = this.props;
+    const { fuel, buttonId } = this.props;
     this.setState({ openClicked: true });
+    if(buttonId === "eregStaticPress") {
+      new Audio(SafetyFirstWav).play();
+    }
     fuel();
   }
 
