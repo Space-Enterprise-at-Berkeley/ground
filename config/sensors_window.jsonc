@@ -244,13 +244,13 @@
 					"name": "LC 2",
 					"units": "lbs",
 					"color": [0, 0, 255]
-				},
-				{
-					"field": "lc.lcValue3",
-					"name": "LC 3",
-					"units": "lbs",
-					"color": [255, 0, 0]
 				}
+				// {
+				// 	"field": "lc.lcValue3",
+				// 	"name": "LC 3",
+				// 	"units": "lbs",
+				// 	"color": [255, 0, 0]
+				// }
 			]
 		},
 		{
