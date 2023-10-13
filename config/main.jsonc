@@ -12,6 +12,7 @@
 		"engine": "$engine_window.jsonc",
 		"boards_status": "$boards_status_window.jsonc",
 		"actuators_status": "$actuators_status_window.jsonc"
+		
 	},
 	"preprocessors": "$preprocessors.jsonc",
 	"burnTime": 45000, // ms
