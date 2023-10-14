@@ -4,13 +4,7 @@ const Board = require('./Board');
 const State = require('./State');
 const UdpPort = require('./UdpPort');
 const InfluxDB = require('./InfluxDB');
-// const FlightV4 = require('./Boards/FlightV4');
-const PTBoard = require('./Boards/PTBoard');
-const TCBoard = require('./Boards/TCBoard');
-const LCBoard = require('./Boards/LCBoard');
-const ACBoard = require('./Boards/ACBoard');
 const { initTime, fletcher16Partitioned } = require('./Packet');
-const EregBoard = require('./Boards/EregBoard');
 const { getPreprocessor } = require('./Preprocessors');
 
 class App {
@@ -42,14 +36,6 @@ class App {
    */
   initApp() {
     this.port = new UdpPort('0.0.0.0', this.recvPort, this.updateState);
-
-    const boardTypes = {
-      "pt": PTBoard,
-      "tc": TCBoard,
-      "lc": LCBoard,
-      "ac": ACBoard,
-      "ereg": EregBoard
-    };
 
     for (let boardName in this.config.boards) {
       this.boards[boardName] = new Board(

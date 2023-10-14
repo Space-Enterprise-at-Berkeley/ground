@@ -56,7 +56,6 @@ class UdpPort {
             console.log("Abort reason: " + abortReason);
             fs.appendFile("./abortlog.txt", new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"}) + " " + rinfo.address + " " + abortReason + "\n", "utf8", () => {});
           }
-          // console.log(this.boards);
           board = this.boards[rinfo.address];
         }
         if(!board) return;
