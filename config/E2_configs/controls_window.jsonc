@@ -308,7 +308,7 @@
 				{
 					"id": "pressFill",
 					"type": "timed",
-					"name": "LOW Press Fill RBV",
+					"name": "HIGH Press Fill RBV",
 					"field": "ac2.actuatorState0",
 					"actions": {
 						"enable": {
@@ -390,7 +390,7 @@
 				{
 					"id": "pressFill2",
 					"type": "timed",
-					"name": "HIGH Press Fill RBV",
+					"name": "LOW Press Fill RBV",
 					"field": "ac1.actuatorState6",
 					"actions": {
 						"enable": {

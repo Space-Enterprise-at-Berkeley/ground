@@ -1,0 +1,431 @@
+{
+	"name": "Hotfire Controls",
+	"layout": "9-grid",
+	"slots": [
+
+		//Window 1
+
+		{
+			"type": "four-button",
+			"buttons": [
+					{
+						"id": "arm",
+						"type": "valve",
+						"name": "ARM",
+						"field": "ac1.actuatorState3",
+						"actions": {
+							"enable": {
+								"type": "on",
+								"board": "ac1",
+								"packet": 100,
+								"number": 3
+							},
+							"disable": {
+								"type": "off",
+								"board": "ac1",
+								"packet": 100,
+								"number": 3
+							}
+						},
+						"green": [0, 1]
+					},
+					{
+						"id": "ethaneMain",
+						"type": "valve",
+						"name": "Ethane Main Valve",
+						"field": "ac1.actuatorState5",
+						"actions": {
+							"enable": {
+								"type": "on",
+								"board": "ac1",
+								"packet": 100,
+								"number": 5
+							},
+							"disable": {
+								"type": "off",
+								"board": "ac1",
+								"packet": 100,
+								"number": 5
+							}
+						},
+						"green": [0, 1]
+					},
+					{
+						"type": null
+					},
+					{
+						"id": "nitrousMain",
+						"type": "valve",
+						"name": "Nitrous Main Valve",
+						"field": "ac1.actuatorState4",
+						"actions": {
+							"enable": {
+								"type": "on",
+								"board": "ac1",
+								"packet": 100,
+								"number": 4
+							},
+							"disable": {
+								"type": "off",
+								"board": "ac1",
+								"packet": 100,
+								"number": 4
+							}
+						},
+						"green": [0, 1]
+					}
+			]
+		},
+
+		//Window 2
+
+		{
+			"type": "four-button",
+			"buttons": [
+					{
+						"id": "ethaneFill",
+						"type": "timed",
+						"name": "Ethane Fill RBV",
+						"field": "ac3.actuatorState7",
+						"actions": {
+							"enable": {
+								"type": "extend-full",
+								"board": "ac3",
+								"packet": 100,
+								"number": 7
+							},
+							"disable": {
+								"type": "retract-full",
+								"board": "ac3",
+								"packet": 100,
+								"number": 7
+							},
+							"enable-timed": {
+								"type": "extend-timed",
+								"board": "ac3",
+								"packet": 100,
+								"number": 7
+							},
+							"disable-timed": {
+								"type": "retract-timed",
+								"board": "ac3",
+								"packet": 100,
+								"number": 7
+							}
+						},
+						"safe": true,
+						"green": [0, 1]
+					},
+					{
+						"id": "ethaneLineVent",
+						"type": "valve",
+						"name": "Ethane Line Vent",
+						"field": "ac3.actuatorState6",
+						"actions": {
+							"enable": {
+								"type": "on",
+								"board": "ac3",
+								"packet": 100,
+								"number": 6
+							},
+							"disable": {
+								"type": "off",
+								"board": "ac3",
+								"packet": 100,
+								"number": 6
+							}
+						},
+						"green": [0, 1]
+					},
+					{
+						"type": null
+					},
+					{
+						"id": "ethaneEmergencyVent",
+						"type": "valve",
+						"name": "Ethane E-Vent",
+						"field": "ac2.actuatorState2",
+						"actions": {
+							"enable": {
+								"type": "on",
+								"board": "ac2",
+								"packet": 100,
+								"number": 2
+							},
+							"disable": {
+								"type": "off",
+								"board": "ac2",
+								"packet": 100,
+								"number": 2
+							}
+						},
+						"green": [0, 1]
+					}
+				]
+			},
+
+			//Window 3
+
+			{
+				//Theoretical procedures list goes here
+			},
+
+			//Window 4
+
+			{
+				"type": "four-button",
+				"buttons":
+				 [
+					{
+						"id": "ethaneGems",
+						"type": "valve",
+						"name": "Ethane GEMS",
+						"field": "ac3.actuatorState1",
+						"actions": {
+							"enable": {
+								"type": "on",
+								"board": "ac3",
+								"packet": 100,
+								"number": 1
+							},
+							"disable": {
+								"type": "off",
+								"board": "ac3",
+								"packet": 100,
+								"number": 1
+							}
+						},
+						"green": [0, 1]
+					},
+					{
+						"id": "Nitrous GEMS",
+						"type": "valve",
+						"name": "Nitrous GEMS",
+						"field": "ac3.actuatorState0",
+						"actions": {
+							"enable": {
+								"type": "on",
+								"board": "ac3",
+								"packet": 100,
+								"number": 0
+							},
+							"disable": {
+								"type": "off",
+								"board": "ac3",
+								"packet": 100,
+								"number": 0
+							}
+						},
+						"green": [0, 1]
+					},
+					{
+						"type": null
+					},
+					{
+						"type": null
+					}
+				]
+			},
+
+			//Window 5
+
+			{
+				"type": "four-button",
+				"buttons": 
+				[
+					{
+						"id": "nitrousFill",
+						"type": "timed",
+						"name": "Nitrous Fill RBV",
+						"field": "ac3.actuatorState5",
+						"actions": {
+							"enable": {
+								"type": "extend-full",
+								"board": "ac3",
+								"packet": 100,
+								"number": 5
+							},
+							"disable": {
+								"type": "retract-full",
+								"board": "ac3",
+								"packet": 100,
+								"number": 5
+							},
+							"enable-timed": {
+								"type": "extend-timed",
+								"board": "ac3",
+								"packet": 100,
+								"number": 5
+							},
+							"disable-timed": {
+								"type": "retract-timed",
+								"board": "ac3",
+								"packet": 100,
+								"number": 5
+							}
+						},
+						"safe": true,
+						"green": [0, 1]
+					},
+					{
+						"id": "nitrousLineVent",
+						"type": "valve",
+						"name": "Nitrous Line Vent",
+						"field": "ac3.actuatorState4",
+						"actions": {
+							"enable": {
+								"type": "on",
+								"board": "ac3",
+								"packet": 100,
+								"number": 4
+							},
+							"disable": {
+								"type": "off",
+								"board": "ac3",
+								"packet": 100,
+								"number": 4
+							}
+						},
+						"green": [0, 1]
+					},
+					{
+						"type": null
+					},
+					{
+						"id": "nitrousEmergencyVent",
+						"type": "valve",
+						"name": "Nitrous E-Vent",
+						"field": "ac2.actuatorState0",
+						"actions": {
+							"enable": {
+								"type": "on",
+								"board": "ac2",
+								"packet": 100,
+								"number": 0
+							},
+							"disable": {
+								"type": "off",
+								"board": "ac2",
+								"packet": 100,
+								"number": 0
+							}
+						},
+						"green": [0, 1]
+					}
+				]
+			},
+
+			//Window 6
+
+			{
+				"type": "logs"
+			},
+
+			//Window 7
+
+			{
+				"type": "four-button",
+				"buttons": 
+				[
+					{
+						"id": "igniterState",
+						"type": "valve",
+						"name": "Igniter Enable",
+						"field": "ac1.actuatorState7",
+						"actions": {
+							"enable": {
+								"type": "on",
+								"board": "ac1",
+								"packet": 100,
+								"number": 7
+							},
+							"disable": {
+								"type": "off",
+								"board": "ac1",
+								"packet": 100,
+								"number": 7
+							}
+						},
+						"safe" : true,
+						"green": [0, 1]
+					},
+					{
+						"id": "launchEnable",
+						"type": "switch",
+						"name": "Launch Enable",
+						"field": "",
+						"actions": {
+							"enable": {
+								"type": "enable",
+								"id": "launch"
+							},
+							"disable": {
+								"type": "disable",
+								"id": "launch"
+							}
+						}
+					}
+				]
+				
+			},
+
+			//Window 8
+
+			{
+				"type": "launch"
+			},
+
+			//Window 9
+
+			{
+				"type": "four-button",
+				"buttons": 
+				[
+					{
+						"id": "ethaneDump",
+						"type": "valve",
+						"name": "Ethane Dump",
+						"field": "ac2.actuatorState3",
+						"actions": {
+							"enable": {
+								"type": "on",
+								"board": "ac2",
+								"packet": 100,
+								"number": 3
+							},
+							"disable": {
+								"type": "off",
+								"board": "ac2",
+								"packet": 100,
+								"number": 3
+							}
+						},
+						"green": [0, 1],
+						"safe": true
+					},
+					{
+						"id": "nitrousDump",
+						"type": "valve",
+						"name": "Nitrous Dump",
+						"field": "ac2.actuatorState1",
+						"actions": {
+							"enable": {
+								"type": "on",
+								"board": "ac2",
+								"packet": 100,
+								"number": 1
+							},
+							"disable": {
+								"type": "off",
+								"board": "ac2",
+								"packet": 100,
+								"number": 1
+							}
+						},
+						"green": [0, 1],
+						"safe": true
+					}
+				]
+			}
+	]
+}

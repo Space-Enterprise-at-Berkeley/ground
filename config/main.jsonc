@@ -10,14 +10,20 @@
 	},
 	"influxMap": "$influx_map.jsonc",
 	"windows": {
-		"ereg": "$ereg_window.jsonc",
-		"misc": "$misc_window.jsonc",
-		"sensors": "$sensors_window.jsonc",
-		"controls": "$controls_window.jsonc",
-		"flight": "$flight_window.jsonc"
+		"hotfire_controls": "$hotfire_controls_window.jsonc",
+		"hotfire_pressures": "$hotfire_pressures_window.jsonc",
+		"coldflow_controls": "$coldflow_controls_window.jsonc",
+		"coldflow_pressures": "$coldflow_pressures_window.jsonc",
+		"propellant_fill": "$propellant_fill_window.jsonc",
+		"coldflow_pressurization": "$coldflow_pressurization_window.jsonc",
+		"hotfire_pressurization": "$hotfire_pressurization_window.jsonc",
+		"engine": "$engine_window.jsonc",
+		"boards_status": "$boards_status_window.jsonc",
+		"actuators_status": "$actuators_status_window.jsonc"
 	},
 	"preprocessors": "$preprocessors.jsonc",
 	"burnTime": 45000, // ms
-	"mode": 1, // 0 = launch, 1 = hotfire, 2 = coldflow, 3 = coldflow with igniter, 4 = gasflow
+	// TODO: coldflow modes with ereg pressurization
+	"mode": 2, // 0 = launch, 1 = hotfire, 2 = coldflow, 3 = coldflow with igniter, 4 = gasflow
 	"controller": "ac1"
 }

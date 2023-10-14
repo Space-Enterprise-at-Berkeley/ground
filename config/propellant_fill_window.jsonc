@@ -1,0 +1,132 @@
+{
+	"name": "Propellant Fill",
+	"layout": "9-grid",
+	"slots": [
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "pt2.ptValue0",
+					"name": "Nitrous Tank PT",
+					"units": "PSI",
+					"color": [255, 0, 0]
+				}
+		
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "pt2.ptValue1",
+					"name": "Ethane Tank PT",
+					"units": "PSI",
+					"color": [0, 255, 0]
+				}
+		
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "pt2.ptValue0@roc", //don't know if works yet 
+					"name": "Nitrous Tank roc",
+					"units": "PSI/s"
+				},
+				{
+					"field": "pt2.ptValue1@roc", //same
+					"name": "Ethane Tank roc",
+					"units": "PSI/s"
+				},
+				{
+					"field": null 
+					
+				},
+				{
+					"field": "pt2.ptValue0", 
+					"name": "Nitrous Tank PT",
+					"units": "PSI"
+				},
+				{
+					"field": "pt2.ptValue1", 
+					"name": "Ethane Tank PT",
+					"units": "PSI"
+				}
+				
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "lc1.lcValue2",
+					"name": "Nitrous LC 1",
+					"units": "lbs",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "lc1.lcValue3",
+					"name": "Nitrous LC 2",
+					"units": "LB",
+					"color": [0, 255, 0]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "lc1.lcValue0",
+					"name": "Ethane LC 1",
+					"units": "lbs",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "lc1.lcValue1",
+					"name": "Ethane LC 2",
+					"units": "LB",
+					"color": [0, 255, 0]
+				}
+			]
+		},
+		{
+			"type": "Cap Fill Moment"
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "pt1.ptValue6@rtd",
+					"name": "Nitrous Tank RTD",
+					"units": "C",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "pt1.ptValue7@rtd",
+					"name": "Ethane Tank RTD",
+					"units": "C",
+					"color": [0, 255, 0]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "pt2.ptValue2",
+					"name": "Nitrous Fill PT",
+					"units": "C",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "pt2.ptValue3",
+					"name": "Ethane Fill PT",
+					"units": "C",
+					"color": [0, 255, 0]
+				}
+			]
+		},
+		"$components/e_vents.jsonc"
+	]
+}

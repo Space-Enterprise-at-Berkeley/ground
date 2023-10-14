@@ -4,7 +4,7 @@ const Board = require('./Board');
 const State = require('./State');
 const UdpPort = require('./UdpPort');
 const InfluxDB = require('./InfluxDB');
-const FlightV4 = require('./Boards/FlightV4');
+// const FlightV4 = require('./Boards/FlightV4');
 const PTBoard = require('./Boards/PTBoard');
 const TCBoard = require('./Boards/TCBoard');
 const LCBoard = require('./Boards/LCBoard');
@@ -44,7 +44,6 @@ class App {
     this.port = new UdpPort('0.0.0.0', this.recvPort, this.updateState);
 
     const boardTypes = {
-      "flightV4": FlightV4,
       "pt": PTBoard,
       "tc": TCBoard,
       "lc": LCBoard,

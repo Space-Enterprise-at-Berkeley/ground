@@ -60,6 +60,16 @@ class Interpolation {
     return [buffer.readUInt32LE(offset), 4]
   }
 
+  /**
+   * Returns the signed 32 bit int that is represented by the buffer at the given offset.
+   * @param buffer {Buffer} the source buffer
+   * @param offset {Number}
+   * @returns {[Number|Number]}
+   */
+  static asSignedInt32(buffer, offset) {
+    return [buffer.readInt32LE(offset), 4]
+  }
+
   static genFloat(value) {
     let buf = Buffer.alloc(4);
     buf.writeFloatLE(value);

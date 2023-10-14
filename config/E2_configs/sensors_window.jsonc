@@ -228,6 +228,12 @@
 			"type": "graph",
 			"values": [
 				{
+					"field": "lc.lcValue0",
+					"name": "LC 0",
+					"units": "lbs",
+					"color": [0, 255, 255]
+				},
+				{
 					"field": "lc.lcValue1",
 					"name": "LC 1",
 					"units": "lbs",
@@ -239,6 +245,12 @@
 					"units": "lbs",
 					"color": [0, 0, 255]
 				}
+				// {
+				// 	"field": "lc.lcValue3",
+				// 	"name": "LC 3",
+				// 	"units": "lbs",
+				// 	"color": [255, 0, 0]
+				// }
 			]
 		},
 		{

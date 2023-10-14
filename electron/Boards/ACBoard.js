@@ -62,7 +62,21 @@ class ACBoard extends Board {
       5: [
         ["loxAutoventPressure", asFloat],
         ["fuelAutoventPressure", asFloat]
+      ], 
+
+      // Potentiometers
+      6: [
+        ["pot0", asUInt16],
+        ["pot1", asUInt16],
+        ["pot2", asUInt16],
+        ["pot3", asUInt16],
+        ["pot4", asUInt16],
+        ["pot5", asUInt16],
+        ["pot6", asUInt16],
+        ["pot7", asUInt16]
       ]
+
+
     }
   }
 }
