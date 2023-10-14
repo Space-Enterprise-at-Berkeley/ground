@@ -34,6 +34,23 @@
 	// 		"args": []
 	// 	}
 	// ]
+
+	"pt1.ptValue6": [
+		{
+			"suffix": "rtd",
+			"func": "linear",
+			"args": [-0.676, 2901.7]
+		}
+	],
+
+	"pt1.ptValue7": [
+		{
+			"suffix": "rtd",
+			"func": "linear",
+			"args": [-0.676, 2901.7]
+		}
+	],
+
 	"pt2.ptValue0": [ 
 		{
 			"suffix": "roc",
@@ -49,5 +66,4 @@
 			"args": []
 		}
 	]
-
 }

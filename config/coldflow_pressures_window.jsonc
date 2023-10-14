@@ -50,7 +50,7 @@
 				},
 				{
 					"field": "pt2.ptValue1", 
-					"name": "Ethane Tank roc",
+					"name": "Ethane Tank PT",
 					"units": "PSI"
 				}
 				

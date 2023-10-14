@@ -1,0 +1,47 @@
+{
+    "type": "four-button",
+    "buttons": [
+        {
+            "id": "nitrousEmergencyVent",
+            "type": "valve",
+            "name": "Nitrous E-Vent",
+            "field": "ac2.actuatorState0",
+            "actions": {
+                "enable": {
+                    "type": "on",
+                    "board": "ac2",
+                    "packet": 100,
+                    "number": 0
+                },
+                "disable": {
+                    "type": "off",
+                    "board": "ac2",
+                    "packet": 100,
+                    "number": 0
+                }
+            },
+            "green": [0, 1]
+        },
+        {
+            "id": "ethaneEmergencyVent",
+            "type": "valve",
+            "name": "Ethane E-Vent",
+            "field": "ac2.actuatorState2",
+            "actions": {
+                "enable": {
+                    "type": "on",
+                    "board": "ac2",
+                    "packet": 100,
+                    "number": 2
+                },
+                "disable": {
+                    "type": "off",
+                    "board": "ac2",
+                    "packet": 100,
+                    "number": 2
+                }
+            },
+            "green": [0, 1]
+        }
+    ]
+}
