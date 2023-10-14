@@ -69,7 +69,7 @@
 					"field": "tc.tcValue5",
 					"name": "Engn TC 5",
 					"units": "C"
-				}
+				},
 				{
 					"field": "tc.tcValue6",
 					"name": "Engn TC 6",

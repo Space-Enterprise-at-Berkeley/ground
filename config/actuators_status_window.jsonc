@@ -3,6 +3,279 @@
 	"layout": "9-grid",
 	"slots": [
 		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "ac3.actuatorContinuity5",
+					"name": "Nitrous Fill V",
+					"units": "V"
+				},
+				{
+					"field": "ac3.actuatorCurrent5",
+					"name": "Nitrous Fill I",
+					"units": "mA"
+				},
+				{
+					"field": "ac3.potentiometer5",
+					"name": "Nitrous Fill Pot",
+					"units": ""
+				},
+				{
+					"field": "ac3.actuatorContinuity7",
+					"name": "Ethane Fill V",
+					"units": "V"
+				},
+				{
+					"field": "ac3.actuatorCurrent7",
+					"name": "Ethane Fill I",
+					"units": "mA"
+				},
+				{
+					"field": "ac3.potentiometer7",
+					"name": "Ethane Fill Pot",
+					"units": ""
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "ac1.actuatorContinuity4",
+					"name": "Nitrous Main V",
+					"units": "V"
+				},
+				{
+					"field": "ac1.actuatorContinuity5",
+					"name": "Ethane Main V",
+					"units": "V"
+				},
+				{
+					"field": "ac1.actuatorContinuity3",
+					"name": "Arm V",
+					"units": "V"
+				},
+				{
+					"field": "ac1.actuatorCurrent4",
+					"name": "Nitrous Main I",
+					"units": "mA"
+				},
+				{
+					"field": "ac1.actuatorCurrent5",
+					"name": "Ethane Main I",
+					"units": "mA"
+				},
+				{
+					"field": "ac1.actuatorCurrent3",
+					"name": "Arm I",
+					"units": "mA"
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "ac3.actuatorContinuity4",
+					"name": "Nitrous LV V",
+					"units": "V"
+				},
+				{
+					"field": "ac3.actuatorCurrent4",
+					"name": "Nitrous LV I",
+					"units": "mA"
+				},
+				{
+					"field": "ac3.potentiometer4",
+					"name": "Nitrous LV Pot",
+					"units": ""
+				},
+				{
+					"field": "ac3.actuatorContinuity6",
+					"name": "Ethane LV V",
+					"units": "V"
+				},
+				{
+					"field": "ac3.actuatorCurrent6",
+					"name": "Ethane LV I",
+					"units": "mA"
+				},
+				{
+					"field": "ac3.potentiometer6",
+					"name": "Ethane LV Pot",
+					"units": ""
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "ac3.actuatorContinuity0",
+					"name": "Nitrous GEMS V",
+					"units": "V"
+				},
+				{
+					"field": "ac3.actuatorContinuity1",
+					"name": "Ethane GEMS V",
+					"units": "V"
+				},
+				{
+					"field": null
+				},
+				{
+					"field": "ac3.actuatorCurrent0",
+					"name": "Nitrous GEMS I",
+					"units": "mA"
+				},
+				{
+					"field": "ac3.actuatorCurrent1",
+					"name": "Ethane GEMS I",
+					"units": "mA"
+				},
+				{
+					"field": null
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "ac1.actuatorContinuity7",
+					"name": "Igniter V",
+					"units": "V"
+				},
+				{
+					"field": "ac1.actuatorContinuity1",
+					"name": "Breakwire V",
+					"units": "V"
+				},
+				{
+					"field": null
+				},
+				{
+					"field": "ac1.actuatorCurrent7",
+					"name": "Igniter I",
+					"units": "mA"
+				},
+				{
+					"field": "ac1.actuatorCurrent1",
+					"name": "Breakwire I",
+					"units": "mA"
+				},
+				{
+					"field": null
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "ac3.actuatorContinuity2",
+					"name": "Nitrous Vent V",
+					"units": "V"
+				},
+				{
+					"field": "ac3.actuatorCurrent2",
+					"name": "Nitrous Vent I",
+					"units": "mA"
+				},
+				{
+					"field": "ac3.potentiometer2",
+					"name": "Nitrous Vent Pot",
+					"units": ""
+				},
+				{
+					"field": "ac3.actuatorContinuity3",
+					"name": "Ethane Vent V",
+					"units": "V"
+				},
+				{
+					"field": "ac3.actuatorCurrent3",
+					"name": "Ethane Vent I",
+					"units": "mA"
+				},
+				{
+					"field": "ac3.potentiometer3",
+					"name": "Ethane Vent Pot",
+					"units": ""
+				}
+			]
+		},
+		{
+			// Empty square
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "ac2.actuatorContinuity0",
+					"name": "Nitrous E-V V",
+					"units": "V"
+				},
+				{
+					"field": "ac2.actuatorCurrent0",
+					"name": "Nitrous E-V I",
+					"units": "mA"
+				},
+				{
+					"field": "ac2.potentiometer0",
+					"name": "Nitrous E-V Pot",
+					"units": ""
+				},
+				{
+					"field": "ac2.actuatorContinuity2",
+					"name": "Ethane E-V V",
+					"units": "V"
+				},
+				{
+					"field": "ac2.actuatorCurrent2",
+					"name": "Ethane E-V I",
+					"units": "mA"
+				},
+				{
+					"field": "ac2.potentiometer2",
+					"name": "Ethane E-V Pot",
+					"units": ""
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "ac2.actuatorContinuity1",
+					"name": "Nitrous Dump V",
+					"units": "V"
+				},
+				{
+					"field": "ac2.actuatorCurrent1",
+					"name": "Nitrous Dump I",
+					"units": "mA"
+				},
+				{
+					"field": "ac2.potentiometer1",
+					"name": "Nitrous Dump Pot",
+					"units": ""
+				},
+				{
+					"field": "ac2.actuatorContinuity3",
+					"name": "Ethane Pump V",
+					"units": "V"
+				},
+				{
+					"field": "ac2.actuatorCurrent3",
+					"name": "Ethane Dump I",
+					"units": "mA"
+				},
+				{
+					"field": "ac2.potentiometer3",
+					"name": "Ethane Dump Pot",
+					"units": ""
+				}
+			]
 		}
 	]
 }
