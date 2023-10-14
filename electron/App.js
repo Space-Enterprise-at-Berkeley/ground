@@ -1,15 +1,10 @@
 const { ipcMain } = require('electron');
 
+const Board = require('./Board');
 const State = require('./State');
 const UdpPort = require('./UdpPort');
 const InfluxDB = require('./InfluxDB');
-// const FlightV4 = require('./Boards/FlightV4');
-const PTBoard = require('./Boards/PTBoard');
-const TCBoard = require('./Boards/TCBoard');
-const LCBoard = require('./Boards/LCBoard');
-const ACBoard = require('./Boards/ACBoard');
 const { initTime, fletcher16Partitioned } = require('./Packet');
-const EregBoard = require('./Boards/EregBoard');
 const { getPreprocessor } = require('./Preprocessors');
 
 class App {
@@ -42,19 +37,12 @@ class App {
   initApp() {
     this.port = new UdpPort('0.0.0.0', this.recvPort, this.updateState);
 
-    const boardTypes = {
-      "pt": PTBoard,
-      "tc": TCBoard,
-      "lc": LCBoard,
-      "ac": ACBoard,
-      "ereg": EregBoard
-    };
-
     for (let boardName in this.config.boards) {
-      this.boards[boardName] = new boardTypes[this.config.boards[boardName].type](
+      this.boards[boardName] = new Board(
         this.port,
         this.config.boards[boardName].address,
         boardName,
+        {},
         () => {
           let packet = {};
           packet[boardName + ".boardConnected"] = true;
@@ -69,7 +57,8 @@ class App {
           let packet = {};
           packet[boardName + ".boardKbps"] = rate;
           this.updateState(Date.now(), packet);
-        }
+        },
+        this.config.packets[this.config.boards[boardName].type]
       );
     }
 

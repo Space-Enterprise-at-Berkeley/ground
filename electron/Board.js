@@ -1,7 +1,17 @@
 const Packet = require('./Packet');
+const { asASCIIString, asFloat, asUInt8, asUInt16, asUInt32, asUInt32fromustos} = require('./Interpolation');
+
+const parserMapping = {
+  "asASCIIString": asASCIIString,
+  "asFloat": asFloat,
+  "asUInt8": asUInt8,
+  "asUInt16": asUInt16,
+  "asUInt32": asUInt32,
+  "asUInt32fromustos": asUInt32fromustos
+};
 
 class Board {
-  constructor(port, address, name, mapping, onConnect, onDisconnect, onRate) {
+  constructor(port, address, name, mapping, onConnect, onDisconnect, onRate, inboundPacketDefs) {
     this.isConnected = false;
     this.watchdog = null;
     this.port = port;
@@ -11,7 +21,7 @@ class Board {
     this.onConnect = onConnect;
     this.onDisconnect = onDisconnect;
     this.onRate = onRate;
-    this.inboundPacketDefs = {};
+    this.inboundPacketDefs = inboundPacketDefs;
     this.port.register(this.address, this);
     /** @type {Number} the local time (in ms) at which the first packet was received from this board */
     this.firstRecvTime = -1;
@@ -90,11 +100,19 @@ class Board {
       let offset = 0;
       
       for (const [_, parser, __] of packetDef) {
-        try { 
-          const [value, byteLen] = parser(dataBuf, offset);
+        try {
+          // if (this.name === "pt") {
+          //   console.log(offset);
+          // }
+          const [value, byteLen] = parserMapping[parser](dataBuf, offset);
           values.push(value);
           offset += byteLen;
+          // if (this.name === "pt") {
+          //   console.log(offset);
+          // }
         } catch(err) {
+          console.log(packetDef);
+          console.log(len);
           console.log(`issue parsing with packet id: ${id}`);
         }
       }
