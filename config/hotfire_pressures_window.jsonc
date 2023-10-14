@@ -3,6 +3,144 @@
 	"layout": "9-grid",
 	"slots": [
 		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "pt2.ptValue0",
+					"name": "Nitrous Tank PT",
+					"units": "PSI",
+					"color": [255, 0, 0]
+				}
+			]
+		}, 
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "pt2.ptValue1",
+					"name": "Ethane Tank PT",
+					"units": "PSI",
+					"color": [255, 0, 0]
+				}
+			]
+		}, 
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "pt2.ptValue0@roc",
+					"name": "Nitrous Tank ROC",
+					"units": "PSI/s"
+				},
+				{
+					"field": "pt2.ptValue1@roc",
+					"name": "Ethane Tank ROC",
+					"units": "PSI/s"
+				},
+				{
+					"field": null
+				},
+				{
+					"field": "pt2.ptValue0",
+					"name": "Nitrous Tank PT",
+					"units": "PSI"
+				},
+				{
+					"field": "pt2.ptValue1",
+					"name": "Ethane Tank PT",
+					"units": "PSI"
+				}
+			]
+		}, 
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "pt3.ptValue0",
+					"name": "Nitrous Injector PT",
+					"units": "PSI",
+					"color": [132, 146, 179]
+				}, 
+				{
+					"field": "pt3.ptValue1",
+					"name": "Ethan Injector PT",
+					"units": "PSI",
+					"color": [12, 173, 8]
+				}
+			]
+		}, 
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "pt3.ptValue2",
+					"name": "Chamber PT",
+					"units": "PSI",
+					"color": [123, 123, 123]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "pt3.ptValue4",
+					"name": "Channel 0 PT",
+					"units": "PSI",
+					"color": [0, 0, 150]
+				},
+				{
+					"field": "pt3.ptValue5",
+					"name": "Channel 1 PT",
+					"units": "PSI",
+					"color": [150, 0, 0]
+				},
+				{
+					"field": "pt3.ptValue6",
+					"name": "Channel 2 PT",
+					"units": "PSI",
+					"color": [0, 150, 0]
+				},
+				{
+					"field": "pt3.ptValue7",
+					"name": "Channel 3 PT",
+					"units": "PSI",
+					"color": [150, 50, 150]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "pt2.ptValue2",
+					"name": "Nitrous Fill Line",
+					"units": "PSI",
+					"color": [250, 200, 213]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "pt2.ptValue3",
+					"name": "Ethane Fill Line",
+					"units": "PSI",
+					"color": [250, 21, 84]
+				}
+			]
+		},
+		{
+			"type": "graph",
+			"values": [
+				{
+					"field": "pt3.ptValue3",
+					"name": "Manifold PT",
+					"units": "PSI",
+					"color": [250, 240, 0]
+				}
+			]
 		}
 	]
 }
