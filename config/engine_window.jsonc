@@ -3,6 +3,165 @@
 	"layout": "9-grid",
 	"slots": [
 		{
-		}
+			"type": "six-square",
+			"values": [
+				{
+					"field": "pt3.ptValue0",
+					"name": "Nitrous Injector PT",
+					"units": "PSI"
+				},
+				{
+					"field": "pt3.ptValue1",
+					"name": "Ethane Injector PT",
+					"units": "PSI"
+				}
+			]
+		}, 
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "lc2.ptValue0",
+					"name": "Engine LC 0",
+					"units": "lbs"
+				},
+				{
+					"field": "lc2.ptValue1",
+					"name": "Engine LC 1",
+					"units": "lbs"
+				},
+				{
+					"field": "lc2.ptValue2",
+					"name": "Engine LC 2",
+					"units": "lbs"
+				},
+				{
+					"field": "lc2.ptValue3",
+					"name": "Engine LC 3",
+					"units": "lbs"
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "tc.tcValue1",
+					"name": "Engn TC 1",
+					"units": "C"
+				},
+				{
+					"field": "tc.tcValue2",
+					"name": "Engn TC 2",
+					"units": "C"
+				},
+				{
+					"field": "tc.tcValue3",
+					"name": "Engn TC 3",
+					"units": "C"
+				},
+				{
+					"field": "tc.tcValue4",
+					"name": "Engn TC 4",
+					"units": "C"
+				},
+				{
+					"field": "tc.tcValue5",
+					"name": "Engn TC 5",
+					"units": "C"
+				}
+				{
+					"field": "tc.tcValue6",
+					"name": "Engn TC 6",
+					"units": "C"
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values":[
+				{
+					"field": "pt3.ptValue4",
+					"name": "Engn PT Channel 0",
+					"units": "PSI"
+				},
+				{
+					"field": "pt3.ptValue5",
+					"name": "Engn PT CHannel 1",
+					"units": "PSI"
+				},
+				{
+					"field": "pt3.ptValue6",
+					"name": "Engn PT Channel 2",
+					"units": "PSI"
+				},
+				{
+					"field": "pt3.ptValue7",
+					"name": "Engn PT Channel 3",
+					"units": "PSI"
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values":[
+				{
+					"field": "pt3.ptValue2",
+					"name": "Chamber PT",
+					"units": "PSI"
+				},
+				{
+					"field": "pt3.ptValue3",
+					"name": "Manifold PT",
+					"units": "PSI"
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "ac1.actuatorContinuity1",
+					"name": "Breakwire",
+					"units": "V"
+				},
+				{
+					"field": "ac1.actuatorContinuity7",
+					"name": "Igniter",
+					"units": "V"
+				},
+				{
+					"field": "ac1.actuatorState4",
+					"name": "Nitrous Main State",
+					"units": "knots"
+				},
+				{
+					"field": "ac1.actuatorState5",
+					"name": "Ethane Main State",
+					"units": "knots"
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "pt2.ptValue0",
+					"name": "Nitrous Tank Pressure",
+					"units": "PSI"
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "pt2.ptValue1",
+					"name": "Ethane Tank Pressure",
+					"units": "PSI"
+				}
+			]
+		},
+		"$components/e_vents.jsonc"
 	]
 }
