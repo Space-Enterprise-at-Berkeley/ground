@@ -23,7 +23,7 @@ to install it. Once node is installed, clone this repository:
 Then, `cd` into this directory and run `npm i`. If running on a Mac M1, run `arch -x86_64 npm i` instead.
 This will install all the dependencies required by this project that are defined in
 the `package.json` file. Next, `cd` into the `telemetry` directory
-and run `npm i`. The `telemetry` directory contains all the code for the web based UI. If running on a Mac M1, run `export NODE_OPTIONS=--openssl-legacy-provider`. This will need to be run every time a new Terminal session is begun. ~~The `remote` directory contains all the code for the web page
+and run `npm i --legacy-peer-deps` (note the extra command line flag). The `telemetry` directory contains all the code for the web based UI. If running on a Mac M1, run `export NODE_OPTIONS=--openssl-legacy-provider`. This will need to be run every time a new Terminal session is begun. ~~The `remote` directory contains all the code for the web page
 that can be loaded on your phone to view pressure values
 remotely over wifi.~~
 
