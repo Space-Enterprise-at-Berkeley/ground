@@ -1,24 +1,40 @@
 {
-	// LOX RTDsuffix
-	"pt.ptValue1": [
-		{
-			"suffix": "rtd",
-			"func": "linear",
-			"args": [-0.676, 2901.7]
-		}
-	],
+	// // LOX RTDsuffix
+	// "pt.ptValue1": [
+	// 	{
+	// 		"suffix": "rtd",
+	// 		"func": "linear",
+	// 		"args": [-0.676, 2901.7]
+	// 	}
+	// ],
 
-	// Fuel RTD
-	"pt.ptValue5": [
-		{
-			"suffix": "rtd",
-			"func": "linear",
-			"args": [-0.676, 2901.7]
-		}
-	],
+	// // Fuel RTD
+	// "pt.ptValue5": [
+	// 	{
+	// 		"suffix": "rtd",
+	// 		"func": "linear",
+	// 		"args": [-0.676, 2901.7]
+	// 	}
+	// ],
 	
-	// LOX High PT ROC
-	"oreg.filteredUpstreamPressure1": [
+	// // LOX High PT ROC
+	// "oreg.filteredUpstreamPressure1": [
+	// 	{
+	// 		"suffix": "roc",
+	// 		"func": "roc",
+	// 		"args": []
+	// 	}
+	// ],
+
+	// // Fuel High PT ROC
+	// "freg.filteredUpstreamPressure1": [
+	// 	{
+	// 		"suffix": "roc",
+	// 		"func": "roc",
+	// 		"args": []
+	// 	}
+	// ]
+	"pt2.ptValue0": [ 
 		{
 			"suffix": "roc",
 			"func": "roc",
@@ -26,12 +42,12 @@
 		}
 	],
 
-	// Fuel High PT ROC
-	"freg.filteredUpstreamPressure1": [
+	"pt2.ptValue1": [
 		{
 			"suffix": "roc",
 			"func": "roc",
 			"args": []
 		}
 	]
+
 }
