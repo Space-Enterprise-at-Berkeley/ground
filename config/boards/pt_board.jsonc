@@ -13,13 +13,13 @@
 
 	// TC Value
 	"2": [
-		["tcValue0", "asFloat"],
-		["tcValue1", "asFloat"],
-		["tcValue2", "asFloat"],
-		["tcValue3", "asFloat"],
-		["tcValue4", "asFloat"],
-		["tcValue5", "asFloat"],
-		["tcValue6", "asFloat"],
-		["tcValue7", "asFloat"]
+		["ptValue0", "asFloat"],
+		["ptValue1", "asFloat"],
+		["ptValue2", "asFloat"],
+		["ptValue3", "asFloat"],
+		["ptValue4", "asFloat"],
+		["ptValue5", "asFloat"],
+		["ptValue6", "asFloat"],
+		["ptValue7", "asFloat"]
 	]
 }

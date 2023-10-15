@@ -47,6 +47,8 @@ class Graph extends Component {
 
     this.canvasRef = React.createRef();
     this.sizeDetectorRef = React.createRef();
+    this.maxRef = React.createRef();
+    this.minRef = React.createRef();
     this.legendRefs = this.props.fields.map(f => React.createRef());
     this.webglp = null;
     this.animationID = null;
@@ -137,6 +139,10 @@ class Graph extends Component {
       l.numPoints = len;
       l.webglNumPoints = len;
     }
+
+    this.maxRef.current.innerHTML = maxValue.toPrecision(4);
+    this.minRef.current.innerHTML = minValue.toPrecision(4);
+
     this.animationID = requestAnimationFrame(this.updateGraphWait);
 
     this.webglp.update();
@@ -184,7 +190,7 @@ class Graph extends Component {
     const { classes } = this.props;
     return (
       <Card className={classes.root}>
-        <CardContent className={classes.cardContent}>
+        <CardContent className={classes.cardContent} style={{position: "relative"}}>
           <SquareControls reset={this.props.reset} locked={this.props.locked} />
           <table className={classes.legend}>
             <tbody>
@@ -207,6 +213,8 @@ class Graph extends Component {
             </tbody>
           </table>
           <div ref={this.sizeDetectorRef} className={classes.sizeDetector}>
+          <p ref={this.maxRef} style={{position: "absolute", zIndex: 1, top: 0}}>0</p>
+          <p ref={this.minRef} style={{position: "absolute", zIndex: 1, top: 200}}>0</p>
             <canvas ref={this.canvasRef} className={classes.canvas}/>
           </div>
         </CardContent>
