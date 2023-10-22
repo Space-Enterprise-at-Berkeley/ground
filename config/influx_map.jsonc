@@ -1,26 +1,26 @@
 {
 
-	// PT Board 1
-
-	"pt1.ptValue0@rtd": "nitrousLineRTD0",
-	"pt1.ptValue1@rtd": "nitrousLineRTD1",
-	"pt1.ptValue2@rtd": "nitrousLineRTD2",
-	"pt1.ptValue3@rtd": "ethaneLineRTD0",
-	"pt1.ptValue4@rtd": "ethaneLineRTD1",
-	"pt1.ptValue5@rtd": "ethaneLineRTD2",
-	"pt1.ptValue6@rtd": "nitrousTankRTD",
-	"pt1.ptValue7@rtd": "ethaneTankRTD",
-
 	// PT Board 2
 
-	"pt2.ptValue0": "nitrousTankPT",
-	"pt2.ptValue1": "ethaneTankPT",
-	"pt2.ptValue2": "nitrousFillPT", // bottle/fill line PT 
-	"pt2.ptValue3": "ethaneFillPT", // bottle/fill line PT 
-	"pt2.ptValue4": "", 
-	"pt2.ptValue5": "",
-	"pt2.ptValue6": "",
-	"pt2.ptValue7": "",
+	"pt2.ptValue0@rtd": "nitrousLineRTD0",
+	"pt2.ptValue1@rtd": "nitrousLineRTD1",
+	"pt2.ptValue2@rtd": "nitrousLineRTD2",
+	"pt2.ptValue3@rtd": "ethaneLineRTD0",
+	"pt2.ptValue4@rtd": "ethaneLineRTD1",
+	"pt2.ptValue5@rtd": "ethaneLineRTD2",
+	"pt2.ptValue6@rtd": "",
+	"pt2.ptValue7@rtd": "",
+
+	// PT Board 1
+
+	"pt1.ptValue0": "ethaneFillPT",
+	"pt1.ptValue1@rtd": "ethaneTankRTD",
+	"pt1.ptValue2": "ethaneTankPT", 
+	"pt1.ptValue3": "nitrousFillPT", 
+	"pt1.ptValue4@rtd": "nitrousTankRTD", 
+	"pt1.ptValue5": "nitrousTankPT",
+	"pt1.ptValue6": "",
+	"pt1.ptValue7": "",
 
 	// PT Board 3
 

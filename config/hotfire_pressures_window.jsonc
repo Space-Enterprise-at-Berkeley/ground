@@ -1,4 +1,10 @@
 {
+	// "pt1.ptValue0": "ethaneFillPT",
+	// "pt1.ptValue1@rtd": "ethaneTankRTD",
+	// "pt1.ptValue2": "ethaneTankPT", 
+	// "pt1.ptValue3": "nitrousFillPT", 
+	// "pt1.ptValue4@rtd": "nitrousTankRTD", 
+	// "pt1.ptValue5": "nitrousTankPT",
 	"name": "Hotfire Pressures",
 	"layout": "9-grid",
 	"slots": [
@@ -6,7 +12,7 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "pt2.ptValue0",
+					"field": "pt1.ptValue5",
 					"name": "Nitrous Tank PT",
 					"units": "PSI",
 					"color": [255, 0, 0]
@@ -17,7 +23,7 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "pt2.ptValue1",
+					"field": "pt1.ptValue2",
 					"name": "Ethane Tank PT",
 					"units": "PSI",
 					"color": [255, 0, 0]
@@ -28,12 +34,12 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "pt2.ptValue0@roc",
+					"field": "pt1.ptValue5@roc",
 					"name": "Nitrous Tank ROC",
 					"units": "PSI/s"
 				},
 				{
-					"field": "pt2.ptValue1@roc",
+					"field": "pt1.ptValue2roc",
 					"name": "Ethane Tank ROC",
 					"units": "PSI/s"
 				},
@@ -41,12 +47,12 @@
 					"field": null
 				},
 				{
-					"field": "pt2.ptValue0",
+					"field": "pt1.ptValue5",
 					"name": "Nitrous Tank PT",
 					"units": "PSI"
 				},
 				{
-					"field": "pt2.ptValue1",
+					"field": "pt1.ptValue2",
 					"name": "Ethane Tank PT",
 					"units": "PSI"
 				}
