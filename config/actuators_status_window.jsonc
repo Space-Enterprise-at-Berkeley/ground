@@ -247,17 +247,17 @@
 			"values": [
 				{
 					"field": "ac2.actuatorContinuity1",
-					"name": "Nitrous Dump V",
+					"name": "Nitrous Drain V",
 					"units": "V"
 				},
 				{
 					"field": "ac2.actuatorCurrent1",
-					"name": "Nitrous Dump I",
+					"name": "Nitrous Drain I",
 					"units": "mA"
 				},
 				{
 					"field": "ac2.potentiometer1",
-					"name": "Nitrous Dump Pot",
+					"name": "Nitrous Drain Pot",
 					"units": ""
 				},
 				{
@@ -267,12 +267,12 @@
 				},
 				{
 					"field": "ac2.actuatorCurrent3",
-					"name": "Ethane Dump I",
+					"name": "Ethane Drain I",
 					"units": "mA"
 				},
 				{
 					"field": "ac2.potentiometer3",
-					"name": "Ethane Dump Pot",
+					"name": "Ethane Drain Pot",
 					"units": ""
 				}
 			]
