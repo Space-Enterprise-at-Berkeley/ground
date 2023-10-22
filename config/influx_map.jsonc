@@ -96,11 +96,11 @@
 	"ac2.acSupply24Power": "ac2Supply24Power",
 
 	"ac2.actuatorState0": "nitrousEmergencyVentState",
-	"ac2.actuatorState1": "nitrousDrain0State",
+	"ac2.actuatorState1": "nitrousDrainState",
 	"ac2.actuatorState2": "ethaneEmergencyVentState",
-	"ac2.actuatorState3": "ethaneDrain0State",
-	"ac2.actuatorState4": "nitrousDrain1State",
-	"ac2.actuatorState5": "ethaneDrain1State",
+	"ac2.actuatorState3": "ethaneDrainState",
+	"ac2.actuatorState4": "",
+	"ac2.actuatorState5": "",
 	"ac2.actuatorState6": "",
 	"ac2.actuatorState7": "",
 
