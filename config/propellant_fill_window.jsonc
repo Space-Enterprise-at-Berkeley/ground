@@ -59,14 +59,14 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "lc1.lcValue2",
-					"name": "Nitrous LC 1",
+					"field": "lc1.lcValue0",
+					"name": "Nitrous LC 0",
 					"units": "lbs",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "lc1.lcValue3",
-					"name": "Nitrous LC 2",
+					"field": "lc1.lcValue1",
+					"name": "Nitrous LC 1",
 					"units": "LB",
 					"color": [0, 255, 0]
 				}
@@ -76,14 +76,14 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "lc1.lcValue0",
-					"name": "Ethane LC 1",
+					"field": "lc1.lcValue2",
+					"name": "Ethane LC 0",
 					"units": "lbs",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "lc1.lcValue1",
-					"name": "Ethane LC 2",
+					"field": "lc1.lcValue3",
+					"name": "Ethane LC 1",
 					"units": "LB",
 					"color": [0, 255, 0]
 				}

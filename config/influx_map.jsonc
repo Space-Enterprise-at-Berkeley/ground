@@ -39,10 +39,10 @@
 
 	// LC Board 1
 
-	"lc1.lcValue0": "ethaneTankLC0",
-	"lc1.lcValue1": "ethaneTankLC1",
-	"lc1.lcValue2": "nitrousTankLC0",
-	"lc1.lcValue3": "nitrousTankLC1",
+	"lc1.lcValue0": "nitrousTankLC0",
+	"lc1.lcValue1": "nitrousTankLC1",
+	"lc1.lcValue2": "ethaneTankLC0",
+	"lc1.lcValue3": "ethaneTankLC1",
 
 	// LC Board 2
 
