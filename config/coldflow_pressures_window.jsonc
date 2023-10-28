@@ -1,4 +1,10 @@
 {
+	// "pt1.ptValue0": "ethaneFillPT",
+	// "pt1.ptValue1@rtd": "ethaneTankRTD",
+	// "pt1.ptValue2": "ethaneTankPT", 
+	// "pt1.ptValue3": "nitrousFillPT", 
+	// "pt1.ptValue4@rtd": "nitrousTankRTD", 
+	// "pt1.ptValue5": "nitrousTankPT",
 	"name": "Coldflow Pressures",
 	"layout": "9-grid",
 	"slots": [
@@ -6,7 +12,7 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "pt2.ptValue0",
+					"field": "pt1.ptValue5",
 					"name": "Nitrous Tank PT",
 					"units": "PSI",
 					"color": [255, 0, 0]
@@ -18,7 +24,7 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "pt2.ptValue1",
+					"field": "pt1.ptValue2",
 					"name": "Ethane Tank PT",
 					"units": "PSI",
 					"color": [0, 255, 0]
@@ -30,12 +36,12 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "pt2.ptValue0@roc", //don't know if works yet 
+					"field": "pt1.ptValue5@roc", //don't know if works yet 
 					"name": "Nitrous Tank roc",
 					"units": "PSI/s"
 				},
 				{
-					"field": "pt2.ptValue1@roc", //same
+					"field": "pt1.ptValue2@roc", //same
 					"name": "Ethane Tank roc",
 					"units": "PSI/s"
 				},
@@ -44,12 +50,12 @@
 					
 				},
 				{
-					"field": "pt2.ptValue0", 
+					"field": "pt1.ptValue5", 
 					"name": "Nitrous Tank PT",
 					"units": "PSI"
 				},
 				{
-					"field": "pt2.ptValue1", 
+					"field": "pt1.ptValue2", 
 					"name": "Ethane Tank PT",
 					"units": "PSI"
 				}
@@ -120,7 +126,7 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "pt2.ptValue2",
+					"field": "pt1.ptValue3",
 					"name": "Nitrous Fill Line PT",
 					"units": "PSI",
 					"color": [255, 0, 0]
@@ -132,7 +138,7 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "pt2.ptValue3",
+					"field": "pt1.ptValue0",
 					"name": "Ethane Fill Line PT",
 					"units": "PSI",
 					"color": [255, 0, 0]

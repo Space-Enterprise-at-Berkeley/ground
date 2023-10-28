@@ -47,10 +47,10 @@ class UdpPort {
           msg = msg.slice(1+addressLen)
         }else{
           let id = msg.readUInt8(0);
-          if (rinfo.address === "10.0.0.11" && id > 4) {
+          // if (rinfo.address === "10.0.0.11" && id > 4) {
             // console.log(msg.readUInt8(0));
             // console.log(msg.toString('hex').match(/../g).join(' '));
-          }
+          // }
           if (id === 133) { // Abort stuff
             let abortReason = msg.readUInt8(9);
             console.log("Abort reason: " + abortReason);
@@ -62,6 +62,9 @@ class UdpPort {
         board.updateRcvRate(msg.length);
         const packet = board.parseMsgBuf(msg);
         if (packet) {
+          // if (rinfo.address === "10.0.0.13" && packet.id === 3) {
+          //   console.log(packet);
+          // }
           const update = board.processPacket(packet);
           if (update === undefined) return;
           this.updateStateCallback(packet.timestamp, update);

@@ -85,32 +85,32 @@
 					{
 						"id": "ethaneFill",
 						"type": "timed",
-						"name": "Ethane Fill RBV",
-						"field": "ac3.actuatorState7",
+						"name": "Ethane Fill",
+						"field": "ac3.actuatorState1",
 						"actions": {
 							"enable": {
 								"type": "extend-full",
 								"board": "ac3",
 								"packet": 100,
-								"number": 7
+								"number": 1
 							},
 							"disable": {
 								"type": "retract-full",
 								"board": "ac3",
 								"packet": 100,
-								"number": 7
+								"number": 1
 							},
 							"enable-timed": {
 								"type": "extend-timed",
 								"board": "ac3",
 								"packet": 100,
-								"number": 7
+								"number": 1
 							},
 							"disable-timed": {
 								"type": "retract-timed",
 								"board": "ac3",
 								"packet": 100,
-								"number": 7
+								"number": 1
 							}
 						},
 						"safe": true,
@@ -119,20 +119,20 @@
 					{
 						"id": "ethaneLineVent",
 						"type": "valve",
-						"name": "Ethane Line Vent",
-						"field": "ac3.actuatorState6",
+						"name": "Ethane Fill Line Vent",
+						"field": "ac3.actuatorState3",
 						"actions": {
 							"enable": {
 								"type": "on",
 								"board": "ac3",
 								"packet": 100,
-								"number": 6
+								"number": 3
 							},
 							"disable": {
 								"type": "off",
 								"board": "ac3",
 								"packet": 100,
-								"number": 6
+								"number": 3
 							}
 						},
 						"green": [0, 1]
@@ -144,19 +144,19 @@
 						"id": "ethaneEmergencyVent",
 						"type": "valve",
 						"name": "Ethane E-Vent",
-						"field": "ac2.actuatorState2",
+						"field": "ac3.actuatorState4",
 						"actions": {
 							"enable": {
 								"type": "on",
-								"board": "ac2",
+								"board": "ac3",
 								"packet": 100,
-								"number": 2
+								"number": 4
 							},
 							"disable": {
 								"type": "off",
-								"board": "ac2",
+								"board": "ac3",
 								"packet": 100,
-								"number": 2
+								"number": 4
 							}
 						},
 						"green": [0, 1]
@@ -180,27 +180,6 @@
 						"id": "ethaneGems",
 						"type": "valve",
 						"name": "Ethane GEMS",
-						"field": "ac3.actuatorState1",
-						"actions": {
-							"enable": {
-								"type": "on",
-								"board": "ac3",
-								"packet": 100,
-								"number": 1
-							},
-							"disable": {
-								"type": "off",
-								"board": "ac3",
-								"packet": 100,
-								"number": 1
-							}
-						},
-						"green": [0, 1]
-					},
-					{
-						"id": "Nitrous GEMS",
-						"type": "valve",
-						"name": "Nitrous GEMS",
 						"field": "ac3.actuatorState0",
 						"actions": {
 							"enable": {
@@ -212,6 +191,27 @@
 							"disable": {
 								"type": "off",
 								"board": "ac3",
+								"packet": 100,
+								"number": 0
+							}
+						},
+						"green": [0, 1]
+					},
+					{
+						"id": "Nitrous GEMS",
+						"type": "valve",
+						"name": "Nitrous GEMS",
+						"field": "ac2.actuatorState0",
+						"actions": {
+							"enable": {
+								"type": "on",
+								"board": "ac2",
+								"packet": 100,
+								"number": 0
+							},
+							"disable": {
+								"type": "off",
+								"board": "ac2",
 								"packet": 100,
 								"number": 0
 							}
@@ -236,32 +236,32 @@
 					{
 						"id": "nitrousFill",
 						"type": "timed",
-						"name": "Nitrous Fill RBV",
-						"field": "ac3.actuatorState5",
+						"name": "Nitrous Fill",
+						"field": "ac2.actuatorState1",
 						"actions": {
 							"enable": {
 								"type": "extend-full",
-								"board": "ac3",
+								"board": "ac2",
 								"packet": 100,
-								"number": 5
+								"number": 1
 							},
 							"disable": {
 								"type": "retract-full",
-								"board": "ac3",
+								"board": "ac2",
 								"packet": 100,
-								"number": 5
+								"number": 1
 							},
 							"enable-timed": {
 								"type": "extend-timed",
-								"board": "ac3",
+								"board": "ac2",
 								"packet": 100,
-								"number": 5
+								"number": 1
 							},
 							"disable-timed": {
 								"type": "retract-timed",
-								"board": "ac3",
+								"board": "ac2",
 								"packet": 100,
-								"number": 5
+								"number": 1
 							}
 						},
 						"safe": true,
@@ -270,20 +270,20 @@
 					{
 						"id": "nitrousLineVent",
 						"type": "valve",
-						"name": "Nitrous Line Vent",
-						"field": "ac3.actuatorState4",
+						"name": "Nitrous Fill Line Vent",
+						"field": "ac2.actuatorState3",
 						"actions": {
 							"enable": {
 								"type": "on",
-								"board": "ac3",
+								"board": "ac2",
 								"packet": 100,
-								"number": 4
+								"number": 3
 							},
 							"disable": {
 								"type": "off",
-								"board": "ac3",
+								"board": "ac2",
 								"packet": 100,
-								"number": 4
+								"number": 3
 							}
 						},
 						"green": [0, 1]
@@ -295,19 +295,19 @@
 						"id": "nitrousEmergencyVent",
 						"type": "valve",
 						"name": "Nitrous E-Vent",
-						"field": "ac2.actuatorState0",
+						"field": "ac2.actuatorState4",
 						"actions": {
 							"enable": {
 								"type": "on",
 								"board": "ac2",
 								"packet": 100,
-								"number": 0
+								"number": 4
 							},
 							"disable": {
 								"type": "off",
 								"board": "ac2",
 								"packet": 100,
-								"number": 0
+								"number": 4
 							}
 						},
 						"green": [0, 1]
@@ -382,44 +382,44 @@
 				"buttons": 
 				[
 					{
-						"id": "ethaneDump",
+						"id": "ethaneDrain",
 						"type": "valve",
-						"name": "Ethane Dump",
-						"field": "ac2.actuatorState3",
+						"name": "Ethane Drain",
+						"field": "ac3.actuatorState5",
 						"actions": {
 							"enable": {
 								"type": "on",
-								"board": "ac2",
+								"board": "ac3",
 								"packet": 100,
-								"number": 3
+								"number": 5
 							},
 							"disable": {
 								"type": "off",
-								"board": "ac2",
+								"board": "ac3",
 								"packet": 100,
-								"number": 3
+								"number": 5
 							}
 						},
 						"green": [0, 1],
 						"safe": true
 					},
 					{
-						"id": "nitrousDump",
+						"id": "nitrousDrain",
 						"type": "valve",
-						"name": "Nitrous Dump",
-						"field": "ac2.actuatorState1",
+						"name": "Nitrous Drain",
+						"field": "ac2.actuatorState5",
 						"actions": {
 							"enable": {
 								"type": "on",
 								"board": "ac2",
 								"packet": 100,
-								"number": 1
+								"number": 5
 							},
 							"disable": {
 								"type": "off",
 								"board": "ac2",
 								"packet": 100,
-								"number": 1
+								"number": 5
 							}
 						},
 						"green": [0, 1],
