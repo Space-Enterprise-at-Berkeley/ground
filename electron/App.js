@@ -246,6 +246,14 @@ class App {
     this.port.send(this.boards[board].address, buf);
   }
 
+  static genertePacket(id, ...values) {
+    let idBuf = Buffer.alloc(1);
+    idBuf.writeUint8(id);
+    let len = 0;
+    let values = [];
+    
+  }
+
   static generateSignalPacket(id) {
     let idBuf = Buffer.alloc(1);
     idBuf.writeUInt8(id);
