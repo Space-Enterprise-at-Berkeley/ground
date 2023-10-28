@@ -35,7 +35,7 @@
 	// 	}
 	// ]
 
-	"pt1.ptValue6": [
+	"pt1.ptValue1": [ // Not correct
 		{
 			"suffix": "rtd",
 			"func": "linear",
@@ -43,7 +43,7 @@
 		}
 	],
 
-	"pt1.ptValue7": [
+	"pt1.ptValue4": [ // Not correct
 		{
 			"suffix": "rtd",
 			"func": "linear",
@@ -51,7 +51,7 @@
 		}
 	],
 
-	"pt2.ptValue0": [ 
+	"pt1.ptValue2": [ 
 		{
 			"suffix": "roc",
 			"func": "roc",
@@ -59,7 +59,7 @@
 		}
 	],
 
-	"pt2.ptValue1": [
+	"pt1.ptValue3": [
 		{
 			"suffix": "roc",
 			"func": "roc",

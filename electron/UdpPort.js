@@ -86,6 +86,7 @@ class UdpPort {
           msg = msg.slice(1+addressLen)
         }else{
           let id = msg.readUInt8(0);
+          console.log(id);
           if (rinfo.address === "10.0.0.11" && id > 4) {
             // console.log(msg.readUInt8(0));
             // console.log(msg.toString('hex').match(/../g).join(' '));

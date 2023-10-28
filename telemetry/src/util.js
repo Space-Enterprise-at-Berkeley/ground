@@ -4,22 +4,53 @@ export function buttonAction(action) {
   return (...args) => {
     switch (action.type) {
       case "retract-full":
+        if (action.number != null) {
+          comms.send(action.board, action.packet, action.number, "asUInt8", 0, "asUInt8", 0, "asUInt32");
+        }
+        else {
+          comms.send(action.board, action.packet, 0, "asUInt8", 0, "asUInt32");
+        }
         comms.sendPacket(action.board, action.packet, action.number == null ? -1 : action.number, 0, 0);
         break;
       case "extend-full":
-        comms.sendPacket(action.board, action.packet, action.number == null ? -1 : action.number, 1, 0);
+        if (action.number != null) {
+          comms.send(action.board, action.packet, action.number, "asUInt8", 1, "asUInt8", 0, "asUInt32");
+        }
+        else {
+          comms.send(action.board, action.packet, 1, "asUInt8", 0, "asUInt32");
+        }
         break;
       case "retract-timed":
-        comms.sendPacket(action.board, action.packet, action.number == null ? -1 : action.number, 2, args[0]);
+        if (action.number != null) {
+          comms.send(action.board, action.packet, action.number, "asUInt8", 2, "asUInt8", args[0], "asUInt32");
+        }
+        else {
+          comms.send(action.board, action.packet, 2, "asUInt8", args[0], "asUInt32");
+        }
         break;
       case "extend-timed":
-        comms.sendPacket(action.board, action.packet, action.number == null ? -1 : action.number, 3, args[0]);
+        if (action.number != null) {
+          comms.send(action.board, action.packet, action.number, "asUInt8", 3, "asUInt8", args[0], "asUInt32");
+        }
+        else {
+          comms.send(action.board, action.packet, 3, "asUInt8", args[0], "asUInt32");
+        }
         break;
       case "on":
-        comms.sendPacket(action.board, action.packet, action.number == null ? -1 : action.number, 4, 0);
+        if (action.number != null) {
+          comms.send(action.board, action.packet, action.number, "asUInt8", 4, "asUInt8", 0, "asUInt32");
+        }
+        else {
+          comms.send(action.board, action.packet, 4, "asUInt8", 0, "asUInt32");
+        }
         break;
       case "off":
-        comms.sendPacket(action.board, action.packet, action.number == null ? -1 : action.number, 5, 0);
+        if (action.number != null) {
+          comms.send(action.board, action.packet, action.number, "asUInt8", 5, "asUInt8", 0, "asUInt32");
+        }
+        else {
+          comms.send(action.board, action.packet, 5, "asUInt8", 0, "asUInt32");
+        }
         break;
       case "enable":
         let enableButton = buttonEnabledManager[action.id];
@@ -34,18 +65,18 @@ export function buttonAction(action) {
         }
         break;
       case "signal":
-        comms.sendSignalPacket(action.board, action.packet);
+        comms.send(action.board, action.packet);
         break;
       case "signal-timed":
-        comms.sendSignalPacketTimed(action.board, action.packet, args[0]);
+        comms.send(action.board, action.packet, args[0], "asFloat");
         break;
       case "start-pings":
         setInterval(() => {
-          comms.sendSignalPacket(action.board, action.packet);
+          comms.send(action.board, action.packet);
         }, action.delay);
         break;
       case "zero":
-        comms.sendZeroPacket(action.board, action.packet, args[0]);
+        comms.send(action.board, action.packet, args[0], "asUInt8");
         break;
       default:
         return;

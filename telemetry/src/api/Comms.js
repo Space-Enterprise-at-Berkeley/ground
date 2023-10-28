@@ -143,21 +143,25 @@ class Comms {
 
   // ------------ Controls ------------
 
-  async sendPacket(board, packet, number, command, time) {
-    return await this.ipc.invoke('send-packet', board, packet, number, command, time);
+  async send(board, packet, ...vals) {
+    return await this.ipc.invoke('send', board, packet, ...vals);
   }
 
-  async sendSignalPacket(board, packet) {
-    return await this.ipc.invoke('send-signal-packet', board, packet);
-  }
+  // async sendPacket(board, packet, number, command, time) {
+  //   return await this.ipc.invoke('send-packet', board, packet, number, command, time);
+  // }
 
-  async sendSignalPacketTimed(board, packet, time) {
-    return await this.ipc.invoke('send-signal-timed-packet', board, packet, time);
-  }
+  // async sendSignalPacket(board, packet) {
+  //   return await this.ipc.invoke('send-signal-packet', board, packet);
+  // }
 
-  async sendZeroPacket(board, packet, channel) {
-    return await this.ipc.invoke('send-zero-packet', board, packet, channel);
-  }
+  // async sendSignalPacketTimed(board, packet, time) {
+  //   return await this.ipc.invoke('send-signal-timed-packet', board, packet, time);
+  // }
+
+  // async sendZeroPacket(board, packet, channel) {
+  //   return await this.ipc.invoke('send-zero-packet', board, packet, channel);
+  // }
 
   async beginLaunchSequence() {
     return await this.ipc.invoke('launch');

@@ -11,7 +11,7 @@
 		["tcSupply24Power", "asFloat"]
 	],
 
-	// TC Value
+	// PT Value
 	"2": [
 		["ptValue0", "asFloat"],
 		["ptValue1", "asFloat"],
@@ -21,5 +21,11 @@
 		["ptValue5", "asFloat"],
 		["ptValue6", "asFloat"],
 		["ptValue7", "asFloat"]
+	],
+
+	// PT Automation
+	"160": [
+		["value1", "asFloat"],
+		["value2", "asFloat"]
 	]
 }

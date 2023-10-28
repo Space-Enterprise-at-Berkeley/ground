@@ -23,6 +23,7 @@ class App {
     this.sendDarkModeUpdate = this.sendDarkModeUpdate.bind(this);
     this.handleSendCustomMessage = this.handleSendCustomMessage.bind(this)
     this.addBackendFunc = this.addBackendFunc.bind(this);
+    this.send = this.send.bind(this);
     this.sendPacket = this.sendPacket.bind(this);
     this.sendSignalPacket = this.sendSignalPacket.bind(this);
     this.sendSignalTimedPacket = this.sendSignalTimedPacket.bind(this);
@@ -217,6 +218,7 @@ class App {
 
     this.addIPC('send-custom-message', this.handleSendCustomMessage, false);
 
+    this.addIPC('send', this.send);
     this.addIPC('send-packet', this.sendPacket);
     this.addIPC('send-signal-packet', this.sendSignalPacket);
     this.addIPC('send-signal-timed-packet', this.sendSignalTimedPacket);
@@ -225,140 +227,71 @@ class App {
     this.addIPC('abort', this.abort);
   }
 
+  send(_, board, packet, ...vals) {
+    let buf = App.generatePacket(packet, ...vals);
+    this.port.send(this.boards[board].address, buf);
+  }
+
   sendPacket(_, board, packet, number, command, time) {
-    let buf = App.generateActuatorPacket(packet, number, command, time);
+    let buf = App.generatePacket(packet, number, "asUInt8", command, "asUInt8", time, "asUInt32");
     this.port.send(this.boards[board].address, buf);
     // this.port.server.send(buf, 42070, this.boards[board].address);
   }
 
   sendSignalPacket(_, board, packet) {
-    let buf = App.generateSignalPacket(packet);
+    let buf = App.generatePacket(packet);
     this.port.send(this.boards[board].address, buf);
   }
 
   sendSignalTimedPacket(_, board, packet, time) {
-    let buf = App.generateSignalTimedPacket(packet, time);
+    let buf = App.generatePacket(packet, time, "asFloat");
     this.port.send(this.boards[board].address, buf);
   }
 
   sendZeroPacket(_, board, packet, channel) {
-    let buf = App.generateZeroPacket(packet, channel);
+    let buf = App.generatePacket(packet, channel, "asUInt8");
     this.port.send(this.boards[board].address, buf);
   }
 
-  static genertePacket(id, ...values) {
+  static generatePacket(id, ...vals) {
     let idBuf = Buffer.alloc(1);
     idBuf.writeUint8(id);
     let len = 0;
     let values = [];
-    
-  }
-
-  static generateSignalPacket(id) {
-    let idBuf = Buffer.alloc(1);
-    idBuf.writeUInt8(id);
-    let len = 0;
-    let values = [];
-    let lenBuf = Buffer.alloc(1);
-    lenBuf.writeUInt8(len);
-    let tsOffsetBuf = Buffer.alloc(4)
-    tsOffsetBuf.writeUInt32LE(Date.now() - initTime);
-    let checksumBuf = Buffer.alloc(2);
-    checksumBuf.writeUInt16LE(fletcher16Partitioned([idBuf, lenBuf, tsOffsetBuf, ...values]));
-    return Buffer.concat([idBuf, lenBuf, tsOffsetBuf, checksumBuf, ...values]);
-  }
-
-  static generateSignalTimedPacket(id, time) {
-    let idBuf = Buffer.alloc(1);
-    idBuf.writeUInt8(id);
-    let len = 4;
-    let values = [];
-    let timeBuf = Buffer.alloc(4);
-    timeBuf.writeFloatLE(time);
-    values.push(timeBuf);
-    let lenBuf = Buffer.alloc(1);
-    lenBuf.writeUInt8(len);
-    let tsOffsetBuf = Buffer.alloc(4)
-    tsOffsetBuf.writeUInt32LE(Date.now() - initTime);
-    let checksumBuf = Buffer.alloc(2);
-    checksumBuf.writeUInt16LE(fletcher16Partitioned([idBuf, lenBuf, tsOffsetBuf, ...values]));
-    return Buffer.concat([idBuf, lenBuf, tsOffsetBuf, checksumBuf, ...values]);
-  }
-
-  static generateActuatorPacket(id, number, command, time) {
-    let idBuf = Buffer.alloc(1);
-    idBuf.writeUInt8(id);
-    let len = 5;
-    let values = [];
-    if (number !== -1) {
-      len ++;
-      let numberBuf = Buffer.alloc(1);
-      numberBuf.writeUInt8(number);
-      values.push(numberBuf);
+    for (let i = 0; i < vals.length; i += 2) {
+      let buf;
+      let val = vals[i];
+      let type = vals[i + 1];
+      switch (type) {
+        case "asUInt8":
+          buf = Buffer.alloc(1);
+          buf.writeUint8(val);
+          len += 1;
+          break;
+        case "asUInt16":
+          buf = Buffer.alloc(2);
+          buf.writeUint16LE(val);
+          len += 2;
+          break;
+        case "asUInt32":
+          buf = Buffer.alloc(4);
+          buf.writeUint32LE(val);
+          len += 4;
+          break;
+        case "asUInt64":
+          buf = Buffer.alloc(8);
+          buf.writeUint64LE(val);
+          len += 8;
+          break;
+        case "asFloat":
+          buf = Buffer.alloc(4);
+          buf.writeFloatLE(val);
+          len += 4;
+          break;
+      }
+      console.log(buf);
+      values.push(buf);
     }
-    let commandBuf = Buffer.alloc(1);
-    commandBuf.writeUInt8(command);
-    values.push(commandBuf);
-    let timeBuf = Buffer.alloc(4);
-    timeBuf.writeUInt32LE(time);
-    values.push(timeBuf);
-    let lenBuf = Buffer.alloc(1);
-    lenBuf.writeUInt8(len);
-    let tsOffsetBuf = Buffer.alloc(4)
-    tsOffsetBuf.writeUInt32LE(Date.now() - initTime);
-    let checksumBuf = Buffer.alloc(2);
-    checksumBuf.writeUInt16LE(fletcher16Partitioned([idBuf, lenBuf, tsOffsetBuf, ...values]));
-    return Buffer.concat([idBuf, lenBuf, tsOffsetBuf, checksumBuf, ...values]);
-  }
-
-  static generateZeroPacket(id, channel) {
-    let idBuf = Buffer.alloc(1);
-    idBuf.writeUInt8(id);
-    let len = 1;
-    let values = [];
-    let channelBuf = Buffer.alloc(1);
-    channelBuf.writeUInt8(channel);
-    values.push(channelBuf);
-    let lenBuf = Buffer.alloc(1);
-    lenBuf.writeUInt8(len);
-    let tsOffsetBuf = Buffer.alloc(4)
-    tsOffsetBuf.writeUInt32LE(Date.now() - initTime);
-    let checksumBuf = Buffer.alloc(2);
-    checksumBuf.writeUInt16LE(fletcher16Partitioned([idBuf, lenBuf, tsOffsetBuf, ...values]));
-    return Buffer.concat([idBuf, lenBuf, tsOffsetBuf, checksumBuf, ...values]);
-  }
-
-  static generateAbortPacket(config, reason) {
-    let idBuf = Buffer.alloc(1);
-    idBuf.writeUInt8(133);
-    let len = 2;
-    let values = [];
-    let systemModeBuf = Buffer.alloc(1);
-    systemModeBuf.writeUInt8(config.mode);
-    values.push(systemModeBuf);
-    let reasonBuf = Buffer.alloc(1);
-    reasonBuf.writeUInt8(reason);
-    values.push(reasonBuf);
-    let lenBuf = Buffer.alloc(1);
-    lenBuf.writeUInt8(len);
-    let tsOffsetBuf = Buffer.alloc(4)
-    tsOffsetBuf.writeUInt32LE(Date.now() - initTime);
-    let checksumBuf = Buffer.alloc(2);
-    checksumBuf.writeUInt16LE(fletcher16Partitioned([idBuf, lenBuf, tsOffsetBuf, ...values]));
-    return Buffer.concat([idBuf, lenBuf, tsOffsetBuf, checksumBuf, ...values]);
-  }
-
-  static generateLaunchPacket(config) {
-    let idBuf = Buffer.alloc(1);
-    idBuf.writeUInt8(149);
-    let len = 5;
-    let values = [];
-    let systemModeBuf = Buffer.alloc(1);
-    systemModeBuf.writeUInt8(config.mode);
-    values.push(systemModeBuf);
-    let launchDurationBuf = Buffer.alloc(4);
-    launchDurationBuf.writeUInt16LE(config.burnTime);
-    values.push(launchDurationBuf);
     let lenBuf = Buffer.alloc(1);
     lenBuf.writeUInt8(len);
     let tsOffsetBuf = Buffer.alloc(4)
@@ -373,19 +306,19 @@ class App {
     // const delay = 30;
     // setTimeout(() => {
       console.log("actual launch");
-      let buf = App.generateLaunchPacket(this.config);
+      let buf = App.generatePacket(149, this.config.mode, "asUInt8", this.config.burnTime, "asUInt32");
       this.port.send(this.boards[this.config.controller].address, buf);
     // }, delay * 1000);
   }
 
   abortWithReason(reason) {
     console.log("abort " + reason);
-    let buf = App.generateAbortPacket(this.config, reason);
+    let buf = App.generatePacket(133, this.config.mode, "asUInt8", reason, "asUInt8");
     this.port.broadcast(buf);
   }
 
   abort() {
-    this.abortWithReason(3);
+    this.abortWithReason(0);
   }
 }
 
