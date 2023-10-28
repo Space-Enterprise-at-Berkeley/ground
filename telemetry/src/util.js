@@ -1,5 +1,7 @@
 import comms from "./api/Comms";
 
+let intervals = {};
+
 export function buttonAction(action) {
   return (...args) => {
     switch (action.type) {
@@ -71,9 +73,12 @@ export function buttonAction(action) {
         comms.send(action.board, action.packet, args[0], "asFloat");
         break;
       case "start-pings":
-        setInterval(() => {
+        intervals[action.pingId] = setInterval(() => {
           comms.send(action.board, action.packet);
         }, action.delay);
+        break;
+      case "stop-pings":
+        clearInterval(intervals[action.pingId]);
         break;
       case "zero":
         comms.send(action.board, action.packet, args[0], "asUInt8");

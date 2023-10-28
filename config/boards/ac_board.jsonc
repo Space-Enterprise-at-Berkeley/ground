@@ -49,7 +49,25 @@
 
 	// Autovent
 	"5": [
-		["loxAutoventPressure", "asFloat"],
-		["fuelAutoventPressure", "asFloat"]
+		["nosAutoventPressure", "asFloat"],
+		["ethAutoventPressure", "asFloat"]
+	],
+
+	// Potentiometers
+	"6": [
+		["potentiometer0", "asUInt16"],
+		["potentiometer1", "asUInt16"],
+		["potentiometer2", "asUInt16"],
+		["potentiometer3", "asUInt16"],
+		["potentiometer4", "asUInt16"],
+		["potentiometer5", "asUInt16"],
+		["potentiometer6", "asUInt16"],
+		["potentiometer7", "asUInt16"]
+	],
+
+	// Automation Info
+	"7": [
+		["automationState", "asUInt8"],
+		["fillDp", "asFloat"]
 	]
 }

@@ -198,7 +198,7 @@
 						"green": [0, 1]
 					},
 					{
-						"id": "Nitrous GEMS",
+						"id": "nitrousGems",
 						"type": "valve",
 						"name": "Nitrous GEMS",
 						"field": "ac2.actuatorState0",
@@ -219,10 +219,42 @@
 						"green": [0, 1]
 					},
 					{
-						"type": null
+						"id": "ethaneAuto",
+						"type": "valve",
+						"name": "Ethane Auto",
+						"field": "ac3.automationState",
+						"actions": {
+							"enable": {
+								"type": "start-pings",
+								"pingId": "ethaneAuto",
+								"board": "ac3",
+								"packet": 123,
+								"delay": 1000
+							},
+							"disable": {
+								"type": "stop-pings",
+								"pingId": "ethaneAuto"
+							}
+						}
 					},
 					{
-						"type": null
+						"id": "nitrousAuto",
+						"type": "valve",
+						"name": "Nitrous Auto",
+						"field": "ac2.automationState",
+						"actions": {
+							"enable": {
+								"type": "start-pings",
+								"pingId": "nitrousAuto",
+								"board": "ac2",
+								"packet": 123,
+								"delay": 1000
+							},
+							"disable": {
+								"type": "stop-pings",
+								"pingId": "nitrousAuto"
+							}
+						}
 					}
 				]
 			},

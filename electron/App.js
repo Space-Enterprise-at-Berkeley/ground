@@ -70,6 +70,11 @@ class App {
       }
     }
 
+    setInterval(() => {
+      let buf = App.generatePacket(249);
+      this.port.broadcast(buf);
+    }, 1000);
+
     this.setupIPC();
   }
   
