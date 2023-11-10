@@ -118,18 +118,30 @@
 					},
 					{
 						"id": "ethaneLineVent",
-						"type": "valve",
+						"type": "timed",
 						"name": "Ethane Fill Line Vent",
 						"field": "ac3.actuatorState3",
 						"actions": {
 							"enable": {
-								"type": "on",
+								"type": "extend-full",
 								"board": "ac3",
 								"packet": 100,
 								"number": 3
 							},
 							"disable": {
-								"type": "off",
+								"type": "retract-full",
+								"board": "ac3",
+								"packet": 100,
+								"number": 3
+							},
+							"enable-timed": {
+								"type": "extend-timed",
+								"board": "ac3",
+								"packet": 100,
+								"number": 3
+							},
+							"disable-timed": {
+								"type": "retract-timed",
 								"board": "ac3",
 								"packet": 100,
 								"number": 3
@@ -168,6 +180,83 @@
 
 			{
 				//Theoretical procedures list goes here
+				"type": "four-button",
+				"buttons": [
+						{
+							"id": "nitrousVent",
+							"type": "timed",
+							"name": "Nitrous Vent RBV",
+							"field": "ac3.actuatorState2",
+							"actions": {
+								"enable": {
+									"type": "extend-full",
+									"board": "ac3",
+									"packet": 100,
+									"number": 2
+								},
+								"disable": {
+									"type": "retract-full",
+									"board": "ac3",
+									"packet": 100,
+									"number": 2
+								},
+								"enable-timed": {
+									"type": "extend-timed",
+									"board": "ac3",
+									"packet": 100,
+									"number": 2
+								},
+								"disable-timed": {
+									"type": "retract-timed",
+									"board": "ac3",
+									"packet": 100,
+									"number": 2
+								}
+							},
+							"safe": true,
+							"green": [0, 1]
+						},
+						{
+							"id": "ethaneVent",
+							"type": "timed",
+							"name": "Ethane Vent RBV",
+							"field": "ac2.actuatorState2",
+							"actions": {
+								"enable": {
+									"type": "extend-full",
+									"board": "ac2",
+									"packet": 100,
+									"number": 2
+								},
+								"disable": {
+									"type": "retract-full",
+									"board": "ac2",
+									"packet": 100,
+									"number": 2
+								},
+								"enable-timed": {
+									"type": "extend-timed",
+									"board": "ac2",
+									"packet": 100,
+									"number": 2
+								},
+								"disable-timed": {
+									"type": "retract-timed",
+									"board": "ac2",
+									"packet": 100,
+									"number": 2
+								}
+							},
+							"safe": true,
+							"green": [0, 1]
+						},
+						{
+							"type": null
+						},
+						{
+							"type": null
+						}
+					]
 			},
 
 			//Window 4
@@ -221,7 +310,7 @@
 					{
 						"id": "ethaneAuto",
 						"type": "valve",
-						"name": "Ethane Auto",
+						"name": "Ethane Automation",
 						"field": "ac3.automationState",
 						"actions": {
 							"enable": {
@@ -240,7 +329,7 @@
 					{
 						"id": "nitrousAuto",
 						"type": "valve",
-						"name": "Nitrous Auto",
+						"name": "Nitrous Automation",
 						"field": "ac2.automationState",
 						"actions": {
 							"enable": {
@@ -301,18 +390,30 @@
 					},
 					{
 						"id": "nitrousLineVent",
-						"type": "valve",
+						"type": "timed",
 						"name": "Nitrous Fill Line Vent",
 						"field": "ac2.actuatorState3",
 						"actions": {
 							"enable": {
-								"type": "on",
+								"type": "extend-full",
 								"board": "ac2",
 								"packet": 100,
 								"number": 3
 							},
 							"disable": {
-								"type": "off",
+								"type": "retract-full",
+								"board": "ac2",
+								"packet": 100,
+								"number": 3
+							},
+							"enable-timed": {
+								"type": "extend-timed",
+								"board": "ac2",
+								"packet": 100,
+								"number": 3
+							},
+							"disable-timed": {
+								"type": "retract-timed",
 								"board": "ac2",
 								"packet": 100,
 								"number": 3
