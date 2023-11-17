@@ -136,13 +136,13 @@
 				// 	"color": [0, 255, 0]
 				// }
 				{
-					"field": "flight.loxCapVal",
+					"field": "cap.fuelCapVal",
 					"name": "Nitrous Cap Fill Value",
 					"units": "pF",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "flight.fuelCapVal",
+					"field": "cap.loxCapVal",
 					"name": "Ethane Cap Fill Value",
 					"units": "pF",
 					"color": [0, 255, 0]

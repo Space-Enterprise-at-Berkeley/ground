@@ -38,7 +38,7 @@ class UdpPort {
 
     this.server.on('message', (msg, rinfo) => {
       try {
-        // console.log(rinfo.address);
+        console.log(rinfo.address);
         let board
         if(rinfo.address === '127.0.0.1'){
           const addressLen = msg.readUInt8(0)
@@ -66,6 +66,7 @@ class UdpPort {
           //   console.log(packet);
           // }
           const update = board.processPacket(packet);
+          console.log(update);
           if (update === undefined) return;
           this.updateStateCallback(packet.timestamp, update);
         }
