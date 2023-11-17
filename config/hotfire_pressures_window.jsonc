@@ -16,6 +16,12 @@
 					"name": "Nitrous Tank PT",
 					"units": "PSI",
 					"color": [255, 0, 0]
+				},
+				{
+					"field": "pt1.ptValue1",
+					"name": "Nitrous Fill Line PT",
+					"units": "PSI",
+					"color": [255, 0, 255]
 				}
 		
 			]
@@ -28,6 +34,12 @@
 					"name": "Ethane Tank PT",
 					"units": "PSI",
 					"color": [0, 255, 0]
+				},
+				{
+					"field": "pt1.ptValue0",
+					"name": "Ethane Fill Line PT",
+					"units": "PSI",
+					"color": [0, 0, 255]
 				}
 		
 			]
@@ -125,24 +137,24 @@
 		{
 			"type": "graph",
 			"values": [
-				{
-					"field": "pt1.ptValue1",
-					"name": "Nitrous Fill Line PT",
-					"units": "PSI",
-					"color": [255, 0, 0]
-				}
+				// {
+				// 	"field": "pt1.ptValue1",
+				// 	"name": "Nitrous Fill Line PT",
+				// 	"units": "PSI",
+				// 	"color": [255, 0, 0]
+				// }
 		
 			]
 		},
 		{
 			"type": "graph",
 			"values": [
-				{
-					"field": "pt1.ptValue0",
-					"name": "Ethane Fill Line PT",
-					"units": "PSI",
-					"color": [255, 0, 0]
-				}
+				// {
+				// 	"field": "pt1.ptValue0",
+				// 	"name": "Ethane Fill Line PT",
+				// 	"units": "PSI",
+				// 	"color": [255, 0, 0]
+				// }
 		
 			]
 		},

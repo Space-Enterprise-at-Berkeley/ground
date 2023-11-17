@@ -35,12 +35,16 @@
 		"type": "lc",
 		"address": "10.0.0.22"
 	},
-	"oreg": {
-		"type": "ereg",
-		"address": "10.0.0.61"
-	},
-	"freg": {
-		"type": "ereg",
-		"address": "10.0.0.62"
+	// "oreg": {
+	// 	"type": "ereg",
+	// 	"address": "10.0.0.61"
+	// },
+	// "freg": {
+	// 	"type": "ereg",
+	// 	"address": "10.0.0.62"
+	// },
+	"cap": {
+		"type": "flightV4",
+		"address": "10.0.0.42"
 	}
 }

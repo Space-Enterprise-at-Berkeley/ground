@@ -113,7 +113,7 @@
 								"number": 1
 							}
 						},
-						"safe": true,
+						// "safe": true,
 						"green": [0, 1]
 					},
 					{
@@ -159,13 +159,13 @@
 						"field": "ac3.actuatorState4",
 						"actions": {
 							"enable": {
-								"type": "on",
+								"type": "off",
 								"board": "ac3",
 								"packet": 100,
 								"number": 4
 							},
 							"disable": {
-								"type": "off",
+								"type": "on",
 								"board": "ac3",
 								"packet": 100,
 								"number": 4
@@ -213,7 +213,7 @@
 									"number": 2
 								}
 							},
-							"safe": true,
+							// "safe": true,
 							"green": [0, 1]
 						},
 						{
@@ -247,7 +247,7 @@
 									"number": 2
 								}
 							},
-							"safe": true,
+							// "safe": true,
 							"green": [0, 1]
 						},
 						{
@@ -385,7 +385,7 @@
 								"number": 1
 							}
 						},
-						"safe": true,
+						// "safe": true,
 						"green": [0, 1]
 					},
 					{
@@ -431,13 +431,13 @@
 						"field": "ac2.actuatorState4",
 						"actions": {
 							"enable": {
-								"type": "on",
+								"type": "off",
 								"board": "ac2",
 								"packet": 100,
 								"number": 4
 							},
 							"disable": {
-								"type": "off",
+								"type": "on",
 								"board": "ac2",
 								"packet": 100,
 								"number": 4
@@ -479,7 +479,7 @@
 								"number": 7
 							}
 						},
-						"safe" : true,
+						// "safe" : true,
 						"green": [0, 1]
 					},
 					{
@@ -533,8 +533,8 @@
 								"number": 5
 							}
 						},
-						"green": [0, 1],
-						"safe": true
+						"green": [0, 1]
+						// "safe": true
 					},
 					{
 						"id": "nitrousDrain",
@@ -555,8 +555,8 @@
 								"number": 5
 							}
 						},
-						"green": [0, 1],
-						"safe": true
+						"green": [0, 1]
+						// "safe": true
 					}
 				]
 			}

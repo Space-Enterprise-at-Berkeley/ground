@@ -6,10 +6,16 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "pt1.ptValue5",
+					"field": "pt1.ptValue3",
 					"name": "Nitrous Tank PT",
 					"units": "PSI",
 					"color": [255, 0, 0]
+				},
+				{
+					"field": "pt1.ptValue1",
+					"name": "Nitrous Fill Line PT",
+					"units": "PSI",
+					"color": [255, 0, 255]
 				}
 		
 			]
@@ -22,8 +28,13 @@
 					"name": "Ethane Tank PT",
 					"units": "PSI",
 					"color": [0, 255, 0]
+				},
+				{
+					"field": "pt1.ptValue0",
+					"name": "Ethane Fill Line PT",
+					"units": "PSI",
+					"color": [0, 0, 255]
 				}
-		
 			]
 		},
 		{
@@ -96,14 +107,14 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "pt1.ptValue4@rtd",
-					"name": "Nitrous Tank RTD",
+					"field": "tc1.tcValue0",
+					"name": "Nitrous Tank TC",
 					"units": "C",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "pt1.ptValue1@rtd",
-					"name": "Ethane Tank RTD",
+					"field": "tc1.tcValue1",
+					"name": "Ethane Tank TC",
 					"units": "C",
 					"color": [0, 255, 0]
 				}
@@ -112,16 +123,28 @@
 		{
 			"type": "graph",
 			"values": [
+				// {
+				// 	"field": "pt1.ptValue3",
+				// 	"name": "Nitrous Fill PT",
+				// 	"units": "PSI",
+				// 	"color": [255, 0, 0]
+				// },
+				// {
+				// 	"field": "pt1.ptValue0",
+				// 	"name": "Ethane Fill PT",
+				// 	"units": "PSI",
+				// 	"color": [0, 255, 0]
+				// }
 				{
-					"field": "pt1.ptValue3",
-					"name": "Nitrous Fill PT",
-					"units": "C",
+					"field": "flight.loxCapVal",
+					"name": "Nitrous Cap Fill Value",
+					"units": "pF",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "pt1.ptValue0",
-					"name": "Ethane Fill PT",
-					"units": "C",
+					"field": "flight.fuelCapVal",
+					"name": "Ethane Cap Fill Value",
+					"units": "pF",
 					"color": [0, 255, 0]
 				}
 			]
