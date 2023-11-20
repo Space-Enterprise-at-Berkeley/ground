@@ -101,7 +101,99 @@
 			]
 		},
 		{
-			"type": "Cap Fill Moment"
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "eregP",
+					"type": "ereg-timed",
+					"name": "E-Reg P",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "signal-timed",
+							"board": "oreg",
+							"packet": 206
+						},
+						"fuel-timed": {
+							"type": "signal-timed",
+							"board": "freg",
+							"packet": 206
+						}
+					}
+				},
+				{
+					"id": "eregI",
+					"type": "ereg-timed",
+					"name": "E-Reg I",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "signal-timed",
+							"board": "oreg",
+							"packet": 207
+						},
+						"fuel-timed": {
+							"type": "signal-timed",
+							"board": "freg",
+							"packet": 207
+						}
+					}
+				},
+				{
+					"id": "eregD",
+					"type": "ereg-timed",
+					"name": "E-Reg D",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "signal-timed",
+							"board": "oreg",
+							"packet": 208
+						},
+						"fuel-timed": {
+							"type": "signal-timed",
+							"board": "freg",
+							"packet": 208
+						}
+					}
+				},
+				{
+					"type": null
+				}
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "autoventThreshold",
+					"type": "ereg-timed",
+					"name": "Autovent Threshold",
+					"field": "",
+					"actions": {
+						"lox-timed": {
+							"type": "zero",
+							"board": "ac2",
+							"packet": 124
+						},
+						"fuel-timed": {
+							"type": "zero",
+							"board": "ac3",
+							"packet": 124
+						}
+					},
+					"safe": true
+				},
+				{
+					"type": null
+				},
+				{
+					"type": null
+				},
+				{
+					"type": null
+				}
+			]
 		},
 		{
 			"type": "graph",
