@@ -174,12 +174,12 @@
 						"lox-timed": {
 							"type": "zero",
 							"board": "ac2",
-							"packet": 124
+							"packet": 123
 						},
 						"fuel-timed": {
 							"type": "zero",
 							"board": "ac3",
-							"packet": 124
+							"packet": 123
 						}
 					},
 					"safe": true
