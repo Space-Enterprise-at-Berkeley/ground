@@ -51,8 +51,9 @@
 					"units": "PSI/s"
 				},
 				{
-					"field": null 
-					
+					"field": "tc1.tcValue2", //same
+					"name": "Ethane Injector TC",
+					"units": "C"
 				},
 				{
 					"field": "pt1.ptValue0", 
@@ -97,23 +98,6 @@
 					"name": "Ethane LC 1",
 					"units": "LB",
 					"color": [0, 255, 0]
-				}
-			]
-		},
-		{
-			"type": "four-button",
-			"buttons": [
-				{
-					"type": null
-				},
-				{
-					"type": null
-				},
-				{
-					"type": null
-				},
-				{
-					"type": null
 				}
 			]
 		},
