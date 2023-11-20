@@ -104,58 +104,13 @@
 			"type": "four-button",
 			"buttons": [
 				{
-					"id": "eregP",
-					"type": "ereg-timed",
-					"name": "E-Reg P",
-					"field": "",
-					"actions": {
-						"lox-timed": {
-							"type": "signal-timed",
-							"board": "oreg",
-							"packet": 206
-						},
-						"fuel-timed": {
-							"type": "signal-timed",
-							"board": "freg",
-							"packet": 206
-						}
-					}
+					"type": null
 				},
 				{
-					"id": "eregI",
-					"type": "ereg-timed",
-					"name": "E-Reg I",
-					"field": "",
-					"actions": {
-						"lox-timed": {
-							"type": "signal-timed",
-							"board": "oreg",
-							"packet": 207
-						},
-						"fuel-timed": {
-							"type": "signal-timed",
-							"board": "freg",
-							"packet": 207
-						}
-					}
+					"type": null
 				},
 				{
-					"id": "eregD",
-					"type": "ereg-timed",
-					"name": "E-Reg D",
-					"field": "",
-					"actions": {
-						"lox-timed": {
-							"type": "signal-timed",
-							"board": "oreg",
-							"packet": 208
-						},
-						"fuel-timed": {
-							"type": "signal-timed",
-							"board": "freg",
-							"packet": 208
-						}
-					}
+					"type": null
 				},
 				{
 					"type": null

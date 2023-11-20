@@ -3,6 +3,7 @@
 	// TC Board 1
 	"tc1.tcValue0": "nitrousTankTC",
 	"tc1.tcValue1": "ethaneTankTC",
+	"tc1.tcValue2": "ethaneInjectorTC",
 
 	// PT Board 1
 
