@@ -8,23 +8,23 @@
 
 	"pt1.ptValue0": "nitrousTankPT",
 	"pt1.ptValue1": "nitrousFillPT",
-	// "pt1.ptValue2": "", 
+	"pt1.ptValue2": "nitrousInjectorPT", 
 	// "pt1.ptValue3": "", 
 	"pt1.ptValue4": "ethaneTankPT", 
 	"pt1.ptValue5": "ethaneFillPT",
-	// "pt1.ptValue6": "",
+	"pt1.ptValue6": "ethaneInjectorPT",
 	// "pt1.ptValue7": "",
 
 	// PT Board 2
 
-	"pt2.ptValue0": "nitrousInjectorPT",
-	"pt2.ptValue1": "ethaneInjectorPT",
-	"pt2.ptValue2": "chamberPT",
-	"pt2.ptValue3": "manifoldPT",
-	"pt2.ptValue4": "channelPT0",
-	"pt2.ptValue5": "channelPT1",
-	"pt2.ptValue6": "channelPT2",
-	"pt2.ptValue7": "channelPT3",
+	// "pt2.ptValue0": "nitrousInjectorPT",
+	// "pt2.ptValue1": "ethaneInjectorPT",
+	// "pt2.ptValue2": "chamberPT",
+	// "pt2.ptValue3": "manifoldPT",
+	// "pt2.ptValue4": "channelPT0",
+	// "pt2.ptValue5": "channelPT1",
+	// "pt2.ptValue6": "channelPT2",
+	// "pt2.ptValue7": "channelPT3",
 
 	// PT Board 3
 

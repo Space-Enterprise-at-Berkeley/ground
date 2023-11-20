@@ -6,12 +6,12 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "pt3.ptValue0",
+					"field": "pt1.ptValue2",
 					"name": "Nitrous Injector PT",
 					"units": "PSI"
 				},
 				{
-					"field": "pt3.ptValue1",
+					"field": "pt1.ptValue6",
 					"name": "Ethane Injector PT",
 					"units": "PSI"
 				}

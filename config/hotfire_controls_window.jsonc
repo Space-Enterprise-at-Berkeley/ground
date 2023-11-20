@@ -151,28 +151,28 @@
 					},
 					{
 						"type": null
-					},
-					{
-						"id": "ethaneEmergencyVent",
-						"type": "valve",
-						"name": "Ethane E-Vent",
-						"field": "ac3.actuatorState4",
-						"actions": {
-							"enable": {
-								"type": "off",
-								"board": "ac3",
-								"packet": 100,
-								"number": 4
-							},
-							"disable": {
-								"type": "on",
-								"board": "ac3",
-								"packet": 100,
-								"number": 4
-							}
-						},
-						"green": [0, 1]
-					}
+					}//,
+					// {
+					// 	"id": "ethaneEmergencyVent",
+					// 	"type": "valve",
+					// 	"name": "Ethane E-Vent",
+					// 	"field": "ac3.actuatorState4",
+					// 	"actions": {
+					// 		"enable": {
+					// 			"type": "off",
+					// 			"board": "ac3",
+					// 			"packet": 100,
+					// 			"number": 4
+					// 		},
+					// 		"disable": {
+					// 			"type": "on",
+					// 			"board": "ac3",
+					// 			"packet": 100,
+					// 			"number": 4
+					// 		}
+					// 	},
+					// 	"green": [0, 1]
+					// }
 				]
 			},
 
@@ -423,28 +423,28 @@
 					},
 					{
 						"type": null
-					},
-					{
-						"id": "nitrousEmergencyVent",
-						"type": "valve",
-						"name": "Nitrous E-Vent",
-						"field": "ac2.actuatorState4",
-						"actions": {
-							"enable": {
-								"type": "off",
-								"board": "ac2",
-								"packet": 100,
-								"number": 4
-							},
-							"disable": {
-								"type": "on",
-								"board": "ac2",
-								"packet": 100,
-								"number": 4
-							}
-						},
-						"green": [0, 1]
-					}
+					}//,
+					// {
+					// 	"id": "nitrousEmergencyVent",
+					// 	"type": "valve",
+					// 	"name": "Nitrous E-Vent",
+					// 	"field": "ac2.actuatorState4",
+					// 	"actions": {
+					// 		"enable": {
+					// 			"type": "off",
+					// 			"board": "ac2",
+					// 			"packet": 100,
+					// 			"number": 4
+					// 		},
+					// 		"disable": {
+					// 			"type": "on",
+					// 			"board": "ac2",
+					// 			"packet": 100,
+					// 			"number": 4
+					// 		}
+					// 	},
+					// 	"green": [0, 1]
+					// }
 				]
 			},
 
@@ -557,7 +557,50 @@
 						},
 						"green": [0, 1]
 						// "safe": true
+					},
+					{
+						"id": "nitrousEmergencyVent",
+						"type": "valve",
+						"name": "Nitrous E-Vent",
+						"field": "ac2.actuatorState4",
+						"actions": {
+							"enable": {
+								"type": "off",
+								"board": "ac2",
+								"packet": 100,
+								"number": 4
+							},
+							"disable": {
+								"type": "on",
+								"board": "ac2",
+								"packet": 100,
+								"number": 4
+							}
+						},
+						"green": [0, 1]
+					},
+					{
+						"id": "ethaneEmergencyVent",
+						"type": "valve",
+						"name": "Ethane E-Vent",
+						"field": "ac3.actuatorState4",
+						"actions": {
+							"enable": {
+								"type": "off",
+								"board": "ac3",
+								"packet": 100,
+								"number": 4
+							},
+							"disable": {
+								"type": "on",
+								"board": "ac3",
+								"packet": 100,
+								"number": 4
+							}
+						},
+						"green": [0, 1]
 					}
+
 				]
 			}
 	]
