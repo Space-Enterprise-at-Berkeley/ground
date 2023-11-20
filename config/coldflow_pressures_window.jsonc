@@ -147,13 +147,12 @@
 		{
 			"type": "graph",
 			"values": [
-				// {
-				// 	"field": "pt1.ptValue0",
-				// 	"name": "Ethane Fill Line PT",
-				// 	"units": "PSI",
-				// 	"color": [255, 0, 0]
-				// }
-		
+				{
+					"field": "tc1.tcValue2",
+					"name": "Ethane Injector TC",
+					"units": "C",
+					"color": [255, 0, 0]
+				}
 			]
 		},
 		{
