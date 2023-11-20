@@ -184,7 +184,9 @@ class NineGrid extends Component {
                               value.field,
                               value.actions,
                               value.safe || false,
-                              value.green || []
+                              value.green || [],
+                              value.keyEnable || -1,
+                              value.keyDisable || -1
                             ])
                           }
                         />

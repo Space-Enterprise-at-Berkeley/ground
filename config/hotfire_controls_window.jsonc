@@ -113,7 +113,9 @@
 								"number": 1
 							}
 						},
-						// "safe": true,
+						"keyEnable": 87, // w
+						"keyDisable": 81, // q
+						"safe": true,
 						"green": [0, 1]
 					},
 					{
@@ -247,7 +249,9 @@
 									"number": 2
 								}
 							},
-							// "safe": true,
+							"keyEnable": 80, // p
+							"keyDisable": 79, // o
+							"safe": true,
 							"green": [0, 1]
 						},
 						{
@@ -385,7 +389,7 @@
 								"number": 1
 							}
 						},
-						// "safe": true,
+						"safe": true,
 						"green": [0, 1]
 					},
 					{
@@ -533,8 +537,8 @@
 								"number": 5
 							}
 						},
-						"green": [0, 1]
-						// "safe": true
+						"green": [0, 1],
+						"safe": true
 					},
 					{
 						"id": "nitrousDrain",
@@ -555,8 +559,8 @@
 								"number": 5
 							}
 						},
-						"green": [0, 1]
-						// "safe": true
+						"green": [0, 1],
+						"safe": true
 					},
 					{
 						"id": "nitrousEmergencyVent",

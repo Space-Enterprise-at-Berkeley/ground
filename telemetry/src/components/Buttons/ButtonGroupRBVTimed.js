@@ -76,6 +76,7 @@ class ButtonGroupRBVTimed extends Component {
     this.setOpenTimed = this.setOpenTimed.bind(this);
     this.setClosedTimed = this.setClosedTimed.bind(this);
     this.setDisabled = this.setDisabled.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   updateStatus(timestamp, value) {
@@ -110,18 +111,33 @@ class ButtonGroupRBVTimed extends Component {
     timed_close(timeField);
   }
 
+  handleKeyPress(e) {
+    if (!e.shiftKey) {
+      return;
+    }
+    let keycode = e.keyCode;
+    if (keycode === this.props.keyEnable && !this.state.disabled) {
+      this.setOpenTimed();
+    }
+    else if (keycode === this.props.keyDisable) {
+      this.setClosedTimed();
+    }
+  }
+
   componentDidMount() {
     const { field } = this.props;
     comms.addSubscriber(field, this.updateStatus);
     addButtonEnabledListener(this.props.buttonId, (enabled) => {
       this.setState({ disabled: !enabled });
     });
+    document.addEventListener("keydown", this.handleKeyPress);
   }
 
   componentWillUnmount() {
     const { field } = this.props;
     comms.removeSubscriber(field, this.updateStatus);
     removeButtonEnabledListener(this.props.buttonId);
+    document.removeEventListener("keydown", this.handleKeyPress, true);
   }
 
   setDisabled(enabled) {

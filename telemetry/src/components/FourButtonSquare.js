@@ -72,6 +72,8 @@ class FourButton extends Component {
                               text={obj[2]}
                               safe={obj[5]}
                               green={obj[6]}
+                              keyEnable={obj[7]}
+                              keyDisable={obj[8]}
                             />
                           )
                         case "switch":
