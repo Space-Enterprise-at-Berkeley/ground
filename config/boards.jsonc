@@ -11,9 +11,13 @@
 		"type": "ac",
 		"address": "10.0.0.13"
 	},
-	"tc": {
+	"tc1": {
 		"type": "tc",
 		"address": "10.0.0.51"
+	},
+	"tc2": {
+		"type": "tc",
+		"address": "10.0.0.52"
 	},
 	"pt1": {
 		"type": "pt",
@@ -23,10 +27,10 @@
 		"type": "pt",
 		"address": "10.0.0.32"
 	},
-	"pt3": {
-		"type": "pt",
-		"address": "10.0.0.33"
-	},
+	// "pt3": {
+	// 	"type": "pt",
+	// 	"address": "10.0.0.33"
+	// },
 	"lc1": {
 		"type": "lc",
 		"address": "10.0.0.21"

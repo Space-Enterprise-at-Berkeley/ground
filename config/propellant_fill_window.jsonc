@@ -6,7 +6,7 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "pt1.ptValue3",
+					"field": "pt1.ptValue0",
 					"name": "Nitrous Tank PT",
 					"units": "PSI",
 					"color": [255, 0, 0]
@@ -24,13 +24,13 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "pt1.ptValue2",
+					"field": "pt1.ptValue4",
 					"name": "Ethane Tank PT",
 					"units": "PSI",
 					"color": [0, 255, 0]
 				},
 				{
-					"field": "pt1.ptValue0",
+					"field": "pt1.ptValue5",
 					"name": "Ethane Fill Line PT",
 					"units": "PSI",
 					"color": [0, 0, 255]
@@ -41,12 +41,12 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "pt1.ptValue2@roc", //don't know if works yet 
+					"field": "pt1.ptValue0@roc", //don't know if works yet 
 					"name": "Nitrous Tank roc",
 					"units": "PSI/s"
 				},
 				{
-					"field": "pt1.ptValue5@roc", //same
+					"field": "pt1.ptValue4@roc", //same
 					"name": "Ethane Tank roc",
 					"units": "PSI/s"
 				},
@@ -55,12 +55,12 @@
 					
 				},
 				{
-					"field": "pt1.ptValue5", 
+					"field": "pt1.ptValue0", 
 					"name": "Nitrous Tank PT",
 					"units": "PSI"
 				},
 				{
-					"field": "pt1.ptValue2", 
+					"field": "pt1.ptValue4", 
 					"name": "Ethane Tank PT",
 					"units": "PSI"
 				}

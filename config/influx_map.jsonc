@@ -6,14 +6,14 @@
 
 	// PT Board 1
 
-	"pt1.ptValue0": "ethaneFillPT",
+	"pt1.ptValue0": "nitrousTankPT",
 	"pt1.ptValue1": "nitrousFillPT",
-	"pt1.ptValue2": "ethaneTankPT", 
-	"pt1.ptValue3": "nitrousTankPT", 
-	"pt1.ptValue4": "", 
-	"pt1.ptValue5": "",
-	"pt1.ptValue6": "",
-	"pt1.ptValue7": "",
+	// "pt1.ptValue2": "", 
+	// "pt1.ptValue3": "", 
+	"pt1.ptValue4": "ethaneTankPT", 
+	"pt1.ptValue5": "ethaneFillPT",
+	// "pt1.ptValue6": "",
+	// "pt1.ptValue7": "",
 
 	// PT Board 2
 
@@ -28,14 +28,14 @@
 
 	// PT Board 3
 
-	"pt3.ptValue0@rtd": "nitrousLineRTD0",
-	"pt3.ptValue1@rtd": "nitrousLineRTD1",
-	"pt3.ptValue2@rtd": "nitrousLineRTD2",
-	"pt3.ptValue3@rtd": "ethaneLineRTD0",
-	"pt3.ptValue4@rtd": "ethaneLineRTD1",
-	"pt3.ptValue5@rtd": "ethaneLineRTD2",
-	"pt3.ptValue6@rtd": "",
-	"pt3.ptValue7@rtd": "",
+	// "pt3.ptValue0@rtd": "nitrousLineRTD0",
+	// "pt3.ptValue1@rtd": "nitrousLineRTD1",
+	// "pt3.ptValue2@rtd": "nitrousLineRTD2",
+	// "pt3.ptValue3@rtd": "ethaneLineRTD0",
+	// "pt3.ptValue4@rtd": "ethaneLineRTD1",
+	// "pt3.ptValue5@rtd": "ethaneLineRTD2",
+	// "pt3.ptValue6@rtd": "",
+	// "pt3.ptValue7@rtd": "",
 
 	// LC Board 1
 
@@ -57,41 +57,41 @@
 	"ac1.acSupply24Current": "ac1Supply24Current",
 	"ac1.acSupply24Power": "ac1Supply24Power",
 
-	"ac1.actuatorState0": "",
+	// "ac1.actuatorState0": "",
 	"ac1.actuatorState1": "breakwireState",
 	"ac1.actuatorState2": "mventState",
 	"ac1.actuatorState3": "armState",
 	"ac1.actuatorState4": "nitrousMainState",
 	"ac1.actuatorState5": "ethaneMainState",
-	"ac1.actuatorState6": "",
+	// "ac1.actuatorState6": "",
 	"ac1.actuatorState7": "igniterState",
 
-	"ac1.actuatorContinuity0": "",
+	// "ac1.actuatorContinuity0": "",
 	"ac1.actuatorContinuity1": "breakwireContinuity",
 	"ac1.actuatorContinuity2": "mventContinuity", 
 	"ac1.actuatorContinuity3": "armContinuity",
 	"ac1.actuatorContinuity4": "nitrousMainContinuity",
 	"ac1.actuatorContinuity5": "ethaneMainContinuity",
-	"ac1.actuatorContinuity6": "",
+	// "ac1.actuatorContinuity6": "",
 	"ac1.actuatorContinuity7": "igniterContinuity",
 
-	"ac1.actuatorCurrent0": "",
+	// "ac1.actuatorCurrent0": "",
 	"ac1.actuatorCurrent1": "breakwireCurrent",
 	"ac1.actuatorCurrent2": "mventCurrent", 
 	"ac1.actuatorCurrent3": "armCurrent",
 	"ac1.actuatorCurrent4": "nitrousMainCurrent",
 	"ac1.actuatorCurrent5": "ethaneMainCurrent",
-	"ac1.actuatorCurrent6": "",
+	// "ac1.actuatorCurrent6": "",
 	"ac1.actuatorCurrent7": "igniterCurrent",
 
-	"ac1.potentiometer0": "",
-	"ac1.potentiometer1": "",
-	"ac1.potentiometer2": "", 
-	"ac1.potentiometer3": "",
-	"ac1.potentiometer4": "",
-	"ac1.potentiometer5": "",
-	"ac1.potentiometer6": "",
-	"ac1.potentiometer7": "",
+	// "ac1.potentiometer0": "",
+	// "ac1.potentiometer1": "",
+	// "ac1.potentiometer2": "", 
+	// "ac1.potentiometer3": "",
+	// "ac1.potentiometer4": "",
+	// "ac1.potentiometer5": "",
+	// "ac1.potentiometer6": "",
+	// "ac1.potentiometer7": "",
 
 	// Actuator Controller 2
 
@@ -105,8 +105,8 @@
 	"ac2.actuatorState3": "nitrousLineVentState",
 	"ac2.actuatorState4": "nitrousEmergencyVentState",
 	"ac2.actuatorState5": "nitrousDrainState",
-	"ac2.actuatorState6": "",
-	"ac2.actuatorState7": "",
+	// "ac2.actuatorState6": "",
+	// "ac2.actuatorState7": "",
 
 	"ac2.actuatorContinuity0": "nitrousGemsContinuity",
 	"ac2.actuatorContinuity1": "nitrousFillContinuity",
@@ -114,8 +114,8 @@
 	"ac2.actuatorContinuity3": "nitrousLineVentContinuity",
 	"ac2.actuatorContinuity4": "nitrousEmergencyVentContinuity",
 	"ac2.actuatorContinuity5": "nitrousDrainContinuity",
-	"ac2.actuatorContinuity6": "",
-	"ac2.actuatorContinuity7": "",
+	// "ac2.actuatorContinuity6": "",
+	// "ac2.actuatorContinuity7": "",
 
 	"ac2.actuatorCurrent0": "nitrousGemsCurrent",
 	"ac2.actuatorCurrent1": "nitrousFillCurrent",
@@ -123,17 +123,17 @@
 	"ac2.actuatorCurrent3": "nitrousLineVentCurrent",
 	"ac2.actuatorCurrent4": "nitrousEmergencyVentCurrent",
 	"ac2.actuatorCurrent5": "nitrousDrainCurrent",
-	"ac2.actuatorCurrent6": "",
-	"ac2.actuatorCurrent7": "",
+	// "ac2.actuatorCurrent6": "",
+	// "ac2.actuatorCurrent7": "",
 
-	"ac2.potentiometer0": "",
+	// "ac2.potentiometer0": "",
 	"ac2.potentiometer1": "nitrousFillPot",
-	"ac2.potentiometer2": "", 
+	// "ac2.potentiometer2": "", 
 	"ac2.potentiometer3": "nitrousLineVentPot",
-	"ac2.potentiometer4": "",
-	"ac2.potentiometer5": "",
-	"ac2.potentiometer6": "",
-	"ac2.potentiometer7": "",
+	// "ac2.potentiometer4": "",
+	// "ac2.potentiometer5": "",
+	// "ac2.potentiometer6": "",
+	// "ac2.potentiometer7": "",
 
 	// Actuator Controller 3
 
@@ -147,8 +147,8 @@
 	"ac3.actuatorState3": "ethaneLineVentState",
 	"ac3.actuatorState4": "ethaneEmergencyVentState",
 	"ac3.actuatorState5": "ethaneDrainState",
-	"ac3.actuatorState6": "",
-	"ac3.actuatorState7": "",
+	// "ac3.actuatorState6": "",
+	// "ac3.actuatorState7": "",
 
 	"ac3.actuatorContinuity0": "ethaneGemsContinuity",
 	"ac3.actuatorContinuity1": "ethaneFillContinuity",
@@ -156,8 +156,8 @@
 	"ac3.actuatorContinuity3": "ethaneLineVentContinuity",
 	"ac3.actuatorContinuity4": "ethaneEmergencyVentContinuity",
 	"ac3.actuatorContinuity5": "ethaneDrainContinuity",
-	"ac3.actuatorContinuity6": "",
-	"ac3.actuatorContinuity7": "",
+	// "ac3.actuatorContinuity6": "",
+	// "ac3.actuatorContinuity7": "",
 
 	"ac3.actuatorCurrent0": "ethaneGemsCurrent",
 	"ac3.actuatorCurrent1": "ethaneFillCurrent",
@@ -165,15 +165,15 @@
 	"ac3.actuatorCurrent3": "ethaneLineVentCurrent",
 	"ac3.actuatorCurrent4": "ethaneEmergencyVentCurrent",
 	"ac3.actuatorCurrent5": "ethaneDrainCurrent",
-	"ac3.actuatorCurrent6": "",
-	"ac3.actuatorCurrent7": "",
+	// "ac3.actuatorCurrent6": "",
+	// "ac3.actuatorCurrent7": "",
 
-	"ac3.potentiometer0": "",
+	// "ac3.potentiometer0": "",
 	"ac3.potentiometer1": "ethaneFillPot",
-	"ac3.potentiometer2": "", 
-	"ac3.potentiometer3": "ethaneLineVentPot",
-	"ac3.potentiometer4": "",
-	"ac3.potentiometer5": "",
-	"ac3.potentiometer6": "",
-	"ac3.potentiometer7": ""
+	// "ac3.potentiometer2": "", 
+	"ac3.potentiometer3": "ethaneLineVentPot"
+	// "ac3.potentiometer4": "",
+	// "ac3.potentiometer5": "",
+	// "ac3.potentiometer6": "",
+	// "ac3.potentiometer7": ""
 }
