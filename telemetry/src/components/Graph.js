@@ -214,7 +214,7 @@ class Graph extends Component {
           </table>
           <div ref={this.sizeDetectorRef} className={classes.sizeDetector}>
           <p ref={this.maxRef} style={{position: "absolute", zIndex: 1, top: 0}}>0</p>
-          <p ref={this.minRef} style={{position: "absolute", zIndex: 1, top: 200}}>0</p>
+          <p ref={this.minRef} style={{position: "absolute", zIndex: 1, top: 100}}>0</p>
             <canvas ref={this.canvasRef} className={classes.canvas}/>
           </div>
         </CardContent>
