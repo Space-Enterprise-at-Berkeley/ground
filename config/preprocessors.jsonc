@@ -35,21 +35,21 @@
 	// 	}
 	// ]
 
-	"pt1.ptValue1": [ // Not correct
-		{
-			"suffix": "rtd",
-			"func": "linear",
-			"args": [-0.676, 2901.7]
-		}
-	],
+	// "pt1.ptValue1": [ // Not correct
+	// 	{
+	// 		"suffix": "rtd",
+	// 		"func": "linear",
+	// 		"args": [-0.676, 2901.7]
+	// 	}
+	// ],
 
-	"pt1.ptValue4": [ // Not correct
-		{
-			"suffix": "rtd",
-			"func": "linear",
-			"args": [-0.676, 2901.7]
-		}
-	],
+	// "pt1.ptValue4": [ // Not correct
+	// 	{
+	// 		"suffix": "rtd",
+	// 		"func": "linear",
+	// 		"args": [-0.676, 2901.7]
+	// 	}
+	// ],
 
 	"pt1.ptValue2": [ 
 		{
@@ -60,6 +60,27 @@
 	],
 
 	"pt1.ptValue3": [
+		{
+			"suffix": "roc",
+			"func": "roc",
+			"args": []
+		}
+	],
+
+	"pt1.ptValue4": [
+		{
+			"suffix": "roc",
+			"func": "roc",
+			"args": []
+		},
+		{
+			"suffix": "filtered",
+			"func": "filtered",
+			"args": []
+		}
+	],
+
+	"pt1.ptValue0": [
 		{
 			"suffix": "roc",
 			"func": "roc",

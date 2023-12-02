@@ -54,6 +54,45 @@ function getPreprocessor(func, args) {
       
 
       return roc;
+    case "filtered":
+      let filter = function(v, ts) {
+        // let diff = v - filter.last;
+        // let timeDiff = ts - filter.lastTime;
+        // filter.last = v;
+        // filter.lastTime = ts;
+
+        filter.rateofchange = v;
+
+        for (let i = 0; i < filter.filterTaps.length; i ++) {
+          let b0, b1, b2, a0, a1, a2;
+          [b0, b1, b2, a0, a1, a2] = filter.filterTaps[i];
+          let y = (b0 * filter.rateofchange) + filter.state[i][0];
+          filter.state[i][0] = (b1 * filter.rateofchange) - (a1 * y) + filter.state[i][1];
+          filter.state[i][1] = (b2 * filter.rateofchange) - (a2 * y);
+          filter.rateofchange = y;
+        }
+
+        return filter.rateofchange;
+      }
+      filter.last = 0;
+      filter.lastTime = 0;
+      filter.history = [];
+      filter.times = [];
+
+      filter.state = [
+        [0, 0],
+        [0, 0],
+        [0, 0],
+        [0, 0]
+      ];
+
+      filter.filterTaps = [
+        [3.12389769e-5, 6.24779538e-5,  3.12389769e-5,  1.0, -1.72593340, 7.47447372e-1],
+        [1.0,  2.0,  1.0,  1.0, -1.86380049,  8.87033000e-1]
+      ]; //2x SOS sections, cutoff 5Hz @ 200Hz sample rate
+      
+
+      return filter;
   }
 }
 
