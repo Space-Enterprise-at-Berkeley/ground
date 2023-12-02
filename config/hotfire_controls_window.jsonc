@@ -222,29 +222,29 @@
 							"id": "ethaneVent",
 							"type": "timed",
 							"name": "Ethane Vent RBV",
-							"field": "ac2.actuatorState2",
+							"field": "ac3.actuatorState2",
 							"actions": {
 								"enable": {
 									"type": "extend-full",
-									"board": "ac2",
+									"board": "ac3",
 									"packet": 100,
 									"number": 2
 								},
 								"disable": {
 									"type": "retract-full",
-									"board": "ac2",
+									"board": "ac3",
 									"packet": 100,
 									"number": 2
 								},
 								"enable-timed": {
 									"type": "extend-timed",
-									"board": "ac2",
+									"board": "ac3",
 									"packet": 100,
 									"number": 2
 								},
 								"disable-timed": {
 									"type": "retract-timed",
-									"board": "ac2",
+									"board": "ac3",
 									"packet": 100,
 									"number": 2
 								}
