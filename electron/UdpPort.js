@@ -40,7 +40,7 @@ class UdpPort {
       try {
         // console.log(rinfo.address);
         let board
-        if(rinfo.address === '127.0.0.1'){
+        if(rinfo.address === '127.0.0.1' || rinfo.address === '10.0.0.170'){
           const addressLen = msg.readUInt8(0)
           const devAddress = msg.toString("utf8", 1, 1+addressLen)
           board = this.boards[devAddress]
@@ -114,6 +114,9 @@ class UdpPort {
     });
 
     this.server.on('listening', () => {
+      this.server.setBroadcast(true);
+      this.server.setMulticastTTL(128);
+      this.server.addMembership('230.0.0.3');
       const address = this.server.address();
       // this.server.setBroadcast(true);
       // this.server.setMulticastTTL(128);
