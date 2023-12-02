@@ -1,20 +1,23 @@
 {
 
 	// TC Board 1
-	"tc1.tcValue0": "nitrousTankTC",
-	"tc1.tcValue1": "ethaneTankTC",
-	"tc1.tcValue2": "ethaneInjectorTC",
+	// "tc1.tcValue0": "nitrousTankTC",
+	// "tc1.tcValue1": "ethaneTankTC",
+	// "tc1.tcValue3": "ethaneInjectorTC",
+
+	"tc1.tcValue0": "ethaneTankTC",
+	"tc1.tcValue7": "ethaneInjectorTC",
 
 	// PT Board 1
 
 	"pt1.ptValue0": "nitrousTankPT",
 	"pt1.ptValue1": "nitrousFillPT",
 	"pt1.ptValue2": "nitrousInjectorPT", 
-	// "pt1.ptValue3": "", 
+	"pt1.ptValue3": "ethaneInjectorPT", 
 	"pt1.ptValue4": "ethaneTankPT", 
 	"pt1.ptValue5": "ethaneFillPT",
-	"pt1.ptValue6": "ethaneInjectorPT",
-	// "pt1.ptValue7": "",
+	"pt1.ptValue6": "ethaneInjectorPT2",
+	"pt1.ptValue7": "ethaneTankPT2",
 
 	// PT Board 2
 
