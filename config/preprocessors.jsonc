@@ -80,6 +80,45 @@
 		}
 	],
 
+	"pt1.ptValue5": [
+		{
+			"suffix": "roc",
+			"func": "roc",
+			"args": []
+		},
+		{
+			"suffix": "filtered",
+			"func": "filtered",
+			"args": []
+		}
+	],
+
+	"pt1.ptValue6": [
+		{
+			"suffix": "roc",
+			"func": "roc",
+			"args": []
+		},
+		{
+			"suffix": "filtered",
+			"func": "filtered",
+			"args": []
+		}
+	],
+
+	"pt1.ptValue7": [
+		{
+			"suffix": "roc",
+			"func": "roc",
+			"args": []
+		},
+		{
+			"suffix": "filtered",
+			"func": "filtered",
+			"args": []
+		}
+	],
+
 	"pt1.ptValue0": [
 		{
 			"suffix": "roc",
