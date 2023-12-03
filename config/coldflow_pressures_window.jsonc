@@ -35,6 +35,12 @@
 					"color": [0, 255, 0]
 				},
 				{
+					"field": "pt1.ptValue7",
+					"name": "Ethane Tank PT 2",
+					"units": "PSI",
+					"color": [0, 255, 255]
+				},
+				{
 					"field": "pt1.ptValue5",
 					"name": "Ethane Fill Line PT",
 					"units": "PSI",
@@ -148,7 +154,7 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "tc1.tcValue2",
+					"field": "tc1.tcValue7",
 					"name": "Ethane Injector TC",
 					"units": "C",
 					"color": [255, 0, 0]
