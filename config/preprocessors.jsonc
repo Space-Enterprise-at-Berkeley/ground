@@ -64,6 +64,11 @@
 			"suffix": "roc",
 			"func": "roc",
 			"args": []
+		},
+		{
+			"suffix": "filtered",
+			"func": "filtered",
+			"args": []
 		}
 	],
 

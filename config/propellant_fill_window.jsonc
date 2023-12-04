@@ -135,6 +135,12 @@
 					"color": [0, 255, 0]
 				},
 				{
+					"field": "pt1.ptValue3@filtered",
+					"name": "ETH Injector PT Avg",
+					"units": "PSI",
+					"color": [10, 150, 50]
+				},
+				{
 					"field": "pt1.ptValue6",
 					"name": "ETH Injector PT 2",
 					"units": "PSI",
