@@ -12,7 +12,6 @@ export function buttonAction(action) {
         else {
           comms.send(action.board, action.packet, 0, "asUInt8", 0, "asUInt32");
         }
-        comms.sendPacket(action.board, action.packet, action.number == null ? -1 : action.number, 0, 0);
         break;
       case "extend-full":
         if (action.number != null) {
