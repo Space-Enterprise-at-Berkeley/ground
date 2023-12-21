@@ -109,7 +109,7 @@ function bufFloat(value) {
 Packets go below here
 ************************************/
 const rate = 100;
-const loop = false;
+const loop = true;
 
 // let p = packet(103, "", [buf8(4)], false);
 // sock.send(p, 42099, "10.0.0.31");
@@ -126,6 +126,12 @@ if (loop) {
 
 		// let p = packet(2, "", [bufFloat(0), bufFloat(0), bufFloat(0)], false);
 		// sock.send(p, 42099, "10.0.0.255");
+
+		let val0 = (Date.now() - initTime) / 1000;
+		let val1 = 5000;
+
+		let p = packet(2, "10.0.0.21", [bufFloat(val0), bufFloat(val1), bufFloat(0), bufFloat(0)], true);
+		sock.send(p, 42069, "127.0.0.1");
 	}, rate);
 }
 

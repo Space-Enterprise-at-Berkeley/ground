@@ -3,6 +3,11 @@
 	"layout": "9-grid",
 	"slots": [
 		{
+			"type": "demo",
+			"field1": "lc1.lcValue0",
+			"name1": "LC 0",
+			"field2": "lc1.lcValue1",
+			"name2": "LC 1"
 		}
 	]
 }

@@ -12,7 +12,7 @@
 	"windows": {
 		"hotfire_controls": "$hotfire_controls_window.jsonc",
 		"hotfire_pressures": "$hotfire_pressures_window.jsonc",
-		// "coldflow_controls": "$coldflow_controls_window.jsonc",
+		"coldflow_controls": "$coldflow_controls_window.jsonc",
 		"coldflow_pressures": "$coldflow_pressures_window.jsonc",
 		"propellant_fill": "$propellant_fill_window.jsonc",
 		"coldflow_pressurization": "$coldflow_pressurization_window.jsonc",

@@ -5,7 +5,7 @@ import {Container, Grid} from "@material-ui/core";
 
 import Graph from "./Graph";
 import SixValueSquare from "./SixValueSquare";
-
+import DemoSquare from "./DemoSquare";
 import MessageDisplaySquare from "./MessageDisplaySquare";
 import ErrorSquare from "./ErrorSquare";
 import FourButtonSquare from "./FourButtonSquare";
@@ -154,6 +154,15 @@ class NineGrid extends Component {
                               value.func
                             ])
                           }
+                        />
+                      )
+                    case "demo":
+                      return (
+                        <DemoSquare
+                          field1={field.field1}
+                          name1={field.name1}
+                          field2={field.field2}
+                          name2={field.name2}
                         />
                       )
                     case "graph":
