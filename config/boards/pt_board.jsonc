@@ -6,9 +6,9 @@
 
 	// 24V Supply Stats
 	"1": [
-		["tcSupply24Voltage", "asFloat"],
-		["tcSupply24Current", "asFloat"],
-		["tcSupply24Power", "asFloat"]
+		["ptSupply24Voltage", "asFloat"],
+		["ptSupply24Current", "asFloat"],
+		["ptSupply24Power", "asFloat"]
 	],
 
 	// PT Value

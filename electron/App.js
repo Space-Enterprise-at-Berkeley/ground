@@ -8,7 +8,7 @@ const { initTime, fletcher16Partitioned } = require('./Packet');
 const { getPreprocessor } = require('./Preprocessors');
 
 class App {
-  constructor(config, port) {
+  constructor(config, host) {
     this.webContents = [];
     this.state = new State({});
     this.influxDB = new InfluxDB(this);
@@ -16,7 +16,7 @@ class App {
     this.config = config;
     this.boards = {};
     this.lastValues = {};
-    this.recvPort = port;
+    this.host = host;
     this.preprocessors = {};
 
     this.updateState = this.updateState.bind(this);
@@ -36,7 +36,7 @@ class App {
    * Separate init function from constructor to ensure WebContents are present before accepting IPC invocations
    */
   initApp() {
-    this.port = new UdpPort('0.0.0.0', this.recvPort, this.updateState);
+    this.port = new UdpPort('0.0.0.0', this.host, this.updateState);
 
     for (let boardName in this.config.boards) {
       this.boards[boardName] = new Board(

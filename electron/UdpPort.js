@@ -5,12 +5,12 @@ class UdpPort {
   /**
    *
    * @param {String} address
-   * @param {Number} port
+   * @param {Number} host
    * @param {Function} updateStateCallback
    */
-  constructor(address, port, updateStateCallback) {
+  constructor(address, host, updateStateCallback) {
     this.address = address;
-    this.port = port;
+    this.host = host;
     this.server = dgram.createSocket('udp4');
     this.broadcastServer = dgram.createSocket('udp4');
     /**
@@ -40,7 +40,7 @@ class UdpPort {
       try {
         // console.log(rinfo.address);
         let board
-        if(rinfo.address === '127.0.0.1' || rinfo.address === '10.0.0.170'){
+        if(rinfo.address === '127.0.0.1'){
           const addressLen = msg.readUInt8(0)
           const devAddress = msg.toString("utf8", 1, 1+addressLen)
           board = this.boards[devAddress]
@@ -87,7 +87,6 @@ class UdpPort {
           msg = msg.slice(1+addressLen)
         }else{
           let id = msg.readUInt8(0);
-          console.log(id);
           if (rinfo.address === "10.0.0.11" && id > 4) {
             // console.log(msg.readUInt8(0));
             // console.log(msg.toString('hex').match(/../g).join(' '));
@@ -116,7 +115,7 @@ class UdpPort {
     this.server.on('listening', () => {
       this.server.setBroadcast(true);
       this.server.setMulticastTTL(128);
-      this.server.addMembership('230.0.0.3');
+      this.server.addMembership('224.0.0.3', "10.0.0." + (this.host % 42000));
       const address = this.server.address();
       // this.server.setBroadcast(true);
       // this.server.setMulticastTTL(128);
@@ -139,7 +138,7 @@ class UdpPort {
       this.broadcastServer.setBroadcast(true);
     });
 
-    this.server.bind(this.port, this.address);
+    this.server.bind(42080, this.address);
 
     this.broadcastServer.bind(42099, this.address);
   }
