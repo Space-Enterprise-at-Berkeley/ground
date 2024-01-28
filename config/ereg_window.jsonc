@@ -6,13 +6,13 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "oreg.filteredUpstreamPressure1",
+					"field": "flightV4.LOXfilteredUpstreamPressure1",
 					"name": "O-Reg Press",
 					"units": "PSI",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "freg.filteredUpstreamPressure1",
+					"field": "flightV4.FUELfilteredUpstreamPressure1",
 					"name": "F-Reg Press",
 					"units": "PSI",
 					"color": [0, 255, 0]
@@ -23,13 +23,13 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "oreg.filteredDownstreamPressure1",
+					"field": "flightV4.LOXfilteredDownstreamPressure1",
 					"name": "LOX Pressure",
 					"units": "PSI",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "oreg.pressureSetpoint",
+					"field": "flightV4.LOXpressureSetpoint",
 					"name": "Setpoint",
 					"units": "C",
 					"color": [0, 255, 0]
@@ -40,13 +40,13 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "freg.filteredDownstreamPressure1",
+					"field": "flightV4.FUELfilteredDownstreamPressure1",
 					"name": "Fuel Pressure",
 					"units": "PSI",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "freg.pressureSetpoint",
+					"field": "flightV4.FUELpressureSetpoint",
 					"name": "Setpoint",
 					"units": "C",
 					"color": [0, 255, 0]
@@ -57,32 +57,32 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "oreg.filteredUpstreamPressure1",
+					"field": "flightV4.LOXfilteredUpstreamPressure1",
 					"name": "LOX Press",
 					"units": "PSI"
 				},
 				{
-					"field": "oreg.filteredDownstreamPressure1",
+					"field": "flightV4.LOXfilteredDownstreamPressure1",
 					"name": "LOX Tank",
 					"units": "PSI"
 				},
 				{
-					"field": "oreg.pressureSetpoint",
+					"field": "flightV4.LOXpressureSetpoint",
 					"name": "Lox SetP",
 					"units": "PSI"
 				},
 				{
-					"field": "freg.filteredUpstreamPressure1",
+					"field": "flightV4.FUELfilteredUpstreamPressure1",
 					"name": "Fuel Press",
 					"units": "PSI"
 				},
 				{
-					"field": "freg.filteredDownstreamPressure1",
+					"field": "flightV4.FUELfilteredDownstreamPressure1",
 					"name": "Fuel Tank",
 					"units": "PSI"
 				},
 				{
-					"field": "freg.pressureSetpoint",
+					"field": "flightV4.FUELpressureSetpoint",
 					"name": "Fuel SetP",
 					"units": "PSI"
 				}
@@ -109,12 +109,12 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "oreg.filteredUpstreamPressure1@roc",
+					"field": "flightV4.LOXfilteredUpstreamPressure1@roc",
 					"name": "LOX Press RoC",
 					"units": "PSI/s"
 				},
 				{
-					"field": "freg.filteredUpstreamPressure1@roc",
+					"field": "flightV4.FUELfilteredUpstreamPressure1@roc",
 					"name": "Fuel Press RoC",
 					"units": "PSI/s"
 				},
@@ -136,13 +136,13 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "oreg.motorPower",
+					"field": "flightV4.LOXmotorPower",
 					"name": "LOX Motor Power",
 					"units": "%",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "freg.motorPower",
+					"field": "flightV4.FUELmotorPower",
 					"name": "Fuel Motor Power",
 					"units": "%",
 					"color": [0, 255, 0]
@@ -153,13 +153,13 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "oreg.encoderAngle",
+					"field": "flightV4.LOXencoderAngle",
 					"name": "LOX Encoder Angle",
 					"units": "",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "oreg.angleSetpoint",
+					"field": "flightV4.LOXangleSetpoint",
 					"name": "Setpoint",
 					"units": "",
 					"color": [0, 255, 0]
@@ -170,13 +170,13 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "freg.encoderAngle",
+					"field": "flightV4.FUELencoderAngle",
 					"name": "Fuel Encoder Angle",
 					"units": "",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "freg.angleSetpoint",
+					"field": "flightV4.FUELangleSetpoint",
 					"name": "Setpoint",
 					"units": "",
 					"color": [0, 255, 0]

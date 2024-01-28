@@ -14,16 +14,16 @@ class FlightV4 extends Board {
       0: [
         ["firmwareCommitHash", asASCIIString]
       ],
-
-      // kalman filter values
-      2: [
-        ["filteredAltitude", asFloat],
-        ["filteredVelocity", asFloat],
-        ["filteredAccel", asFloat]
+      
+      //24v Supply
+      1: [
+        ["flightSupply8Voltage", asFloat],
+        ["flightSupply8Current", asFloat],
+        ["flightsSupply8Power", asFloat]
       ],
 
       // IMU Telemetry
-      3: [
+      2: [
         ["accelX", asFloat],
         ["accelY", asFloat],
         ["accelZ", asFloat],
@@ -32,172 +32,260 @@ class FlightV4 extends Board {
         ["gyroZ", asFloat],
         ["accelX2", asFloat],
         ["accelY2", asFloat],
-        ["accelZ2", asFloat]
+        ["accelZ2", asFloat],
+        ["imuNumber", asUInt8]
       ],
 
       // Barometer Telemetry
-      5: [
-        ["baroAltitude", asFloat],
-        ["baroTemperature", asFloat]
-        ["baroPressure2", asFloat],
-        ["baroTemperature2", asFloat]
+      3: [
+        ["baro1Altitude", asFloat],
+        ["baro1Temperature", asFloat]
+        ["baro1Pressure", asFloat],
+        ["baro2Altitude", asFloat],
+        ["baro2Temperature", asFloat],
+        ["baro2Pressure", asFloat]
+        ["baroNumber", asUInt8]
       ],
 
-      // GPS Telemetry
+    // GPS Telemetry
       4: [
         ["gpsAltitude", asFloat],
         ["gpsLatitude", asFloat],
         ["gpsLongitude", asFloat],
-        ["numGpsSats", asUInt8]
+        ["numGpsSats", asUInt8],
+        ["gpsSpeed", asFloat],
+        ["validGPSFix", asUInt8]
       ],
 
+      // Actuator States
+      5: [
+        ["loxGEMSvoltage", asFloat],
+        ["loxGEMScurrent", asFloat]
+      ],
+
+      //Actuator Currents
       6: [
-        ["chute1Curr", asFloat],
-        ["video1Curr", asFloat],
-        ["video0Curr", asFloat],
-        ["chute0Curr", asFloat],
-        ["valve1Curr", asFloat],
-        ["valve0Curr", asFloat],
-        ["rbvCurr", asFloat],
-        ["breakwire0", asFloat]
+        ["fuelGEMSvoltage", asFloat],
+        ["fuelGEMScurrent", asFloat]
       ],
 
+      //Actuator Continuities
       7: [
-        ["chute1Cont", asFloat],
-        ["video1Cont", asFloat],
-        ["video0Cont", asFloat],
-        ["chute0Cont", asFloat],
-        ["valve1Cont", asFloat],
-        ["valve0Cont", asFloat],
-        ["rbvCont", asFloat],
-        ["breakwire1", asFloat]
+        ["loxGEMSstate", asUInt8],
+        ["fuelGEMSstate", asUInt8]
       ],
 
-      8: [
-        ["busVoltage", asFloat],
-        ["shuntCurrent", asFloat],
-        ["power", asFloat]
+      //Filtered Values
+      9: [
+        ["altitude", asFloat],
+        ["velocity", asFloat],
+        ["acceleration", asFloat]
       ],
 
-      10: [
-        ["launched", asUInt8],
-        ["burnout", asUInt8],
-        ["apogee", asUInt8],
-        ["drogueDep", asUInt8],
-        ["mainDep", asUInt8]
-      ],
-
-      11: [
-        ["rssi", asFloat]
-      ],
-
+      //Apogee/Flight Status
       12: [
-        ["bbWritten", asUInt32]
+        ["launchDetected", asFloat],
+        ["burnoutDetected", asFloat],
+        ["apogeeDetected", asFloat],
+        ["drogueChuteDeploy", asFloat],
+        ["mainChuteDeploy", asFloat]
       ],
 
-      // // LOX GEMS IV
-      // 5: [
-      //   ["loxGEMSvoltage", asFloat],
-      //   ["loxGEMScurrent", asFloat]
-      // ],
-      
-      // // Fuel GEMS IV
-      // 6: [
-      //   ["fuelGEMSvoltage", asFloat],
-      //   ["fuelGEMScurrent", asFloat]
-      // ],
-
-      // // LOX GEMS State
-      // 7: [
-      //   ["loxGEMSstate", asUInt8]
-      // ],
-      
-      // // LOX GEMS State
-      // 8: [
-      //   ["fuelGEMSstate", asUInt8]
-      // ],
-
-      // // Press Flow RBV
-      // 11: [
-      //   ["pressurantFlowRBVstate", asUInt8],
-      //   ["pressurantFlowRBVvoltage", asFloat],
-      //   ["pressurantFlowRBVcurrent", asFloat]
-      // ],
-
-      // // Apogee
-      // 12: [
-      //   ["apogeeTime", asUInt32],
-      //   ["apogeeAltitudeDetected", asUInt32],
-      //   ["mainChuteDeployTime", asUInt32],
-      //   ["drogueChuteDeployTime", asUInt32]
-      // ],
-
-      // // Vehicle State
-      // 13: [
-      //   ["vehicleState", asUInt8]
-      // ],
-
-      // // Blackbox Bytes Written
-      // 14: [
-      //   ["blackboxWritten", asUInt32],
-      //   ["isRecording", asUInt8]
-      // ],
-
-      // // Flight OC Event
-      // 15: [],
-
-      // // AutoVent Status
-      // 16: [
-      //   ["autoVentStatus", asUInt8]
-      // ],
-
-      // // Breakwire 1 State
-      // 17: [
-      //   ["breakWire1Voltage", asFloat],
-      //   ["breakWire1Current", asFloat]
-      // ],
-      
-      // // Breakwire 2 State
-      // 18: [
-      //   ["breakWire2Voltage", asFloat],
-      //   ["breakWire2Current", asFloat]
-      // ],
-
-      // // PT Value
-      // 19: [
-      //   ["ptValue1", asFloat],
-      //   ["ptValue2", asFloat],
-      //   ["ptValue0", asFloat],
-      //   ["ptValue3", asFloat],
-      //   ["ptValue4", asFloat],
-      //   ["ptValue5", asFloat],
-      //   ["ptValue6", asFloat],
-      //   ["ptValue7", asFloat]
-      // ],
-
-      // // RTD Value
-      // 20: [
-      //   ["rtd0", asFloat],
-      //   ["rtd1", asFloat]
-      // ],
-
-      // Cap Fill
-      21: [
-        ["loxCapVal", asFloat],
-        ["loxCapAvg", asFloat],
-        ["loxCapTemperature", asFloat],
-        ["loxCapRefVal", asFloat],
-        ["loxCapRawVal", asFloat]
+      //Vehicle State
+      13: [
+        ["vehicleState", asUInt8]
       ],
 
-      // Fuel Cap Fill
-      22: [
-        ["fuelCapVal", asFloat],
-        ["fuelCapAvg", asFloat],
-        ["fuelCapTemperature", asFloat],
-        ["fuelCapRefVal", asFloat],
-        ["fuelCapRawVal", asFloat]
-      ]
+      //Blackbox Bytes Written
+      14: [
+        ["blackboxWritten", asUInt32],
+        ["isRecording", asUInt8]
+      ],
+
+      //Flight OC Event
+      15: [
+
+      ],
+
+      //Autovent Status
+      16: [
+        ["autoVentStatus", asUInt8]
+      ],
+
+      //Breakwires
+      17: [
+        ["breakWire1Voltage", asFloat],
+        ["breakWire2Voltage", asFloat]
+      ],
+
+      //PT Values
+      18: [
+        ["ptValue0", asFloat],
+        ["ptValue1", asFloat]
+      ],
+
+      //Press Flow Values
+      20: [
+        ["pressFlowVoltage", asFloat],
+        ["pressFlowCurrent", asFloat],
+        ["pressFlowState", asUInt8]
+      ],
+
+      //By E-Reg
+      
+      //LOX Pressure Telemetry
+      31: [
+        ["LOXfilteredUpstreamPressure1", asFloat],
+        ["LOXfilteredUpstreamPressure2", asFloat],
+        ["LOXfilteredDownstreamPressure1", asFloat],
+        ["LOXfilteredDownstreamPressure2", asFloat],
+        ["LOXrawUpstreamPressure1", asFloat],
+        ["LOXrawUpstreamPressure2", asFloat],
+        ["LOXrawDownstreamPressure1", asFloat],
+        ["LOXrawDownstreamPressure2", asFloat],
+      ],
+
+      //LOX Motor Telemetry
+      32: [
+        ["LOXencoderAngle", asFloat],
+        ["LOXangleSetpoint", asFloat],
+        ["LOXpressureSetpoint", asFloat],
+        ["LOXmotorPower", asFloat],
+        ["LOXpressureControlP", asFloat],
+        ["LOXpressureControlI", asFloat],
+        ["LOXpressureControlD", asFloat],
+      ],
+
+      //LOX Config
+      33: [
+        ["LOXpressureSetpointConfig", asFloat],
+        ["LOXpOuterNominal", asFloat],
+        ["LOXiOuterNominal", asFloat],
+        ["LOXdOuterNominal", asFloat],
+        ["LOXpInner", asFloat],
+        ["LOXiInner", asFloat],
+        ["LOXdInner", asFloat],
+        ["LOXflowDuration", asFloat]
+      ],
+
+      //LOX Diagnostic
+      34: [
+        ["LOXmotorDirPass", asUInt8],
+        ["LOXservoDirPass", asUInt8]
+      ],
+
+      //LOX State Transition Error
+      35: [
+        ["LOXerrorCode", asUInt8]
+      ],
+
+      //LOX Flow State
+      36: [ 
+        ["LOXflowState", asUInt8]
+      ],
+
+      //LOX Limit Switch
+      37: [
+        ["LOXfullyClosedSwitch", asFloat],
+        ["LOXfullyOpenSwitch", asFloat],
+      ],
+
+      //LOX Phase Currents
+      38: [
+        ["LOXcurrentA", asFloat],
+        ["LOXcurrentB", asFloat],
+        ["LOXcurrentC", asFloat]
+      ],
+
+      //LOX Temperatures
+      39: [
+        ["LOXboardTemp1", asFloat],
+        ["LOXboardTemp2", asFloat],
+        ["LOXmotorTemp", asFloat]
+      ],
+
+      //LOX Overcurrent Trigger
+      40: [
+        ["LOXavgCurrent", asFloat],
+        ["LOXbufferSize", asFloat]
+      ],
+
+      //Fuel Pressure Telemetry
+      51: [
+        ["FUELfilteredUpstreamPressure1", asFloat],
+        ["FUELfilteredUpstreamPressure2", asFloat],
+        ["FUELfilteredDownstreamPressure1", asFloat],
+        ["FUELfilteredDownstreamPressure2", asFloat],
+        ["FUELrawUpstreamPressure1", asFloat],
+        ["FUELrawUpstreamPressure2", asFloat],
+        ["FUELrawDownstreamPressure1", asFloat],
+        ["FUELrawDownstreamPressure2", asFloat],
+      ],
+
+      //Fuel Motor Telemetry
+      52: [
+        ["FUELencoderAngle", asFloat],
+        ["FUELangleSetpoint", asFloat],
+        ["FUELpressureSetpoint", asFloat],
+        ["FUELmotorPower", asFloat],
+        ["FUELpressureControlP", asFloat],
+        ["FUELpressureControlI", asFloat],
+        ["FUELpressureControlD", asFloat],
+      ],
+
+      //Fuel Config
+      53: [
+        ["FUELpressureSetpointConfig", asFloat],
+        ["FUELpOuterNominal", asFloat],
+        ["FUELiOuterNominal", asFloat],
+        ["FUELdOuterNominal", asFloat],
+        ["FUELpInner", asFloat],
+        ["FUELiInner", asFloat],
+        ["FUELdInner", asFloat],
+        ["FUELflowDuration", asFloat]
+      ],
+
+      //Fuel Diagnostic
+      54: [
+        ["FUELmotorDirPass", asUInt8],
+        ["FUELservoDirPass", asUInt8]
+      ],
+
+      //Fuel State Transition Error
+      55: [
+        ["FUELerrorCode", asUInt8]
+      ],
+
+      //Fuel Flow State
+      56: [ 
+        ["FUELflowState", asUInt8]
+      ],
+
+      //Fuel Limit Switch
+      57: [
+        ["FUELfullyClosedSwitch", asFloat],
+        ["FUELfullyOpenSwitch", asFloat],
+      ],
+
+      //Fuel Phase Currents
+      58: [
+        ["FUELcurrentA", asFloat],
+        ["FUELcurrentB", asFloat],
+        ["FUELcurrentC", asFloat]
+      ],
+
+      //Fuel Temperatures
+      59: [
+        ["FUELboardTemp1", asFloat],
+        ["FUELboardTemp2", asFloat],
+        ["FUELmotorTemp", asFloat]
+      ],
+
+      //Fuel Overcurrent Trigger
+      60: [
+        ["FUELavgCurrent", asFloat],
+        ["FUELbufferSize", asFloat]
+      ],
     }
   }
 }

@@ -6,69 +6,43 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "flight.gpsLatitude",
+					"field": "flightV4.gpsLatitude",
 					"name": "Latitude",
 					"units": ""
 				},
 				{
-					"field": "flight.gpsLongitude",
+					"field": "flightV4.gpsLongitude",
 					"name": "Longitude",
 					"units": ""
 				},
 				{
-					"field": "flight.gpsAltitude",
+					"field": "flightV4.gpsAltitude",
 					"name": "Altitude",
 					"units": ""
 				},
 				{
-					"field": "flight.numGpsSats",
+					"field": "flightV4.numGpsSats",
 					"name": "Satellites",
 					"units": ""
 				},
 				{
-					"field": "flight.drogueDep",
+					"field": "flightV4.drogueChuteDeploy",
 					"name": "Drogue",
 					"units": ""
 				},
 				{
-					"field": "flight.mainDep",
+					"field": "flightV4.mainChuteDeploy",
 					"name": "Main",
 					"units": ""
 				}
 			]
 		},
-		// {
-		// 	"type": "six-square",
-		// 	"values": [
-		// 		{
-		// 			"field": "flight.isRecording",
-		// 			"name": "Recording",
-		// 			"units": ""
-		// 		},
-		// 		{
-		// 			"field": "flight.blackboxWritten",
-		// 			"name": "Bytes Written",
-		// 			"units": ""
-		// 		},
-		// 		{
-		// 			"field": null
-		// 		},
-		// 		{
-		// 			"field": null
-		// 		},
-		// 		{
-		// 			"field": null
-		// 		},
-		// 		{
-		// 			"field": null
-		// 		}
-		// 	]
-		// },
+		
 		{
 			// <Map fieldLat={"gpsLatitude"} fieldLong={"gpsLongitude"} />
 			"type": "gpsmap", 
-			"gpsLatitude": "flight.gpsLatitude",
-			"gpsLongitude": "flight.gpsLongitude"
+			"gpsLatitude": "flightV4.gpsLatitude",
+			"gpsLongitude": "flightV4.gpsLongitude"
 		},
 		// {
 		// 	"type": "orientation",
@@ -81,33 +55,58 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "flight.baroAltitude",
-					"name": "Altitude",
-					"units": ""
+					"field": "flightV4.baro1Altitude",
+					"name": "Barometer 1 Altitude",
+					"units": "",
+					"decmials": 2
 				},
 				{
-					"field": "flight.baroPressure2",
-					"name": "Pressure",
+					"field": "flightV4.baro1Pressure",
+					"name": "Barometer 1 Pressure",
 					"units": "",
 					"decimals": 2
 				},
 				{
-					"field": "flight.apogee",
+					"field": "flightV4.baro1Temperature",
+					"name": "Barometer 1 Temperature",
+					"units": "",
+					"decimals": 2
+				},
+				{
+					"field": "flightV4.baro2Altitude",
+					"name": "Barometer 2 Altitude",
+					"units": "",
+					"decmials": 2
+				},
+				{
+					"field": "flightV4.baro2Pressure",
+					"name": "Barometer 2 Pressure",
+					"units": "",
+					"decimals": 2
+				},
+				{
+					"field": "flightV4.baro2Temperature",
+					"name": "Barometer 2 Temperature",
+					"units": "",
+					"decimals": 2
+				},
+				{
+					"field": "flightV4.apogee",
 					"name": "Apogee",
 					"units": ""
 				},
 				{
-					"field": "flight.filteredAltitude",
+					"field": "flightV4.filteredAltitude",
 					"name": "Filt Alt",
 					"units": ""
 				},
 				{
-					"field": "flight.filteredVelocity",
+					"field": "flightV4.filteredVelocity",
 					"name": "Filt Vel",
 					"units": ""
 				},
 				{
-					"field": "flight.filteredAccel",
+					"field": "flightV4.filteredAccel",
 					"name": "Filt Accel",
 					"units": ""
 				}
@@ -203,6 +202,33 @@
 					"field": "flight.video1Cont",
 					"name": "Video1",
 					"units": "V"
+				},
+				{
+					"field": null
+				},
+				{
+					"field": null
+				}
+			]
+		},
+		{
+			"type": "six-square",
+			"values": [
+				{
+					"field": "flightV4.isRecording",
+					"name": "Recording",
+					"units": ""
+				},
+				{
+					"field": "flightV4.blackboxWritten",
+					"name": "Bytes Written",
+					"units": ""
+				},
+				{
+					"field": null
+				},
+				{
+					"field": null
 				},
 				{
 					"field": null
