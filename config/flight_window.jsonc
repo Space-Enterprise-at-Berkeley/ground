@@ -44,6 +44,31 @@
 			"gpsLatitude": "flightV4.gpsLatitude",
 			"gpsLongitude": "flightV4.gpsLongitude"
 		},
+		{
+			"type": "six-square",
+			"values": [
+				{ //No filtered value exists 
+					"field": "flightV4.altitude",
+					"name": "Altitude",
+					"units": ""
+				},
+				{//No filtered value exists 
+					"field": "flightV4.velocity",
+					"name": "Velocity",
+					"units": ""
+				},
+				{//No filtered value exists 
+					"field": "flightV4.acceleration",
+					"name": "Acceleration",
+					"units": ""
+				},
+				{
+					"field": "flightV4.apogee",
+					"name": "Apogee",
+					"units": ""
+				}
+			]
+		},
 		// {
 		// 	"type": "orientation",
 		// 	"qw": "flight.qW",
@@ -89,26 +114,6 @@
 					"name": "Barometer 2 Temperature",
 					"units": "",
 					"decimals": 2
-				},
-				{
-					"field": "flightV4.apogee",
-					"name": "Apogee",
-					"units": ""
-				},
-				{
-					"field": "flightV4.filteredAltitude",
-					"name": "Filt Alt",
-					"units": ""
-				},
-				{
-					"field": "flightV4.filteredVelocity",
-					"name": "Filt Vel",
-					"units": ""
-				},
-				{
-					"field": "flightV4.filteredAccel",
-					"name": "Filt Accel",
-					"units": ""
 				}
 			]
 		},
@@ -116,62 +121,58 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "flight.accelX",
+					"field": "flightV4.accelX",
 					"name": "Accel X",
 					"units": ""
 				},
 				{
-					"field": "flight.accelY",
+					"field": "flightV4.accelY",
 					"name": "Accel Y",
 					"units": ""
 				},
 				{
-					"field": "flight.accelZ",
+					"field": "flightV4.accelZ",
 					"name": "Accel Z",
 					"units": ""
 				},
 				{
-					"field": "flight.breakwire0",
-					"name": "Breakwire 0",
-					"units": "V"
-				},
-				{
-					"field": "flight.breakwire1",
+					"field": "flightV4.breakWire1Voltage",
 					"name": "Breakwire 1",
 					"units": "V"
 				},
 				{
-					"field": "flight.bbWritten",
-					"name": "Black Box",
-					"units": ""
+					"field": "flightV4.breakWire2Voltage",
+					"name": "Breakwire 2",
+					"units": "V"
 				}
 			]
 		},
+
 		{
 			"type": "six-square",
 			"values": [
 				{
-					"field": "flight.gyroX",
+					"field": "flightV4.gyroX",
 					"name": "gyroX",
 					"units": ""
 				},
 				{
-					"field": "flight.gyroY",
+					"field": "flightV4.gyroY",
 					"name": "gyroY",
 					"units": ""
 				},
 				{
-					"field": "flight.gyroZ",
+					"field": "flightV4.gyroZ",
 					"name": "gyroZ",
 					"units": ""
 				},
-				{
-					"field": "flight.busVoltage",
+				{ 
+					"field": "flightV4.flightSupply8Voltage",
 					"name": "FC",
 					"units": "V"
 				},
-				{
-					"field": "flight.shuntCurrent",
+				{ 
+					"field": "flightV4.flightSupply8Current",
 					"name": "FC",
 					"units": "A"
 				},
@@ -180,37 +181,7 @@
 				}
 			]
 		},
-		{
-			"type": "six-square",
-			"values": [
-				{
-					"field": "flight.video0Curr",
-					"name": "Video0",
-					"units": "A"
-				},
-				{
-					"field": "flight.video0Cont",
-					"name": "Video0",
-					"units": "V"
-				},
-				{
-					"field": "flight.video1Curr",
-					"name": "Video1",
-					"units": "A"
-				},
-				{
-					"field": "flight.video1Cont",
-					"name": "Video1",
-					"units": "V"
-				},
-				{
-					"field": null
-				},
-				{
-					"field": null
-				}
-			]
-		},
+
 		{
 			"type": "six-square",
 			"values": [

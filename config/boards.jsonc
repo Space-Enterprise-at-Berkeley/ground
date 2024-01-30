@@ -3,7 +3,7 @@
 	// 	"type": "flightV4",
 	// 	"address": "10.0.0.42"
 	// },
-	"flight": {
+	"flightV4": {
 		"type": "flightV4",
 		// "address": "192.168.43.42" 
 		"address": "10.0.0.42"
