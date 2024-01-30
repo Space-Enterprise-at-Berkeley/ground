@@ -26,14 +26,14 @@
 					"units": ""
 				},
 				{
-					"field": "flightV4.drogueChuteDeploy",
-					"name": "Drogue",
-					"units": ""
+					"field": "flightV4.breakWire0Voltage",
+					"name": "Breakwire 0",
+					"units": "V"
 				},
 				{
-					"field": "flightV4.mainChuteDeploy",
-					"name": "Main",
-					"units": ""
+					"field": "flightV4.breakWire1Voltage",
+					"name": "Breakwire 1",
+					"units": "V"
 				}
 			]
 		},
@@ -44,31 +44,31 @@
 			"gpsLatitude": "flightV4.gpsLatitude",
 			"gpsLongitude": "flightV4.gpsLongitude"
 		},
-		{
-			"type": "six-square",
-			"values": [
-				{ //No filtered value exists 
-					"field": "flightV4.altitude",
-					"name": "Altitude",
-					"units": ""
-				},
-				{//No filtered value exists 
-					"field": "flightV4.velocity",
-					"name": "Velocity",
-					"units": ""
-				},
-				{//No filtered value exists 
-					"field": "flightV4.acceleration",
-					"name": "Acceleration",
-					"units": ""
-				},
-				{
-					"field": "flightV4.apogee",
-					"name": "Apogee",
-					"units": ""
-				}
-			]
-		},
+		// {
+		// 	"type": "six-square",
+		// 	"values": [
+		// 		{ //No filtered value exists 
+		// 			"field": "flightV4.altitude",
+		// 			"name": "Altitude",
+		// 			"units": ""
+		// 		},
+		// 		{//No filtered value exists 
+		// 			"field": "flightV4.velocity",
+		// 			"name": "Velocity",
+		// 			"units": ""
+		// 		},
+		// 		{//No filtered value exists 
+		// 			"field": "flightV4.acceleration",
+		// 			"name": "Acceleration",
+		// 			"units": ""
+		// 		},
+		// 		{
+		// 			"field": "flightV4.apogee",
+		// 			"name": "Apogee",
+		// 			"units": ""
+		// 		}
+		// 	]
+		// },
 		// {
 		// 	"type": "orientation",
 		// 	"qw": "flight.qW",
@@ -136,14 +136,19 @@
 					"units": ""
 				},
 				{
-					"field": "flightV4.breakWire1Voltage",
-					"name": "Breakwire 1",
-					"units": "V"
+					"field": "flightV4.accelX2",
+					"name": "Accel X2",
+					"units": ""
 				},
 				{
-					"field": "flightV4.breakWire2Voltage",
-					"name": "Breakwire 2",
-					"units": "V"
+					"field": "flightV4.accelY2",
+					"name": "Accel Y2",
+					"units": ""
+				},
+				{
+					"field": "flightV4.accelZ2",
+					"name": "Accel Z2",
+					"units": ""
 				}
 			]
 		},
@@ -153,17 +158,17 @@
 			"values": [
 				{
 					"field": "flightV4.gyroX",
-					"name": "gyroX",
+					"name": "Gyro X",
 					"units": ""
 				},
 				{
 					"field": "flightV4.gyroY",
-					"name": "gyroY",
+					"name": "Gyro Y",
 					"units": ""
 				},
 				{
 					"field": "flightV4.gyroZ",
-					"name": "gyroZ",
+					"name": "Gyro Z",
 					"units": ""
 				},
 				{ 
@@ -174,7 +179,7 @@
 				{ 
 					"field": "flightV4.flightSupply8Current",
 					"name": "FC",
-					"units": "A"
+					"units": "mA"
 				},
 				{
 					"field": null

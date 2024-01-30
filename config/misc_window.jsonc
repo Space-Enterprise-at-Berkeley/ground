@@ -73,21 +73,7 @@
 			]
 		},
 		{
-			"type": "graph",
-			"values": [
-				{
-					"field": "flight.loxCapVal",
-					"name": "LOX Cap Fill Value",
-					"units": "pF",
-					"color": [255, 0, 0]
-				},
-				{
-					"field": "flight.fuelCapVal",
-					"name": "Fuel Cap Fill Value",
-					"units": "pF",
-					"color": [0, 255, 0]
-				}
-			]
+			
 		},
 		{
 			"type": "graph",
@@ -117,13 +103,13 @@
 					"actions": {
 						"lox-timed": {
 							"type": "signal-timed",
-							"board": "oreg",
+							"board": "flightV4",
 							"packet": 206
 						},
 						"fuel-timed": {
 							"type": "signal-timed",
-							"board": "freg",
-							"packet": 206
+							"board": "flightV4",
+							"packet": 226
 						}
 					}
 				},
@@ -135,13 +121,13 @@
 					"actions": {
 						"lox-timed": {
 							"type": "signal-timed",
-							"board": "oreg",
+							"board": "flightV4",
 							"packet": 207
 						},
 						"fuel-timed": {
 							"type": "signal-timed",
-							"board": "freg",
-							"packet": 207
+							"board": "flightV4",
+							"packet": 227
 						}
 					}
 				},
@@ -153,13 +139,13 @@
 					"actions": {
 						"lox-timed": {
 							"type": "signal-timed",
-							"board": "oreg",
+							"board": "flightV4",
 							"packet": 208
 						},
 						"fuel-timed": {
 							"type": "signal-timed",
-							"board": "freg",
-							"packet": 208
+							"board": "flightV4",
+							"packet": 228
 						}
 					}
 				},
@@ -224,30 +210,30 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "oreg.avgCurrent",
+					"field": "flightV4.LOXavgCurrent",
 					"name": "O OC Avg",
 					"units": "mA"
 				},
 				{
-					"field": "ac2.loxAutoventPressure",
+					"field": "flightV4.loxAutoventPressure",
 					"name": "O Autovent"
 				},
 				{
-					"field": "oreg.bufferSize",
+					"field": "flightV4.LOXbufferSize",
 					"name": "O OC Buffer",
 					"units": ""
 				},
 				{
-					"field": "freg.avgCurrent",
+					"field": "flightV4.FUELavgCurrent",
 					"name": "F OC Avg",
 					"units": "mA"
 				},
 				{
-					"field": "ac2.fuelAutoventPressure",
+					"field": "flightV4.fuelAutoventPressure",
 					"name": "F Autovent"
 				},
 				{
-					"field": "freg.bufferSize",
+					"field": "flightV4.FUELbufferSize",
 					"name": "F OC Buffer",
 					"units": ""
 				}
@@ -261,51 +247,52 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "oreg.pressureSetpointConfig",
+					"field": "flightV4.LOXpressureSetpointConfig",
 					"name": "LOX Setpoint",
 					"units": "PSI"
 				},
 				{
-					"field": "freg.pressureSetpointConfig",
+					"field": "flightV4.FUELpressureSetpointConfig",
 					"name": "Fuel Setpoint",
 					"units": "PSI"
 				},
 				{
-					"field": "oreg.flowDuration",
+					"field": "flightV4.LOXflowDuration",
 					"name": "Burn Time (O-Reg)",
 					"units": "s"
 				},
 				{
-					"field": "oreg.fullyClosedSwitch",
+					"field": "flightV4.LOXfullyClosedSwitch",
 					"name": "LOX Closed Switch",
 					"units": ""
 				},
 				{
-					"field": "freg.fullyClosedSwitch",
+					"field": "flightV4.FUELfullyClosedSwitch",
 					"name": "Fuel Closed Switch",
 					"units": ""
 				},
 				{
-					"field": "freg.flowDuration",
+					"field": "flightV4.FUELflowDuration",
 					"name": "Burn Time (F-Reg)",
 					"units": "s"
 				}
 			]
 		},
 		{
-			"type": "graph",
+			"type": "six-square",
 			"values": [
 				{
-					"field": "pt.ptValue1@rtd", //-0.676 * mean("value") + 2901.7
-					"name": "RTD LOx",
-					"units": "C",
-					"color": [255, 0, 0]
+					"field": "pt.ptValue0",
+					"name": "Main Valve Bottle",
+					"units": "PSI"
 				},
 				{
-				 	"field": "pt.ptValue5@rtd",
-				 	"name": "RTD Fuel",
-				 	"units": "C",
-				 	"color": [0, 255, 0]
+					"field": null
+				},
+				{
+					"field": "pt.ptValue4",
+					"name": "RQD Bottle",
+					"units": "PSI"
 				}
 			]
 		}

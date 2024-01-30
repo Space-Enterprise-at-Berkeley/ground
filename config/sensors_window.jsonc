@@ -6,17 +6,17 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "ac2.actuatorContinuity2",
+					"field": "flightV4.actuatorContinuity0",
 					"name": "N2 Flow",
 					"units": "V"
 				},
 				{
-					"field": "ac2.actuatorContinuity6",
+					"field": "flightV4.actuatorContinuity1",
 					"name": "LOX GEMS",
 					"units": "V"
 				},
 				{
-					"field": "ac2.actuatorContinuity7",
+					"field": "flightV4.actuatorContinuity2",
 					"name": "Fuel GEMS",
 					"units": "V"
 				},
@@ -117,17 +117,17 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "ac2.actuatorCurrent2",
+					"field": "flightV4.actuatorCurrent0",
 					"name": "N2 Flow",
 					"units": "mA"
 				},
 				{
-					"field": "ac2.actuatorCurrent6",
+					"field": "flightV4.actuatorCurrent1",
 					"name": "LOX GEMS",
 					"units": "mA"
 				},
 				{
-					"field": "ac2.actuatorCurrent7",
+					"field": "flightV4.actuatorCurrent2",
 					"name": "Fuel GEMS",
 					"units": "mA"
 				},

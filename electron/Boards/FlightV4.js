@@ -32,19 +32,17 @@ class FlightV4 extends Board {
         ["gyroZ", asFloat],
         ["accelX2", asFloat],
         ["accelY2", asFloat],
-        ["accelZ2", asFloat],
-        ["imuNumber", asUInt8]
+        ["accelZ2", asFloat]
       ],
 
       // Barometer Telemetry
       3: [
         ["baro1Altitude", asFloat],
-        ["baro1Temperature", asFloat]
+        ["baro1Temperature", asFloat],
         ["baro1Pressure", asFloat],
         ["baro2Altitude", asFloat],
         ["baro2Temperature", asFloat],
         ["baro2Pressure", asFloat]
-        ["baroNumber", asUInt8]
       ],
 
     // GPS Telemetry
@@ -59,36 +57,26 @@ class FlightV4 extends Board {
 
       // Actuator States
       5: [
-        ["loxGEMSvoltage", asFloat],
-        ["loxGEMScurrent", asFloat]
+        ["actuatorState0", asUInt8],
+        ["actuatorState1", asUInt8],
+        ["actuatorState2", asUInt8],
+        ["actuatorState3", asUInt8]
       ],
 
       //Actuator Currents
       6: [
-        ["fuelGEMSvoltage", asFloat],
-        ["fuelGEMScurrent", asFloat]
+        ["actuatorCurrent0", asFloat],
+        ["actuatorCurrent1", asFloat],
+        ["actuatorCurrent2", asFloat],
+        ["actuatorCurrent3", asFloat]
       ],
 
       //Actuator Continuities
       7: [
-        ["loxGEMSstate", asUInt8],
-        ["fuelGEMSstate", asUInt8]
-      ],
-
-      //Filtered Values
-      9: [
-        ["altitude", asFloat],
-        ["velocity", asFloat],
-        ["acceleration", asFloat]
-      ],
-
-      //Apogee/Flight Status
-      12: [
-        ["launchDetected", asFloat],
-        ["burnoutDetected", asFloat],
-        ["apogeeDetected", asFloat],
-        ["drogueChuteDeploy", asFloat],
-        ["mainChuteDeploy", asFloat]
+        ["actuatorContinuity0", asFloat],
+        ["actuatorContinuity1", asFloat],
+        ["actuatorContinuity2", asFloat],
+        ["actuatorContinuity3", asFloat]
       ],
 
       //Vehicle State
@@ -102,33 +90,22 @@ class FlightV4 extends Board {
         ["isRecording", asUInt8]
       ],
 
-      //Flight OC Event
-      15: [
-
-      ],
-
-      //Autovent Status
-      16: [
-        ["autoVentStatus", asUInt8]
-      ],
-
       //Breakwires
       17: [
-        ["breakWire1Voltage", asFloat],
-        ["breakWire2Voltage", asFloat]
+        ["breakWire0Voltage", asFloat],
+        ["breakWire1Voltage", asFloat]
       ],
 
       //PT Values
       18: [
-        ["ptValue0", asFloat],
-        ["ptValue1", asFloat]
+        ["loxInjectorPT", asFloat],
+        ["fuelInjectorPT", asFloat]
       ],
 
-      //Press Flow Values
-      20: [
-        ["pressFlowVoltage", asFloat],
-        ["pressFlowCurrent", asFloat],
-        ["pressFlowState", asUInt8]
+      //Autovent Setpoints
+      18: [
+        ["loxAutoventPressure", asFloat],
+        ["fuelAutoventPressure", asFloat]
       ],
 
       //By E-Reg

@@ -11,7 +11,7 @@
 					"id": "press",
 					"type": "timed",
 					"name": "Press Flow RBV",
-					"field": "ac2.actuatorState2",
+					"field": "flightV4.actuatorState0",
 					"actions": {
 						"enable": {
 							// "type": "extend-full",
@@ -22,21 +22,21 @@
 						},
 						"disable": {
 							"type": "retract-full",
-							"board": "ac2",
+							"board": "flightV4",
 							"packet": 100,
-							"number": 2
+							"number": 0
 						},
 						"enable-timed": {
 							"type": "extend-timed",
-							"board": "ac2",
+							"board": "flightV4",
 							"packet": 100,
-							"number": 2
+							"number": 0
 						},
 						"disable-timed": {
 							"type": "retract-timed",
-							"board": "ac2",
+							"board": "flightV4",
 							"packet": 100,
-							"number": 2
+							"number": 0
 						}
 					},
 					"safe": true,
@@ -177,13 +177,13 @@
 					"actions": {
 						"lox": {
 							"type": "signal",
-							"board": "oreg",
+							"board": "flightV4",
 							"packet": 204
 						},
 						"fuel": {
 							"type": "signal",
-							"board": "freg",
-							"packet": 204
+							"board": "flightV4",
+							"packet": 224
 						}
 					},
 					"safe": true
@@ -196,32 +196,21 @@
 					"actions": {
 						"lox": {
 							"type": "signal",
-							"board": "oreg",
-							"packet": 133
+							"board": "flightV4",
+							"packet": 205
 						},
 						"fuel": {
 							"type": "signal",
-							"board": "freg",
-							"packet": 133
+							"board": "flightV4",
+							"packet": 225
 						}
 					},
 					"safe": true
 				},
 				{
-					"type": null
-				},
-				{
-					"type": null
-				}
-			]
-		},
-		{
-			"type": "four-button",
-			"buttons": [
-				{
-					"id": "loxGems",
+					"id": "rqd",
 					"type": "valve",
-					"name": "LOX GEMS",
+					"name": "RQD",
 					"field": "ac2.actuatorState6",
 					"actions": {
 						"enable": {
@@ -240,22 +229,51 @@
 					"green": [0, 1]
 				},
 				{
-					"id": "fuelGems",
+					"type": null
+				}
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				{
+					"id": "loxGems",
 					"type": "valve",
-					"name": "Prop GEMS",
-					"field": "ac2.actuatorState7",
+					"name": "LOX GEMS",
+					"field": "flightV4.actuatorState1",
 					"actions": {
 						"enable": {
 							"type": "on",
-							"board": "ac2",
+							"board": "flightV4",
 							"packet": 100,
-							"number": 7
+							"number": 1
 						},
 						"disable": {
 							"type": "off",
-							"board": "ac2",
+							"board": "flightV4",
 							"packet": 100,
-							"number": 7
+							"number": 1
+						}
+					},
+					"green": [0, 1]
+				},
+				{
+					"id": "fuelGems",
+					"type": "valve",
+					"name": "Prop GEMS",
+					"field": "flightV4.actuatorState2",
+					"actions": {
+						"enable": {
+							"type": "on",
+							"board": "flightV4",
+							"packet": 100,
+							"number": 2
+						},
+						"disable": {
+							"type": "off",
+							"board": "flightV4",
+							"packet": 100,
+							"number": 2
 						}
 					},
 					"green": [0, 1]
@@ -432,13 +450,13 @@
 					"actions": {
 						"lox-timed": {
 							"type": "signal-timed",
-							"board": "oreg",
+							"board": "flightV4",
 							"packet": 202
 						},
 						"fuel-timed": {
 							"type": "signal-timed",
-							"board": "freg",
-							"packet": 202
+							"board": "flightV4",
+							"packet": 222
 						}
 					},
 					"safe": true
@@ -478,13 +496,13 @@
 					"actions": {
 						"lox": {
 							"type": "signal",
-							"board": "oreg",
+							"board": "flightV4",
 							"packet": 203
 						},
 						"fuel": {
 							"type": "signal",
-							"board": "freg",
-							"packet": 203
+							"board": "flightV4",
+							"packet": 223
 						}
 					},
 					"safe": true
@@ -497,14 +515,14 @@
 					"actions": {
 						"lox": {
 							"type": "start-pings",
-							"board": "oreg",
+							"board": "flightV4",
 							"packet": 209,
 							"delay": 200
 						},
 						"fuel": {
 							"type": "start-pings",
-							"board": "freg",
-							"packet": 209,
+							"board": "flightV4",
+							"packet": 229,
 							"delay": 200
 						}
 					},

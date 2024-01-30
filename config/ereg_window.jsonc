@@ -92,13 +92,13 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "pt.ptValue0",
+					"field": "flightV4.loxInjectorPT",
 					"name": "LOX Injector PT",
 					"units": "PSI",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "pt.ptValue4",
+					"field": "flightV4.fuelInjectorPT",
 					"name": "Fuel Injector PT",
 					"units": "PSI",
 					"color": [0, 255, 0]

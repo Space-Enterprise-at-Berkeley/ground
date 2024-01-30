@@ -1,24 +1,6 @@
-{
-	// LOX RTDsuffix
-	"pt.ptValue1": [
-		{
-			"suffix": "rtd",
-			"func": "linear",
-			"args": [-0.676, 2901.7]
-		}
-	],
-
-	// Fuel RTD
-	"pt.ptValue5": [
-		{
-			"suffix": "rtd",
-			"func": "linear",
-			"args": [-0.676, 2901.7]
-		}
-	],
-	
+{	
 	// LOX High PT ROC
-	"oreg.filteredUpstreamPressure1": [
+	"flightV4.LOXfilteredUpstreamPressure1": [
 		{
 			"suffix": "roc",
 			"func": "roc",
@@ -27,7 +9,7 @@
 	],
 
 	// Fuel High PT ROC
-	"freg.filteredUpstreamPressure1": [
+	"flightV4.FUELfilteredUpstreamPressure1": [
 		{
 			"suffix": "roc",
 			"func": "roc",
