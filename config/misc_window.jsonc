@@ -21,8 +21,8 @@
 					"units": "V"
 				},
 				{
-					"field": "tc.tcSupply24Voltage",
-					"name": "TC",
+					"field": "flightV4.flightSupply24Voltage", //"tc.tcSupply24Voltage",
+					"name": "FC", //"TC",
 					"units": "V"
 				},
 				{
@@ -56,8 +56,8 @@
 					"units": "mA"
 				},
 				{
-					"field": "tc.tcSupply24Current",
-					"name": "TC",
+					"field": "flightV4.flightSupply24Current", //"tc.tcSupply24Current",
+					"name": "FC",
 					"units": "mA"
 				},
 				{

@@ -17,9 +17,9 @@ class FlightV4 extends Board {
       
       //24v Supply
       1: [
-        ["flightSupply8Voltage", asFloat],
-        ["flightSupply8Current", asFloat],
-        ["flightsSupply8Power", asFloat]
+        ["flightSupply24Voltage", asFloat],
+        ["flightSupply24Current", asFloat],
+        ["flightsSupply24Power", asFloat]
       ],
 
       // IMU Telemetry
@@ -103,13 +103,13 @@ class FlightV4 extends Board {
       ],
 
       //PT Values
-      18: [
+      19: [
         ["loxInjectorPT", asFloat],
         ["fuelInjectorPT", asFloat]
       ],
 
       //Autovent Setpoints
-      18: [
+      25: [
         ["loxAutoventPressure", asFloat],
         ["fuelAutoventPressure", asFloat]
       ],
