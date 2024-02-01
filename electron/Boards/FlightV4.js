@@ -50,9 +50,10 @@ class FlightV4 extends Board {
         ["gpsAltitude", asFloat],
         ["gpsLatitude", asFloat],
         ["gpsLongitude", asFloat],
-        ["numGpsSats", asUInt8],
-        ["gpsSpeed", asFloat],
-        ["validGPSFix", asUInt8]
+        ["gpsDownVel", asFloat],
+        ["gpsHeading", asFloat],
+        ["gpsGroundSpeed", asFloat],
+        ["numGpsSats", asUInt8]
       ],
 
       // Actuator States

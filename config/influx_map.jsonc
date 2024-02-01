@@ -1,17 +1,12 @@
 {
-	"pt.ptValue0": "loxInjectorPT",
-	"pt.ptValue4": "fuelInjectorPT",
-
-	"pt.ptValue1": "loxRTDRawVoltage",
-	"pt.ptValue5": "fuelRTDRawVoltage",
-	"pt.ptValue1@rtd": "loxRTD",
-	"pt.ptValue5@rtd": "fuelRTD",
+	"pt.ptValue0": "mainValveBottlePT",
+	"pt.ptValue4": "rqdBottlePT",
 
 	"ac1.acSupply24Voltage": "ac1Supply24Voltage",
 	"ac1.acSupply24Current": "ac1Supply24Current",
 	"ac1.acSupply24Power": "ac1Supply24Power",
 
-	"ac1.actuatorState0": "empty0State",
+	"ac1.actuatorState0": "empty10State",
 	"ac1.actuatorState1": "breakwireState",
 	"ac1.actuatorState2": "mventState",
 	"ac1.actuatorState3": "armState",
@@ -20,7 +15,7 @@
 	"ac1.actuatorState6": "HPn2FillState",
 	"ac1.actuatorState7": "igniterState",
 
-	"ac1.actuatorContinuity0": "empty0Continuity",
+	"ac1.actuatorContinuity0": "empty10Continuity",
 	"ac1.actuatorContinuity1": "breakwireContinuity",
 	"ac1.actuatorContinuity2": "mventContinuity", 
 	"ac1.actuatorContinuity3": "armContinuity",
@@ -29,7 +24,7 @@
 	"ac1.actuatorContinuity6": "HPn2FillContinuity",
 	"ac1.actuatorContinuity7": "igniterContinuity",
 
-	"ac1.actuatorCurrent0": "empty0Current",
+	"ac1.actuatorCurrent0": "empty10Current",
 	"ac1.actuatorCurrent1": "breakwireCurrent",
 	"ac1.actuatorCurrent2": "mventCurrent", 
 	"ac1.actuatorCurrent3": "armCurrent",
@@ -43,29 +38,44 @@
 	"ac2.acSupply24Power": "ac2Supply24Power",
 
 	"ac2.actuatorState0": "LPn2FillState",
-	"ac2.actuatorState1": "n2RQDState",
-	"ac2.actuatorState2": "n2FlowState",
+	"ac2.actuatorState1": "empty21State",
+	"ac2.actuatorState2": "empty22State",
 	"ac2.actuatorState3": "n2VentState",
 	"ac2.actuatorState4": "loxVentState",
 	"ac2.actuatorState5": "fuelVentState",
-	"ac2.actuatorState6": "loxGemsState",
-	"ac2.actuatorState7": "fuelGemsState",
+	"ac2.actuatorState6": "rqdState",
+	"ac2.actuatorState7": "empty27State",
 
 	"ac2.actuatorContinuity0": "LPn2FillContinuity",
-	"ac2.actuatorContinuity1": "n2RQDContinuity",
-	"ac2.actuatorContinuity2": "n2FlowContinuity",
+	"ac2.actuatorContinuity1": "empty21Continuity",
+	"ac2.actuatorContinuity2": "empty22Continuity",
 	"ac2.actuatorContinuity3": "n2VentContinuity",
 	"ac2.actuatorContinuity4": "loxVentContinuity",
 	"ac2.actuatorContinuity5": "fuelVentContinuity",
-	"ac2.actuatorContinuity6": "loxGemsContinuity",
-	"ac2.actuatorContinuity7": "fuelGemsContinuity",
+	"ac2.actuatorContinuity6": "rqdContinuity",
+	"ac2.actuatorContinuity7": "empty27Continuity",
 
 	"ac2.actuatorCurrent0": "LPn2FillCurrent",
-	"ac2.actuatorCurrent1": "n2RQDCurrent",
-	"ac2.actuatorCurrent2": "n2FlowCurrent",
+	"ac2.actuatorCurrent1": "empty21Current",
+	"ac2.actuatorCurrent2": "empty22Current",
 	"ac2.actuatorCurrent3": "n2VentCurrent",
 	"ac2.actuatorCurrent4": "loxVentCurrent",
 	"ac2.actuatorCurrent5": "fuelVentCurrent",
-	"ac2.actuatorCurrent6": "loxGemsCurrent",
-	"ac2.actuatorCurrent7": "fuelGemsCurrent"
+	"ac2.actuatorCurrent6": "rqdCurrent",
+	"ac2.actuatorCurrent7": "empty27Current",
+
+	"flightV4.actuatorState0": "pressFlowState",
+	"flightV4.actuatorState1": "loxGemsState",
+	"flightV4.actuatorState2": "fuelGemsState",
+	"flightV4.actuatorState3": "liveVideoState",
+
+	"flightV4.actuatorContinuity0": "pressFlowContinuity",
+	"flightV4.actuatorContinuity1": "loxGemsContinuity",
+	"flightV4.actuatorContinuity2": "fuelGemsContinuity",
+	"flightV4.actuatorContinuity3": "liveVideoContinuity",
+
+	"flightV4.actuatorCurrent0": "pressFlowCurrent",
+	"flightV4.actuatorCurrent1": "loxGemsCurrent",
+	"flightV4.actuatorCurrent2": "fuelGemsCurrent",
+	"flightV4.actuatorCurrent3": "liveVideoCurrent"
 }
