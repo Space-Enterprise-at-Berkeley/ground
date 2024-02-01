@@ -80,6 +80,11 @@ class FlightV4 extends Board {
         ["actuatorContinuity3", asFloat]
       ],
 
+      //Radio RSSI
+      8: [
+        ["rssi", asFloat]
+      ],
+
       //Vehicle State
       13: [
         ["vehicleState", asUInt8]
