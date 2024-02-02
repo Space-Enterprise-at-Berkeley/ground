@@ -23,7 +23,7 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "flightV4.LOXfilteredDownstreamPressure1",
+					"field": "flightV4.LOXfilteredDownstreamPressure2",
 					"name": "LOX Pressure",
 					"units": "PSI",
 					"color": [255, 0, 0]
@@ -40,7 +40,7 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "flightV4.FUELfilteredDownstreamPressure1",
+					"field": "flightV4.FUELfilteredDownstreamPressure2",
 					"name": "Fuel Pressure",
 					"units": "PSI",
 					"color": [255, 0, 0]
@@ -62,7 +62,7 @@
 					"units": "PSI"
 				},
 				{
-					"field": "flightV4.LOXfilteredDownstreamPressure1",
+					"field": "flightV4.LOXfilteredDownstreamPressure2",
 					"name": "LOX Tank",
 					"units": "PSI"
 				},
@@ -77,7 +77,7 @@
 					"units": "PSI"
 				},
 				{
-					"field": "flightV4.FUELfilteredDownstreamPressure1",
+					"field": "flightV4.FUELfilteredDownstreamPressure2",
 					"name": "Fuel Tank",
 					"units": "PSI"
 				},
