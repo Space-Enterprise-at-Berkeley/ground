@@ -100,13 +100,13 @@
 					"actions": {
 						"lox": {
 							"type": "signal",
-							"board": "flightV4",
+							"board": "oreg",
 							"packet": 204
 						},
 						"fuel": {
 							"type": "signal",
-							"board": "flightV4",
-							"packet": 224
+							"board": "freg",
+							"packet": 204
 						}
 					},
 					"safe": true
@@ -119,13 +119,15 @@
 					"actions": {
 						"lox": {
 							"type": "signal",
-							"board": "flightV4",
+							// "board": "flightV4",
+							"board": "oreg",
 							"packet": 205
 						},
 						"fuel": {
 							"type": "signal",
-							"board": "flightV4",
-							"packet": 225
+							// "board": "flightV4",
+							"board": "freg",
+							"packet": 205
 						}
 					},
 					"safe": true
@@ -207,44 +209,6 @@
 		{
 			"type": "four-button",
 			"buttons": [
-				// {
-				// 	"id": "eregDiagnostic",
-				// 	"type": "ereg",
-				// 	"name": "Run Diagnostic",
-				// 	"field": "",
-				// 	"actions": {
-				// 		"lox": {
-				// 			"type": "signal",
-				// 			"board": "flightV4",
-				// 			"packet": 204
-				// 		},
-				// 		"fuel": {
-				// 			"type": "signal",
-				// 			"board": "flightV4",
-				// 			"packet": 224
-				// 		}
-				// 	},
-				// 	"safe": true
-				// },
-				// {
-				// 	"id": "eregAbort",
-				// 	"type": "ereg",
-				// 	"name": "Reset E-Reg",
-				// 	"field": "",
-				// 	"actions": {
-				// 		"lox": {
-				// 			"type": "signal",
-				// 			"board": "flightV4",
-				// 			"packet": 205
-				// 		},
-				// 		"fuel": {
-				// 			"type": "signal",
-				// 			"board": "flightV4",
-				// 			"packet": 225
-				// 		}
-				// 	},
-				// 	"safe": true
-				// },
 				{
 					"id": "rqd",
 					"type": "valve",
@@ -508,13 +472,13 @@
 					"actions": {
 						"lox-timed": {
 							"type": "signal-timed",
-							"board": "flightV4",
+							"board": "oreg",
 							"packet": 202
 						},
 						"fuel-timed": {
 							"type": "signal-timed",
-							"board": "flightV4",
-							"packet": 222
+							"board": "freg",
+							"packet": 202
 						}
 					},
 					"safe": true
@@ -557,13 +521,13 @@
 					"actions": {
 						"lox": {
 							"type": "signal",
-							"board": "flightV4",
+							"board": "oreg",
 							"packet": 203
 						},
 						"fuel": {
 							"type": "signal",
-							"board": "flightV4",
-							"packet": 223
+							"board": "freg",
+							"packet": 203
 						}
 					},
 					"safe": true
@@ -576,14 +540,14 @@
 					"actions": {
 						"lox": {
 							"type": "start-pings",
-							"board": "flightV4",
+							"board": "oreg",
 							"packet": 209,
 							"delay": 200
 						},
 						"fuel": {
 							"type": "start-pings",
-							"board": "flightV4",
-							"packet": 229,
+							"board": "freg",
+							"packet": 209,
 							"delay": 200
 						}
 					},
