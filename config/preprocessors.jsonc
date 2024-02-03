@@ -1,6 +1,6 @@
 {	
 	// LOX High PT ROC
-	"flightV4.LOXfilteredUpstreamPressure1": [
+	"oreg.filteredUpstreamPressure1": [
 		{
 			"suffix": "roc",
 			"func": "roc",
@@ -9,7 +9,7 @@
 	],
 
 	// Fuel High PT ROC
-	"flightV4.FUELfilteredUpstreamPressure1": [
+	"freg.filteredUpstreamPressure1": [
 		{
 			"suffix": "roc",
 			"func": "roc",
