@@ -73,7 +73,34 @@
 			]
 		},
 		{
-			
+			"type": "six-square",
+			"values": [
+				{
+					"field": "ac2.actuatorContinuity6",
+					"name": "RQD Continuity",
+					"units": "V"
+				},
+				{
+					"field": null
+				},
+				{
+					"field": "ac2.actuatorCurrent6",
+					"name": "RQD Current",
+					"units": "V"
+				},
+				{
+					"field": null
+				},
+				{
+					"field": null
+				},
+				{
+					"field": null
+				},
+				{
+					"field": null
+				}
+			]
 		},
 		{
 			"type": "graph",
