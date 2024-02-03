@@ -93,83 +93,6 @@
 			"type": "four-button",
 			"buttons": [
 				{
-					"id": "loxVent",
-					"type": "timed",
-					"name": "LOX Vent RBV",
-					"field": "ac2.actuatorState4",
-					"actions": {
-						"enable": {
-							"type": "retract-full",
-							"board": "ac2",
-							"packet": 100,
-							"number": 4
-						},
-						"disable": {
-							"type": "extend-full",
-							"board": "ac2",
-							"packet": 100,
-							"number": 4
-						},
-						"enable-timed": {
-							"type": "retract-timed",
-							"board": "ac2",
-							"packet": 100,
-							"number": 4
-						},
-						"disable-timed": {
-							"type": "extend-timed",
-							"board": "ac2",
-							"packet": 100,
-							"number": 4
-						}
-					},
-					"green": [0, 1]
-				},
-				{
-					"id": "fuelVent",
-					"type": "timed",
-					"name": "Fuel Vent RBV",
-					"field": "ac2.actuatorState5",
-					"actions": {
-						"enable": {
-							"type": "retract-full",
-							"board": "ac2",
-							"packet": 100,
-							"number": 5
-						},
-						"disable": {
-							"type": "extend-full",
-							"board": "ac2",
-							"packet": 100,
-							"number": 5
-						},
-						"enable-timed": {
-							"type": "retract-timed",
-							"board": "ac2",
-							"packet": 100,
-							"number": 5
-						},
-						"disable-timed": {
-							"type": "extend-timed",
-							"board": "ac2",
-							"packet": 100,
-							"number": 5
-						}
-					},
-					"green": [0, 1]
-				},
-				{
-					"type": null
-				},
-				{
-					"type": null
-				}
-			]
-		},
-		{
-			"type": "four-button",
-			"buttons": [
-				{
 					"id": "eregDiagnostic",
 					"type": "ereg",
 					"name": "Run Diagnostic",
@@ -207,6 +130,121 @@
 					},
 					"safe": true
 				},
+				// {
+				// 	"id": "loxVent",
+				// 	"type": "timed",
+				// 	"name": "LOX Vent RBV",
+				// 	"field": "ac2.actuatorState4",
+				// 	"actions": {
+				// 		"enable": {
+				// 			"type": "retract-full",
+				// 			"board": "ac2",
+				// 			"packet": 100,
+				// 			"number": 4
+				// 		},
+				// 		"disable": {
+				// 			"type": "extend-full",
+				// 			"board": "ac2",
+				// 			"packet": 100,
+				// 			"number": 4
+				// 		},
+				// 		"enable-timed": {
+				// 			"type": "retract-timed",
+				// 			"board": "ac2",
+				// 			"packet": 100,
+				// 			"number": 4
+				// 		},
+				// 		"disable-timed": {
+				// 			"type": "extend-timed",
+				// 			"board": "ac2",
+				// 			"packet": 100,
+				// 			"number": 4
+				// 		}
+				// 	},
+				// 	"green": [0, 1]
+				// },
+				// {
+				// 	"id": "fuelVent",
+				// 	"type": "timed",
+				// 	"name": "Fuel Vent RBV",
+				// 	"field": "ac2.actuatorState5",
+				// 	"actions": {
+				// 		"enable": {
+				// 			"type": "retract-full",
+				// 			"board": "ac2",
+				// 			"packet": 100,
+				// 			"number": 5
+				// 		},
+				// 		"disable": {
+				// 			"type": "extend-full",
+				// 			"board": "ac2",
+				// 			"packet": 100,
+				// 			"number": 5
+				// 		},
+				// 		"enable-timed": {
+				// 			"type": "retract-timed",
+				// 			"board": "ac2",
+				// 			"packet": 100,
+				// 			"number": 5
+				// 		},
+				// 		"disable-timed": {
+				// 			"type": "extend-timed",
+				// 			"board": "ac2",
+				// 			"packet": 100,
+				// 			"number": 5
+				// 		}
+				// 	},
+				// 	"green": [0, 1]
+				// },
+				{
+					"type": null
+				},
+				{
+					"type": null
+				}
+			]
+		},
+		{
+			"type": "four-button",
+			"buttons": [
+				// {
+				// 	"id": "eregDiagnostic",
+				// 	"type": "ereg",
+				// 	"name": "Run Diagnostic",
+				// 	"field": "",
+				// 	"actions": {
+				// 		"lox": {
+				// 			"type": "signal",
+				// 			"board": "flightV4",
+				// 			"packet": 204
+				// 		},
+				// 		"fuel": {
+				// 			"type": "signal",
+				// 			"board": "flightV4",
+				// 			"packet": 224
+				// 		}
+				// 	},
+				// 	"safe": true
+				// },
+				// {
+				// 	"id": "eregAbort",
+				// 	"type": "ereg",
+				// 	"name": "Reset E-Reg",
+				// 	"field": "",
+				// 	"actions": {
+				// 		"lox": {
+				// 			"type": "signal",
+				// 			"board": "flightV4",
+				// 			"packet": 205
+				// 		},
+				// 		"fuel": {
+				// 			"type": "signal",
+				// 			"board": "flightV4",
+				// 			"packet": 225
+				// 		}
+				// 	},
+				// 	"safe": true
+				// },
 				{
 					"id": "rqd",
 					"type": "valve",
@@ -226,7 +264,27 @@
 							"number": 6
 						}
 					},
+					"safe": true,
 					"green": [0, 1]
+				},
+				{
+					"id": "launchEnable",
+					"type": "switch",
+					"name": "Launch Enable",
+					"field": "",
+					"actions": {
+						"enable": {
+							"type": "enable",
+							"id": "launch"
+						},
+						"disable": {
+							"type": "disable",
+							"id": "launch"
+						}
+					}
+				},
+				{
+					"type": null
 				},
 				{
 					"type": null
@@ -465,21 +523,24 @@
 					"type": null
 				},
 				{
-					"id": "launchEnable",
-					"type": "switch",
-					"name": "Launch Enable",
-					"field": "",
-					"actions": {
-						"enable": {
-							"type": "enable",
-							"id": "launch"
-						},
-						"disable": {
-							"type": "disable",
-							"id": "launch"
-						}
-					}
+					"type": null
 				}
+				// {
+				// 	"id": "launchEnable",
+				// 	"type": "switch",
+				// 	"name": "Launch Enable",
+				// 	"field": "",
+				// 	"actions": {
+				// 		"enable": {
+				// 			"type": "enable",
+				// 			"id": "launch"
+				// 		},
+				// 		"disable": {
+				// 			"type": "disable",
+				// 			"id": "launch"
+				// 		}
+				// 	}
+				// }
 			]
 		},
 		{
