@@ -121,13 +121,13 @@
 							"type": "signal",
 							// "board": "flightV4",
 							"board": "oreg",
-							"packet": 205
+							"packet": 133
 						},
 						"fuel": {
 							"type": "signal",
 							// "board": "flightV4",
 							"board": "freg",
-							"packet": 205
+							"packet": 133
 						}
 					},
 					"safe": true

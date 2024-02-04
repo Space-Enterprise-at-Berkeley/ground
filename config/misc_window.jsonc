@@ -86,7 +86,7 @@
 				{
 					"field": "ac2.actuatorCurrent6",
 					"name": "RQD Current",
-					"units": "V"
+					"units": "mA"
 				},
 				{
 					"field": null
