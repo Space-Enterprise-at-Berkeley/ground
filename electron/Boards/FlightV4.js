@@ -146,17 +146,17 @@ class FlightV4 extends Board {
         ["FUELpressureControlD", asFloat]
       ],
 
-      //LOX Config
-      33: [
-        ["LOXpressureSetpointConfig", asFloat],
-        ["LOXpOuterNominal", asFloat],
-        ["LOXiOuterNominal", asFloat],
-        ["LOXdOuterNominal", asFloat],
-        ["LOXpInner", asFloat],
-        ["LOXiInner", asFloat],
-        ["LOXdInner", asFloat],
-        ["LOXflowDuration", asFloat]
-      ],
+      // //LOX Config
+      // 33: [
+      //   ["LOXpressureSetpointConfig", asFloat],
+      //   ["LOXpOuterNominal", asFloat],
+      //   ["LOXiOuterNominal", asFloat],
+      //   ["LOXdOuterNominal", asFloat],
+      //   ["LOXpInner", asFloat],
+      //   ["LOXiInner", asFloat],
+      //   ["LOXdInner", asFloat],
+      //   ["LOXflowDuration", asFloat]
+      // ],
 
       //LOX Diagnostic
       34: [
@@ -200,40 +200,40 @@ class FlightV4 extends Board {
         ["LOXbufferSize", asFloat]
       ],
 
-      //Fuel Pressure Telemetry
-      51: [
-        ["FUELfilteredUpstreamPressure1", asFloat],
-        ["FUELfilteredUpstreamPressure2", asFloat],
-        ["FUELfilteredDownstreamPressure1", asFloat],
-        ["FUELfilteredDownstreamPressure2", asFloat],
-        ["FUELrawUpstreamPressure1", asFloat],
-        ["FUELrawUpstreamPressure2", asFloat],
-        ["FUELrawDownstreamPressure1", asFloat],
-        ["FUELrawDownstreamPressure2", asFloat],
-      ],
+      // //Fuel Pressure Telemetry
+      // 51: [
+      //   ["FUELfilteredUpstreamPressure1", asFloat],
+      //   ["FUELfilteredUpstreamPressure2", asFloat],
+      //   ["FUELfilteredDownstreamPressure1", asFloat],
+      //   ["FUELfilteredDownstreamPressure2", asFloat],
+      //   ["FUELrawUpstreamPressure1", asFloat],
+      //   ["FUELrawUpstreamPressure2", asFloat],
+      //   ["FUELrawDownstreamPressure1", asFloat],
+      //   ["FUELrawDownstreamPressure2", asFloat],
+      // ],
 
-      //Fuel Motor Telemetry
-      52: [
-        ["FUELencoderAngle", asFloat],
-        ["FUELangleSetpoint", asFloat],
-        ["FUELpressureSetpoint", asFloat],
-        ["FUELmotorPower", asFloat],
-        ["FUELpressureControlP", asFloat],
-        ["FUELpressureControlI", asFloat],
-        ["FUELpressureControlD", asFloat],
-      ],
+      // //Fuel Motor Telemetry
+      // 52: [
+      //   ["FUELencoderAngle", asFloat],
+      //   ["FUELangleSetpoint", asFloat],
+      //   ["FUELpressureSetpoint", asFloat],
+      //   ["FUELmotorPower", asFloat],
+      //   ["FUELpressureControlP", asFloat],
+      //   ["FUELpressureControlI", asFloat],
+      //   ["FUELpressureControlD", asFloat],
+      // ],
 
-      //Fuel Config
-      53: [
-        ["FUELpressureSetpointConfig", asFloat],
-        ["FUELpOuterNominal", asFloat],
-        ["FUELiOuterNominal", asFloat],
-        ["FUELdOuterNominal", asFloat],
-        ["FUELpInner", asFloat],
-        ["FUELiInner", asFloat],
-        ["FUELdInner", asFloat],
-        ["FUELflowDuration", asFloat]
-      ],
+      // //Fuel Config
+      // 53: [
+      //   ["FUELpressureSetpointConfig", asFloat],
+      //   ["FUELpOuterNominal", asFloat],
+      //   ["FUELiOuterNominal", asFloat],
+      //   ["FUELdOuterNominal", asFloat],
+      //   ["FUELpInner", asFloat],
+      //   ["FUELiInner", asFloat],
+      //   ["FUELdInner", asFloat],
+      //   ["FUELflowDuration", asFloat]
+      // ],
 
       //Fuel Diagnostic
       54: [

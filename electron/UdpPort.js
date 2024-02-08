@@ -65,6 +65,7 @@ class UdpPort {
         if (packet) {
           const update = board.processPacket(packet);
           if (update === undefined) return;
+          console.log(update);
           this.updateStateCallback(packet.timestamp, update);
         }
       }
