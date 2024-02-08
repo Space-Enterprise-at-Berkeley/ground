@@ -135,16 +135,29 @@
 		{
 			"type": "graph",
 			"values": [
+				// {
+				// 	"field": "oreg.motorPower",
+				// 	"name": "LOX Motor Power",
+				// 	"units": "%",
+				// 	"color": [255, 0, 0]
+				// },
+				// {
+				// 	"field": "freg.motorPower",
+				// 	"name": "Fuel Motor Power",
+				// 	"units": "%",
+				// 	"color": [0, 255, 0]
+				// }
+
 				{
-					"field": "oreg.motorPower",
-					"name": "LOX Motor Power",
-					"units": "%",
+					"field": "oreg.filteredUpstreamPressure2",
+					"name": "O-Reg Press (2)",
+					"units": "PSI",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "freg.motorPower",
-					"name": "Fuel Motor Power",
-					"units": "%",
+					"field": "freg.filteredUpstreamPressure2",
+					"name": "F-Reg Press (2)",
+					"units": "PSI",
 					"color": [0, 255, 0]
 				}
 			]
