@@ -116,27 +116,34 @@ class FlightV4 extends Board {
 
       //By E-Reg
       
-      //LOX Pressure Telemetry
+      //REDUCED LOX Ereg Telemetry
       31: [
-        ["LOXfilteredUpstreamPressure1", asFloat],
-        ["LOXfilteredUpstreamPressure2", asFloat],
-        ["LOXfilteredDownstreamPressure1", asFloat],
-        ["LOXfilteredDownstreamPressure2", asFloat],
         ["LOXrawUpstreamPressure1", asFloat],
-        ["LOXrawUpstreamPressure2", asFloat],
-        ["LOXrawDownstreamPressure1", asFloat],
+        ["LOXfilteredUpstreamPressure1", asFloat],
         ["LOXrawDownstreamPressure2", asFloat],
-      ],
-
-      //LOX Motor Telemetry
-      32: [
+        ["LOXfilteredDownstreamPressure2", asFloat],
         ["LOXencoderAngle", asFloat],
         ["LOXangleSetpoint", asFloat],
         ["LOXpressureSetpoint", asFloat],
         ["LOXmotorPower", asFloat],
         ["LOXpressureControlP", asFloat],
         ["LOXpressureControlI", asFloat],
-        ["LOXpressureControlD", asFloat],
+        ["LOXpressureControlD", asFloat]
+      ],
+
+      //REDUCED Fuel Ereg Telemetry
+      32: [
+        ["FUELrawUpstreamPressure1", asFloat],
+        ["FUELfilteredUpstreamPressure1", asFloat],
+        ["FUELrawDownstreamPressure2", asFloat],
+        ["FUELfilteredDownstreamPressure2", asFloat],
+        ["FUELencoderAngle", asFloat],
+        ["FUELangleSetpoint", asFloat],
+        ["FUELpressureSetpoint", asFloat],
+        ["FUELmotorPower", asFloat],
+        ["FUELpressureControlP", asFloat],
+        ["FUELpressureControlI", asFloat],
+        ["FUELpressureControlD", asFloat]
       ],
 
       //LOX Config

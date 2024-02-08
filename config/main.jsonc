@@ -6,7 +6,8 @@
 		"misc": "$misc_window.jsonc",
 		"sensors": "$sensors_window.jsonc",
 		"controls": "$controls_window.jsonc",
-		"flight": "$flight_window.jsonc"
+		"flight": "$flight_window.jsonc",
+		"radioreg": "$radioreg_window.jsonc"
 	},
 	"preprocessors": "$preprocessors.jsonc",
 	"burnTime": 45000, // ms
