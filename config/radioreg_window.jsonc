@@ -6,16 +6,16 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "oreg.filteredUpstreamPressure1",
+					"field": "radioLOXfilteredUpstreamPressure1",
 					"name": "O-Reg Press",
 					"units": "PSI",
-					"color": [255, 0, 0]
+					"color": [232, 12, 140]
 				},
 				{
-					"field": "freg.filteredUpstreamPressure1",
+					"field": "radioFUELfilteredUpstreamPressure1",
 					"name": "F-Reg Press",
 					"units": "PSI",
-					"color": [0, 255, 0]
+					"color": [12, 96, 232]
 				}
 			]
 		},
@@ -23,16 +23,16 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "oreg.filteredDownstreamPressure2",
-					"name": "LOX Pressure",
+					"field": "radioLOXfilteredDownstreamPressure2",
+					"name": "LOX Tank Pressure",
 					"units": "PSI",
-					"color": [255, 0, 0]
+					"color": [232, 12, 140]
 				},
 				{
-					"field": "oreg.pressureSetpoint",
+					"field": "radioLOXpressureSetpoint",
 					"name": "Setpoint",
-					"units": "C",
-					"color": [0, 255, 0]
+					"units": "PSI",
+					"color": [219, 129, 11]
 				}
 			]
 		},
@@ -40,16 +40,16 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "freg.filteredDownstreamPressure2",
+					"field": "radioFUELfilteredDownstreamPressure2",
 					"name": "Fuel Pressure",
 					"units": "PSI",
-					"color": [255, 0, 0]
+					"color": [12, 96, 232]
 				},
 				{
-					"field": "freg.pressureSetpoint",
+					"field": "radioFUELpressureSetpoint",
 					"name": "Setpoint",
 					"units": "C",
-					"color": [0, 255, 0]
+					"color": [29, 14, 128]
 				}
 			]
 		},
@@ -57,32 +57,32 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "oreg.filteredUpstreamPressure1",
+					"field": "radioLOXfilteredUpstreamPressure1",
 					"name": "LOX Press",
 					"units": "PSI"
 				},
 				{
-					"field": "oreg.filteredDownstreamPressure2",
+					"field": "radioLOXfilteredDownstreamPressure2",
 					"name": "LOX Tank",
 					"units": "PSI"
 				},
 				{
-					"field": "oreg.pressureSetpoint",
+					"field": "radioLOXpressureSetpoint",
 					"name": "Lox SetP",
 					"units": "PSI"
 				},
 				{
-					"field": "freg.filteredUpstreamPressure1",
+					"field": "radioFUELfilteredUpstreamPressure1",
 					"name": "Fuel Press",
 					"units": "PSI"
 				},
 				{
-					"field": "freg.filteredDownstreamPressure2",
+					"field": "radioFUELfilteredDownstreamPressure2",
 					"name": "Fuel Tank",
 					"units": "PSI"
 				},
 				{
-					"field": "freg.pressureSetpoint",
+					"field": "radioFUELpressureSetpoint",
 					"name": "Fuel SetP",
 					"units": "PSI"
 				}
@@ -95,13 +95,13 @@
 					"field": "flightV4.loxInjectorPT",
 					"name": "LOX Injector PT",
 					"units": "PSI",
-					"color": [255, 0, 0]
+					"color": [232, 12, 140]
 				},
 				{
 					"field": "flightV4.fuelInjectorPT",
 					"name": "Fuel Injector PT",
 					"units": "PSI",
-					"color": [0, 255, 0]
+					"color": [12, 19, 232]
 				}
 			]
 		},
@@ -109,12 +109,12 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "oreg.filteredUpstreamPressure1@roc",
+					"field": "radioLOXfilteredUpstreamPressure1@roc",
 					"name": "LOX Press RoC",
 					"units": "PSI/s"
 				},
 				{
-					"field": "freg.filteredUpstreamPressure1@roc",
+					"field": "radioFUELfilteredUpstreamPressure1@roc",
 					"name": "Fuel Press RoC",
 					"units": "PSI/s"
 				},
@@ -135,30 +135,17 @@
 		{
 			"type": "graph",
 			"values": [
-				// {
-				// 	"field": "oreg.motorPower",
-				// 	"name": "LOX Motor Power",
-				// 	"units": "%",
-				// 	"color": [255, 0, 0]
-				// },
-				// {
-				// 	"field": "freg.motorPower",
-				// 	"name": "Fuel Motor Power",
-				// 	"units": "%",
-				// 	"color": [0, 255, 0]
-				// }
-
 				{
-					"field": "oreg.filteredUpstreamPressure2",
-					"name": "O-Reg Press (2)",
-					"units": "PSI",
-					"color": [255, 0, 0]
+					"field": "radioLOXmotorPower",
+					"name": "LOX Motor Power",
+					"units": "%",
+					"color": [232, 12, 63]
 				},
 				{
-					"field": "freg.filteredUpstreamPressure2",
-					"name": "F-Reg Press (2)",
-					"units": "PSI",
-					"color": [0, 255, 0]
+					"field": "radioFUELmotorPower",
+					"name": "Fuel Motor Power",
+					"units": "%",
+					"color": [12, 19, 232]
 				}
 			]
 		},
@@ -166,16 +153,16 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "oreg.encoderAngle",
+					"field": "radioLOXencoderAngle",
 					"name": "LOX Encoder Angle",
 					"units": "",
-					"color": [255, 0, 0]
+					"color": [232, 12, 63]
 				},
 				{
-					"field": "oreg.angleSetpoint",
+					"field": "radioLOXangleSetpoint",
 					"name": "Setpoint",
 					"units": "",
-					"color": [0, 255, 0]
+					"color": [219, 129, 11]
 				}
 			]
 		},
@@ -183,16 +170,16 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "freg.encoderAngle",
+					"field": "radioFUELencoderAngle",
 					"name": "Fuel Encoder Angle",
 					"units": "",
-					"color": [255, 0, 0]
+					"color": [12, 19, 232]
 				},
 				{
-					"field": "freg.angleSetpoint",
+					"field": "radioFUELangleSetpoint",
 					"name": "Setpoint",
 					"units": "",
-					"color": [0, 255, 0]
+					"color": [29, 14, 128]
 				}
 			]
 		}
