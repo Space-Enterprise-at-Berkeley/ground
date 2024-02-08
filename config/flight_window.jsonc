@@ -201,10 +201,14 @@
 					"units": ""
 				},
 				{
-					"field": null
+					"field": "flightV4.actuatorCurrent3",
+					"name": "Live Video",
+					"units": "mA"
 				},
 				{
-					"field": null
+					"field": "flightV4.actuatorContinuity3",
+					"name": "Live Video",
+					"units": "V"
 				},
 				{
 					"field": null

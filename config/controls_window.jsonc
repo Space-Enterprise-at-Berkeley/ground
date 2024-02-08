@@ -251,7 +251,25 @@
 					"type": null
 				},
 				{
-					"type": null
+					"id": "liveVideo",
+					"type": "valve",
+					"name": "Live Video",
+					"field": "flightV4.actuatorState3",
+					"actions": {
+						"enable": {
+							"type": "on",
+							"board": "flightV4",
+							"packet": 100,
+							"number": 3
+						},
+						"disable": {
+							"type": "off",
+							"board": "flightV4",
+							"packet": 100,
+							"number": 3
+						}
+					},
+					"green": [0, 1]
 				}
 			]
 		},
