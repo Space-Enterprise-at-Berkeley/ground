@@ -77,5 +77,31 @@
 	"flightV4.actuatorCurrent0": "pressFlowCurrent",
 	"flightV4.actuatorCurrent1": "loxGemsCurrent",
 	"flightV4.actuatorCurrent2": "fuelGemsCurrent",
-	"flightV4.actuatorCurrent3": "liveVideoCurrent"
+	"flightV4.actuatorCurrent3": "liveVideoCurrent",
+
+	"flightv4.LOXrawUpstreamPressure1": "radioLOXrawUpstreamPressure1",
+	"flightv4.LOXfilteredUpstreamPressure1": "radioLOXfilteredUpstreamPressure1",
+	"flightv4.LOXrawDownstreamPressure2": "radioLOXrawDownstreamPressure2",
+	"flightv4.LOXfilteredDownstreamPressure2": "radioLOXfilteredDownstreamPressure2",
+
+	"flightv4.FUELrawUpstreamPressure1": "radioFUELrawUpstreamPressure1",
+	"flightv4.FUELfilteredUpstreamPressure1": "radioFUELfilteredUpstreamPressure1",
+	"flightv4.FUELrawDownstreamPressure2": "radioFUELrawDownstreamPressure2",
+	"flightv4.FUELfilteredDownstreamPressure2": "radioFUELfilteredDownstreamPressure2",
+
+	"flightv4.LOXencoderAngle": "radioLOXencoderAngle",
+	"flightv4.LOXangleSetpoint": "radioLOXangleSetpoint",
+	"flightv4.LOXpressureSetpoint": "radioLOXpressureSetpoint",
+	"flightv4.LOXmotorPower": "radioLOXmotorPower",
+	"flightv4.LOXpressureControlP": "radioLOXpressureControlP",
+	"flightv4.LOXpressureControlI": "radioLOXpressureControlI",
+	"flightv4.LOXpressureControlD": "radioLOXpressureControlD",
+
+	"flightv4.FUELencoderAngle": "radioFUELencoderAngle",
+	"flightv4.FUELangleSetpoint": "radioFUELangleSetpoint",
+	"flightv4.FUELpressureSetpoint": "radioFUELpressureSetpoint",
+	"flightv4.FUELmotorPower": "radioFUELmotorPower",
+	"flightv4.FUELpressureControlP": "radioFUELpressureControlP",
+	"flightv4.FUELpressureControlI": "radioFUELpressureControlI",
+	"flightv4.FUELpressureControlD": "radioFUELpressureControlD"
 }
