@@ -310,7 +310,7 @@
 			"values": [
 				{
 					"field": "pt.ptValue0",
-					"name": "Main Valve Bottle",
+					"name": "Ground/Fill PT",
 					"units": "PSI"
 				},
 				{
@@ -318,7 +318,7 @@
 				},
 				{
 					"field": "pt.ptValue4",
-					"name": "RQD Bottle",
+					"name": "RQD Bottle PT",
 					"units": "PSI"
 				}
 			]

@@ -31,7 +31,7 @@
 				{
 					"field": "oreg.pressureSetpoint",
 					"name": "Setpoint",
-					"units": "C",
+					"units": "PSI",
 					"color": [0, 255, 0]
 				}
 			]
@@ -48,7 +48,7 @@
 				{
 					"field": "freg.pressureSetpoint",
 					"name": "Setpoint",
-					"units": "C",
+					"units": "PSI",
 					"color": [0, 255, 0]
 				}
 			]
