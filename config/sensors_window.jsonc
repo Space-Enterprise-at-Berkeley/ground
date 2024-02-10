@@ -116,7 +116,36 @@
 		{
 			"type": "six-square",
 			"values": [
-
+				{
+					"field": "flightV4.actuatorCurrent0",
+					"name": "N2 Flow",
+					"units": "mA"
+				},
+				{
+					"field": "flightV4.actuatorCurrent1",
+					"name": "LOX GEMS",
+					"units": "mA"
+				},
+				{
+					"field": "flightV4.actuatorCurrent2",
+					"name": "Fuel GEMS",
+					"units": "mA"
+				},
+				{
+					"field": "ac1.actuatorCurrent3",
+					"name": "ARM",
+					"units": "mA"
+				},
+				{
+					"field": "ac1.actuatorCurrent4",
+					"name": "LOX Main",
+					"units": "mA"
+				},
+				{
+					"field": "ac1.actuatorCurrent5",
+					"name": "Fuel Main",
+					"units": "mA"
+				}
 			]
 		},
 		{
