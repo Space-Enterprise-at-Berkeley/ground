@@ -309,7 +309,7 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "pt.ptValue0",
+					"field": "pt.ptValue0@mapped",
 					"name": "Ground/Fill PT",
 					"units": "PSI"
 				},

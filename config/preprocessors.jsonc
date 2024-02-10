@@ -15,5 +15,14 @@
 			"func": "roc",
 			"args": []
 		}
+	],
+
+	// Ground/Fill PT
+	"pt.ptValue0": [
+		{
+			"suffix": "mapped",
+			"func": "linear",
+			"args": [4.17, 417]
+		}
 	]
 }
