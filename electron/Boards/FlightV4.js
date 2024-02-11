@@ -104,8 +104,8 @@ class FlightV4 extends Board {
 
       //PT Values
       19: [
-        ["loxInjectorPT", asFloat],
-        ["fuelInjectorPT", asFloat]
+        ["fuelInjexctorPT", asFloat],
+        ["loxInjectorPT", asFloat]
       ],
 
       //Autovent Setpoints
