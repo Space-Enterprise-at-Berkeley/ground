@@ -11,6 +11,6 @@
 	},
 	"preprocessors": "$preprocessors.jsonc",
 	"burnTime": 45000, // ms
-	"mode": 2, // 0 = launch, 1 = hotfire, 2 = coldflow, 3 = coldflow with igniter, 4 = gasflow
+	"mode": 0, // 0 = launch, 1 = hotfire, 2 = coldflow, 3 = coldflow with igniter, 4 = gasflow
 	"controller": "ac1"
 }

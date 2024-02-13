@@ -104,7 +104,7 @@ class FlightV4 extends Board {
 
       //PT Values
       19: [
-        ["fuelInjexctorPT", asFloat],
+        ["fuelInjectorPT", asFloat],
         ["loxInjectorPT", asFloat]
       ],
 
