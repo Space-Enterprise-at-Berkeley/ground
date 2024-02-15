@@ -390,6 +390,9 @@ class App {
 
   abort() {
     this.abortWithReason(3);
+    let eregPacket = App.generateSignalTimedPacket(202, 250);
+    this.port.send(this.boards["oreg"], eregPacket);
+    this.port.send(this.boards["freg"], eregPacket);
   }
 }
 
