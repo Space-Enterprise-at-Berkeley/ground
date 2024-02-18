@@ -10,7 +10,8 @@
 				{
 					"id": "press",
 					"type": "timed",
-					"name": "Press Flow RBV",
+					// "name": "Press Flow RBV",
+					"name": "DEPRECATED DO NOT USE",
 					"field": "flightV4.actuatorState0",
 					"actions": {
 						"enable": {
@@ -450,7 +451,8 @@
 				{
 					"id": "pressFill2",
 					"type": "timed",
-					"name": "HIGH Press Fill RBV",
+					// "name": "HIGH Press Fill RBV",
+					"name": "PRESS FLOW RBV",
 					"field": "ac1.actuatorState6",
 					"actions": {
 						"enable": {

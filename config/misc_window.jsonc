@@ -7,7 +7,8 @@
 			"values": [
 				{
 					"field": "ac1.actuatorContinuity6",
-					"name": "HIGH Press Fill",
+					// "name": "HIGH Press Fill",
+					"name": "PRESS FLOW RBV",
 					"units": "V"
 				},
 				{
@@ -42,7 +43,8 @@
 			"values": [
 				{
 					"field": "ac1.actuatorCurrent6",
-					"name": "HIGH Press Fill",
+					// "name": "HIGH Press Fill",
+					"name": "PRESS FLOW RBV",
 					"units": "mA"
 				},
 				{
