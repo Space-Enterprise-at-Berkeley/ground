@@ -316,12 +316,29 @@
 					"units": "PSI"
 				},
 				{
-					"field": null
+					"field": "oreg.fullyOpenSwitch",
+					"name": "LOX Open Switch",
+					"units": ""
 				},
 				{
 					"field": "pt.ptValue4",
 					"name": "RQD Bottle PT",
 					"units": "PSI"
+				},
+				{
+					"field": "oreg.encoderAngle",
+					"name": "LOX Encoder",
+					"units": "deg"
+				},
+				{
+					"field": "freg.fullyOpenSwitch",
+					"name": "Fuel Open Switch",
+					"units": ""
+				},
+				{
+					"field": "freg.encoderAngle",
+					"name": "Fuel Encoder",
+					"units": "deg"
 				}
 			]
 		}

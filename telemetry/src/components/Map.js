@@ -89,7 +89,7 @@ function Map({ gpsLatitude, gpsLongitude, classes, reset, locked }) {
   const [viewport, setViewport] = useState({
     longitude: defaultLong,
     latitude: defaultLat,
-    zoom: 11
+    zoom: 13
   });
 
   const [coordinateHistory, _setCoordinateHistory] = useState([[defaultLong, defaultLat]])
