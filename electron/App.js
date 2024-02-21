@@ -354,7 +354,8 @@ class App {
 
   static generateLaunchPacket(config) {
     let idBuf = Buffer.alloc(1);
-    idBuf.writeUInt8(149);
+    // idBuf.writeUInt8(149);
+    idBuf.writeUInt8(150);
     let len = 5;
     let values = [];
     let systemModeBuf = Buffer.alloc(1);
