@@ -10,8 +10,8 @@
 				{
 					"id": "press",
 					"type": "timed",
-					// "name": "Press Flow RBV",
-					"name": "DEPRECATED DO NOT USE",
+					"name": "[FC CTRL] Press Flow RBV",
+					// "name": "DEPRECATED DO NOT USE",
 					"field": "flightV4.actuatorState0",
 					"actions": {
 						"enable": {
@@ -162,39 +162,6 @@
 				// 			"board": "ac2",
 				// 			"packet": 100,
 				// 			"number": 4
-				// 		}
-				// 	},
-				// 	"green": [0, 1]
-				// },
-				// {
-				// 	"id": "fuelVent",
-				// 	"type": "timed",
-				// 	"name": "Fuel Vent RBV",
-				// 	"field": "ac2.actuatorState5",
-				// 	"actions": {
-				// 		"enable": {
-				// 			"type": "retract-full",
-				// 			"board": "ac2",
-				// 			"packet": 100,
-				// 			"number": 5
-				// 		},
-				// 		"disable": {
-				// 			"type": "extend-full",
-				// 			"board": "ac2",
-				// 			"packet": 100,
-				// 			"number": 5
-				// 		},
-				// 		"enable-timed": {
-				// 			"type": "retract-timed",
-				// 			"board": "ac2",
-				// 			"packet": 100,
-				// 			"number": 5
-				// 		},
-				// 		"disable-timed": {
-				// 			"type": "extend-timed",
-				// 			"board": "ac2",
-				// 			"packet": 100,
-				// 			"number": 5
 				// 		}
 				// 	},
 				// 	"green": [0, 1]
@@ -451,8 +418,8 @@
 				{
 					"id": "pressFill2",
 					"type": "timed",
-					// "name": "HIGH Press Fill RBV",
-					"name": "PRESS FLOW RBV",
+					"name": "HIGH Press Fill RBV",
+					// "name": "PRESS FLOW RBV",
 					"field": "ac1.actuatorState6",
 					"actions": {
 						"enable": {
@@ -553,26 +520,60 @@
 					"safe": true
 				},
 				{
-					"id": "eregStartPings",
-					"type": "ereg",
-					"name": "Start Pings",
-					"field": "",
+					"id": "groundPressFlow",
+					"type": "timed",
+					"name": "[BACKUP-GROUND] Press Flow RBV",
+					"field": "ac2.actuatorState7",
 					"actions": {
-						"lox": {
-							"type": "start-pings",
-							"board": "oreg",
-							"packet": 209,
-							"delay": 200
+						"enable": {
+							"type": "retract-full",
+							"board": "ac2",
+							"packet": 100,
+							"number": 7
 						},
-						"fuel": {
-							"type": "start-pings",
-							"board": "freg",
-							"packet": 209,
-							"delay": 200
+						"disable": {
+							"type": "extend-full",
+							"board": "ac2",
+							"packet": 100,
+							"number": 7
+						},
+						"enable-timed": {
+							"type": "retract-timed",
+							"board": "ac2",
+							"packet": 100,
+							"number": 7
+						},
+						"disable-timed": {
+							"type": "extend-timed",
+							"board": "ac2",
+							"packet": 100,
+							"number": 7
 						}
 					},
+					"green": [0, 1],
 					"safe": true
 				},
+				// {
+				// 	"id": "eregStartPings",
+				// 	"type": "ereg",
+				// 	"name": "Start Pings",
+				// 	"field": "",
+				// 	"actions": {
+				// 		"lox": {
+				// 			"type": "start-pings",
+				// 			"board": "oreg",
+				// 			"packet": 209,
+				// 			"delay": 200
+				// 		},
+				// 		"fuel": {
+				// 			"type": "start-pings",
+				// 			"board": "freg",
+				// 			"packet": 209,
+				// 			"delay": 200
+				// 		}
+				// 	},
+				// 	"safe": true
+				// },
 				{
 					"type": null
 				},
