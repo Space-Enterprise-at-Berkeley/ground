@@ -41,7 +41,7 @@ a new directory in your home directory called `GroundStation`,
 where it will store data files.
 
 To start the ground station, first `cd` from the top level, project `ground` directory into the `telemetry` directory
-and run `npm run start`. This will start the "backend" of the Dashboard. Next open a **new** terminal window (the previous one must stay open for the dashboard to work) and make sure you are in the top level `ground` directory. Run `npm run start [port] [config file] [...window IDs]` to open either all the windows from a config or a specified list. 
+and run `npm run start`. This will start the "backend" of the Dashboard. Next open a **new** terminal window (the previous one must stay open for the dashboard to work) and make sure you are in the top level `ground` directory. Run `npm run start [ip] [config file] [...window IDs]` to open either all the windows from a config or a specified list. `[ip]` is the last byte of your IP (169, 170, etc.) and `[config file]` is probably `config.jsonc`.
 
 ~~If you would like to run the remote viewing web page, open a new
 terminal window and `cd` into the `remote` directory. Then run
@@ -49,7 +49,7 @@ terminal window and `cd` into the `remote` directory. Then run
 
 ## Receiving Telemetry & Sending Commands. 
 The dashboard receives packets from all boards over ethernet - meaning that in order to receive telemetry you must have be connected directly to a board with an ethernet cable or connected to a network switch that has one or more boards connected. 
-You must also have your computer network settings configured correctly to receive packets - your computer needs to appear on the network with a static ip of either `10.0.0.169` or `10.0.0.170`. As long as your computer's static ip has been configured appropriately, once any board is on the network and powered up, packets will start to be received and displayed (and the corresponding datarate indicator on the top bar will turn green)
+You must also have your computer network settings configured correctly to receive packets - your computer needs to appear on the network with a unique (to the network) IP of the format `10.0.0.1XX`. As long as your computer's static ip has been configured appropriately, once any board is on the network and powered up, packets will start to be received and displayed (and the corresponding datarate indicator on the top bar will turn green)
 
 ## Storing Data. 
 The dashboard is capable of pushing data to a server running an influx instance, to allow data to be stored and accessed at a later time. Data can be pushed to the remote influx server (`influx.berkeleyse.com`) or can be pushed to an influx instance running locally on your computer or on any server on the local network. Which influx instance and which specific database can be configured via the influx settings button in the top right corner of the dashboard. 
