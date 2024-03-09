@@ -46,32 +46,32 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "tc.tcValue1",
+					"field": "tc2.tcValue1",
 					"name": "Engn TC 1",
 					"units": "C"
 				},
 				{
-					"field": "tc.tcValue2",
+					"field": "tc2.tcValue2",
 					"name": "Engn TC 2",
 					"units": "C"
 				},
 				{
-					"field": "tc.tcValue3",
+					"field": "tc2.tcValue3",
 					"name": "Engn TC 3",
 					"units": "C"
 				},
 				{
-					"field": "tc.tcValue4",
+					"field": "tc2.tcValue4",
 					"name": "Engn TC 4",
 					"units": "C"
 				},
 				{
-					"field": "tc.tcValue5",
+					"field": "tc2.tcValue5",
 					"name": "Engn TC 5",
 					"units": "C"
 				},
 				{
-					"field": "tc.tcValue6",
+					"field": "tc2.tcValue6",
 					"name": "Engn TC 6",
 					"units": "C"
 				}
