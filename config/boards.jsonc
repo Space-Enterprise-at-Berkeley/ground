@@ -3,27 +3,6 @@
 	// 	"type": "flightV4",
 	// 	"address": "10.0.0.42"
 	// },
-	"flightV4": {
-		"type": "flightV4",
-		// "address": "192.168.43.42" 
-		"address": "10.0.0.42"
-	},
-	"oreg": {
-		"type": "ereg",
-		"address": "10.0.0.61"
-	},
-	"freg": {
-		"type": "ereg",
-		"address": "10.0.0.62"
-	},
-	"ac1": {
-		"type": "ac",
-		"address": "10.0.0.11"
-	},
-	"ac2": {
-		"type": "ac",
-		"address": "10.0.0.12"
-	},
 	"tc": {
 		"type": "tc",
 		"address": "10.0.0.51"

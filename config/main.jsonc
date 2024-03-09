@@ -2,12 +2,7 @@
 	"boards": "$boards.jsonc",
 	"influxMap": "$influx_map.jsonc",
 	"windows": {
-		"ereg": "$ereg_window.jsonc",
-		"misc": "$misc_window.jsonc",
-		"sensors": "$sensors_window.jsonc",
-		"controls": "$controls_window.jsonc",
-		"flight": "$flight_window.jsonc",
-		"radioreg": "$radioreg_window.jsonc"
+		"had": "$hadwindow.jsonc"
 	},
 	"preprocessors": "$preprocessors.jsonc",
 	"burnTime": 45000, // ms
