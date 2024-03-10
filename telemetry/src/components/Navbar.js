@@ -38,8 +38,8 @@ class Navbar extends Component {
     this.boardKbpsCallbacks = {};
     for (let boardName in this.config.boards) {
       let boardState = {};
-      boardState[boardName + ".connected"] = false;
-      boardState[boardName + ".kbps"] = 0;
+      boardState[boardName + "Connected"] = false;
+      boardState[boardName + "Kbps"] = 0;
       this.setState(boardState);
       this.boardConnectedCallbacks[boardName] = (timestamp, value) => {
         this.updateBoardConnected(timestamp, boardName, value);
@@ -57,15 +57,15 @@ class Navbar extends Component {
 
   updateBoardConnected(timestamp, boardName, value) {
     let boardState = {};
-    boardState[boardName + ".connected"] = value;
+    boardState[boardName + "Connected"] = value;
     this.setState(boardState);
   }
 
   updateBoardKbps(timestamp, boardName, value) {
     let boardState = {};
-    boardState[boardName + ".kbps"] = value;
+    boardState[boardName + "Kbps"] = value;
     if (value > 0) {
-      boardState[boardName + ".connected"] = true;
+      boardState[boardName + "Connected"] = true;
     }
     this.setState(boardState);
   }
@@ -80,24 +80,24 @@ class Navbar extends Component {
 
   async componentDidMount() {
     for (let boardName in this.config.boards) {
-      comms.addSubscriber(boardName + ".boardConnected", this.boardConnectedCallbacks[boardName]);
-      comms.addSubscriber(boardName + ".boardKbps", this.boardKbpsCallbacks[boardName]);
+      comms.addSubscriber(boardName + "Connected", this.boardConnectedCallbacks[boardName]);
+      comms.addSubscriber(boardName + "Kbps", this.boardKbpsCallbacks[boardName]);
       comms.addSubscriber("influxState", this.updateInfluxState);
       comms.addSubscriber("influxDatabase", this.updateInfluxDatabase);
     }
 
     for (let boardName in this.config.boards) {
       let boardState = {};
-      boardState[boardName + ".connected"] = false;
-      boardState[boardName + ".kbps"] = 0;
+      boardState[boardName + "Connected"] = false;
+      boardState[boardName + "Kbps"] = 0;
       this.setState(boardState);
     }
   }
 
   componentWillUnmount() {
     for (let boardName in this.config.boards) {
-      comms.removeSubscriber(boardName + ".boardConnected", this.boardConnectedCallbacks[boardName]);
-      comms.removeSubscriber(boardName + ".boardKbps", this.boardKbpsCallbacks[boardName]);
+      comms.removeSubscriber(boardName + "Connected", this.boardConnectedCallbacks[boardName]);
+      comms.removeSubscriber(boardName + "Kbps", this.boardKbpsCallbacks[boardName]);
     }
   }
 
@@ -115,7 +115,7 @@ class Navbar extends Component {
           <div className={classes.spacer}/>
           {
             Object.keys(this.config.boards).map(boardName => (
-              <Button className={this.state[boardName + ".connected"] ? classes.connectedButton : classes.disconnectedButton}>{boardName} - {Math.round(this.state[boardName + ".kbps"])}</Button>
+              <Button className={this.state[boardName + "Connected"] ? classes.connectedButton : classes.disconnectedButton}>{boardName} - {Math.round(this.state[boardName + "Kbps"])}</Button>
             ))
           }
           <div className={classes.spacer}/>

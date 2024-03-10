@@ -6,32 +6,32 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "ac1.acSupply24Voltage",
+					"field": "ac1Supply24Voltage",
 					"name": "AC1 Voltage",
 					"units": "V"
 				},
 				{
-					"field": "ac2.acSupply24Voltage",
+					"field": "ac2Supply24Voltage",
 					"name": "AC2 Voltage",
 					"units": "V"
 				},
 				{
-					"field": "ac3.acSupply24Voltage",
+					"field": "ac3Supply24Voltage",
 					"name": "AC3 Voltage",
 					"units": "V"
 				},
 				{
-					"field": "ac1.acSupply24Current",
+					"field": "ac1Supply24Current",
 					"name": "AC1 Current",
 					"units": "mA"
 				},
 				{
-					"field": "ac2.acSupply24Current",
+					"field": "ac2Supply24Current",
 					"name": "AC2 Current",
 					"units": "mA"
 				},
 				{
-					"field": "ac3.acSupply24Current",
+					"field": "ac3Supply24Current",
 					"name": "AC3 Current",
 					"units": "mA"
 				}
@@ -41,34 +41,30 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "pt1.ptSupply24Voltage",
+					"field": "pt1Supply24Voltage",
 					"name": "PT1 Voltage",
 					"units": "V"
 				},
 				{
-					"field": "pt2.ptSupply24Voltage",
+					"field": "pt2Supply24Voltage",
 					"name": "PT2 Voltage",
 					"units": "V"
 				},
 				{
-					"field": "pt3.ptSupply24Voltage",
-					"name": "PT3 Voltage",
-					"units": "V"
+					"field": null
 				},
 				{
-					"field": "pt1.ptSupply24Current",
+					"field": "pt1Supply24Current",
 					"name": "PT1 Current",
 					"units": "mA"
 				},
 				{
-					"field": "pt2.ptSupply24Current",
+					"field": "pt2Supply24Current",
 					"name": "PT2 Current",
 					"units": "mA"
 				},
 				{
-					"field": "pt3.ptSupply24Current",
-					"name": "PT3 Current",
-					"units": "mA"
+					"field": null
 				}
 			]
 		},
@@ -76,12 +72,12 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "lc1.lcSupply24Voltage",
+					"field": "lc1Supply24Voltage",
 					"name": "LC1 Voltage",
 					"units": "V"
 				},
 				{
-					"field": "lc2.lcSupply24Voltage",
+					"field": "lc2Supply24Voltage",
 					"name": "LC2 Voltage",
 					"units": "V"
 				},
@@ -89,12 +85,12 @@
 					"field": null
 				},
 				{
-					"field": "lc1.lcSupply24Current",
+					"field": "lc1Supply24Current",
 					"name": "LC1 Current",
 					"units": "mA"
 				},
 				{
-					"field": "lc2.lcSupply24Current",
+					"field": "lc2Supply24Current",
 					"name": "LC2 Current",
 					"units": "mA"
 				},
@@ -107,23 +103,27 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "tc.tcSupply24Voltage",
-					"name": "TC Voltage",
+					"field": "tc1Supply24Voltage",
+					"name": "TC1 Voltage",
 					"units": "V"
 				},
 				{
-					"field": null
-				},
-				{
-					"field": null
-				},
-				{
-					"field": "tc.tcSupply24Current",
-					"name": "TC Current",
+					"field": "tc1Supply24Current",
+					"name": "TC1 Current",
 					"units": "mA"
 				},
 				{
 					"field": null
+				},
+				{
+					"field": "tc2Supply24Voltage",
+					"name": "TC2 Voltage",
+					"units": "V"
+				},
+				{
+					"field": "tc2Supply24Current",
+					"name": "TC2 Current",
+					"units": "mA"
 				},
 				{
 					"field": null
@@ -147,13 +147,11 @@
 					"actions": {
 						"lox-timed": {
 							"type": "zero",
-							"board": "pt1",
-							"packet": 100
+							"target": "zeroPT1"
 						},
 						"fuel-timed": {
 							"type": "zero",
-							"board": "pt1",
-							"packet": 100
+							"target": "zeroPT1"
 						}
 					},
 					"safe": true
@@ -166,35 +164,17 @@
 					"actions": {
 						"lox-timed": {
 							"type": "zero",
-							"board": "pt2",
-							"packet": 100
+							"target": "zeroPT2"
 						},
 						"fuel-timed": {
 							"type": "zero",
-							"board": "pt2",
-							"packet": 100
+							"target": "zeroPT2"
 						}
 					},
 					"safe": true
 				},
 				{
-					"id": "zeroPT3",
-					"type": "ereg-timed",
-					"name": "Zero PT3",
-					"field": "",
-					"actions": {
-						"lox-timed": {
-							"type": "zero",
-							"board": "pt3",
-							"packet": 100
-						},
-						"fuel-timed": {
-							"type": "zero",
-							"board": "pt3",
-							"packet": 100
-						}
-					},
-					"safe": true
+					"type": null
 				},
 				{
 					"type": null
@@ -212,13 +192,11 @@
 					"actions": {
 						"lox-timed": {
 							"type": "zero",
-							"board": "lc1",
-							"packet": 100
+							"target": "zeroLC1"
 						},
 						"fuel-timed": {
 							"type": "zero",
-							"board": "lc1",
-							"packet": 100
+							"target": "zeroLC1"
 						}
 					},
 					"safe": true
@@ -231,13 +209,11 @@
 					"actions": {
 						"lox-timed": {
 							"type": "zero",
-							"board": "lc2",
-							"packet": 100
+							"target": "zeroLC2"
 						},
 						"fuel-timed": {
 							"type": "zero",
-							"board": "lc2",
-							"packet": 100
+							"target": "zeroLC2"
 						}
 					},
 					"safe": true

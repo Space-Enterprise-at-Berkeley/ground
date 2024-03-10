@@ -6,13 +6,13 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "pt1.ptValue2",
-					"name": "Nitrous Injector PT",
+					"field": "nosInjectorPT",
+					"name": "NOS Injector PT",
 					"units": "PSI"
 				},
 				{
-					"field": "pt1.ptValue6",
-					"name": "Ethane Injector PT",
+					"field": "ipaInjectorPT",
+					"name": "IPA Injector PT",
 					"units": "PSI"
 				}
 			]
@@ -21,22 +21,22 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "lc2.ptValue0",
+					"field": "engineLC0",
 					"name": "Engine LC 0",
 					"units": "lbs"
 				},
 				{
-					"field": "lc2.ptValue1",
+					"field": "engineLC1",
 					"name": "Engine LC 1",
 					"units": "lbs"
 				},
 				{
-					"field": "lc2.ptValue2",
+					"field": "engineLC2",
 					"name": "Engine LC 2",
 					"units": "lbs"
 				},
 				{
-					"field": "lc2.ptValue3",
+					"field": "engineLC3",
 					"name": "Engine LC 3",
 					"units": "lbs"
 				}
@@ -46,32 +46,32 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "tc2.tcValue1",
+					"field": "engineTC1",
 					"name": "Engn TC 1",
 					"units": "C"
 				},
 				{
-					"field": "tc2.tcValue2",
+					"field": "engineTC2",
 					"name": "Engn TC 2",
 					"units": "C"
 				},
 				{
-					"field": "tc2.tcValue3",
+					"field": "engineTC3",
 					"name": "Engn TC 3",
 					"units": "C"
 				},
 				{
-					"field": "tc2.tcValue4",
+					"field": "engineTC4",
 					"name": "Engn TC 4",
 					"units": "C"
 				},
 				{
-					"field": "tc2.tcValue5",
+					"field": "engineTC5",
 					"name": "Engn TC 5",
 					"units": "C"
 				},
 				{
-					"field": "tc2.tcValue6",
+					"field": "engineTC6",
 					"name": "Engn TC 6",
 					"units": "C"
 				}
@@ -81,22 +81,22 @@
 			"type": "six-square",
 			"values":[
 				{
-					"field": "pt3.ptValue4",
+					"field": "channelPT0",
 					"name": "Engn PT Channel 0",
 					"units": "PSI"
 				},
 				{
-					"field": "pt3.ptValue5",
+					"field": "channelPT1",
 					"name": "Engn PT CHannel 1",
 					"units": "PSI"
 				},
 				{
-					"field": "pt3.ptValue6",
+					"field": "channelPT2",
 					"name": "Engn PT Channel 2",
 					"units": "PSI"
 				},
 				{
-					"field": "pt3.ptValue7",
+					"field": "channelPT3",
 					"name": "Engn PT Channel 3",
 					"units": "PSI"
 				}
@@ -106,12 +106,12 @@
 			"type": "six-square",
 			"values":[
 				{
-					"field": "pt3.ptValue2",
+					"field": "chamberPT",
 					"name": "Chamber PT",
 					"units": "PSI"
 				},
 				{
-					"field": "pt3.ptValue3",
+					"field": "manifoldPT",
 					"name": "Manifold PT",
 					"units": "PSI"
 				}
@@ -121,24 +121,24 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "ac1.actuatorContinuity1",
+					"field": "breakwireContinuity",
 					"name": "Breakwire",
 					"units": "V"
 				},
 				{
-					"field": "ac1.actuatorContinuity7",
+					"field": "igniterContinuity",
 					"name": "Igniter",
 					"units": "V"
 				},
 				{
-					"field": "ac1.actuatorState4",
-					"name": "Nitrous Main State",
-					"units": "knots"
+					"field": "nosMainState",
+					"name": "NOS Main State",
+					"units": ""
 				},
 				{
-					"field": "ac1.actuatorState5",
-					"name": "Ethane Main State",
-					"units": "knots"
+					"field": "ipaMainState",
+					"name": "IPA Main State",
+					"units": ""
 				}
 			]
 		},
@@ -146,8 +146,8 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "pt2.ptValue0",
-					"name": "Nitrous Tank Pressure",
+					"field": "nosTankPT",
+					"name": "NOS Tank Pressure",
 					"units": "PSI"
 				}
 			]
@@ -156,8 +156,8 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "pt2.ptValue1",
-					"name": "Ethane Tank Pressure",
+					"field": "ipaTankPT",
+					"name": "IPA Tank Pressure",
 					"units": "PSI"
 				}
 			]

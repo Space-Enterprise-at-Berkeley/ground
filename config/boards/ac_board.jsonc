@@ -49,8 +49,7 @@
 
 	// Autovent
 	"5": [
-		["nosAutoventPressure", "asFloat"],
-		["ethAutoventPressure", "asFloat"]
+		["autoventPressure", "asFloat"]
 	],
 
 	// Potentiometers

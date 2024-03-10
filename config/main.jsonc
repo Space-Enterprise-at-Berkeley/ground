@@ -9,14 +9,17 @@
 		"flightV4": "$boards/flightV4_board.jsonc"
 	},
 	"influxMap": "$influx_map.jsonc",
+	"commandMap": "$command_map.jsonc",
 	"windows": {
-		"hotfire_controls": "$hotfire_controls_window.jsonc",
-		"hotfire_pressures": "$hotfire_pressures_window.jsonc",
-		"coldflow_controls": "$coldflow_controls_window.jsonc",
-		"coldflow_pressures": "$coldflow_pressures_window.jsonc",
+		// "hotfire_controls": "$hotfire_controls_window.jsonc",
+		"controls": "$controls_window.jsonc",
+		// "hotfire_pressures": "$hotfire_pressures_window.jsonc",
+		// "coldflow_controls": "$coldflow_controls_window.jsonc",
+		// "coldflow_pressures": "$coldflow_pressures_window.jsonc",
+		"pressures": "$pressures_window.jsonc",
 		"propellant_fill": "$propellant_fill_window.jsonc",
-		"coldflow_pressurization": "$coldflow_pressurization_window.jsonc",
-		"hotfire_pressurization": "$hotfire_pressurization_window.jsonc",
+		// "coldflow_pressurization": "$coldflow_pressurization_window.jsonc",
+		// "hotfire_pressurization": "$hotfire_pressurization_window.jsonc",
 		"engine": "$engine_window.jsonc",
 		"boards_status": "$boards_status_window.jsonc",
 		"actuators_status": "$actuators_status_window.jsonc"

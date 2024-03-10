@@ -1,58 +1,108 @@
 {
-
 	// TC Board 1
-	"tc1.tcValue0": "nitrousTankTC",
-	"tc1.tcValue1": "ethaneTankTC",
-	"tc1.tcValue2": "ethaneInjectorTC",
+
+	"tc1.boardConnected": "tc1Connected",
+	"tc1.boardKbps": "tc1Kbps",
+
+	"tc1.tcSupply24Voltage": "tc1Supply24Voltage",
+	"tc1.tcSupply24Current": "tc12Supply24Current",
+	"tc1.tcSupply24Power": "tc1Supply24Power",
+
+	"tc1.tcValue0": "nosTankTC",
+	"tc1.tcValue1": "ipaTankTC",
+	"tc1.tcValue2": "nosInjectorTC",
+	"tc1.tcValue3": "ipaInjectorTC",
+	// "tc1.tcValue4": "",
+	// "tc1.tcValue5": "",
+	// "tc1.tcValue6": "",
+	// "tc1.tcValue7": "",
+
+	// TC Board 2
+
+	"tc2.boardConnected": "tc2Connected",
+	"tc2.boardKbps": "tc2Kbps",
+
+	"tc2.tcSupply24Voltage": "tc2Supply24Voltage",
+	"tc2.tcSupply24Current": "tc2Supply24Current",
+	"tc2.tcSupply24Power": "tc2Supply24Power",
+
+	"tc2.tcValue0": "engineTC0",
+	"tc2.tcValue1": "engineTC1",
+	"tc2.tcValue2": "engineTC2",
+	"tc2.tcValue3": "engineTC3",
+	"tc2.tcValue4": "engineTC4",
+	"tc2.tcValue5": "engineTC5",
+	"tc2.tcValue6": "engineTC6",
+	"tc2.tcValue7": "engineTC7",
 
 	// PT Board 1
 
-	"pt1.ptValue0": "nitrousTankPT",
-	"pt1.ptValue1": "nitrousFillPT",
-	"pt1.ptValue2": "nitrousInjectorPT", 
-	// "pt1.ptValue3": "", 
-	"pt1.ptValue4": "ethaneTankPT", 
-	"pt1.ptValue5": "ethaneFillPT",
-	"pt1.ptValue6": "ethaneInjectorPT",
+	"pt1.boardConnected": "pt1Connected",
+	"pt1.boardKbps": "pt1Kbps",
+
+	"pt1.ptSupply24Voltage": "pt1Supply24Voltage",
+	"pt1.ptSupply24Current": "pt1Supply24Current",
+	"pt1.ptSupply24Power": "pt1Supply24Power",
+
+	"pt1.ptValue0": "nosTankPT",
+	"pt1.ptValue1": "nosFillPT",
+	// "pt1.ptValue2": "",
+	// "pt1.ptValue3": "",
+	"pt1.ptValue4": "ipaTankPT",
+	"pt1.ptValue5": "ipaFillPT",
+	// "pt1.ptValue6": "",
 	// "pt1.ptValue7": "",
 
 	// PT Board 2
 
-	// "pt2.ptValue0": "nitrousInjectorPT",
-	// "pt2.ptValue1": "ethaneInjectorPT",
-	// "pt2.ptValue2": "chamberPT",
-	// "pt2.ptValue3": "manifoldPT",
-	// "pt2.ptValue4": "channelPT0",
-	// "pt2.ptValue5": "channelPT1",
-	// "pt2.ptValue6": "channelPT2",
-	// "pt2.ptValue7": "channelPT3",
+	"pt2.boardConnected": "pt2Connected",
+	"pt2.boardKbps": "pt2Kbps",
 
-	// PT Board 3
+	"pt2.ptSupply24Voltage": "pt2Supply24Voltage",
+	"pt2.ptSupply24Current": "pt2Supply24Current",
+	"pt2.ptSupply24Power": "pt2Supply24Power",
 
-	// "pt3.ptValue0@rtd": "nitrousLineRTD0",
-	// "pt3.ptValue1@rtd": "nitrousLineRTD1",
-	// "pt3.ptValue2@rtd": "nitrousLineRTD2",
-	// "pt3.ptValue3@rtd": "ethaneLineRTD0",
-	// "pt3.ptValue4@rtd": "ethaneLineRTD1",
-	// "pt3.ptValue5@rtd": "ethaneLineRTD2",
-	// "pt3.ptValue6@rtd": "",
-	// "pt3.ptValue7@rtd": "",
+	"pt2.ptValue0": "nosInjectorPT",
+	"pt2.ptValue1": "ipaInjectorPT",
+	"pt2.ptValue2": "chamberPT",
+	"pt2.ptValue3": "manifoldPT",
+	"pt2.ptValue4": "channelPT0",
+	"pt2.ptValue5": "channelPT1",
+	"pt2.ptValue6": "channelPT2",
+	"pt2.ptValue7": "channelPT3",
 
 	// LC Board 1
 
-	"lc1.lcValue0": "nitrousTankLC0",
-	"lc1.lcValue1": "nitrousTankLC1",
-	"lc1.lcValue2": "ethaneTankLC0",
-	"lc1.lcValue3": "ethaneTankLC1",
+	"lc1.boardConnected": "lc1Connected",
+	"lc1.boardKbps": "lc1Kbps",
+
+	"lc1.lcSupply24Voltage": "lc1Supply24Voltage",
+	"lc1.lcSupply24Current": "lc1Supply24Current",
+	"lc1.lcSupply24Power": "lc1Supply24Power",
+
+	"lc1.lcValue0": "nosTankLC0",
+	"lc1.lcValue1": "nosTankLC1",
+	"lc1.lcValue2": "ipaTankLC0",
+	"lc1.lcValue3": "ipaTankLC1",
 
 	// LC Board 2
+
+	"lc2.boardConnected": "lc2Connected",
+	"lc2.boardKbps": "lc2Kbps",
+
+	"lc2.lcSupply24Voltage": "lc2Supply24Voltage",
+	"lc2.lcSupply24Current": "lc2Supply24Current",
+	"lc2.lcSupply24Power": "lc2Supply24Power",
 
 	"lc2.lcValue0": "engineLC0",
 	"lc2.lcValue1": "engineLC1",
 	"lc2.lcValue2": "engineLC2",
 	"lc2.lcValue3": "engineLC3",
 
-	// Actuator Controller 1
+	// AC Board 1
+
+	"ac1.boardConnected": "ac1Connected",
+	"ac1.boardKbps": "ac1Kbps",
 
 	"ac1.acSupply24Voltage": "ac1Supply24Voltage",
 	"ac1.acSupply24Current": "ac1Supply24Current",
@@ -60,121 +110,135 @@
 
 	// "ac1.actuatorState0": "",
 	"ac1.actuatorState1": "breakwireState",
-	"ac1.actuatorState2": "mventState",
+	// "ac1.actuatorState2": "",
 	"ac1.actuatorState3": "armState",
-	"ac1.actuatorState4": "nitrousMainState",
-	"ac1.actuatorState5": "ethaneMainState",
+	"ac1.actuatorState4": "nosMainState",
+	"ac1.actuatorState5": "ipaMainState",
 	// "ac1.actuatorState6": "",
 	"ac1.actuatorState7": "igniterState",
 
 	// "ac1.actuatorContinuity0": "",
 	"ac1.actuatorContinuity1": "breakwireContinuity",
-	"ac1.actuatorContinuity2": "mventContinuity", 
+	// "ac1.actuatorContinuity2": "",
 	"ac1.actuatorContinuity3": "armContinuity",
-	"ac1.actuatorContinuity4": "nitrousMainContinuity",
-	"ac1.actuatorContinuity5": "ethaneMainContinuity",
+	"ac1.actuatorContinuity4": "nosMainContinuity",
+	"ac1.actuatorContinuity5": "ipaMainContinuity",
 	// "ac1.actuatorContinuity6": "",
 	"ac1.actuatorContinuity7": "igniterContinuity",
 
 	// "ac1.actuatorCurrent0": "",
 	"ac1.actuatorCurrent1": "breakwireCurrent",
-	"ac1.actuatorCurrent2": "mventCurrent", 
+	// "ac1.actuatorCurrent2": "",
 	"ac1.actuatorCurrent3": "armCurrent",
-	"ac1.actuatorCurrent4": "nitrousMainCurrent",
-	"ac1.actuatorCurrent5": "ethaneMainCurrent",
+	"ac1.actuatorCurrent4": "nosMainCurrent",
+	"ac1.actuatorCurrent5": "ipaMainCurrent",
 	// "ac1.actuatorCurrent6": "",
 	"ac1.actuatorCurrent7": "igniterCurrent",
 
 	// "ac1.potentiometer0": "",
-	// "ac1.potentiometer1": "",
-	// "ac1.potentiometer2": "", 
-	// "ac1.potentiometer3": "",
-	// "ac1.potentiometer4": "",
-	// "ac1.potentiometer5": "",
+	"ac1.potentiometer1": "breakwirePot",
+	// "ac1.potentiometer2": "",
+	"ac1.potentiometer3": "armPot",
+	"ac1.potentiometer4": "nosMainPot",
+	"ac1.potentiometer5": "ipaMainPot",
 	// "ac1.potentiometer6": "",
-	// "ac1.potentiometer7": "",
+	"ac1.potentiometer7": "igniterPot",
 
-	// Actuator Controller 2
+	// AC Board 2
+
+	"ac2.boardConnected": "ac2Connected",
+	"ac2.boardKbps": "ac2Kbps",
 
 	"ac2.acSupply24Voltage": "ac2Supply24Voltage",
 	"ac2.acSupply24Current": "ac2Supply24Current",
 	"ac2.acSupply24Power": "ac2Supply24Power",
 
-	"ac2.actuatorState0": "nitrousGemsState",
-	"ac2.actuatorState1": "nitrousFillState",
-	"ac2.actuatorState2": "nitrousVentState",
-	"ac2.actuatorState3": "nitrousLineVentState",
-	"ac2.actuatorState4": "nitrousEmergencyVentState",
-	"ac2.actuatorState5": "nitrousDrainState",
+	"ac2.actuatorState0": "nosGemsState",
+	"ac2.actuatorState1": "nosFillState",
+	"ac2.actuatorState2": "nosSlowVentState",
+	"ac2.actuatorState3": "nosLineVentState",
+	"ac2.actuatorState4": "nosEmergencyVentState",
+	"ac2.actuatorState5": "nosDrainState",
 	// "ac2.actuatorState6": "",
 	// "ac2.actuatorState7": "",
 
-	"ac2.actuatorContinuity0": "nitrousGemsContinuity",
-	"ac2.actuatorContinuity1": "nitrousFillContinuity",
-	"ac2.actuatorContinuity2": "nitrousVentContinuity", 
-	"ac2.actuatorContinuity3": "nitrousLineVentContinuity",
-	"ac2.actuatorContinuity4": "nitrousEmergencyVentContinuity",
-	"ac2.actuatorContinuity5": "nitrousDrainContinuity",
+	"ac2.actuatorContinuity0": "nosGemsContinuity",
+	"ac2.actuatorContinuity1": "nosFillContinuity",
+	"ac2.actuatorContinuity2": "nosSlowVentContinuity",
+	"ac2.actuatorContinuity3": "nosLineVentContinuity",
+	"ac2.actuatorContinuity4": "nosEmergencyVentContinuity",
+	"ac2.actuatorContinuity5": "nosDrainContinuity",
 	// "ac2.actuatorContinuity6": "",
 	// "ac2.actuatorContinuity7": "",
 
-	"ac2.actuatorCurrent0": "nitrousGemsCurrent",
-	"ac2.actuatorCurrent1": "nitrousFillCurrent",
-	"ac2.actuatorCurrent2": "nitrousVentCurrent", 
-	"ac2.actuatorCurrent3": "nitrousLineVentCurrent",
-	"ac2.actuatorCurrent4": "nitrousEmergencyVentCurrent",
-	"ac2.actuatorCurrent5": "nitrousDrainCurrent",
+	"ac2.actuatorCurrent0": "nosGemsCurrent",
+	"ac2.actuatorCurrent1": "nosFillCurrent",
+	"ac2.actuatorCurrent2": "nosSlowVentCurrent",
+	"ac2.actuatorCurrent3": "nosLineVentCurrent",
+	"ac2.actuatorCurrent4": "nosEmergencyVentCurrent",
+	"ac2.actuatorCurrent5": "nosDrainCurrent",
 	// "ac2.actuatorCurrent6": "",
 	// "ac2.actuatorCurrent7": "",
 
-	// "ac2.potentiometer0": "",
-	"ac2.potentiometer1": "nitrousFillPot",
-	// "ac2.potentiometer2": "", 
-	"ac2.potentiometer3": "nitrousLineVentPot",
-	// "ac2.potentiometer4": "",
-	// "ac2.potentiometer5": "",
+	"ac2.potentiometer0": "nosGemsPot",
+	"ac2.potentiometer1": "nosFillPot",
+	"ac2.potentiometer2": "nosSlowVentPot",
+	"ac2.potentiometer3": "nosLineVentPot",
+	"ac2.potentiometer4": "nosEmergencyVentPot",
+	"ac2.potentiometer5": "nosDrainPot",
 	// "ac2.potentiometer6": "",
 	// "ac2.potentiometer7": "",
 
-	// Actuator Controller 3
+	"ac2.autoventPressure": "nosAutoventPressure",
+	"ac2.automationState": "nosAutomationState",
+
+	// AC Board 3
+
+	"ac3.boardConnected": "ac3Connected",
+	"ac3.boardKbps": "ac3Kbps",
 
 	"ac3.acSupply24Voltage": "ac3Supply24Voltage",
 	"ac3.acSupply24Current": "ac3Supply24Current",
 	"ac3.acSupply24Power": "ac3Supply24Power",
 
-	"ac3.actuatorState0": "ethaneGemsState",
-	"ac3.actuatorState1": "ethaneFillState",
-	"ac3.actuatorState2": "ethaneVentState",
-	"ac3.actuatorState3": "ethaneLineVentState",
-	"ac3.actuatorState4": "ethaneEmergencyVentState",
-	"ac3.actuatorState5": "ethaneDrainState",
+	"ac3.actuatorState0": "ipaGemsState",
+	"ac3.actuatorState1": "ipaFillState",
+	"ac3.actuatorState2": "ipaSlowVentState",
+	"ac3.actuatorState3": "ipaLineVentState",
+	"ac3.actuatorState4": "ipaEmergencyVentState",
+	"ac3.actuatorState5": "ipaDrainState",
 	// "ac3.actuatorState6": "",
 	// "ac3.actuatorState7": "",
 
-	"ac3.actuatorContinuity0": "ethaneGemsContinuity",
-	"ac3.actuatorContinuity1": "ethaneFillContinuity",
-	"ac3.actuatorContinuity2": "ethaneVentContinuity", 
-	"ac3.actuatorContinuity3": "ethaneLineVentContinuity",
-	"ac3.actuatorContinuity4": "ethaneEmergencyVentContinuity",
-	"ac3.actuatorContinuity5": "ethaneDrainContinuity",
+	"ac3.actuatorContinuity0": "ipaGemsContinuity",
+	"ac3.actuatorContinuity1": "ipaFillContinuity",
+	"ac3.actuatorContinuity2": "ipaSlowVentContinuity",
+	"ac3.actuatorContinuity3": "ipaLineVentContinuity",
+	"ac3.actuatorContinuity4": "ipaEmergencyVentContinuity",
+	"ac3.actuatorContinuity5": "ipaDrainContinuity",
 	// "ac3.actuatorContinuity6": "",
 	// "ac3.actuatorContinuity7": "",
 
-	"ac3.actuatorCurrent0": "ethaneGemsCurrent",
-	"ac3.actuatorCurrent1": "ethaneFillCurrent",
-	"ac3.actuatorCurrent2": "ethaneVentCurrent", 
-	"ac3.actuatorCurrent3": "ethaneLineVentCurrent",
-	"ac3.actuatorCurrent4": "ethaneEmergencyVentCurrent",
-	"ac3.actuatorCurrent5": "ethaneDrainCurrent",
+	"ac3.actuatorCurrent0": "ipaGemsCurrent",
+	"ac3.actuatorCurrent1": "ipaFillCurrent",
+	"ac3.actuatorCurrent2": "ipaSlowVentCurrent",
+	"ac3.actuatorCurrent3": "ipaLineVentCurrent",
+	"ac3.actuatorCurrent4": "ipaEmergencyVentCurrent",
+	"ac3.actuatorCurrent5": "ipaDrainCurrent",
 	// "ac3.actuatorCurrent6": "",
 	// "ac3.actuatorCurrent7": "",
 
-	// "ac3.potentiometer0": "",
-	"ac3.potentiometer1": "ethaneFillPot",
-	// "ac3.potentiometer2": "", 
-	"ac3.potentiometer3": "ethaneLineVentPot"
-	// "ac3.potentiometer4": "",
-	// "ac3.potentiometer5": "",
+	"ac3.potentiometer0": "ipaGemsPot",
+	"ac3.potentiometer1": "ipaFillPot",
+	"ac3.potentiometer2": "ipaSlowVentPot",
+	"ac3.potentiometer3": "ipaLineVentPot",
+	"ac3.potentiometer4": "ipaEmergencyVentPot",
+	"ac3.potentiometer5": "ipaDrainPot",
 	// "ac3.potentiometer6": "",
-	// "ac3.potentiometer7": ""
+	// "ac3.potentiometer7": "",
+
+	"ac3.autoventPressure": "ipaAutoventPressure",
+
+	// To make commas easier
+	"": ""
 }

@@ -6,33 +6,33 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "ac2.actuatorContinuity1",
-					"name": "Nitrous Fill V",
+					"field": "nosFillContinuity",
+					"name": "NOS Fill V",
 					"units": "V"
 				},
 				{
-					"field": "ac2.actuatorCurrent1",
-					"name": "Nitrous Fill I",
+					"field": "nosFillCurrent",
+					"name": "NOS Fill I",
 					"units": "mA"
 				},
 				{
-					"field": "ac2.potentiometer1",
-					"name": "Nitrous Fill Pot",
+					"field": "nosFillPot",
+					"name": "NOS Fill Pot",
 					"units": ""
 				},
 				{
-					"field": "ac3.actuatorContinuity1",
-					"name": "Ethane Fill V",
+					"field": "ipaFillContinuity",
+					"name": "IPA Fill V",
 					"units": "V"
 				},
 				{
-					"field": "ac3.actuatorCurrent1",
-					"name": "Ethane Fill I",
+					"field": "ipaFillCurrent",
+					"name": "IPA Fill I",
 					"units": "mA"
 				},
 				{
-					"field": "ac3.potentiometer1",
-					"name": "Ethane Fill Pot",
+					"field": "ipaFillPot",
+					"name": "IPA Fill Pot",
 					"units": ""
 				}
 			]
@@ -41,32 +41,32 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "ac1.actuatorContinuity4",
-					"name": "Nitrous Main V",
+					"field": "nosMainContinuity",
+					"name": "NOS Main V",
 					"units": "V"
 				},
 				{
-					"field": "ac1.actuatorContinuity5",
-					"name": "Ethane Main V",
+					"field": "ipaMainContinuity",
+					"name": "IPA Main V",
 					"units": "V"
 				},
 				{
-					"field": "ac1.actuatorContinuity3",
+					"field": "armContinuity",
 					"name": "Arm V",
 					"units": "V"
 				},
 				{
-					"field": "ac1.actuatorCurrent4",
+					"field": "nosMainCurrent",
 					"name": "Nitrous Main I",
 					"units": "mA"
 				},
 				{
-					"field": "ac1.actuatorCurrent5",
-					"name": "Ethane Main I",
+					"field": "ipaMainCurrent",
+					"name": "IPA Main I",
 					"units": "mA"
 				},
 				{
-					"field": "ac1.actuatorCurrent3",
+					"field": "armCurrent",
 					"name": "Arm I",
 					"units": "mA"
 				}
@@ -76,33 +76,33 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "ac2.actuatorContinuity3",
-					"name": "Nitrous LV V",
+					"field": "nosLineVentContinuity",
+					"name": "NOS LV V",
 					"units": "V"
 				},
 				{
-					"field": "ac2.actuatorCurrent3",
-					"name": "Nitrous LV I",
+					"field": "nosLineVentCurrent",
+					"name": "NOS LV I",
 					"units": "mA"
 				},
 				{
-					"field": "ac2.potentiometer3",
-					"name": "Nitrous LV Pot",
+					"field": "nosLineVentPot",
+					"name": "NOS LV Pot",
 					"units": ""
 				},
 				{
-					"field": "ac3.actuatorContinuity3",
-					"name": "Ethane LV V",
+					"field": "ipaLineVentContinuity",
+					"name": "IPA LV V",
 					"units": "V"
 				},
 				{
-					"field": "ac3.actuatorCurrent3",
-					"name": "Ethane LV I",
+					"field": "ipaLineVentCurrent",
+					"name": "IPA LV I",
 					"units": "mA"
 				},
 				{
-					"field": "ac3.potentiometer3",
-					"name": "Ethane LV Pot",
+					"field": "ipaLineVentPot",
+					"name": "IPA LV Pot",
 					"units": ""
 				}
 			]
@@ -111,26 +111,26 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "ac2.actuatorContinuity0",
-					"name": "Nitrous GEMS V",
+					"field": "nosGemsContinuity",
+					"name": "NOS GEMS V",
 					"units": "V"
 				},
 				{
-					"field": "ac3.actuatorContinuity0",
-					"name": "Ethane GEMS V",
+					"field": "ipaGemsContinuity",
+					"name": "IPA GEMS V",
 					"units": "V"
 				},
 				{
 					"field": null
 				},
 				{
-					"field": "ac2.actuatorCurrent0",
-					"name": "Nitrous GEMS I",
+					"field": "nosGemsCurrent",
+					"name": "NOS GEMS I",
 					"units": "mA"
 				},
 				{
-					"field": "ac3.actuatorCurrent0",
-					"name": "Ethane GEMS I",
+					"field": "ipaGemsCurrent",
+					"name": "IPA GEMS I",
 					"units": "mA"
 				},
 				{
@@ -142,12 +142,12 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "ac1.actuatorContinuity7",
+					"field": "igniterContinuity",
 					"name": "Igniter V",
 					"units": "V"
 				},
 				{
-					"field": "ac1.actuatorContinuity1",
+					"field": "breakwireContinuity",
 					"name": "Breakwire V",
 					"units": "V"
 				},
@@ -155,12 +155,12 @@
 					"field": null
 				},
 				{
-					"field": "ac1.actuatorCurrent7",
+					"field": "igniterCurrent",
 					"name": "Igniter I",
 					"units": "mA"
 				},
 				{
-					"field": "ac1.actuatorCurrent1",
+					"field": "breakwireCurrent",
 					"name": "Breakwire I",
 					"units": "mA"
 				},
@@ -173,33 +173,33 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "ac2.actuatorContinuity2",
-					"name": "Nitrous Vent V",
+					"field": "nosSlowVentContinuity",
+					"name": "NOS Vent V",
 					"units": "V"
 				},
 				{
-					"field": "ac2.actuatorCurrent2",
-					"name": "Nitrous Vent I",
+					"field": "nosSlowVentCurrent",
+					"name": "NOS Vent I",
 					"units": "mA"
 				},
 				{
-					"field": "ac2.potentiometer2",
-					"name": "Nitrous Vent Pot",
+					"field": "nosSlowVentPot",
+					"name": "NOS Vent Pot",
 					"units": ""
 				},
 				{
-					"field": "ac3.actuatorContinuity2",
-					"name": "Ethane Vent V",
+					"field": "ipaSlowVentContinuity",
+					"name": "IPA Vent V",
 					"units": "V"
 				},
 				{
-					"field": "ac3.actuatorCurrent2",
-					"name": "Ethane Vent I",
+					"field": "ipaSlowVentCurrent",
+					"name": "IPA Vent I",
 					"units": "mA"
 				},
 				{
-					"field": "ac3.potentiometer2",
-					"name": "Ethane Vent Pot",
+					"field": "ipaSlowVentPot",
+					"name": "IPA Vent Pot",
 					"units": ""
 				}
 			]
@@ -211,33 +211,33 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "ac2.actuatorContinuity4",
-					"name": "Nitrous E-V V",
+					"field": "nosEmergencyVentContinuity",
+					"name": "NOS E-V V",
 					"units": "V"
 				},
 				{
-					"field": "ac2.actuatorCurrent4",
-					"name": "Nitrous E-V I",
+					"field": "nosEmergencyVentCurrent",
+					"name": "NOS E-V I",
 					"units": "mA"
 				},
 				{
-					"field": "ac2.potentiometer4",
-					"name": "Nitrous E-V Pot",
+					"field": "nosEmergencyVentPot",
+					"name": "NOS E-V Pot",
 					"units": ""
 				},
 				{
-					"field": "ac3.actuatorContinuity4",
-					"name": "Ethane E-V V",
+					"field": "ipaEmergencyVentContinuity",
+					"name": "IPA E-V V",
 					"units": "V"
 				},
 				{
-					"field": "ac3.actuatorCurrent4",
-					"name": "Ethane E-V I",
+					"field": "ipaEmergencyVentCurrent",
+					"name": "IPA E-V I",
 					"units": "mA"
 				},
 				{
-					"field": "ac3.potentiometer4",
-					"name": "Ethane E-V Pot",
+					"field": "ipaEmergencyVentPot",
+					"name": "IPA E-V Pot",
 					"units": ""
 				}
 			]
@@ -246,33 +246,33 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "ac2.actuatorContinuity5",
-					"name": "Nitrous Drain V",
+					"field": "nosDrainContinuity",
+					"name": "NOS Drain V",
 					"units": "V"
 				},
 				{
-					"field": "ac2.actuatorCurrent5",
-					"name": "Nitrous Drain I",
+					"field": "nosDrainCurrent",
+					"name": "NOS Drain I",
 					"units": "mA"
 				},
 				{
-					"field": "ac2.potentiometer5",
-					"name": "Nitrous Drain Pot",
+					"field": "nosDrainPot",
+					"name": "NOS Drain Pot",
 					"units": ""
 				},
 				{
-					"field": "ac3.actuatorContinuity5",
-					"name": "Ethane Drain V",
+					"field": "ipaDrainContinuity",
+					"name": "IPA Drain V",
 					"units": "V"
 				},
 				{
-					"field": "ac3.actuatorCurrent5",
-					"name": "Ethane Drain I",
+					"field": "ipaDrainCurrent",
+					"name": "IPA Drain I",
 					"units": "mA"
 				},
 				{
-					"field": "ac3.potentiometer5",
-					"name": "Ethane Drain Pot",
+					"field": "ipaDrainPot",
+					"name": "IPA Drain Pot",
 					"units": ""
 				}
 			]

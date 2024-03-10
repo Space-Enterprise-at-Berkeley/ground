@@ -1,10 +1,4 @@
 {
-	// "pt1.ptValue0": "ethaneFillPT",
-	// "pt1.ptValue1@rtd": "ethaneTankRTD",
-	// "pt1.ptValue2": "ethaneTankPT", 
-	// "pt1.ptValue3": "nitrousFillPT", 
-	// "pt1.ptValue4@rtd": "nitrousTankRTD", 
-	// "pt1.ptValue5": "nitrousTankPT",
 	"name": "Coldflow Pressures",
 	"layout": "9-grid",
 	"slots": [
@@ -12,31 +6,32 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "pt1.ptValue0",
-					"name": "Nitrous Tank PT",
+					"field": "nosTankPT",
+					"name": "NOS Tank PT",
 					"units": "PSI",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "pt1.ptValue1",
-					"name": "Nitrous Fill Line PT",
+					"field": "nosFillPT",
+					"name": "NOS Fill Line PT",
 					"units": "PSI",
 					"color": [255, 0, 255]
 				}
+		
 			]
 		},
 		{
 			"type": "graph",
 			"values": [
 				{
-					"field": "pt1.ptValue4",
-					"name": "Ethane Tank PT",
+					"field": "ipaTankPT",
+					"name": "IPA Tank PT",
 					"units": "PSI",
 					"color": [0, 255, 0]
 				},
 				{
-					"field": "pt1.ptValue5",
-					"name": "Ethane Fill Line PT",
+					"field": "ipaFillPT",
+					"name": "IPA Fill Line PT",
 					"units": "PSI",
 					"color": [0, 0, 255]
 				}
@@ -47,13 +42,13 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "pt1.ptValue0@roc", //don't know if works yet 
-					"name": "Nitrous Tank roc",
+					"field": "nosTankPT@roc", //don't know if works yet 
+					"name": "NOS Tank RoC",
 					"units": "PSI/s"
 				},
 				{
-					"field": "pt1.ptValue4@roc", //same
-					"name": "Ethane Tank roc",
+					"field": "ipaTankPT@roc", //same
+					"name": "IPA Tank RoC",
 					"units": "PSI/s"
 				},
 				{
@@ -61,13 +56,13 @@
 					
 				},
 				{
-					"field": "pt1.ptValue0", 
-					"name": "Nitrous Tank PT",
+					"field": "nosTankPT", 
+					"name": "NOS Tank PT",
 					"units": "PSI"
 				},
 				{
-					"field": "pt1.ptValue4", 
-					"name": "Ethane Tank PT",
+					"field": "ipaTankPT", 
+					"name": "IPA Tank PT",
 					"units": "PSI"
 				}
 				
@@ -77,14 +72,14 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "pt1.ptValue2",
-					"name": "Nitrous Injector PT",
+					"field": "nosInjectorPT",
+					"name": "NOS Injector PT",
 					"units": "PSI",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "pt1.ptValue6",
-					"name": "Ethane Injector PT",
+					"field": "ipaInjectorPT",
+					"name": "IPA Injector PT",
 					"units": "PSI",
 					"color": [0, 255, 0]
 				}
@@ -95,7 +90,7 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "pt2.ptValue2",
+					"field": "chamberPT",
 					"name": "Chamber PT",
 					"units": "PSI",
 					"color": [0, 0, 255]
@@ -107,25 +102,25 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "pt2.ptValue4",
+					"field": "channelPT0",
 					"name": "Channel PT0",
 					"units": "PSI",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "pt2.ptValue5",
+					"field": "channelPT1",
 					"name": "Channel PT1",
 					"units": "PSI",
 					"color": [0, 255, 0]
 				},
 				{
-					"field": "pt2.ptValue6",
+					"field": "channelPT2",
 					"name": "Channel PT2",
 					"units": "PSI",
 					"color": [0, 0, 255]
 				},
 				{
-					"field": "pt2.ptValue7",
+					"field": "channelPT3",
 					"name": "Channel PT3",
 					"units": "PSI",
 					"color": [0, 255, 255]
@@ -134,32 +129,32 @@
 			]
 		},
 		{
-			"type": "graph",
-			"values": [
-				// {
-				// 	"field": "pt1.ptValue1",
-				// 	"name": "Nitrous Fill Line PT",
-				// 	"units": "PSI",
-				// 	"color": [255, 0, 0]
-				// }
-			]
+			"type": null
+			// "values": [
+			// 	// {
+			// 	// 	"field": "pt1.ptValue1",
+			// 	// 	"name": "Nitrous Fill Line PT",
+			// 	// 	"units": "PSI",
+			// 	// 	"color": [255, 0, 0]
+			// 	// }
+			// ]
+		},
+		{
+			"type": null
+			// "values": [
+			// 	// {
+			// 	// 	"field": "pt1.ptValue0",
+			// 	// 	"name": "Ethane Fill Line PT",
+			// 	// 	"units": "PSI",
+			// 	// 	"color": [255, 0, 0]
+			// 	// }
+			// ]
 		},
 		{
 			"type": "graph",
 			"values": [
 				{
-					"field": "tc1.tcValue2",
-					"name": "Ethane Injector TC",
-					"units": "C",
-					"color": [255, 0, 0]
-				}
-			]
-		},
-		{
-			"type": "graph",
-			"values": [
-				{
-					"field": "pt2.ptValue3",
+					"field": "manifoldPT",
 					"name": "Manifold PT",
 					"units": "PSI",
 					"color": [255, 0, 0]

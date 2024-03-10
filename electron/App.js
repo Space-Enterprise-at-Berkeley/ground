@@ -105,25 +105,19 @@ class App {
         update[p[1]] = p[0](update[_k], timestamp);
       }
     }
-    this.state.updateState(timestamp, update);
-    this.sendStateUpdate(timestamp, update);
     let mappedUpdate = {};
     for (let _k in update) {
       if (this.config.influxMap[_k] !== undefined) {
         mappedUpdate[this.config.influxMap[_k]] = update[_k];
       }
       else {
-        let [board, field] = _k.split(".");
-        if (board === "freg" || board === "oreg" || field === "boardConnected" || field === "boardKbps" || board === "fcap" || board === "ocap") {
-          this.config.influxMap[_k] = _k;
-          mappedUpdate[_k] = update[_k];
-        }
-        else {
-          this.config.influxMap[_k] = field;
-          mappedUpdate[field] = update[_k];
-        }
+        let [_board, field] = _k.split(".");
+        this.config.influxMap[_k] = _k;
+        mappedUpdate[field] = update[_k];
       }
     }
+    this.state.updateState(timestamp, mappedUpdate);
+    this.sendStateUpdate(timestamp, mappedUpdate);
     if (dbrecord) {
       // if update value is not number -> add to syslog as well
       Object.keys(mappedUpdate).forEach(_k => {

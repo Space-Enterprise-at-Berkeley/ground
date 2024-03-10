@@ -12,40 +12,32 @@
 						"id": "arm",
 						"type": "valve",
 						"name": "ARM",
-						"field": "ac1.actuatorState3",
+						"field": "armState",
 						"actions": {
 							"enable": {
 								"type": "on",
-								"board": "ac1",
-								"packet": 100,
-								"number": 3
+								"target": "arm"
 							},
 							"disable": {
 								"type": "off",
-								"board": "ac1",
-								"packet": 100,
-								"number": 3
+								"target": "arm"
 							}
 						},
 						"green": [0, 1]
 					},
 					{
-						"id": "ethaneMain",
+						"id": "ipaMain",
 						"type": "valve",
-						"name": "Ethane Main Valve",
-						"field": "ac1.actuatorState5",
+						"name": "IPA Main Valve",
+						"field": "ipaMainState",
 						"actions": {
 							"enable": {
 								"type": "on",
-								"board": "ac1",
-								"packet": 100,
-								"number": 5
+								"target": "ipaMain"
 							},
 							"disable": {
 								"type": "off",
-								"board": "ac1",
-								"packet": 100,
-								"number": 5
+								"target": "ipaMain"
 							}
 						},
 						"green": [0, 1]
@@ -54,22 +46,18 @@
 						"type": null
 					},
 					{
-						"id": "nitrousMain",
+						"id": "nosMain",
 						"type": "valve",
-						"name": "Nitrous Main Valve",
-						"field": "ac1.actuatorState4",
+						"name": "NOS Main Valve",
+						"field": "nosMainState",
 						"actions": {
 							"enable": {
 								"type": "on",
-								"board": "ac1",
-								"packet": 100,
-								"number": 4
+								"target": "nosMain"
 							},
 							"disable": {
 								"type": "off",
-								"board": "ac1",
-								"packet": 100,
-								"number": 4
+								"target": "nosMain"
 							}
 						},
 						"green": [0, 1]
@@ -83,34 +71,25 @@
 			"type": "four-button",
 			"buttons": [
 					{
-						"id": "ethaneFill",
+						"id": "ipaFill",
 						"type": "timed",
-						"name": "Ethane Fill",
-						"field": "ac3.actuatorState1",
+						"name": "IPA Fill",
+						"field": "ipaFillState",
 						"actions": {
 							"enable": {
-								"type": "extend-full",
-								"board": "ac3",
-								"packet": 100,
-								"number": 1
+								"type": null
 							},
 							"disable": {
 								"type": "retract-full",
-								"board": "ac3",
-								"packet": 100,
-								"number": 1
+								"target": "ipaFill"
 							},
 							"enable-timed": {
 								"type": "extend-timed",
-								"board": "ac3",
-								"packet": 100,
-								"number": 1
+								"target": "ipaFill"
 							},
 							"disable-timed": {
 								"type": "retract-timed",
-								"board": "ac3",
-								"packet": 100,
-								"number": 1
+								"target": "ipaFill"
 							}
 						},
 						"keyEnable": 87, // w
@@ -119,34 +98,25 @@
 						"green": [0, 1]
 					},
 					{
-						"id": "ethaneLineVent",
+						"id": "ipaLineVent",
 						"type": "timed",
-						"name": "Ethane Fill Line Vent",
-						"field": "ac3.actuatorState3",
+						"name": "IPA Line Vent",
+						"field": "ipaLineVentState",
 						"actions": {
 							"enable": {
-								"type": "extend-full",
-								"board": "ac3",
-								"packet": 100,
-								"number": 3
+								"type": null
 							},
 							"disable": {
 								"type": "retract-full",
-								"board": "ac3",
-								"packet": 100,
-								"number": 3
+								"target": "ipaLineVent"
 							},
 							"enable-timed": {
 								"type": "extend-timed",
-								"board": "ac3",
-								"packet": 100,
-								"number": 3
+								"target": "ipaLineVent"
 							},
 							"disable-timed": {
 								"type": "retract-timed",
-								"board": "ac3",
-								"packet": 100,
-								"number": 3
+								"target": "ipaLineVent"
 							}
 						},
 						"green": [0, 1]
@@ -185,73 +155,57 @@
 				"type": "four-button",
 				"buttons": [
 						{
-							"id": "nitrousVent",
+							"id": "nosVent",
 							"type": "timed",
-							"name": "Nitrous Vent RBV",
-							"field": "ac3.actuatorState2",
+							"name": "NOS Slow Vent",
+							"field": "nosSlowVentState",
 							"actions": {
 								"enable": {
 									"type": "extend-full",
-									"board": "ac3",
-									"packet": 100,
-									"number": 2
+									"target": "nosSlowVent"
 								},
 								"disable": {
 									"type": "retract-full",
-									"board": "ac3",
-									"packet": 100,
-									"number": 2
+									"target": "nosSlowVent"
 								},
 								"enable-timed": {
 									"type": "extend-timed",
-									"board": "ac3",
-									"packet": 100,
-									"number": 2
+									"target": "nosSlowVent"
 								},
 								"disable-timed": {
 									"type": "retract-timed",
-									"board": "ac3",
-									"packet": 100,
-									"number": 2
+									"target": "nosSlowVent"
 								}
 							},
-							// "safe": true,
+							"keyEnable": 76, // l
+							"keyDisable": 75, // k
 							"green": [0, 1]
 						},
 						{
-							"id": "ethaneVent",
+							"id": "ipaVent",
 							"type": "timed",
-							"name": "Ethane Vent RBV",
-							"field": "ac2.actuatorState2",
+							"name": "IPA Slow Vent",
+							"field": "ipaSlowVentState",
 							"actions": {
 								"enable": {
 									"type": "extend-full",
-									"board": "ac2",
-									"packet": 100,
-									"number": 2
+									"target": "ipaSlowVent"
 								},
 								"disable": {
 									"type": "retract-full",
-									"board": "ac2",
-									"packet": 100,
-									"number": 2
+									"target": "ipaSlowVent"
 								},
 								"enable-timed": {
 									"type": "extend-timed",
-									"board": "ac2",
-									"packet": 100,
-									"number": 2
+									"target": "ipaSlowVent"
 								},
 								"disable-timed": {
 									"type": "retract-timed",
-									"board": "ac2",
-									"packet": 100,
-									"number": 2
+									"target": "ipaSlowVent"
 								}
 							},
 							"keyEnable": 80, // p
 							"keyDisable": 79, // o
-							"safe": true,
 							"green": [0, 1]
 						},
 						{
@@ -270,82 +224,56 @@
 				"buttons":
 				 [
 					{
-						"id": "ethaneGems",
-						"type": "valve",
-						"name": "Ethane GEMS",
-						"field": "ac3.actuatorState0",
-						"actions": {
-							"enable": {
-								"type": "on",
-								"board": "ac3",
-								"packet": 100,
-								"number": 0
-							},
-							"disable": {
-								"type": "off",
-								"board": "ac3",
-								"packet": 100,
-								"number": 0
-							}
-						},
-						"green": [0, 1]
-					},
-					{
 						"id": "nitrousGems",
 						"type": "valve",
-						"name": "Nitrous GEMS",
-						"field": "ac2.actuatorState0",
+						"name": "NOS GEMS",
+						"field": "nosGemsState",
 						"actions": {
 							"enable": {
 								"type": "on",
-								"board": "ac2",
-								"packet": 100,
-								"number": 0
+								"target": "nosGems"
 							},
 							"disable": {
 								"type": "off",
-								"board": "ac2",
-								"packet": 100,
-								"number": 0
+								"target": "nosGems"
 							}
 						},
 						"green": [0, 1]
 					},
 					{
-						"id": "ethaneAuto",
+						"id": "ipaGems",
 						"type": "valve",
-						"name": "Ethane Automation",
-						"field": "ac3.automationState",
+						"name": "IPA GEMS",
+						"field": "ipaGemsState",
 						"actions": {
 							"enable": {
-								"type": "start-pings",
-								"pingId": "ethaneAuto",
-								"board": "ac3",
-								"packet": 123,
-								"delay": 1000
+								"type": "on",
+								"target": "ipaGems"
 							},
 							"disable": {
-								"type": "stop-pings",
-								"pingId": "ethaneAuto"
+								"type": "off",
+								"target": "ipaGems"
 							}
-						}
+						},
+						"green": [0, 1]
 					},
 					{
-						"id": "nitrousAuto",
+						"type": null
+					},
+					{
+						"id": "nosAutomationState",
 						"type": "valve",
-						"name": "Nitrous Automation",
-						"field": "ac2.automationState",
+						"name": "NOS Automation",
+						"field": "nosAutomationState",
 						"actions": {
 							"enable": {
 								"type": "start-pings",
-								"pingId": "nitrousAuto",
-								"board": "ac2",
-								"packet": 123,
-								"delay": 1000
+								"pingId": "nosAuto",
+								"target": "nosAutomation"
 							},
 							"disable": {
 								"type": "stop-pings",
-								"pingId": "nitrousAuto"
+								"pingId": "nosAuto"
 							}
 						}
 					}
@@ -359,68 +287,52 @@
 				"buttons": 
 				[
 					{
-						"id": "nitrousFill",
+						"id": "nosFill",
 						"type": "timed",
-						"name": "Nitrous Fill",
-						"field": "ac2.actuatorState1",
+						"name": "NOS Fill",
+						"field": "nosFillState",
 						"actions": {
 							"enable": {
-								"type": "extend-full",
-								"board": "ac2",
-								"packet": 100,
-								"number": 1
+								"type": null
 							},
 							"disable": {
 								"type": "retract-full",
-								"board": "ac2",
-								"packet": 100,
-								"number": 1
+								"target": "nosFill"
 							},
 							"enable-timed": {
 								"type": "extend-timed",
-								"board": "ac2",
-								"packet": 100,
-								"number": 1
+								"target": "nosFill"
 							},
 							"disable-timed": {
 								"type": "retract-timed",
-								"board": "ac2",
-								"packet": 100,
-								"number": 1
+								"target": "nosFill"
 							}
 						},
+						"keyEnable": 83, // s
+						"keyDisable": 65, // a
 						"safe": true,
 						"green": [0, 1]
 					},
 					{
-						"id": "nitrousLineVent",
+						"id": "nosLineVent",
 						"type": "timed",
-						"name": "Nitrous Fill Line Vent",
-						"field": "ac2.actuatorState3",
+						"name": "NOS Line Vent",
+						"field": "nosLineVentState",
 						"actions": {
 							"enable": {
-								"type": "extend-full",
-								"board": "ac2",
-								"packet": 100,
-								"number": 3
+								"type": null
 							},
 							"disable": {
 								"type": "retract-full",
-								"board": "ac2",
-								"packet": 100,
-								"number": 3
+								"target": "nosLineVent"
 							},
 							"enable-timed": {
 								"type": "extend-timed",
-								"board": "ac2",
-								"packet": 100,
-								"number": 3
+								"target": "nosLineVent"
 							},
 							"disable-timed": {
 								"type": "retract-timed",
-								"board": "ac2",
-								"packet": 100,
-								"number": 3
+								"target": "nosLineVent"
 							}
 						},
 						"green": [0, 1]
@@ -465,25 +377,21 @@
 				"buttons": 
 				[
 					{
-						"id": "igniterState",
+						"id": "igniter",
 						"type": "valve",
 						"name": "Igniter Enable",
-						"field": "ac1.actuatorState7",
+						"field": "igniterState",
 						"actions": {
 							"enable": {
 								"type": "on",
-								"board": "ac1",
-								"packet": 100,
-								"number": 7
+								"target": "igniter"
 							},
 							"disable": {
 								"type": "off",
-								"board": "ac1",
-								"packet": 100,
-								"number": 7
+								"target": "igniter"
 							}
 						},
-						// "safe" : true,
+						"safe" : true,
 						"green": [0, 1]
 					},
 					{
@@ -519,87 +427,71 @@
 				"buttons": 
 				[
 					{
-						"id": "ethaneDrain",
+						"id": "ipaDrain",
 						"type": "valve",
-						"name": "Ethane Drain",
-						"field": "ac3.actuatorState5",
+						"name": "IPA Drain",
+						"field": "ipaDrainState",
 						"actions": {
 							"enable": {
 								"type": "on",
-								"board": "ac3",
-								"packet": 100,
-								"number": 5
+								"target": "ipaDrain"
 							},
 							"disable": {
 								"type": "off",
-								"board": "ac3",
-								"packet": 100,
-								"number": 5
+								"target": "ipaDrain"
 							}
 						},
 						"green": [0, 1],
 						"safe": true
 					},
 					{
-						"id": "nitrousDrain",
+						"id": "nosDrain",
 						"type": "valve",
-						"name": "Nitrous Drain",
-						"field": "ac2.actuatorState5",
+						"name": "NOS Drain",
+						"field": "nosDrainState",
 						"actions": {
 							"enable": {
 								"type": "on",
-								"board": "ac2",
-								"packet": 100,
-								"number": 5
+								"target": "nosDrain"
 							},
 							"disable": {
 								"type": "off",
-								"board": "ac2",
-								"packet": 100,
-								"number": 5
+								"target": "nosDrain"
 							}
 						},
 						"green": [0, 1],
 						"safe": true
 					},
 					{
-						"id": "nitrousEmergencyVent",
+						"id": "nosEmergencyVent",
 						"type": "valve",
-						"name": "Nitrous E-Vent",
-						"field": "ac2.actuatorState4",
+						"name": "NOS E-Vent",
+						"field": "nosEmergencyVentState",
 						"actions": {
 							"enable": {
 								"type": "off",
-								"board": "ac2",
-								"packet": 100,
-								"number": 4
+								"target": "nosEmergencyVent"
 							},
 							"disable": {
 								"type": "on",
-								"board": "ac2",
-								"packet": 100,
-								"number": 4
+								"target": "nosEmergencyVent"
 							}
 						},
 						"green": [0, 1]
 					},
 					{
-						"id": "ethaneEmergencyVent",
+						"id": "ipaEmergencyVent",
 						"type": "valve",
-						"name": "Ethane E-Vent",
-						"field": "ac3.actuatorState4",
+						"name": "IPA E-Vent",
+						"field": "ipaEmergencyVentState",
 						"actions": {
 							"enable": {
 								"type": "off",
-								"board": "ac3",
-								"packet": 100,
-								"number": 4
+								"target": "ipaEmergencyVent"
 							},
 							"disable": {
 								"type": "on",
-								"board": "ac3",
-								"packet": 100,
-								"number": 4
+								"target": "ipaEmergencyVent"
 							}
 						},
 						"green": [0, 1]

@@ -2,43 +2,35 @@
     "type": "four-button",
     "buttons": [
         {
-            "id": "nitrousEmergencyVent",
+            "id": "nosEmergencyVent",
             "type": "valve",
-            "name": "Nitrous E-Vent",
-            "field": "ac2.actuatorState4",
+            "name": "NOS E-Vent",
+            "field": "nosEmergencyVentState",
             "actions": {
                 "enable": {
                     "type": "on",
-                    "board": "ac2",
-                    "packet": 100,
-                    "number": 4
+                    "target": "nosEmergencyVent"
                 },
                 "disable": {
                     "type": "off",
-                    "board": "ac2",
-                    "packet": 100,
-                    "number": 4
+                    "target": "nosEmergencyVent"
                 }
             },
             "green": [0, 1]
         },
         {
-            "id": "ethaneEmergencyVent",
+            "id": "ipaEmergencyVent",
             "type": "valve",
-            "name": "Ethane E-Vent",
-            "field": "ac3.actuatorState4",
+            "name": "IPA E-Vent",
+            "field": "ipaEmergencyVentState",
             "actions": {
                 "enable": {
                     "type": "on",
-                    "board": "ac3",
-                    "packet": 100,
-                    "number": 4
+                    "target": "nosEmergencyVent"
                 },
                 "disable": {
                     "type": "off",
-                    "board": "ac3",
-                    "packet": 100,
-                    "number": 4
+                    "target": "nosEmergencyVent"
                 }
             },
             "green": [0, 1]

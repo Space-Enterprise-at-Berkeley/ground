@@ -6,32 +6,43 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "pt1.ptValue0",
-					"name": "Nitrous Tank PT",
+					"field": "nosTankPT",
+					"name": "NOS Tank PT",
 					"units": "PSI",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "pt1.ptValue1",
-					"name": "Nitrous Fill Line PT",
+					"field": "nosFillPT",
+					"name": "NOS Fill PT",
 					"units": "PSI",
-					"color": [255, 0, 255]
+					"color": [0, 255, 0]
+				},
+				{
+					"field": "nosAutoventPressure",
+					"name": "NOS Autovent",
+					"units": "PSI",
+					"color": [0, 0, 255]
 				}
-		
 			]
 		},
 		{
 			"type": "graph",
 			"values": [
 				{
-					"field": "pt1.ptValue4",
-					"name": "Ethane Tank PT",
+					"field": "ipaTankPT",
+					"name": "IPA Tank PT",
+					"units": "PSI",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "ipaFillPT",
+					"name": "IPA Fill PT",
 					"units": "PSI",
 					"color": [0, 255, 0]
 				},
 				{
-					"field": "pt1.ptValue5",
-					"name": "Ethane Fill Line PT",
+					"field": "ipaAutoventPressure",
+					"name": "IPA Autovent",
 					"units": "PSI",
 					"color": [0, 0, 255]
 				}
@@ -41,13 +52,13 @@
 			"type": "six-square",
 			"values": [
 				{
-					"field": "pt1.ptValue0@roc", //don't know if works yet 
-					"name": "Nitrous Tank roc",
+					"field": "nosTankPT@roc", //don't know if works yet 
+					"name": "NOS Tank RoC",
 					"units": "PSI/s"
 				},
 				{
-					"field": "pt1.ptValue4@roc", //same
-					"name": "Ethane Tank roc",
+					"field": "ipaTankPT@roc", //same
+					"name": "IPA Tank RoC",
 					"units": "PSI/s"
 				},
 				{
@@ -55,13 +66,13 @@
 					
 				},
 				{
-					"field": "pt1.ptValue0", 
-					"name": "Nitrous Tank PT",
+					"field": "nosTankPT", 
+					"name": "NOS Tank PT",
 					"units": "PSI"
 				},
 				{
-					"field": "pt1.ptValue4", 
-					"name": "Ethane Tank PT",
+					"field": "ipaTankPT", 
+					"name": "IPA Tank PT",
 					"units": "PSI"
 				}
 			]
@@ -70,15 +81,15 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "lc1.lcValue0",
-					"name": "Nitrous LC 0",
+					"field": "nosTankLC0",
+					"name": "NOS LC 0",
 					"units": "lbs",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "lc1.lcValue1",
-					"name": "Nitrous LC 1",
-					"units": "LB",
+					"field": "nosTankLC1",
+					"name": "NOS LC 1",
+					"units": "lbs",
 					"color": [0, 255, 0]
 				}
 			]
@@ -87,33 +98,16 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "lc1.lcValue2",
-					"name": "Ethane LC 0",
+					"field": "ipaTankLC0",
+					"name": "IPA LC 0",
 					"units": "lbs",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "lc1.lcValue3",
-					"name": "Ethane LC 1",
-					"units": "LB",
+					"field": "ipaTankLC1",
+					"name": "IPA LC 1",
+					"units": "lbs",
 					"color": [0, 255, 0]
-				}
-			]
-		},
-		{
-			"type": "four-button",
-			"buttons": [
-				{
-					"type": null
-				},
-				{
-					"type": null
-				},
-				{
-					"type": null
-				},
-				{
-					"type": null
 				}
 			]
 		},
@@ -128,13 +122,11 @@
 					"actions": {
 						"lox-timed": {
 							"type": "signal-timed",
-							"board": "ac2",
-							"packet": 124
+							"target": "nosAutoventThreshold"
 						},
 						"fuel-timed": {
 							"type": "signal-timed",
-							"board": "ac3",
-							"packet": 124
+							"target": "ipaAutoventThreshold"
 						}
 					},
 					"safe": true
@@ -154,14 +146,14 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "tc1.tcValue0",
-					"name": "Nitrous Tank TC",
+					"field": "nosTankTC",
+					"name": "NOS Tank TC",
 					"units": "C",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "tc1.tcValue1",
-					"name": "Ethane Tank TC",
+					"field": "ipaTankTC",
+					"name": "IPA Tank TC",
 					"units": "C",
 					"color": [0, 255, 0]
 				}

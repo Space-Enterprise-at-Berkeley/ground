@@ -4,54 +4,61 @@ let intervals = {};
 
 export function buttonAction(action) {
   return (...args) => {
+    let config = JSON.parse(atob(window.location.hash.split("&")[1]));
+    let commandMap = config["commandMap"];
+    if (commandMap[action.target] === undefined) {
+      console.log(`Invalid command: ${action.target}`);
+      return;
+    }
+    let [board, packet, number] = commandMap[action.target];
     switch (action.type) {
       case "retract-full":
-        if (action.number != null) {
-          comms.send(action.board, action.packet, action.number, "asUInt8", 0, "asUInt8", 0, "asUInt32");
+        if (number != null) {
+          comms.send(board, packet, number, "asUInt8", 0, "asUInt8", 0, "asUInt32");
         }
         else {
-          comms.send(action.board, action.packet, 0, "asUInt8", 0, "asUInt32");
+          comms.send(board, packet, 0, "asUInt8", 0, "asUInt32");
         }
-        comms.sendPacket(action.board, action.packet, action.number == null ? -1 : action.number, 0, 0);
+        comms.sendPacket(board, packet, number == null ? -1 : number, 0, 0);
         break;
       case "extend-full":
-        if (action.number != null) {
-          comms.send(action.board, action.packet, action.number, "asUInt8", 1, "asUInt8", 0, "asUInt32");
+        if (number != null) {
+          comms.send(board, packet, number, "asUInt8", 1, "asUInt8", 0, "asUInt32");
         }
         else {
-          comms.send(action.board, action.packet, 1, "asUInt8", 0, "asUInt32");
+          comms.send(board, packet, 1, "asUInt8", 0, "asUInt32");
         }
         break;
       case "retract-timed":
-        if (action.number != null) {
-          comms.send(action.board, action.packet, action.number, "asUInt8", 2, "asUInt8", args[0], "asUInt32");
+        if (number != null) {
+          comms.send(board, packet, number, "asUInt8", 2, "asUInt8", args[0], "asUInt32");
         }
         else {
-          comms.send(action.board, action.packet, 2, "asUInt8", args[0], "asUInt32");
+          comms.send(board, packet, 2, "asUInt8", args[0], "asUInt32");
         }
         break;
       case "extend-timed":
-        if (action.number != null) {
-          comms.send(action.board, action.packet, action.number, "asUInt8", 3, "asUInt8", args[0], "asUInt32");
+        if (number != null) {
+          comms.send(board, packet, number, "asUInt8", 3, "asUInt8", args[0], "asUInt32");
         }
         else {
-          comms.send(action.board, action.packet, 3, "asUInt8", args[0], "asUInt32");
+          comms.send(board, packet, 3, "asUInt8", args[0], "asUInt32");
         }
         break;
       case "on":
-        if (action.number != null) {
-          comms.send(action.board, action.packet, action.number, "asUInt8", 4, "asUInt8", 0, "asUInt32");
+        if (number != null) {
+          comms.send(board, packet, number, "asUInt8", 4, "asUInt8", 0, "asUInt32");
         }
         else {
-          comms.send(action.board, action.packet, 4, "asUInt8", 0, "asUInt32");
+          comms.send(board, packet, 4, "asUInt8", 0, "asUInt32");
         }
         break;
       case "off":
-        if (action.number != null) {
-          comms.send(action.board, action.packet, action.number, "asUInt8", 5, "asUInt8", 0, "asUInt32");
+        if (number != null) {
+          comms.send(board, packet, number, "asUInt8", 5, "asUInt8", 0, "asUInt32");
         }
         else {
-          comms.send(action.board, action.packet, 5, "asUInt8", 0, "asUInt32");
+          comms.send(board, packet, 5, "asUInt8", 0, "asUInt32");
         }
         break;
       case "enable":
@@ -67,21 +74,21 @@ export function buttonAction(action) {
         }
         break;
       case "signal":
-        comms.send(action.board, action.packet);
+        comms.send(board, packet);
         break;
       case "signal-timed":
-        comms.send(action.board, action.packet, args[0], "asFloat");
+        comms.send(board, packet, args[0], "asFloat");
         break;
       case "start-pings":
         intervals[action.pingId] = setInterval(() => {
-          comms.send(action.board, action.packet);
+          comms.send(board, packet);
         }, action.delay);
         break;
       case "stop-pings":
         clearInterval(intervals[action.pingId]);
         break;
       case "zero":
-        comms.send(action.board, action.packet, args[0], "asUInt8");
+        comms.send(board, packet, args[0], "asUInt8");
         break;
       default:
         return;
