@@ -29,7 +29,7 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "ipaTankPT",
+					"field": "ipaTankPT@linear/2.5,10",
 					"name": "IPA Tank PT",
 					"units": "PSI",
 					"color": [255, 0, 0]

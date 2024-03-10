@@ -97,14 +97,6 @@ class App {
    * @param dbrecord should store in db?
    */
   updateState(timestamp, update, dbrecord = true) {
-    for (let _k in update) {
-      if (this.preprocessors[_k] == null) {
-        continue;
-      }
-      for (let p of this.preprocessors[_k]) {
-        update[p[1]] = p[0](update[_k], timestamp);
-      }
-    }
     let mappedUpdate = {};
     for (let _k in update) {
       if (this.config.influxMap[_k] !== undefined) {
@@ -114,6 +106,14 @@ class App {
         let [_board, field] = _k.split(".");
         this.config.influxMap[_k] = _k;
         mappedUpdate[field] = update[_k];
+      }
+    }
+    for (let _k in mappedUpdate) {
+      if (this.preprocessors[_k] == null) {
+        continue;
+      }
+      for (let p of this.preprocessors[_k]) {
+        mappedUpdate[p[1]] = p[0](mappedUpdate[_k], timestamp);
       }
     }
     this.state.updateState(timestamp, mappedUpdate);
