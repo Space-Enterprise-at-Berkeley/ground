@@ -12,7 +12,7 @@
 	"tc1.tcValue1": "ipaTankTC",
 	"tc1.tcValue2": "nosInjectorTC",
 	"tc1.tcValue3": "ipaInjectorTC",
-	// "tc1.tcValue4": "",
+	"tc1.tcValue4": "Thermocouple_mV",
 	// "tc1.tcValue5": "",
 	// "tc1.tcValue6": "",
 	// "tc1.tcValue7": "",

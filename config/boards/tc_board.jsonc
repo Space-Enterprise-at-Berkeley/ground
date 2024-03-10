@@ -21,5 +21,15 @@
 		["tcValue5", "asFloat"],
 		["tcValue6", "asFloat"],
 		["tcValue7", "asFloat"]
+	],
+	"5": [
+		["Thermocouple_mV0", "asFloat"],
+		["Thermocouple_mV1", "asFloat"],
+		["Thermocouple_mV2", "asFloat"],
+		["Thermocouple_mV3", "asFloat"],
+		["Thermocouple_mV4", "asFloat"],
+		["Thermocouple_mV5", "asFloat"],
+		["Thermocouple_mV6", "asFloat"],
+		["Thermocouple_mV7", "asFloat"]
 	]
 }

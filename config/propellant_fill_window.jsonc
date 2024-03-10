@@ -29,7 +29,7 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "ipaTankPT@linear/2.5,10",
+					"field": "ipaTankPT",
 					"name": "IPA Tank PT",
 					"units": "PSI",
 					"color": [255, 0, 0]
@@ -156,6 +156,12 @@
 					"name": "IPA Tank TC",
 					"units": "C",
 					"color": [0, 255, 0]
+				},
+				{
+					"field": "tc1.Thermocouple_mV1",
+					"name": "Thermocouple Voltage",
+					"units": "mV",
+					"color": [0, 0, 255]
 				}
 			]
 		},
