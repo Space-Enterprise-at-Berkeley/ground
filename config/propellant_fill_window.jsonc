@@ -7,19 +7,19 @@
 			"values": [
 				{
 					"field": "nosTankPT",
-					"name": "NOS Tank PT",
+					"name": "NOS Tank",
 					"units": "PSI",
 					"color": [255, 0, 0]
 				},
 				{
 					"field": "nosFillPT",
-					"name": "NOS Fill PT",
+					"name": "Fill",
 					"units": "PSI",
 					"color": [0, 255, 0]
 				},
 				{
 					"field": "nosAutoventPressure",
-					"name": "NOS Autovent",
+					"name": "AV",
 					"units": "PSI",
 					"color": [0, 0, 255]
 				}
@@ -30,19 +30,19 @@
 			"values": [
 				{
 					"field": "ipaTankPT@linear/2.5,10",
-					"name": "IPA Tank PT",
+					"name": "IPA Tank",
 					"units": "PSI",
 					"color": [255, 0, 0]
 				},
 				{
 					"field": "ipaFillPT",
-					"name": "IPA Fill PT",
+					"name": "Fill",
 					"units": "PSI",
 					"color": [0, 255, 0]
 				},
 				{
 					"field": "ipaAutoventPressure",
-					"name": "IPA Autovent",
+					"name": "IPA AV",
 					"units": "PSI",
 					"color": [0, 0, 255]
 				}

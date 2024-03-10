@@ -15,10 +15,10 @@
 	"2": [
 		["actuatorState0", "asUInt8"],
 		["actuatorState1", "asUInt8"],
+		["actuatorState2", "asUInt8"],
 		["actuatorState3", "asUInt8"],
 		["actuatorState4", "asUInt8"],
 		["actuatorState5", "asUInt8"],
-		["actuatorState2", "asUInt8"],
 		["actuatorState6", "asUInt8"],
 		["actuatorState7", "asUInt8"]
 	],
