@@ -1,5 +1,6 @@
 const dgram = require('dgram');
 const fs = require('fs');
+const os = require('os');
 
 class UdpPort {
   /**
@@ -107,7 +108,13 @@ class UdpPort {
     this.server.on('listening', () => {
       this.server.setBroadcast(true);
       this.server.setMulticastTTL(128);
-      this.server.addMembership('224.0.0.3', "10.0.0." + (this.host % 42000));
+      let membershipInterval = setInterval(() => {
+        if (Object.values(os.networkInterfaces()).flat(1).some(o => o.address === "10.0.0." + (this.host % 42000))) {
+          this.server.addMembership('224.0.0.3', "10.0.0." + (this.host % 42000));
+          clearInterval(membershipInterval);
+        }
+      }, 1000);
+      // this.server.addMembership('224.0.0.3', "10.0.0." + (this.host % 42000));
       const address = this.server.address();
       // this.server.setBroadcast(true);
       // this.server.setMulticastTTL(128);
