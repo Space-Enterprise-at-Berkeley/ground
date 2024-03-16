@@ -8,60 +8,74 @@
 		{
 			"type": "four-button",
 			"buttons": [
-					{
-						"id": "arm",
-						"type": "valve",
-						"name": "ARM",
-						"field": "armState",
-						"actions": {
-							"enable": {
-								"type": "on",
-								"target": "arm"
-							},
-							"disable": {
-								"type": "off",
-								"target": "arm"
-							}
+				{
+					"id": "arm",
+					"type": "valve",
+					"name": "ARM",
+					"field": "armState",
+					"actions": {
+						"enable": {
+							"type": "on",
+							"target": "arm"
 						},
-						"green": [0, 1]
+						"disable": {
+							"type": "off",
+							"target": "arm"
+						}
 					},
-					{
-						"id": "ipaMain",
-						"type": "valve",
-						"name": "IPA Main Valve",
-						"field": "ipaMainState",
-						"actions": {
-							"enable": {
-								"type": "on",
-								"target": "ipaMain"
-							},
-							"disable": {
-								"type": "off",
-								"target": "ipaMain"
-							}
+					"green": [0, 1]
+				},
+				{
+					"id": "ipaMain",
+					"type": "valve",
+					"name": "IPA Main Valve",
+					"field": "ipaMainState",
+					"actions": {
+						"enable": {
+							"type": "on",
+							"target": "ipaMain"
 						},
-						"green": [0, 1]
+						"disable": {
+							"type": "off",
+							"target": "ipaMain"
+						}
 					},
-					{
-						"type": null
-					},
-					{
-						"id": "nosMain",
-						"type": "valve",
-						"name": "NOS Main Valve",
-						"field": "nosMainState",
-						"actions": {
-							"enable": {
-								"type": "on",
-								"target": "nosMain"
-							},
-							"disable": {
-								"type": "off",
-								"target": "nosMain"
-							}
+					"green": [0, 1]
+				},
+				{
+					"id": "resetEreg",
+					"type": "ereg",
+					"name": "Reset E-Reg",
+					"field": "",
+					"actions": {
+						"lox": {
+							"type": "signal",
+							"target": "iregReset"
 						},
-						"green": [0, 1]
-					}
+						"fuel": {
+							"type": "signal",
+							"target": "iregReset"
+						}
+					},
+					"safe": true
+				},
+				{
+					"id": "nosMain",
+					"type": "valve",
+					"name": "NOS Main Valve",
+					"field": "nosMainState",
+					"actions": {
+						"enable": {
+							"type": "on",
+							"target": "nosMain"
+						},
+						"disable": {
+							"type": "off",
+							"target": "nosMain"
+						}
+					},
+					"green": [0, 1]
+				}
 			]
 		},
 
@@ -97,30 +111,23 @@
 						"safe": true,
 						"green": [0, 1]
 					},
-					// {
-					// 	"id": "ipaLineVent",
-					// 	"type": "timed",
-					// 	"name": "IPA Line Vent",
-					// 	"field": "ipaLineVentState",
-					// 	"actions": {
-					// 		"enable": {
-					// 			"type": null
-					// 		},
-					// 		"disable": {
-					// 			"type": "retract-full",
-					// 			"target": "ipaLineVent"
-					// 		},
-					// 		"enable-timed": {
-					// 			"type": "extend-timed",
-					// 			"target": "ipaLineVent"
-					// 		},
-					// 		"disable-timed": {
-					// 			"type": "retract-timed",
-					// 			"target": "ipaLineVent"
-					// 		}
-					// 	},
-					// 	"green": [0, 1]
-					// },
+					{
+						"id": "eregPartialOpen",
+						"type": "ereg-timed",
+						"name": "E-Reg Partial Open",
+						"field": "",
+						"actions": {
+							"lox-timed": {
+								"type": "signal-timed",
+								"target": "iregPartialOpen"
+							},
+							"fuel-timed": {
+								"type": "signal-timed",
+								"target": "iregPartialOpen"
+							}
+						},
+						"safe": true
+					},
 					{
 						"type": null
 					}//,
@@ -258,7 +265,21 @@
 						"green": [0, 1]
 					},
 					{
-						"type": null
+						"id": "eregDiagnostic",
+						"type": "ereg",
+						"name": "Run Diagnostic",
+						"field": "",
+						"actions": {
+							"lox": {
+								"type": "signal",
+								"target": "iregDiagnostic"
+							},
+							"fuel": {
+								"type": "signal",
+								"target": "iregDiagnostic"
+							}
+						},
+						"safe": true
 					},
 					{
 						"id": "nosAutomationState",
@@ -409,6 +430,26 @@
 								"id": "launch"
 							}
 						}
+					},
+					{
+						"type": null
+					},
+					{
+						"id": "eregStaticPress",
+						"type": "ereg",
+						"name": "Static Press",
+						"field": "",
+						"actions": {
+							"lox": {
+								"type": "signal",
+								"target": "iregStaticPress"
+							},
+							"fuel": {
+								"type": "signal",
+								"target": "iregStaticPress"
+							}
+						},
+						"safe": true
 					}
 				]
 				
