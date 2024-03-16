@@ -82,22 +82,22 @@
 			"values":[
 				{
 					"field": "channelPT0",
-					"name": "Engn PT Channel 0",
+					"name": "Engn PT 0",
 					"units": "PSI"
 				},
 				{
 					"field": "channelPT1",
-					"name": "Engn PT CHannel 1",
+					"name": "Engn PT 1",
 					"units": "PSI"
 				},
 				{
 					"field": "channelPT2",
-					"name": "Engn PT Channel 2",
+					"name": "Engn PT 2",
 					"units": "PSI"
 				},
 				{
 					"field": "channelPT3",
-					"name": "Engn PT Channel 3",
+					"name": "Engn PT 3",
 					"units": "PSI"
 				}
 			]

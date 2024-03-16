@@ -21,18 +21,18 @@
 					"units": ""
 				},
 				{
-					"field": "ipaFillContinuity",
-					"name": "IPA Fill V",
+					"field": "ipaPressFlowContinuity",
+					"name": "IPA Press V",
 					"units": "V"
 				},
 				{
-					"field": "ipaFillCurrent",
-					"name": "IPA Fill I",
+					"field": "ipaPressFlowCurrent",
+					"name": "IPA Press I",
 					"units": "mA"
 				},
 				{
-					"field": "ipaFillPot",
-					"name": "IPA Fill Pot",
+					"field": "ipaPressFlowPot",
+					"name": "IPA Press Pot",
 					"units": ""
 				}
 			]
@@ -89,22 +89,22 @@
 					"field": "nosLineVentPot",
 					"name": "NOS LV Pot",
 					"units": ""
-				},
-				{
-					"field": "ipaLineVentContinuity",
-					"name": "IPA LV V",
-					"units": "V"
-				},
-				{
-					"field": "ipaLineVentCurrent",
-					"name": "IPA LV I",
-					"units": "mA"
-				},
-				{
-					"field": "ipaLineVentPot",
-					"name": "IPA LV Pot",
-					"units": ""
 				}
+				// {
+				// 	"field": "ipaLineVentContinuity",
+				// 	"name": "IPA LV V",
+				// 	"units": "V"
+				// },
+				// {
+				// 	"field": "ipaLineVentCurrent",
+				// 	"name": "IPA LV I",
+				// 	"units": "mA"
+				// },
+				// {
+				// 	"field": "ipaLineVentPot",
+				// 	"name": "IPA LV Pot",
+				// 	"units": ""
+				// }
 			]
 		},
 		{

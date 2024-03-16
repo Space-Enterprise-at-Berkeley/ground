@@ -15,7 +15,7 @@
 					"field": "nosFillPT",
 					"name": "NOS Fill Line PT",
 					"units": "PSI",
-					"color": [255, 0, 255]
+					"color": [0, 255, 0]
 				}
 		
 			]
@@ -27,15 +27,20 @@
 					"field": "ipaTankPT",
 					"name": "IPA Tank PT",
 					"units": "PSI",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "iregFilteredDownstreamPressure2",
+					"name": "I-Reg Tank PT",
+					"units": "PSI",
 					"color": [0, 255, 0]
 				},
 				{
-					"field": "ipaFillPT",
-					"name": "IPA Fill Line PT",
+					"field": "iregPressureSetpoint",
+					"name": "Setpoint",
 					"units": "PSI",
 					"color": [0, 0, 255]
 				}
-		
 			]
 		},
 		{
@@ -129,26 +134,32 @@
 			]
 		},
 		{
-			"type": null
-			// "values": [
-			// 	// {
-			// 	// 	"field": "pt1.ptValue1",
-			// 	// 	"name": "Nitrous Fill Line PT",
-			// 	// 	"units": "PSI",
-			// 	// 	"color": [255, 0, 0]
-			// 	// }
-			// ]
+			"type": "graph",
+			"values": [
+				{
+					"field": "iregFilteredUpstreamPressure",
+					"name": "I-Reg Press PT",
+					"units": "PSI",
+					"color": [255, 0, 0]
+				}
+			]
 		},
 		{
-			"type": null
-			// "values": [
-			// 	// {
-			// 	// 	"field": "pt1.ptValue0",
-			// 	// 	"name": "Ethane Fill Line PT",
-			// 	// 	"units": "PSI",
-			// 	// 	"color": [255, 0, 0]
-			// 	// }
-			// ]
+			"type": "graph",
+			"values": [
+				{
+					"field": "iregEncoderAngle",
+					"name": "I-Reg Encoder Angle",
+					"units": "PSI",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "iregAngleSetpoint",
+					"name": "Setpoint",
+					"units": "PSI",
+					"color": [0, 255, 0]
+				}
+			]
 		},
 		{
 			"type": "graph",
@@ -159,7 +170,6 @@
 					"units": "PSI",
 					"color": [255, 0, 0]
 				}
-		
 			]
 		}
 		

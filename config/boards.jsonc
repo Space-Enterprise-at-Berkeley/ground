@@ -50,5 +50,9 @@
 	"cap": {
 		"type": "flightV4",
 		"address": "10.0.0.42"
+	},
+	"ireg": {
+		"type": "ereg",
+		"address": "10.0.0.71"
 	}
 }

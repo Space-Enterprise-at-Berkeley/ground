@@ -71,25 +71,25 @@
 			"type": "four-button",
 			"buttons": [
 					{
-						"id": "ipaFill",
+						"id": "ipaPressFlow",
 						"type": "timed",
-						"name": "IPA Fill",
-						"field": "ipaFillState",
+						"name": "IPA Press Flow",
+						"field": "ipaPressFlowState",
 						"actions": {
 							"enable": {
 								"type": null
 							},
 							"disable": {
 								"type": "retract-full",
-								"target": "ipaFill"
+								"target": "ipaPressFlow"
 							},
 							"enable-timed": {
 								"type": "extend-timed",
-								"target": "ipaFill"
+								"target": "ipaPressFlow"
 							},
 							"disable-timed": {
 								"type": "retract-timed",
-								"target": "ipaFill"
+								"target": "ipaPressFlow"
 							}
 						},
 						"keyEnable": 87, // w
@@ -97,30 +97,30 @@
 						"safe": true,
 						"green": [0, 1]
 					},
-					{
-						"id": "ipaLineVent",
-						"type": "timed",
-						"name": "IPA Line Vent",
-						"field": "ipaLineVentState",
-						"actions": {
-							"enable": {
-								"type": null
-							},
-							"disable": {
-								"type": "retract-full",
-								"target": "ipaLineVent"
-							},
-							"enable-timed": {
-								"type": "extend-timed",
-								"target": "ipaLineVent"
-							},
-							"disable-timed": {
-								"type": "retract-timed",
-								"target": "ipaLineVent"
-							}
-						},
-						"green": [0, 1]
-					},
+					// {
+					// 	"id": "ipaLineVent",
+					// 	"type": "timed",
+					// 	"name": "IPA Line Vent",
+					// 	"field": "ipaLineVentState",
+					// 	"actions": {
+					// 		"enable": {
+					// 			"type": null
+					// 		},
+					// 		"disable": {
+					// 			"type": "retract-full",
+					// 			"target": "ipaLineVent"
+					// 		},
+					// 		"enable-timed": {
+					// 			"type": "extend-timed",
+					// 			"target": "ipaLineVent"
+					// 		},
+					// 		"disable-timed": {
+					// 			"type": "retract-timed",
+					// 			"target": "ipaLineVent"
+					// 		}
+					// 	},
+					// 	"green": [0, 1]
+					// },
 					{
 						"type": null
 					}//,

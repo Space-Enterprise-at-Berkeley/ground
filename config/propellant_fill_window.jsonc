@@ -35,14 +35,14 @@
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "ipaFillPT",
-					"name": "Fill",
+					"field": "ipaPressPT",
+					"name": "Press",
 					"units": "PSI",
 					"color": [0, 255, 0]
 				},
 				{
 					"field": "ipaAutoventPressure",
-					"name": "IPA AV",
+					"name": "AV",
 					"units": "PSI",
 					"color": [0, 0, 255]
 				}
@@ -82,15 +82,9 @@
 			"values": [
 				{
 					"field": "nosTankLC0",
-					"name": "NOS LC 0",
+					"name": "NOS LC",
 					"units": "lbs",
 					"color": [255, 0, 0]
-				},
-				{
-					"field": "nosTankLC1",
-					"name": "NOS LC 1",
-					"units": "lbs",
-					"color": [0, 255, 0]
 				}
 			]
 		},
@@ -99,15 +93,9 @@
 			"values": [
 				{
 					"field": "ipaTankLC0",
-					"name": "IPA LC 0",
+					"name": "IPA LC",
 					"units": "lbs",
 					"color": [255, 0, 0]
-				},
-				{
-					"field": "ipaTankLC1",
-					"name": "IPA LC 1",
-					"units": "lbs",
-					"color": [0, 255, 0]
 				}
 			]
 		},

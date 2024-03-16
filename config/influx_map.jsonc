@@ -49,7 +49,7 @@
 	// "pt1.ptValue2": "",
 	// "pt1.ptValue3": "",
 	"pt1.ptValue4": "ipaTankPT",
-	"pt1.ptValue5": "ipaFillPT",
+	"pt1.ptValue5": "ipaPressPT",
 	// "pt1.ptValue6": "",
 	// "pt1.ptValue7": "",
 
@@ -81,9 +81,9 @@
 	"lc1.lcSupply24Power": "lc1Supply24Power",
 
 	"lc1.lcValue0": "nosTankLC0",
-	"lc1.lcValue1": "nosTankLC1",
+	// "lc1.lcValue1": "nosTankLC1",
 	"lc1.lcValue2": "ipaTankLC0",
-	"lc1.lcValue3": "ipaTankLC1",
+	// "lc1.lcValue3": "ipaTankLC1",
 
 	// LC Board 2
 
@@ -202,43 +202,92 @@
 	"ac3.acSupply24Power": "ac3Supply24Power",
 
 	"ac3.actuatorState0": "ipaGemsState",
-	"ac3.actuatorState1": "ipaFillState",
+	// "ac3.actuatorState1": "ipaFillState",
 	"ac3.actuatorState2": "ipaSlowVentState",
-	"ac3.actuatorState3": "ipaLineVentState",
+	// "ac3.actuatorState3": "ipaLineVentState",
 	"ac3.actuatorState4": "ipaEmergencyVentState",
 	"ac3.actuatorState5": "ipaDrainState",
-	// "ac3.actuatorState6": "",
+	"ac3.actuatorState6": "ipaPressFlowState",
 	// "ac3.actuatorState7": "",
 
 	"ac3.actuatorContinuity0": "ipaGemsContinuity",
-	"ac3.actuatorContinuity1": "ipaFillContinuity",
+	// "ac3.actuatorContinuity1": "ipaFillContinuity",
 	"ac3.actuatorContinuity2": "ipaSlowVentContinuity",
-	"ac3.actuatorContinuity3": "ipaLineVentContinuity",
+	// "ac3.actuatorContinuity3": "ipaLineVentContinuity",
 	"ac3.actuatorContinuity4": "ipaEmergencyVentContinuity",
 	"ac3.actuatorContinuity5": "ipaDrainContinuity",
-	// "ac3.actuatorContinuity6": "",
+	"ac3.actuatorContinuity6": "ipaPressFlowContinuity",
 	// "ac3.actuatorContinuity7": "",
 
 	"ac3.actuatorCurrent0": "ipaGemsCurrent",
-	"ac3.actuatorCurrent1": "ipaFillCurrent",
+	// "ac3.actuatorCurrent1": "ipaFillCurrent",
 	"ac3.actuatorCurrent2": "ipaSlowVentCurrent",
-	"ac3.actuatorCurrent3": "ipaLineVentCurrent",
+	// "ac3.actuatorCurrent3": "ipaLineVentCurrent",
 	"ac3.actuatorCurrent4": "ipaEmergencyVentCurrent",
 	"ac3.actuatorCurrent5": "ipaDrainCurrent",
-	// "ac3.actuatorCurrent6": "",
+	"ac3.actuatorCurrent6": "ipaPressFlowCurrent",
 	// "ac3.actuatorCurrent7": "",
 
 	"ac3.potentiometer0": "ipaGemsPot",
-	"ac3.potentiometer1": "ipaFillPot",
+	// "ac3.potentiometer1": "ipaFillPot",
 	"ac3.potentiometer2": "ipaSlowVentPot",
-	"ac3.potentiometer3": "ipaLineVentPot",
+	// "ac3.potentiometer3": "ipaLineVentPot",
 	"ac3.potentiometer4": "ipaEmergencyVentPot",
 	"ac3.potentiometer5": "ipaDrainPot",
-	// "ac3.potentiometer6": "",
+	"ac3.potentiometer6": "ipaPressFlowPot",
 	// "ac3.potentiometer7": "",
 
 	"ac3.autoventPressure": "ipaAutoventPressure",
 
+	// IPA E-Reg
+
+	"ireg.filteredUpstreamPressure1": "iregFilteredUpstreamPressure",
+	"ireg.filteredUpstreamPressure2": "iregFilteredUpstreamPressure2",
+	"ireg.filteredDownstreamPressure1": "iregFilteredDownstreamPressure",
+	"ireg.filteredDownstreamPressure2": "iregFilteredDownstreamPressure2",
+	"ireg.rawUpstreamPressure1": "iregRawUpstreamPressure",
+	"ireg.rawUpstreamPressure2": "iregRawUpstreamPressure2",
+	"ireg.rawDownstreamPressure1": "iregRawDownstreamPressure",
+	"ireg.rawDownstreamPressure2": "iregRawDownstreamPressure2",
+
+	"ireg.encoderAngle": "iregEncoderAngle",
+	"ireg.angleSetpoint": "iregAngleSetpoint",
+	"ireg.pressureSetpoint": "iregPressureSetpoint",
+	"ireg.motorPower": "iregMotorPower",
+	"ireg.pressureControlP": "iregP",
+	"ireg.pressureControlI": "iregI",
+	"ireg.pressureControlD": "iregD",
+
+	"ireg.pressureSetpointConfig": "iregPressureSetpointConfig",
+	"ireg.pOuterNominal": "iregPOuter",
+	"ireg.iOuterNominal": "iregIOuter",
+	"ireg.dOuterNominal": "iregDOuter",
+	"ireg.pInner": "iregPInner",
+	"ireg.iInner": "iregIInner",
+	"ireg.dInner": "iregDInner",
+	"ireg.flowDuration": "iregFlowDuration",
+
+	"ireg.motorDirPass": "iregMotorDirPass",
+	"ireg.servoDirPass": "iregServoDirPass",
+
+	"ireg.errorCode": "iregErrorCode",
+
+	"ireg.flowState": "iregFlowState",
+
+	"ireg.fullyClosedSwitch": "iregFullyClosedSwitch",
+	"ireg.fullyOpenSwitch": "iregFullyOpenSwitch",
+
+	"ireg.currentA": "iregCurrentA",
+	"ireg.currentB": "iregCurrentB",
+	"ireg.currentC": "iregCurrentC",
+
+	"ireg.boardTempA": "iregBoardTempA",
+	"ireg.boardTempB": "iregBoardTempB",
+	"ireg.motorTemp": "iregMotorTemp",
+
+	"ireg.avgCurrent": "iregAvgCurrent",
+	"ireg.bufferSize": "iregBufferSize",
+	
 	// To make commas easier
 	"": ""
 }

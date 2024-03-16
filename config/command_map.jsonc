@@ -44,15 +44,22 @@
 	// AC Board 3
 
 	"ipaGems": ["ac3", 100, 0],
-	"ipaFill": ["ac3", 100, 1],
+	// "ipaFill": ["ac3", 100, 1],
 	"ipaSlowVent": ["ac3", 100, 2],
-	"ipaLineVent": ["ac3", 100, 3],
+	// "ipaLineVent": ["ac3", 100, 3],
 	"ipaEmergencyVent": ["ac3", 100, 4],
 	"ipaDrain": ["ac3", 100, 5],
-	// "": ["ac3", 100, 6],
+	"ipaPressFlow": ["ac3", 100, 6],
 	// "": ["ac3", 100, 7],
 	
 	"ipaAutoventThreshold": ["ac3", 124, null],
+
+	// IPA E-Reg
+
+	"iregReset": ["ireg", 133, null],
+	"iregPartialOpen": ["ireg", 202, null],
+	"iregStaticPress": ["ireg", 203, null],
+	"iregDiagnostic": ["ireg", 204, null],
 
 	// To make commas easier
 	"": ""
