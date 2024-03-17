@@ -432,21 +432,7 @@
 						}
 					},
 					{
-						"id": "eregBeginFlow",
-						"type": "ereg",
-						"name": "E-Reg Flow",
-						"field": "",
-						"actions": {
-							"lox": {
-								"type": "signal",
-								"target": "iregBeginFlow"
-							},
-							"fuel": {
-								"type": "signal",
-								"target": "iregBeginFlow"
-							}
-						},
-						"safe": true
+						"type": null
 					},
 					{
 						"id": "eregStaticPress",

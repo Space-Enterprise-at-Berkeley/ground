@@ -90,7 +90,7 @@ class LaunchButton extends Component {
               <BigButton
                 disabled={this.state.disabled}
                 onClick={this.beginLaunchSequence}
-                text={launchText}
+                text={launchText + " + E-Reg"}
               />
             </Grid>
             <Grid item xs={12}>

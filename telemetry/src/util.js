@@ -6,11 +6,10 @@ export function buttonAction(action) {
   return (...args) => {
     let config = JSON.parse(atob(window.location.hash.split("&")[1]));
     let commandMap = config["commandMap"];
-    if (commandMap[action.target] === undefined) {
-      console.log(`Invalid command: ${action.target}`);
-      return;
+    let board, packet, number;
+    if (commandMap[action.target] !== undefined) {
+      [board, packet, number] = commandMap[action.target];
     }
-    let [board, packet, number] = commandMap[action.target];
     switch (action.type) {
       case "retract-full":
         if (number != null) {
@@ -62,6 +61,8 @@ export function buttonAction(action) {
         }
         break;
       case "enable":
+        console.log(action.id);
+        console.log(buttonEnabledManager);
         let enableButton = buttonEnabledManager[action.id];
         if (enableButton !== undefined) {
           enableButton(true);
