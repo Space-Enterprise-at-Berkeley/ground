@@ -81,8 +81,8 @@
 	"lc1.lcSupply24Power": "lc1Supply24Power",
 
 	"lc1.lcValue0": "nosTankLC0",
-	"lc1.lcValue1": "ipaTankLC0",
-	// "lc1.lcValue2": "nosTankLC1",
+	// "lc1.lcValue1": "nosTankLC1",
+	"lc1.lcValue2": "ipaTankLC0",
 	// "lc1.lcValue3": "ipaTankLC1",
 
 	// LC Board 2
