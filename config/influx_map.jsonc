@@ -241,6 +241,9 @@
 
 	// IPA E-Reg
 
+	"ireg.boardConnected": "iregConnected",
+	"ireg.boardKbps": "iregKbps",
+
 	"ireg.filteredUpstreamPressure1": "iregFilteredUpstreamPressure",
 	"ireg.filteredUpstreamPressure2": "iregFilteredUpstreamPressure2",
 	"ireg.filteredDownstreamPressure1": "iregFilteredDownstreamPressure",
