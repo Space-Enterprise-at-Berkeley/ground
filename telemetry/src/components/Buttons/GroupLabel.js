@@ -56,8 +56,8 @@ export class GroupLabel extends Component {
             sx={{
               border: "1 solid transparent",
               width: "9rem",
-              height: "1rem",
-              borderRadius: "1rem",
+              height: "0.5rem",
+              borderRadius: "0.5rem",
             }}
           />
         </Grid>

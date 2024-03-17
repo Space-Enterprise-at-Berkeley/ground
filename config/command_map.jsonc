@@ -31,11 +31,11 @@
 
 	"nosGems": ["ac2", 100, 0],
 	"nosFill": ["ac2", 100, 1],
-	"nosSlowVent": ["ac2", 100, 2],
+	// "nosSlowVent": ["ac2", 100, 2],
 	"nosLineVent": ["ac2", 100, 3],
 	"nosEmergencyVent": ["ac2", 100, 4],
 	"nosDrain": ["ac2", 100, 5],
-	// "": ["ac2", 100, 6],
+	"nosSlowVent": ["ac2", 100, 6],
 	// "": ["ac2", 100, 7],
 
 	"nosAutomation": ["ac2", 123, null],
