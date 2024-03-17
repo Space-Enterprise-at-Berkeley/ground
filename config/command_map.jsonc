@@ -57,6 +57,7 @@
 	// IPA E-Reg
 
 	"iregReset": ["ireg", 133, null],
+	"iregBeginFlow": ["ireg", 200, null],
 	"iregPartialOpen": ["ireg", 202, null],
 	"iregStaticPress": ["ireg", 203, null],
 	"iregDiagnostic": ["ireg", 204, null],
