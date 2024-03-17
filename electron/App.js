@@ -175,13 +175,13 @@ class App {
   }
 
   addIPC(channel, handler, dbrecord = true) {
-    console.log(channel + " init");
+    this.config.influxMap[channel] = channel;
     let updateFunc = (...args) => {
       if (args[2] !== 209) {
         const update = {
           [channel]: args.length > 1 ? `invoked with arg(s): ${args.slice(1).join(", ")}` : 'invoked'
         };
-        console.log(channel);
+        console.log(update);
         this.updateState(Date.now(), update, dbrecord)
       }
       return handler(...args);
