@@ -166,9 +166,21 @@
 			"values": [
 				{
 					"field": "manifoldPT",
-					"name": "Manifold PT",
+					"name": "Manifold",
 					"units": "PSI",
 					"color": [255, 0, 0]
+				},
+				{
+					"field": "mainValvePT",
+					"name": "Main Valve",
+					"units": "PSI",
+					"color": [0, 255, 0]
+				},
+				{
+					"field": "solenoidPanelPT",
+					"name": "Solenoids",
+					"units": "PSI",
+					"color": [0, 0, 255]
 				}
 			]
 		}
