@@ -31,9 +31,15 @@
 				},
 				{
 					"field": "iregFilteredDownstreamPressure2",
-					"name": "I-Reg Tank PT",
+					"name": "I-Reg Tank PT 2",
 					"units": "PSI",
 					"color": [0, 255, 0]
+				},
+				{
+					"field": "iregFilteredDownstreamPressure",
+					"name": "I-Reg Tank PT 1",
+					"units": "PSI",
+					"color": [0, 255, 255]
 				},
 				{
 					"field": "iregPressureSetpoint",
@@ -95,10 +101,16 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "chamberPT",
-					"name": "Chamber PT",
-					"units": "PSI",
-					"color": [0, 0, 255]
+					"field": "nosInjectorTC",
+					"name": "NOS Injector TC",
+					"units": "C",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "ipaInjectorTC",
+					"name": "IPA Injector TC",
+					"units": "C",
+					"color": [0, 255, 0]
 				}
 		
 			]

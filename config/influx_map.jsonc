@@ -50,8 +50,8 @@
 	"pt1.ptValue3": "solenoidPanelPT",
 	"pt1.ptValue4": "ipaTankPT",
 	"pt1.ptValue5": "ipaPressPT",
-	// "pt1.ptValue6": "",
-	// "pt1.ptValue7": "",
+	"pt1.ptValue6": "enginePT6",
+	"pt1.ptValue7": "enginePT7",
 
 	// PT Board 2
 
@@ -64,12 +64,18 @@
 
 	"pt2.ptValue0": "nosInjectorPT",
 	"pt2.ptValue1": "ipaInjectorPT",
-	"pt2.ptValue2": "chamberPT",
-	"pt2.ptValue3": "manifoldPT",
-	"pt2.ptValue4": "channelPT0",
-	"pt2.ptValue5": "channelPT1",
-	"pt2.ptValue6": "channelPT2",
-	"pt2.ptValue7": "channelPT3",
+	// "pt2.ptValue2": "chamberPT",
+	// "pt2.ptValue3": "manifoldPT",
+	// "pt2.ptValue4": "channelPT0",
+	// "pt2.ptValue5": "channelPT1",
+	// "pt2.ptValue6": "channelPT2",
+	// "pt2.ptValue7": "channelPT3",
+	"pt2.ptValue2": "enginePT0",
+	"pt2.ptValue3": "enginePT1",
+	"pt2.ptValue4": "enginePT2",
+	"pt2.ptValue5": "enginePT3",
+	"pt2.ptValue6": "enginePT4",
+	"pt2.ptValue7": "enginePT5",
 
 	// LC Board 1
 
