@@ -151,13 +151,13 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "ncap.cap",
+					"field": "ncapCap",
 					"name": "Nitrous Cap Fill Value",
 					"units": "pF",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "icap.cap",
+					"field": "icapCap",
 					"name": "IPA Cap Fill Value",
 					"units": "pF",
 					"color": [0, 255, 0]
