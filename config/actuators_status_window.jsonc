@@ -16,9 +16,10 @@
 					"units": "mA"
 				},
 				{
-					"field": "nosFillPot",
-					"name": "NOS Fill Pot",
-					"units": ""
+					// "field": "nosFillPot",
+					// "name": "NOS Fill Pot",
+					// "units": ""
+					"field": null
 				},
 				{
 					"field": "ipaPressFlowContinuity",
@@ -31,9 +32,10 @@
 					"units": "mA"
 				},
 				{
-					"field": "ipaPressFlowPot",
-					"name": "IPA Press Pot",
-					"units": ""
+					// "field": "ipaPressFlowPot",
+					// "name": "IPA Press Pot",
+					// "units": ""
+					"field": null
 				}
 			]
 		},
@@ -86,9 +88,10 @@
 					"units": "mA"
 				},
 				{
-					"field": "nosLineVentPot",
-					"name": "NOS LV Pot",
-					"units": ""
+					// "field": "nosLineVentPot",
+					// "name": "NOS LV Pot",
+					// "units": ""
+					"field": null
 				}
 				// {
 				// 	"field": "ipaLineVentContinuity",
@@ -183,9 +186,10 @@
 					"units": "mA"
 				},
 				{
-					"field": "nosSlowVentPot",
-					"name": "NOS Vent Pot",
-					"units": ""
+					// "field": "nosSlowVentPot",
+					// "name": "NOS Vent Pot",
+					// "units": "
+					"field": null
 				},
 				{
 					"field": "ipaSlowVentContinuity",
@@ -198,14 +202,35 @@
 					"units": "mA"
 				},
 				{
-					"field": "ipaSlowVentPot",
-					"name": "IPA Vent Pot",
-					"units": ""
+					// "field": "ipaSlowVentPot",
+					// "name": "IPA Vent Pot",
+					// "units": ""
+					"field": null
 				}
 			]
 		},
 		{
-			// Empty square
+			"type": "graph",
+			"values": [
+				{
+					"field": "iregCurrentA",
+					"name": "IPAreg Current A",
+					"units": "mA",
+					"color": [0, 255, 255]
+				},
+				{
+					"field": "iregCurrentB",
+					"name": "Current B",
+					"units": "mA",
+					"color": [0, 255, 0]
+				},
+				{
+					"field": "iregCurrentC",
+					"name": "Current C",
+					"units": "mA",
+					"color": [0, 0, 255]
+				}
+			]
 		},
 		{
 			"type": "six-square",
@@ -221,9 +246,10 @@
 					"units": "mA"
 				},
 				{
-					"field": "nosEmergencyVentPot",
-					"name": "NOS E-V Pot",
-					"units": ""
+					// "field": "nosEmergencyVentPot",
+					// "name": "NOS E-V Pot",
+					// "units": ""
+					"field": null
 				},
 				{
 					"field": "ipaEmergencyVentContinuity",
@@ -236,9 +262,10 @@
 					"units": "mA"
 				},
 				{
-					"field": "ipaEmergencyVentPot",
-					"name": "IPA E-V Pot",
-					"units": ""
+					// "field": "ipaEmergencyVentPot",
+					// "name": "IPA E-V Pot",
+					// "units": ""
+					"field": null
 				}
 			]
 		},
@@ -256,9 +283,10 @@
 					"units": "mA"
 				},
 				{
-					"field": "nosDrainPot",
-					"name": "NOS Drain Pot",
-					"units": ""
+					// "field": "nosDrainPot",
+					// "name": "NOS Drain Pot",
+					// "units": ""
+					"field": null
 				},
 				{
 					"field": "ipaDrainContinuity",
@@ -271,9 +299,10 @@
 					"units": "mA"
 				},
 				{
-					"field": "ipaDrainPot",
-					"name": "IPA Drain Pot",
-					"units": ""
+					// "field": "ipaDrainPot",
+					// "name": "IPA Drain Pot",
+					// "units": ""
+					"field": null
 				}
 			]
 		}

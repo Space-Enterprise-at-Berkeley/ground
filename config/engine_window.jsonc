@@ -14,43 +14,32 @@
 					"field": "ipaInjectorPT",
 					"name": "IPA Injector PT",
 					"units": "PSI"
+				},
+				{
+					"field": null,
+					"name": null,
+					"units": null
+				},
+				{
+					"field": "nosTankPT",
+					"name": "NOS Tank Pressure",
+					"units": "PSI"
+				},
+				{
+					"field": "ipaTankPT",
+					"name": "IPA Tank Pressure",
+					"units": "PSI"
+				},
+				{
+					"field": null,
+					"name": null,
+					"units": null
 				}
 			]
 		}, 
-		// {
-		// 	"type": "six-square",
-		// 	"values": [
-		// 		{
-		// 			"field": "engineLC0",
-		// 			"name": "Engine LC 0",
-		// 			"units": "lbs"
-		// 		},
-		// 		{
-		// 			"field": "engineLC1",
-		// 			"name": "Engine LC 1",
-		// 			"units": "lbs"
-		// 		},
-		// 		{
-		// 			"field": "engineLC2",
-		// 			"name": "Engine LC 2",
-		// 			"units": "lbs"
-		// 		},
-		// 		{
-		// 			"field": "engineLC3",
-		// 			"name": "Engine LC 3",
-		// 			"units": "lbs"
-		// 		}
-		// 	]
-		// },
 		{
 			"type": "graph",
 			"values": [
-				// {
-				// 	"field": "engineLC0",
-				// 	"name": "Eng LC0",
-				// 	"units": "lb",
-				// 	"color": [255, 0, 0]
-				// },
 
 		    // THESE ARE SHUFFLED FOR A REASON
 			// THE LABEL NUMBER IS WHAT THE CHANNEL IS NUMBERED ON THE CASE
@@ -76,65 +65,22 @@
 			]
 		},
 		{
-			"type": "six-square",
+			"type": "graph",
 			"values": [
 				{
-					"field": "engineTC1",
-					"name": "Engn TC 1",
-					"units": "C"
+					"field": "nosInjectorPT",
+					"name": "NOS Injector PT",
+					"units": "PSI",
+					"color": [255, 0, 0]
 				},
 				{
-					"field": "engineTC2",
-					"name": "Engn TC 2",
-					"units": "C"
-				},
-				{
-					"field": "engineTC3",
-					"name": "Engn TC 3",
-					"units": "C"
-				},
-				{
-					"field": "engineTC4",
-					"name": "Engn TC 4",
-					"units": "C"
-				},
-				{
-					"field": "engineTC5",
-					"name": "Engn TC 5",
-					"units": "C"
-				},
-				{
-					"field": "engineTC6",
-					"name": "Engn TC 6",
-					"units": "C"
+					"field": "ipaInjectorPT",
+					"name": "IPA Injector PT",
+					"units": "PSI",
+					"color": [0, 255, 0]
 				}
 			]
 		},
-		// {
-		// 	"type": "six-square",
-		// 	"values":[
-		// 		{
-		// 			"field": "channelPT0",
-		// 			"name": "Engn PT 0",
-		// 			"units": "PSI"
-		// 		},
-		// 		{
-		// 			"field": "channelPT1",
-		// 			"name": "Engn PT 1",
-		// 			"units": "PSI"
-		// 		},
-		// 		{
-		// 			"field": "channelPT2",
-		// 			"name": "Engn PT 2",
-		// 			"units": "PSI"
-		// 		},
-		// 		{
-		// 			"field": "channelPT3",
-		// 			"name": "Engn PT 3",
-		// 			"units": "PSI"
-		// 		}
-		// 	]
-		// },
 		{
 			"type": "graph",
 			"values": [
@@ -189,17 +135,55 @@
 			]
 		},
 		{
-			"type": "six-square",
-			"values":[
+			"type": "graph",
+			"values": [
 				{
-					"field": "chamberPT",
-					"name": "Chamber PT",
-					"units": "PSI"
+					"field": "engineTC0",
+					"name": "Eng TC0",
+					"units": "C",
+					"color": [123, 0, 255]
 				},
 				{
-					"field": "manifoldPT",
-					"name": "Manifold PT",
-					"units": "PSI"
+					"field": "engineTC1",
+					"name": "Eng TC1",
+					"units": "",
+					"color": [0, 16, 255]
+				},
+				{
+					"field": "engineTC2",
+					"name": "Eng TC2",
+					"units": "",
+					"color": [0, 164, 255]
+				},
+				{
+					"field": "engineTC3",
+					"name": "Eng TC3",
+					"units": "",
+					"color": [63, 255, 183]
+				},
+				{
+					"field": "engineTC4",
+					"name": "Eng TC4",
+					"units": "",
+					"color": [183, 255, 63]
+				},
+				{
+					"field": "engineTC5",
+					"name": "Eng TC5",
+					"units": "",
+					"color": [255, 185, 0]
+				},
+				{
+					"field": "engineTC6",
+					"name": "Eng TC6",
+					"units": "",
+					"color": [255, 48, 0]
+				},
+				{
+					"field": "engineTC7",
+					"name": "Eng TC7",
+					"units": "",
+					"color": [127, 0, 255]
 				}
 			]
 		},
@@ -217,6 +201,11 @@
 					"units": "V"
 				},
 				{
+					"field": "iregEncoderAngle",
+					"name": "IReg Encoder",
+					"units": "ticks"
+				},
+				{
 					"field": "nosMainState",
 					"name": "NOS Main State",
 					"units": ""
@@ -225,26 +214,57 @@
 					"field": "ipaMainState",
 					"name": "IPA Main State",
 					"units": ""
+				},
+				{
+					"field": "iregAngleSetpoint",
+					"name": "IReg Setpoint",
+					"units": "ticks"
 				}
 			]
 		},
 		{
-			"type": "six-square",
+			"type": "graph",
 			"values": [
 				{
 					"field": "nosTankPT",
-					"name": "NOS Tank Pressure",
-					"units": "PSI"
+					"name": "NOS Tank",
+					"units": "PSI",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "nosFillPT",
+					"name": "Fill",
+					"units": "PSI",
+					"color": [0, 255, 0]
+				},
+				{
+					"field": "nosAutoventPressure",
+					"name": "AV",
+					"units": "PSI",
+					"color": [0, 0, 255]
 				}
 			]
 		},
 		{
-			"type": "six-square",
+			"type": "graph",
 			"values": [
 				{
-					"field": "ipaTankPT",
-					"name": "IPA Tank Pressure",
-					"units": "PSI"
+					"field": "ipaTankPT@linear/2.5,10",
+					"name": "IPA Tank",
+					"units": "PSI",
+					"color": [255, 0, 0]
+				},
+				{
+					"field": "ipaPressPT",
+					"name": "Press",
+					"units": "PSI",
+					"color": [0, 255, 0]
+				},
+				{
+					"field": "ipaAutoventPressure",
+					"name": "AV",
+					"units": "PSI",
+					"color": [0, 0, 255]
 				}
 			]
 		},

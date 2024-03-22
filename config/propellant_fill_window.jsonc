@@ -29,7 +29,7 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "ipaTankPT@linear/2.5,10",
+					"field": "ipaTankPT", // formerly had @linear/2.5,10
 					"name": "IPA Tank",
 					"units": "PSI",
 					"color": [255, 0, 0]
@@ -150,18 +150,6 @@
 		{
 			"type": "graph",
 			"values": [
-				// {
-				// 	"field": "pt1.ptValue3",
-				// 	"name": "Nitrous Fill PT",
-				// 	"units": "PSI",
-				// 	"color": [255, 0, 0]
-				// },
-				// {
-				// 	"field": "pt1.ptValue0",
-				// 	"name": "Ethane Fill PT",
-				// 	"units": "PSI",
-				// 	"color": [0, 255, 0]
-				// }
 				{
 					"field": "cap.fuelCapVal",
 					"name": "Nitrous Cap Fill Value",
