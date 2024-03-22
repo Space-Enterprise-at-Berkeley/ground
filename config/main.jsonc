@@ -6,7 +6,8 @@
 		"tc": "$boards/tc_board.jsonc",
 		"lc": "$boards/lc_board.jsonc",
 		"ereg": "$boards/ereg_board.jsonc",
-		"flightV4": "$boards/flightV4_board.jsonc"
+		"flightV4": "$boards/flightV4_board.jsonc",
+		"cap": "$boards/cap_board.jsonc"
 	},
 	"influxMap": "$influx_map.jsonc",
 	"commandMap": "$command_map.jsonc",

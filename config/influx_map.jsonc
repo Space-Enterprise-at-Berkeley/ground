@@ -296,6 +296,18 @@
 
 	"ireg.avgCurrent": "iregAvgCurrent",
 	"ireg.bufferSize": "iregBufferSize",
+
+	// IPA Cap Fill
+
+	"icap.cap": "icapCap",
+	"icap.ref": "icapRef",
+	"icap.temperature": "icapTemperature",
+
+	// NOS Cap Fill
+
+	"ncap.cap": "ncapCap",
+	"ncap.ref": "ncapRef",
+	"ncap.temperature": "ncapTemperature",
 	
 	// To make commas easier
 	"": ""
