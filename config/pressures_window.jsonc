@@ -119,30 +119,53 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "channelPT0",
-					"name": "Channel PT0",
+					"field": "enginePT0",
+					"name": "Eng PT0",
 					"units": "PSI",
-					"color": [255, 0, 0]
+					"color": [123, 0, 255]
 				},
 				{
-					"field": "channelPT1",
-					"name": "Channel PT1",
-					"units": "PSI",
-					"color": [0, 255, 0]
+					"field": "enginePT1",
+					"name": "Eng PT1",
+					"units": "",
+					"color": [0, 16, 255]
 				},
 				{
-					"field": "channelPT2",
-					"name": "Channel PT2",
-					"units": "PSI",
-					"color": [0, 0, 255]
+					"field": "enginePT2",
+					"name": "Eng PT2",
+					"units": "",
+					"color": [0, 164, 255]
 				},
 				{
-					"field": "channelPT3",
-					"name": "Channel PT3",
-					"units": "PSI",
-					"color": [0, 255, 255]
+					"field": "enginePT3",
+					"name": "Eng PT3",
+					"units": "",
+					"color": [63, 255, 183]
+				},
+				{
+					"field": "enginePT4",
+					"name": "Eng PT4",
+					"units": "",
+					"color": [183, 255, 63]
+				},
+				{
+					"field": "enginePT5",
+					"name": "Eng PT5",
+					"units": "",
+					"color": [255, 185, 0]
+				},
+				{
+					"field": "enginePT6",
+					"name": "Eng PT6",
+					"units": "",
+					"color": [255, 48, 0]
+				},
+				{
+					"field": "enginePT7",
+					"name": "Eng PT7",
+					"units": "",
+					"color": [127, 0, 255]
 				}
-		
 			]
 		},
 		{
