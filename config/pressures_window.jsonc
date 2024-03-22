@@ -122,49 +122,67 @@
 					"field": "enginePT0",
 					"name": "Eng PT0",
 					"units": "PSI",
-					"color": [123, 0, 255]
+					"color": [127, 0, 255]
 				},
 				{
 					"field": "enginePT1",
 					"name": "Eng PT1",
 					"units": "",
-					"color": [0, 16, 255]
+					"color": [77, 73, 251]
 				},
 				{
 					"field": "enginePT2",
 					"name": "Eng PT2",
 					"units": "",
-					"color": [0, 164, 255]
+					"color": [25, 149, 242]
 				},
 				{
 					"field": "enginePT3",
 					"name": "Eng PT3",
 					"units": "",
-					"color": [63, 255, 183]
+					"color": [24, 205, 227]
 				},
 				{
 					"field": "enginePT4",
 					"name": "Eng PT4",
 					"units": "",
-					"color": [183, 255, 63]
+					"color": [76, 242, 206]
 				},
 				{
 					"field": "enginePT5",
 					"name": "Eng PT5",
 					"units": "",
-					"color": [255, 185, 0]
+					"color": [128, 254, 206]
 				},
 				{
 					"field": "enginePT6",
 					"name": "Eng PT6",
 					"units": "",
-					"color": [255, 48, 0]
+					"color": [178, 242, 150]
 				},
 				{
 					"field": "enginePT7",
 					"name": "Eng PT7",
 					"units": "",
-					"color": [127, 0, 255]
+					"color": [230, 205, 115]
+				},
+				{
+					"field": "enginePT8",
+					"name": "Eng PT8",
+					"units": "",
+					"color": [255, 150, 79]
+				},
+				{
+					"field": "enginePT9",
+					"name": "Eng PT9",
+					"units": "",
+					"color": [255, 77, 39]
+				},
+				{
+					"field": "enginePT10",
+					"name": "Eng PT10",
+					"units": "",
+					"color": [255, 77, 39]
 				}
 			]
 		},
