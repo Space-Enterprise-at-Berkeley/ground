@@ -319,11 +319,17 @@
 
 	// IPA Cap Fill
 
+	"icap.boardConnected": "icapConnected",
+	"icap.boardKbps": "icapKbps",
+
 	"icap.cap": "icapCap",
 	"icap.ref": "icapRef",
 	"icap.temperature": "icapTemperature",
 
 	// NOS Cap Fill
+
+	"ncap.boardConnected": "ncapConnected",
+	"ncap.boardKbps": "ncapKbps",
 
 	"ncap.cap": "ncapCap",
 	"ncap.ref": "ncapRef",
