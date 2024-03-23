@@ -310,8 +310,8 @@ class App {
       let buf = App.generatePacket(149, this.config.mode, "asUInt8", this.config.burnTime, "asUInt32");
       this.port.send(this.boards[this.config.controller].address, buf);
 
-      let eregBuf = App.generatePacket(200, this.config.mode, "asUInt8", this.config.burnTime, "asUInt32");
-      this.port.send(this.boards["ireg"].address, eregBuf);
+      // let eregBuf = App.generatePacket(200, this.config.mode, "asUInt8", this.config.burnTime, "asUInt32");
+      // this.port.send(this.boards["ireg"].address, eregBuf);
     // }, delay * 1000);
   }
 
