@@ -81,10 +81,16 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "nosTankLC0",
-					"name": "NOS LC",
-					"units": "lbs",
+					"field": "ncapCap",
+					"name": "Nitrous Cap Fill Value",
+					"units": "pF",
 					"color": [255, 0, 0]
+				},
+				{
+					"field": "icapCap",
+					"name": "IPA Cap Fill Value",
+					"units": "pF",
+					"color": [0, 255, 0]
 				}
 			]
 		},
@@ -92,10 +98,16 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "ipaTankLC0",
-					"name": "IPA LC",
-					"units": "lbs",
+					"field": "iregEncoderAngle",
+					"name": "I-Reg Encoder Angle",
+					"units": "Ticks",
 					"color": [255, 0, 0]
+				},
+				{
+					"field": "iregAngleSetpoint",
+					"name": "Setpoint",
+					"units": "Ticks",
+					"color": [0, 255, 0]
 				}
 			]
 		},
@@ -151,15 +163,15 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "ncapCap",
-					"name": "Nitrous Cap Fill Value",
-					"units": "pF",
+					"field": "nosTankLC0",
+					"name": "NOS LC",
+					"units": "lbs",
 					"color": [255, 0, 0]
 				},
 				{
-					"field": "icapCap",
-					"name": "IPA Cap Fill Value",
-					"units": "pF",
+					"field": "ipaTankLC0",
+					"name": "IPA LC",
+					"units": "lbs",
 					"color": [0, 255, 0]
 				}
 			]

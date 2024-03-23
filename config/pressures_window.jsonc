@@ -203,13 +203,13 @@
 				{
 					"field": "iregEncoderAngle",
 					"name": "I-Reg Encoder Angle",
-					"units": "PSI",
+					"units": "Ticks",
 					"color": [255, 0, 0]
 				},
 				{
 					"field": "iregAngleSetpoint",
 					"name": "Setpoint",
-					"units": "PSI",
+					"units": "Ticks",
 					"color": [0, 255, 0]
 				}
 			]
