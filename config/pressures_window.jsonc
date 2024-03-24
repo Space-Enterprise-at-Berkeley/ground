@@ -190,7 +190,7 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "iregFilteredUpstreamPressure",
+					"field": "ipaPressPT",
 					"name": "I-Reg Press PT",
 					"units": "PSI",
 					"color": [255, 0, 0]
