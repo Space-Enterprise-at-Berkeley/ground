@@ -9,13 +9,13 @@
 					"field": "nosTankPT",
 					"name": "NOS Tank PT",
 					"units": "PSI",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "nosFillPT",
 					"name": "NOS Fill Line PT",
 					"units": "PSI",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				}
 		
 			]
@@ -27,13 +27,13 @@
 					"field": "ipaTankPT",
 					"name": "IPA Tank PT",
 					"units": "PSI",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "iregFilteredDownstreamPressure2",
 					"name": "I-Reg Tank PT 2",
 					"units": "PSI",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				},
 				{
 					"field": "iregFilteredDownstreamPressure",
@@ -45,7 +45,7 @@
 					"field": "iregPressureSetpoint",
 					"name": "Setpoint",
 					"units": "PSI",
-					"color": [0, 0, 255]
+					"color": [178, 34, 34]
 				}
 			]
 		},
@@ -86,13 +86,13 @@
 					"field": "nosInjectorPT",
 					"name": "NOS Injector PT",
 					"units": "PSI",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "ipaInjectorPT",
 					"name": "IPA Injector PT",
 					"units": "PSI",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				}
 		
 			]
@@ -104,13 +104,13 @@
 					"field": "nosInjectorTC",
 					"name": "NOS Injector TC",
 					"units": "C",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "ipaInjectorTC",
 					"name": "IPA Injector TC",
 					"units": "C",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				}
 		
 			]
@@ -193,7 +193,7 @@
 					"field": "ipaPressPT",
 					"name": "I-Reg Press PT",
 					"units": "PSI",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				}
 			]
 		},
@@ -204,13 +204,13 @@
 					"field": "iregEncoderAngle",
 					"name": "I-Reg Encoder Angle",
 					"units": "Ticks",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "iregAngleSetpoint",
 					"name": "Setpoint",
 					"units": "Ticks",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				}
 			]
 		},
@@ -221,19 +221,19 @@
 					"field": "manifoldPT",
 					"name": "Manifold",
 					"units": "PSI",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "mainValvePT",
 					"name": "Main Valve",
 					"units": "PSI",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				},
 				{
 					"field": "solenoidPanelPT",
 					"name": "Solenoids",
 					"units": "PSI",
-					"color": [0, 0, 255]
+					"color": [178, 34, 34]
 				}
 			]
 		}

@@ -46,13 +46,29 @@ class LaunchButton extends Component {
   }
 
   componentDidMount() {
-    addButtonEnabledListener("launch", (enabled) => {
+    // addButtonEnabledListener("launch", (enabled) => {
+    //   this.setState({ disabled: !enabled });
+    // });
+
+    // launch should be enabled if either "nitrouslaunchenable" or "ipalaunchenable" is enabled
+    addButtonEnabledListener("nitrousEnable", (enabled) => {
+      this.setState({ disabled: !enabled });
+    });
+    addButtonEnabledListener("ipaEnable", (enabled) => {
       this.setState({ disabled: !enabled });
     });
   }
 
   componentWillUnmount() {
-    removeButtonEnabledListener("launch", (enabled) => {
+    // removeButtonEnabledListener("launch", (enabled) => {
+    //   this.setState({ disabled: !enabled });
+    // });
+
+    // launch should be disabled if neither "nitrouslaunchenable" nor "ipalaunchenable" is enabled
+    removeButtonEnabledListener("nitrousEnable", (enabled) => {
+      this.setState({ disabled: !enabled });
+    });
+    removeButtonEnabledListener("ipaEnable", (enabled) => {
       this.setState({ disabled: !enabled });
     });
   }

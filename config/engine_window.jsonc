@@ -54,13 +54,13 @@
 					"field": "engineLC1",
 					"name": "Eng LC2",
 					"units": "lb",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				},
 				{
 					"field": "engineLC3",
 					"name": "Eng LC3",
 					"units": "lb",
-					"color": [0, 0, 255]
+					"color": [178, 34, 34]
 				}
 			]
 		},
@@ -71,13 +71,13 @@
 					"field": "nosInjectorPT",
 					"name": "NOS Injector PT",
 					"units": "PSI",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "ipaInjectorPT",
 					"name": "IPA Injector PT",
 					"units": "PSI",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				}
 			]
 		},
@@ -247,19 +247,19 @@
 					"field": "nosTankPT",
 					"name": "NOS Tank",
 					"units": "PSI",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "nosFillPT",
 					"name": "Fill",
 					"units": "PSI",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				},
 				{
 					"field": "nosAutoventPressure",
 					"name": "AV",
 					"units": "PSI",
-					"color": [0, 0, 255]
+					"color": [178, 34, 34]
 				}
 			]
 		},
@@ -270,19 +270,19 @@
 					"field": "ipaTankPT",
 					"name": "IPA Tank",
 					"units": "PSI",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "ipaPressPT",
 					"name": "Press",
 					"units": "PSI",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				},
 				{
 					"field": "ipaAutoventPressure",
 					"name": "AV",
 					"units": "PSI",
-					"color": [0, 0, 255]
+					"color": [178, 34, 34]
 				}
 			]
 		},

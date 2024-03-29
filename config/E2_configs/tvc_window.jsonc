@@ -104,13 +104,13 @@
 					"field": "tvc.encoderX",
 					"name": "Encoder X",
 					"units": "",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "tvc.setpointX",
 					"name": "Setpoint X",
 					"units": "",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				}
 			]
 		},
@@ -121,13 +121,13 @@
 					"field": "tvc.encoderY",
 					"name": "Encoder Y",
 					"units": "",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "tvc.setpointY",
 					"name": "Setpoint Y",
 					"units": "",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				}
 			]
 		},
