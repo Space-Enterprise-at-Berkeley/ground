@@ -163,8 +163,8 @@ class Comms {
   //   return await this.ipc.invoke('send-zero-packet', board, packet, channel);
   // }
 
-  async beginLaunchSequence() {
-    return await this.ipc.invoke('launch');
+  async beginLaunchSequence(ipaEnabled, nosEnabled) {
+    return await this.ipc.invoke('launch', ipaEnabled, nosEnabled);
   }
 
   async abortAll() {

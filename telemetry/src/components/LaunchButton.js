@@ -30,7 +30,8 @@ class LaunchButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      disabled: true
+      ipaDisabled: true,
+      nosDisabled: true
     }
     this.countdown = React.createRef();
     this.beginLaunchSequence = this.beginLaunchSequence.bind(this);
@@ -38,7 +39,7 @@ class LaunchButton extends Component {
   }
 
   beginLaunchSequence() {
-    comms.beginLaunchSequence();
+    comms.beginLaunchSequence(!this.state.ipaDisabled, !this.state.nosDisabled);
   }
 
   abortAll() {
@@ -52,10 +53,10 @@ class LaunchButton extends Component {
 
     // launch should be enabled if either "nitrouslaunchenable" or "ipalaunchenable" is enabled
     addButtonEnabledListener("nitrousEnable", (enabled) => {
-      this.setState({ disabled: !enabled });
+      this.setState({ nosDisabled: !enabled });
     });
     addButtonEnabledListener("ipaEnable", (enabled) => {
-      this.setState({ disabled: !enabled });
+      this.setState({ ipaDisabled: !enabled });
     });
   }
 
@@ -66,10 +67,10 @@ class LaunchButton extends Component {
 
     // launch should be disabled if neither "nitrouslaunchenable" nor "ipalaunchenable" is enabled
     removeButtonEnabledListener("nitrousEnable", (enabled) => {
-      this.setState({ disabled: !enabled });
+      this.setState({ nosDisabled: !enabled });
     });
     removeButtonEnabledListener("ipaEnable", (enabled) => {
-      this.setState({ disabled: !enabled });
+      this.setState({ ipaDisabled: !enabled });
     });
   }
 
@@ -104,9 +105,9 @@ class LaunchButton extends Component {
             <Grid item xs={12}></Grid>
             <Grid item xs={12}>
               <BigButton
-                disabled={this.state.disabled}
+                disabled={this.state.ipaDisabled && this.state.nosDisabled}
                 onClick={this.beginLaunchSequence}
-                text={launchText + " + E-Reg"}
+                text={launchText}
               />
             </Grid>
             <Grid item xs={12}>

@@ -302,14 +302,8 @@ class App {
     return Buffer.concat([idBuf, lenBuf, tsOffsetBuf, checksumBuf, ...values]);
   }
 
-  launch() {
+  launch(_, ipaFlowEnabled, nitrousFlowEnabled) {
     console.log("launch");
-    // const delay = 30;
-    // setTimeout(() => {
-    console.log("actual launch");
-
-    let nitrousFlowEnabled = null; // get the state of the nitrous enable switch
-    let ipaFlowEnabled = null; // get the state of the ipa enable switch
 
     if (nitrousFlowEnabled) {
       console.log("nitrous flow enabled");
@@ -329,10 +323,6 @@ class App {
     // let buf = App.generatePacket(149, this.config.mode, "asUInt8", this.config.burnTime, "asUInt32");
     let buf = App.generatePacket(149, this.config.mode, "asUInt8", this.config.burnTime, "asUInt32", nitrousFlowEnabled, "asUInt8", ipaFlowEnabled, "asUInt8");
     this.port.send(this.boards[this.config.controller].address, buf);
-
-      // let eregBuf = App.generatePacket(200, this.config.mode, "asUInt8", this.config.burnTime, "asUInt32");
-      // this.port.send(this.boards["ireg"].address, eregBuf);
-    // }, delay * 1000);
   }
 
   abortWithReason(reason) {
