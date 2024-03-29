@@ -480,24 +480,24 @@
 				"type": "four-button",
 				"buttons": 
 				[
-					{
-						"id": "ipaDrain",
-						"type": "valve",
-						"name": "IPA Drain",
-						"field": "ipaDrainState",
-						"actions": {
-							"enable": {
-								"type": "on",
-								"target": "ipaDrain"
-							},
-							"disable": {
-								"type": "off",
-								"target": "ipaDrain"
-							}
-						},
-						"green": [0, 1],
-						"safe": true
-					},
+					// {
+					// 	"id": "ipaDrain",
+					// 	"type": "valve",
+					// 	"name": "IPA Drain",
+					// 	"field": "ipaDrainState",
+					// 	"actions": {
+					// 		"enable": {
+					// 			"type": "on",
+					// 			"target": "ipaDrain"
+					// 		},
+					// 		"disable": {
+					// 			"type": "off",
+					// 			"target": "ipaDrain"
+					// 		}
+					// 	},
+					// 	"green": [0, 1],
+					// 	"safe": true
+					// },
 					{
 						"id": "nosDrain",
 						"type": "valve",
@@ -532,6 +532,9 @@
 							}
 						},
 						"green": [0, 1]
+					},
+					{
+						"type": null
 					},
 					{
 						"id": "ipaEmergencyVent",
