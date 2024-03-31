@@ -35,12 +35,12 @@
 					"units": "PSI",
 					"color": [30, 144, 255]
 				},
-				{
-					"field": "iregFilteredDownstreamPressure",
-					"name": "I-Reg Tank PT 1",
-					"units": "PSI",
-					"color": [0, 255, 255]
-				},
+				// {
+				// 	"field": "iregFilteredDownstreamPressure",
+				// 	"name": "I-Reg Tank PT 1",
+				// 	"units": "PSI",
+				// 	"color": [0, 255, 255]
+				// },
 				{
 					"field": "iregPressureSetpoint",
 					"name": "Setpoint",
