@@ -213,7 +213,7 @@ class App {
     console.debug('setting up ipc channels')
     this.addIPC('connect-influx', (e, host, port, protocol, username, password) => this.influxDB.connect(host, port, protocol, username, password), false);
     this.addIPC('get-databases', this.influxDB.getDatabaseNames);
-    this.addIPC('set-database', (e, database) => this.influxDB.setDatabase(database));
+    this.addIPC('set-database', (e, database, recording) => this.influxDB.setDatabase(database, recording));
     this.addIPC('set-darkmode', (e, isDark) => this.sendDarkModeUpdate(isDark), false);
     this.addIPC('set-procedure-state', (e, procState) => this.influxDB.setProcedureStep(procState));
 
