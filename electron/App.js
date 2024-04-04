@@ -18,6 +18,7 @@ class App {
     this.lastValues = {};
     this.host = host;
     this.preprocessors = {};
+    this.heartbeatEnabled = false;
 
     this.updateState = this.updateState.bind(this);
     this.sendDarkModeUpdate = this.sendDarkModeUpdate.bind(this);
@@ -30,6 +31,7 @@ class App {
     this.sendZeroPacket = this.sendZeroPacket.bind(this);
     this.launch = this.launch.bind(this);
     this.abort = this.abort.bind(this);
+    this.setHeartbeatEnabled = this.setHeartbeatEnabled.bind(this);
   }
 
   /**
@@ -71,7 +73,7 @@ class App {
     }
 
     setInterval(() => {
-      let buf = App.generatePacket(249);
+      let buf = App.generatePacket(249, this.heartbeatEnabled, "asUInt8");
       this.port.broadcast(buf);
     }, 1000);
 
@@ -226,6 +228,7 @@ class App {
     this.addIPC('send-zero-packet', this.sendZeroPacket);
     this.addIPC('launch', this.launch);
     this.addIPC('abort', this.abort);
+    this.addIPC('set-heartbeat-enabled', this.setHeartbeatEnabled);
   }
 
   send(_, board, packet, ...vals) {
@@ -333,6 +336,10 @@ class App {
 
   abort() {
     this.abortWithReason(0);
+  }
+
+  setHeartbeatEnabled(_, enabled) {
+    this.heartbeatEnabled = enabled;
   }
 }
 

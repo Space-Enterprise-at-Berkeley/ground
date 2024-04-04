@@ -170,6 +170,10 @@ class Comms {
   async abortAll() {
     return await this.ipc.invoke('abort');
   }
+
+  async setHeartbeatEnabled(enabled) {
+    return await this.ipc.invoke('set-heartbeat-enabled', enabled);
+  }
 }
 
 export default new Comms(ipcRenderer);

@@ -91,6 +91,12 @@ export function buttonAction(action) {
       case "zero":
         comms.send(board, packet, args[0], "asUInt8");
         break;
+      case "enable-heartbeat":
+        comms.setHeartbeatEnabled(1);
+        break;
+      case "disable-heartbeat":
+        comms.setHeartbeatEnabled(0);
+        break;
       default:
         return;
     }

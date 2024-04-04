@@ -360,6 +360,20 @@
 					},
 					{
 						"type": null
+					},
+					{
+						"id": "heartbeatEnable",
+						"type": "valve",
+						"name": "Heatbeat Enable",
+						"field": "",
+						"actions": {
+							"enable": {
+								"type": "enable-heartbeat"
+							},
+							"disable": {
+								"type": "disable-heartbeat"
+							}
+						}
 					}//,
 					// {
 					// 	"id": "nitrousEmergencyVent",
