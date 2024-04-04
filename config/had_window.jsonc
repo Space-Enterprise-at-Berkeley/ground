@@ -1,0 +1,106 @@
+{
+    "name": "HAD",
+    "layout": "9-grid",
+    "slots": [
+        {
+            "type": "graph",
+            "values": [ {
+                "field": "tc1.tcValue0",
+                "name": "Thermocouple 0",
+                "units": "C",
+                "color": [255, 0, 0]
+            },
+            {
+                "field": "tc1.tcValue1",
+                "name": "Thermocouple 1",
+                "units": "C",
+                "color": [0, 255, 0]
+            }
+                
+            ]
+        },
+        {
+            "type": "graph",
+            "values": [ {
+                "field": "tc1.tcValue2",
+                "name": "Thermocouple 2",
+                "units": "C",
+                "color": [255, 0, 0]
+            },
+            {
+                "field": "tc1.tcValue3",
+                "name": "Thermocouple 3",
+                "units": "C",
+                "color": [0, 255, 0]
+            }
+                
+            ]
+        }, 
+        {
+            "type": "graph",
+            "values": [ {
+                "field": "tc1.tcValue4",
+                "name": "Thermocouple 4",
+                "units": "C",
+                "color": [255, 0, 0]
+            },
+            {
+                "field": "tc1.tcValue5",
+                "name": "Thermocouple 5",
+                "units": "C",
+                "color": [0, 255, 50]
+            }
+                
+            ]
+        },
+        {
+            "type": "graph",
+            "values": [ {
+                "field": "tc1.tcValue6",
+                "name": "Thermocouple 6",
+                "units": "C",
+                "color": [255, 0, 0]
+            },
+            {
+                "field": "tc1.tcValue7",
+                "name": "Thermocouple 7",
+                "units": "C",
+                "color": [0, 0, 255]
+            }
+                
+            ]
+        },
+        {
+            "type": "graph",
+            "values": [ {
+                "field": "lc1.lcValue1",
+                "name": "Load Cell 1",
+                "units": "lbs",
+                "color": [255, 0, 0]
+            },
+            {
+                "field": "lc1.lcValue2",
+                "name": "Load Cell 2",
+                "units": "lbs",
+                "color": [0, 255, 50]
+            }
+                
+            ]
+        },
+        {
+            "type": "graph",
+            "values": [ {
+                "field": "pt1.ptValue0",
+                "name": "PT 0",
+                "units": "PSI",
+                "color": [255, 0, 0]
+            }
+                
+            ]
+        },
+        {
+            "type": "logs"
+        }
+        
+    ]
+}
