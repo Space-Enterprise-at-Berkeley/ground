@@ -15,8 +15,8 @@
 	"tc1.tcValue3": "ipaInjectorTC",
 	"tc1.tcValue4": "ipaTankTC",
 	"tc1.tcValue5": "heaterTC",
-	// "tc1.tcValue6": "",
-	// "tc1.tcValue7": "",
+	"tc1.tcValue6": "engineTC0",
+	"tc1.tcValue7": "engineTC8",
 
 	// "tc1.tcRawVoltage0": "nosTankTCRawVoltage",
 	// "tc1.tcRawVoltage1": "ipaTankTCRawVoltage",
@@ -33,7 +33,7 @@
 	"tc2.tcSupply24Current": "tc2Supply24Current",
 	"tc2.tcSupply24Power": "tc2Supply24Power",
 
-	"tc2.tcValue0": "engineTC0",
+	// "tc2.tcValue0": "engineTC0",
 	"tc2.tcValue1": "engineTC1",
 	"tc2.tcValue2": "engineTC2",
 	"tc2.tcValue3": "engineTC3",
