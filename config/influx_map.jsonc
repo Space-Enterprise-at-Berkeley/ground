@@ -70,7 +70,7 @@
 	"pt2.ptSupply24Power": "pt2Supply24Power",
 
 	"pt2.ptValue0": "nosInjectorPT",
-	"pt2.ptValue1": "ipaInjectorPT",
+	// "pt2.ptValue1": "ipaInjectorPT",
 	// "pt2.ptValue2": "chamberPT",
 	// "pt2.ptValue3": "manifoldPT",
 	// "pt2.ptValue4": "channelPT0",
@@ -93,7 +93,7 @@
 	"pt3.ptSupply24Current": "pt3Supply24Current",
 	"pt3.ptSupply24Power": "pt3Supply24Power",
 
-	"pt3.ptValue0": "enginePT6",
+	"pt3.ptValue0": "ipaInjectorPT", //"enginePT6",
 	"pt3.ptValue1": "enginePT7",
 	"pt3.ptValue2": "enginePT8",
 	"pt3.ptValue3": "enginePT9",
