@@ -63,8 +63,9 @@
 					"units": "PSI/s"
 				},
 				{
-					"field": null 
-					
+					"field": "solenoidPanelPT",
+					"name": "Solenoids PT",
+					"units": "PSI"
 				},
 				{
 					"field": "nosTankPT", 
@@ -75,8 +76,12 @@
 					"field": "ipaTankPT", 
 					"name": "IPA Tank PT",
 					"units": "PSI"
+				},
+				{
+					"field": "mainValvePT",
+					"name": "Main Valve PT",
+					"units": "PSI"
 				}
-				
 			]
 		},
 		{
@@ -119,14 +124,14 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "enginePT0",
-					"name": "Eng PT0",
+					"field": "chamberPT",
+					"name": "Chamber",
 					"units": "PSI",
 					"color": [127, 0, 255]
 				},
 				{
-					"field": "enginePT1",
-					"name": "Eng PT1",
+					"field": "manifoldPT",
+					"name": "Manifold",
 					"units": "",
 					"color": [77, 73, 251]
 				},
@@ -153,36 +158,6 @@
 					"name": "Eng PT5",
 					"units": "",
 					"color": [128, 254, 206]
-				},
-				{
-					"field": "enginePT6",
-					"name": "Eng PT6",
-					"units": "",
-					"color": [178, 242, 150]
-				},
-				{
-					"field": "enginePT7",
-					"name": "Eng PT7",
-					"units": "",
-					"color": [230, 205, 115]
-				},
-				{
-					"field": "enginePT8",
-					"name": "Eng PT8",
-					"units": "",
-					"color": [255, 150, 79]
-				},
-				{
-					"field": "enginePT9",
-					"name": "Eng PT9",
-					"units": "",
-					"color": [255, 77, 39]
-				},
-				{
-					"field": "enginePT10",
-					"name": "Eng PT10",
-					"units": "",
-					"color": [255, 77, 39]
 				}
 			]
 		},
@@ -218,22 +193,34 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "manifoldPT",
-					"name": "Manifold",
-					"units": "PSI",
-					"color": [218, 165, 32]
+					"field": "enginePT6",
+					"name": "Eng PT6",
+					"units": "",
+					"color": [178, 242, 150]
 				},
 				{
-					"field": "mainValvePT",
-					"name": "Main Valve",
-					"units": "PSI",
-					"color": [30, 144, 255]
+					"field": "enginePT7",
+					"name": "Eng PT7",
+					"units": "",
+					"color": [230, 205, 115]
 				},
 				{
-					"field": "solenoidPanelPT",
-					"name": "Solenoids",
-					"units": "PSI",
-					"color": [178, 34, 34]
+					"field": "enginePT8",
+					"name": "Eng PT8",
+					"units": "",
+					"color": [255, 150, 79]
+				},
+				{
+					"field": "enginePT9",
+					"name": "Eng PT9",
+					"units": "",
+					"color": [255, 77, 39]
+				},
+				{
+					"field": "enginePT10",
+					"name": "Eng PT 10",
+					"units": "",
+					"color": [255, 77, 39]
 				}
 			]
 		}
