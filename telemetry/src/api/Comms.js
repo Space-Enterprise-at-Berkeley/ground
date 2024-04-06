@@ -133,8 +133,8 @@ class Comms {
     return await this.ipc.invoke('get-databases');
   }
 
-  async setDatabase(database) {
-    return await this.ipc.invoke('set-database', database);
+  async setDatabase(database, recording) {
+    return await this.ipc.invoke('set-database', database, recording);
   }
 
   async setDarkMode(isDark) {

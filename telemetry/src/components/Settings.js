@@ -38,14 +38,14 @@ class Settings extends Component {
       influxConnecting: false,
       influxDatabase: '',
       influxDatabaseList: [],
+      recordingName: "",
     };
 
     this.updateInfluxHost = this.updateInfluxHost.bind(this);
     this.updateInfluxPort = this.updateInfluxPort.bind(this);
     this.updateInfluxProtocol = this.updateInfluxProtocol.bind(this);
-    this.updateInfluxUsername = this.updateInfluxUsername.bind(this);
-    this.updateInfluxPassword = this.updateInfluxPassword.bind(this);
     this.updateInfluxDatabase = this.updateInfluxDatabase.bind(this);
+    this.updateRecordingName = this.updateRecordingName.bind(this);
 
     this.connectToInflux = this.connectToInflux.bind(this);
     this.setInfluxDatabase = this.setInfluxDatabase.bind(this);
@@ -54,9 +54,8 @@ class Settings extends Component {
   updateInfluxHost(e) { this.setState({ influxHost: e.target.value }); }
   updateInfluxPort(e) { this.setState({ influxPort: parseInt(e.target.value) }); }
   updateInfluxProtocol(e) { this.setState({ influxProtocol: e.target.value }); }
-  updateInfluxUsername(e) { this.setState({ influxUsername: e.target.value }); }
-  updateInfluxPassword(e) { this.setState({ influxPassword: e.target.value }); }
   updateInfluxDatabase(e) { this.setState({ influxDatabase: e.target.value }); }
+  updateRecordingName(e) { this.setState({ recordingName: e.target.value }); }
 
   async connectToInflux() {
     this.setState({ influxConnecting: true });
@@ -75,8 +74,8 @@ class Settings extends Component {
   }
 
   async setInfluxDatabase() {
-    const { influxDatabase } = this.state;
-    await Comms.setDatabase(influxDatabase);
+    const { influxDatabase, recordingName } = this.state;
+    await Comms.setDatabase(influxDatabase, recordingName);
     // Initialize Procedures. Done here since selecting databse is last step before data is recorded
     // TODO: Maybe move this somewhere else, or rename function
     await Comms.setProcedureState(0);
@@ -93,11 +92,10 @@ class Settings extends Component {
     const { influxHost,
             influxPort,
             influxProtocol,
-            influxUsername,
-            influxPassword,
             influxConnecting,
             influxDatabase,
-            influxDatabaseList } = this.state;
+            influxDatabaseList,
+            recordingName } = this.state;
     const influxConnected = influxDatabaseList.length > 0;
     return (
       <Dialog open={ open } onClose={ closeSettings }>
@@ -130,21 +128,6 @@ class Settings extends Component {
               </Select>
             </div>
             <div>
-              <TextField
-                label='influx username'
-                value={ influxUsername }
-                onChange={ this.updateInfluxUsername }
-                className={ classes.fields }
-              />
-              <TextField
-                label='influx password'
-                type='password'
-                value={ influxPassword }
-                onChange={ this.updateInfluxPassword }
-                className={ classes.fields }
-              />
-            </div>
-            <div>
               <Button onClick={ this.connectToInflux } color='primary' variant='contained' className={ influxConnected ? classes.connectedButton : classes.connectButton } disabled={ influxConnecting || influxConnected }>
                 { influxConnected ? 'Connected' : 'Connect to Influx' }
               </Button>
@@ -162,7 +145,13 @@ class Settings extends Component {
                   <MenuItem key={db} value={db}>{db}</MenuItem>
                 ))}
               </Select>
-              <Button onClick={ this.setInfluxDatabase } color='primary' variant='contained' disabled={ !influxConnected }>Select DB</Button>
+              <TextField
+                label='recording name'
+                value={ recordingName }
+                onChange={ this.updateRecordingName }
+                className={ classes.fields }
+              />
+              <Button onClick={ this.setInfluxDatabase } color='primary' variant='contained' disabled={ (!influxConnected || recordingName==="") }>Apply</Button>
             </div>
           </form>
         </DialogContent>
