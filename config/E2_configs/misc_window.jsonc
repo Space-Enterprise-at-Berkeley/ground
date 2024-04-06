@@ -79,13 +79,13 @@
 					"field": "ncapCap",
 					"name": "Nitrous Cap Fill Value",
 					"units": "pF",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "icapCap",
 					"name": "IPA Cap Fill Value",
 					"units": "pF",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				}
 			]
 		},
@@ -96,13 +96,13 @@
 					"field": "oreg.motorPower",
 					"name": "LOX Motor Power",
 					"units": "%",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 					"field": "freg.motorPower",
 					"name": "Fuel Motor Power",
 					"units": "%",
-					"color": [0, 255, 0]
+					"color": [30, 144, 255]
 				}
 			]
 		},
@@ -292,13 +292,13 @@
 					"field": "pt.ptValue1@rtd", //-0.676 * mean("value") + 2901.7
 					"name": "RTD LOx",
 					"units": "C",
-					"color": [255, 0, 0]
+					"color": [218, 165, 32]
 				},
 				{
 				 	"field": "pt.ptValue5@rtd",
 				 	"name": "RTD Fuel",
 				 	"units": "C",
-				 	"color": [0, 255, 0]
+				 	"color": [30, 144, 255]
 				}
 			]
 		}
