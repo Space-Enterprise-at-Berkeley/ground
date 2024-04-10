@@ -85,14 +85,14 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "chamberPT",
-					"name": "Chamber",
+					"field": "enginePT0",
+					"name": "Eng PT0",
 					"units": "PSI",
 					"color": [127, 0, 255]
 				},
 				{
-					"field": "manifoldPT",
-					"name": "Manifold",
+					"field": "enginePT1",
+					"name": "Eng PT1",
 					"units": "",
 					"color": [77, 73, 251]
 				},
