@@ -133,8 +133,10 @@ class InfluxDB {
     const timeElapsed = currentTime - this.lastTimeStamp;
     if (timeElapsed > 1000) {
       this.lastTimeStamp = currentTime
+      var oldBuffer = this.pointsBuffer;
+      this.pointsBuffer = [];
       try {
-        await this.influx.writePoints(this.pointsBuffer, {
+        await this.influx.writePoints(oldBuffer, {
           database: this.database,
           precision: "ms",
         });
