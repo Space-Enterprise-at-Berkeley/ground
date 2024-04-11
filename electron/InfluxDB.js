@@ -134,11 +134,12 @@ class InfluxDB {
     if (timeElapsed > 1000) {
       this.lastTimeStamp = currentTime
       try {
-        await this.influx.writePoints(this.pointsBuffer, {
+        let pbuf = [...this.pointsBuffer];
+        this.pointsBuffer = [];
+        await this.influx.writePoints(pbuf, {
           database: this.database,
           precision: "ms",
         });
-        this.pointsBuffer = [];
         return true;
       } catch (e) {
         console.log("error writing to influx", e);
