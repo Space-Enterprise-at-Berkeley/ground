@@ -20,8 +20,6 @@ class InfluxDB {
       procedureStep: null,
     };
     this.pointsBuffer = [];
-    this.pointsBuffer2 = [];
-    this._usePB2 = false;
     this.sysLogBuffer = [];
 
     this.connect = this.connect.bind(this);
@@ -54,10 +52,7 @@ class InfluxDB {
     return await this.influx.getDatabaseNames();
   }
 
-  setDatabase(database, recording) {
-    if(recording !== "") {
-      this.setRecording(recording);
-    }
+  setDatabase(database) {
     this.lastState = 1;
     this.app.updateState(Date.now(), {"influxState": 1, "influxDatabase": database}, false);
     this.database = database;
@@ -126,21 +121,12 @@ class InfluxDB {
     for (let k of Object.keys(update)) {
       if (isNaN(update[k])) continue;
       if (!isFinite(update[k])) continue;
-      if(this._usePB2) {
-        this.pointsBuffer2.push({
-          measurement: k,
-          tags: this.tags,
-          fields: { value: update[k].message ? update[k].message : update[k] },
-          timestamp: timestamp,
-        });
-      } else {
-        this.pointsBuffer.push({
-          measurement: k,
-          tags: this.tags,
-          fields: { value: update[k].message ? update[k].message : update[k] },
-          timestamp: timestamp,
-        });
-      }
+      this.pointsBuffer.push({
+        measurement: k,
+        tags: this.tags,
+        fields: { value: update[k].message ? update[k].message : update[k] },
+        timestamp: timestamp,
+      });
     }
 
     const currentTime = Date.now()
@@ -148,20 +134,11 @@ class InfluxDB {
     if (timeElapsed > 1000) {
       this.lastTimeStamp = currentTime
       try {
-        this._usePB2 = !this._usePB2;
-        if(this._usePB2) {
-          await this.influx.writePoints(this.pointsBuffer, {
-            database: this.database,
-            precision: "ms",
-          });
-          this.pointsBuffer = [];
-        } else {
-          await this.influx.writePoints(this.pointsBuffer2, {
-            database: this.database,
-            precision: "ms",
-          });
-          this.pointsBuffer2 = [];
-        }
+        await this.influx.writePoints(this.pointsBuffer, {
+          database: this.database,
+          precision: "ms",
+        });
+        this.pointsBuffer = [];
         return true;
       } catch (e) {
         console.log("error writing to influx", e);
