@@ -140,7 +140,6 @@ class InfluxDB {
           database: this.database,
           precision: "ms",
         });
-        this.pointsBuffer = [];
         return true;
       } catch (e) {
         console.log("error writing to influx", e);
