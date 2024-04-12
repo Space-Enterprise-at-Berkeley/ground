@@ -242,24 +242,6 @@
 		{
 			"type": "graph",
 			"values": [
-				// {
-				// 	"field": "ipaTankPT",
-				// 	"name": "IPA Tank",
-				// 	"units": "PSI",
-				// 	"color": [218, 165, 32]
-				// },
-				// {
-				// 	"field": "ipaPressPT",
-				// 	"name": "Press",
-				// 	"units": "PSI",
-				// 	"color": [30, 144, 255]
-				// },
-				// {
-				// 	"field": "ipaAutoventPressure",
-				// 	"name": "AV",
-				// 	"units": "PSI",
-				// 	"color": [178, 34, 34]
-				// }
 				{
 					"field": "engineTC4",
 					"name": "Eng TC4",
@@ -268,21 +250,27 @@
 				},
 				{
 					"field": "engineTC5",
-					"name": "Eng TC5",
+					"name": "TC5",
 					"units": "",
 					"color": [255, 185, 0]
 				},
 				{
 					"field": "engineTC6",
-					"name": "Eng TC6",
+					"name": "TC6",
 					"units": "",
 					"color": [255, 48, 0]
 				},
 				{
 					"field": "engineTC7",
-					"name": "Eng TC7",
+					"name": "TC7",
 					"units": "",
 					"color": [255, 0, 0]
+				},
+				{
+					"field": "engineTC8",
+					"name": "TC8",
+					"units": "",
+					"color": [255, 0, 255]
 				}
 			]
 		},

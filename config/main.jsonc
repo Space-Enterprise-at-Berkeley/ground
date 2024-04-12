@@ -26,8 +26,8 @@
 		"actuators_status": "$actuators_status_window.jsonc"
 	},
 	"preprocessors": "$preprocessors.jsonc",
-	"burnTime": 8000, //45000, // ms
+	"burnTime": 30000, //45000, // ms
 	// TODO: coldflow modes with ereg pressurization
-	"mode": 2, // 0 = launch, 1 = hotfire, 2 = coldflow, 3 = coldflow with igniter, 4 = gasflow, 5 = waterflow
+	"mode": 1, // 0 = launch, 1 = hotfire, 2 = coldflow, 3 = coldflow with igniter, 4 = gasflow, 5 = waterflow
 	"controller": "ac1"
 }
