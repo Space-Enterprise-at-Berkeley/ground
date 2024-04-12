@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, TouchBar } = require('electron');
+const { app, BrowserWindow, ipcMain, TouchBar, powerSaveBlocker } = require('electron');
 const { TouchBarLabel, TouchBarButton, TouchBarSpacer, TouchBarPopover, TouchBarSegmentedControl, TouchBarScrubber } = TouchBar
 const isDev = require('electron-is-dev');
 const path = require('path');
@@ -12,6 +12,7 @@ const windowsList = process.argv.length <= 4 ? Object.keys(config.windows) : pro
 
 let backendApp = new App(config, port);
 let selector, window1, window2;
+powerSaveBlocker.start("prevent-app-suspension");
 function createWindow () {
 
   // TouchBar Start
@@ -27,7 +28,8 @@ function createWindow () {
         preload: path.join(__dirname, 'preload.js'),
         devTools: isDev,
         nodeIntegration: true,
-        contextIsolation: false
+        contextIsolation: false,
+        backgroundThrottling: false
       },
       icon: __dirname + '/Icons/Icons.icns'
     });
