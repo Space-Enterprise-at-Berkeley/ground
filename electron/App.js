@@ -323,9 +323,8 @@ class App {
     }
 
     //launch packet should have 4 fields total: mode, burn time, nitrous enabled, IPA enabled
-    // let buf = App.generatePacket(149, this.config.mode, "asUInt8", this.config.burnTime, "asUInt32");
-    let buf = App.generatePacket(149, this.config.mode, "asUInt8", this.config.burnTime, "asUInt32", nitrousFlowEnabled, "asUInt8", ipaFlowEnabled, "asUInt8");
-    this.port.send(this.boards[this.config.controller].address, buf);
+    let buf = App.generatePacket(150, this.config.mode, "asUInt8", this.config.burnTime, "asUInt32", nitrousFlowEnabled, "asUInt8", ipaFlowEnabled, "asUInt8");
+    this.port.broadcast(buf);
   }
 
   abortWithReason(reason) {

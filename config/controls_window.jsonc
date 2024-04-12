@@ -415,7 +415,7 @@
 					{
 						"id": "igniter",
 						"type": "valve",
-						"name": "Igniter Enable",
+						"name": "Igniter",
 						"field": "igniterState",
 						"actions": {
 							"enable": {
