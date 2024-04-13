@@ -62,8 +62,9 @@
 					"units": "PSI/s"
 				},
 				{
-					"field": null 
-					
+					"field": "nosGemsDutyCycle", 
+					"name": "NOS Duty Cycle",
+					"units": ""
 				},
 				{
 					"field": "nosTankPT", 
@@ -74,6 +75,11 @@
 					"field": "ipaTankPT", 
 					"name": "IPA Tank PT",
 					"units": "PSI"
+				},
+				{
+					"field": "ipaGemsDutyCycle",
+					"name": "IPA Duty Cycle",
+					"units": ""
 				}
 			]
 		},
@@ -171,13 +177,13 @@
 				{
 					"field": "nosTankLC0",
 					"name": "NOS LC",
-					"units": "lbs",
+					"units": "kg",
 					"color": [218, 165, 32]
 				},
 				{
 					"field": "ipaTankLC0",
 					"name": "IPA LC",
-					"units": "lbs",
+					"units": "kg",
 					"color": [30, 144, 255]
 				}
 			]

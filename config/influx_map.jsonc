@@ -225,6 +225,8 @@
 	"ac2.autoventPressure": "nosAutoventPressure",
 	"ac2.automationState": "nosAutomationState",
 
+	"ac2.gemsDutyCycle": "nosGemsDutyCycle",
+
 	// AC Board 3
 
 	"ac3.boardConnected": "ac3Connected",
@@ -271,6 +273,8 @@
 	// "ac3.potentiometer7": "",
 
 	"ac3.autoventPressure": "ipaAutoventPressure",
+
+	"ac3.gemsDutyCycle": "ipaGemsDutyCycle",
 
 	// IPA E-Reg
 

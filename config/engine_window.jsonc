@@ -47,19 +47,19 @@
 				{
 					"field": "engineLC2",
 					"name": "Eng LC1",
-					"units": "lb",
+					"units": "kg",
 					"color": [0, 255, 255]
 				},
 				{
 					"field": "engineLC1",
 					"name": "Eng LC2",
-					"units": "lb",
+					"units": "kg",
 					"color": [30, 144, 255]
 				},
 				{
 					"field": "engineLC3",
 					"name": "Eng LC3",
-					"units": "lb",
+					"units": "kg",
 					"color": [178, 34, 34]
 				}
 			]
