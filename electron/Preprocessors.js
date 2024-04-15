@@ -4,6 +4,12 @@ function getPreprocessor(func, args) {
       return (v) => v * args[0] + args[1];
     case "roc":
       let roc = function(v, ts) {
+        roc.downsample_ctr ++;
+        if (roc.downsample_ctr < roc.downsample_factor) {
+          return roc.downsample_roc;
+        }
+        roc.downsample_ctr = 0;
+
         let diff = v - roc.last;
         let timeDiff = ts - roc.lastTime;
         roc.last = v;
@@ -19,7 +25,7 @@ function getPreprocessor(func, args) {
           roc.state[i][1] = (b2 * roc.rateofchange) - (a2 * y);
           roc.rateofchange = y;
         }
-
+        roc.downsample_roc = roc.rateofchange;
         return roc.rateofchange;
         // roc.history.push(diff);
         // roc.times.push(timeDiff);
@@ -35,6 +41,11 @@ function getPreprocessor(func, args) {
 
         // return sum / roc.history.length;
       }
+
+      roc.downsample_factor = 20;
+      roc.downsample_ctr = 0;
+      roc.downsample_roc = 0;
+
       roc.last = 0;
       roc.lastTime = 0;
       roc.history = [];
@@ -48,10 +59,13 @@ function getPreprocessor(func, args) {
       ];
 
       roc.filterTaps = [
-        [3.12389769e-5, 6.24779538e-5,  3.12389769e-5,  1.0, -1.72593340, 7.47447372e-1],
-        [1.0,  2.0,  1.0,  1.0, -1.86380049,  8.87033000e-1]
-      ]; //2x SOS sections, cutoff 5Hz @ 200Hz sample rate
-      
+
+        [ 3.12389769e-05,  6.24779538e-05,  3.12389769e-05,
+          1.00000000e+00, -1.72593340e+00,  7.47447372e-01],
+        [ 1.00000000e+00,  2.00000000e+00,  1.00000000e+00,
+          1.00000000e+00, -1.86380049e+00,  8.87033000e-01]
+
+      ];
 
       return roc;
   }

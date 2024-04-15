@@ -85,8 +85,8 @@
 			"type": "graph",
 			"values": [
 				{
-					"field": "chamberPT",
-					"name": "Chamber",
+					"field": "chamberPT0",
+					"name": "ChamberPT0",
 					"units": "PSI",
 					"color": [127, 0, 255]
 				},
@@ -113,13 +113,13 @@
 					"name": "Eng PT4",
 					"units": "",
 					"color": [76, 242, 206]
-				},
-				{
-					"field": "enginePT5",
-					"name": "Eng PT5",
-					"units": "",
-					"color": [128, 254, 206]
 				}
+				// {
+				// 	"field": "chamberPT1",
+				// 	"name": "Eng PT5",
+				// 	"units": "",
+				// 	"color": [128, 254, 206]
+				// }
 			]
 		},
 		{
@@ -190,46 +190,34 @@
 			"type": "graph",
 			"values": [
 				// {
-				// 	"field": "nosTankPT",
-				// 	"name": "NOS Tank",
-				// 	"units": "PSI",
-				// 	"color": [218, 165, 32]
+				// 	"field": "enginePT6",
+				// 	"name": "Eng PT6",
+				// 	"units": "",
+				// 	"color": [178, 242, 150]
 				// },
-				// {
-				// 	"field": "nosFillPT",
-				// 	"name": "Fill",
-				// 	"units": "PSI",
-				// 	"color": [30, 144, 255]
-				// },
-				// {
-				// 	"field": "nosAutoventPressure",
-				// 	"name": "AV",
-				// 	"units": "PSI",
-				// 	"color": [178, 34, 34]
-				// }
 				{
-					"field": "enginePT6",
-					"name": "Eng PT6",
+					"field": "chamberPT1",
+					"name": "ChamberPT1",
 					"units": "",
-					"color": [178, 242, 150]
+					"color": [128, 254, 206]
 				},
 				{
 					"field": "enginePT7",
 					"name": "Eng PT7",
 					"units": "",
-					"color": [230, 205, 115]
+					"color": [178, 242, 150]
 				},
 				{
 					"field": "enginePT8",
 					"name": "Eng PT8",
 					"units": "",
-					"color": [255, 150, 79]
+					"color": [230, 205, 115]
 				},
 				{
 					"field": "enginePT9",
 					"name": "Eng PT9",
 					"units": "",
-					"color": [255, 77, 39]
+					"color": [255, 150, 79] 
 				},
 				{
 					"field": "enginePT10",
@@ -258,13 +246,13 @@
 					"field": "engineTC6",
 					"name": "TC6",
 					"units": "",
-					"color": [255, 48, 0]
+					"color": [255, 150, 79]
 				},
 				{
 					"field": "engineTC7",
 					"name": "TC7",
 					"units": "",
-					"color": [255, 0, 0]
+					"color": [255, 48, 0]
 				},
 				{
 					"field": "engineTC8",

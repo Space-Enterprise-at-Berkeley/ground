@@ -8,7 +8,7 @@
 	"tc1.tcSupply24Current": "tc12Supply24Current",
 	"tc1.tcSupply24Power": "tc1Supply24Power",
 
-	// "tc1.tcValue0": "nosTankTC",
+	// "tc1.tcValue0": "BROKEN CHANNEL",
 	// "tc1.tcValue1": "ipaTankTC",
 	"tc1.tcValue1": "nosTankTC",
 	"tc1.tcValue2": "nosInjectorTC",
@@ -18,7 +18,7 @@
 	"tc1.tcValue6": "engineTC0",
 	"tc1.tcValue7": "engineTC8",
 
-	// "tc1.tcRawVoltage0": "nosTankTCRawVoltage",
+	// "tc1.tcRawVoltage0": "BROKEN CHANNEL",
 	// "tc1.tcRawVoltage1": "ipaTankTCRawVoltage",
 	"tc1.tcRawVoltage1": "nosTankTCRawVoltage",
 	"tc1.tcRawVoltage2": "nosInjectorTCRawVoltage",
@@ -33,7 +33,7 @@
 	"tc2.tcSupply24Current": "tc2Supply24Current",
 	"tc2.tcSupply24Power": "tc2Supply24Power",
 
-	// "tc2.tcValue0": "engineTC0",
+	// "tc2.tcValue0": "BROKEN CHANNEL",
 	"tc2.tcValue1": "engineTC1",
 	"tc2.tcValue2": "engineTC2",
 	"tc2.tcValue3": "engineTC3",
@@ -70,19 +70,19 @@
 	"pt2.ptSupply24Power": "pt2Supply24Power",
 
 	"pt2.ptValue0": "nosInjectorPT",
-	// "pt2.ptValue1": "ipaInjectorPT",
-	// "pt2.ptValue2": "chamberPT",
+	// "pt2.ptValue1": BROKEN CHANNEL
+	// "pt2.ptValue2": "chamberPT0",
 	// "pt2.ptValue3": "manifoldPT",
 	// "pt2.ptValue4": "channelPT0",
 	// "pt2.ptValue5": "channelPT1",
 	// "pt2.ptValue6": "channelPT2",
 	// "pt2.ptValue7": "channelPT3",
-	"pt2.ptValue2": "chamberPT",
+	"pt2.ptValue2": "chamberPT0",
 	"pt2.ptValue3": "manifoldPT",
 	"pt2.ptValue4": "enginePT2",
 	"pt2.ptValue5": "enginePT3",
 	"pt2.ptValue6": "enginePT4",
-	"pt2.ptValue7": "enginePT5",
+	"pt2.ptValue7": "chamberPT1", //"enginePT5",
 
 	// PT Board 3
 
@@ -98,9 +98,9 @@
 	"pt3.ptValue2": "enginePT8",
 	"pt3.ptValue3": "enginePT9",
 	"pt3.ptValue4": "enginePT10",
-	// "pt3.ptValue5": "manifoldPT1",
+	// "pt3.ptValue5": "ipaInjectorPT",
 	// "pt3.ptValue6": "enginePT4",
-	// "pt3.ptValue7": "enginePT5",
+	// "pt3.ptValue7": "chamberPT1",
 
 	
 
@@ -188,7 +188,7 @@
 
 	"ac2.actuatorState0": "nosGemsState",
 	// "ac2.actuatorState1": "nosFillState",
-	// "ac2.actuatorState2": "nosSlowVentState",
+	// "ac2.actuatorState2": BROKEN CHANNEL,
 	"ac2.actuatorState3": "nosLineVentState",
 	"ac2.actuatorState4": "nosEmergencyVentState",
 	"ac2.actuatorState5": "nosDrainState",
@@ -197,7 +197,7 @@
 
 	"ac2.actuatorContinuity0": "nosGemsContinuity",
 	// "ac2.actuatorContinuity1": "nosFillContinuity",
-	// "ac2.actuatorContinuity2": "nosSlowVentContinuity",
+	// "ac2.actuatorContinuity2": BROKEN CHANNEL,
 	"ac2.actuatorContinuity3": "nosLineVentContinuity",
 	"ac2.actuatorContinuity4": "nosEmergencyVentContinuity",
 	"ac2.actuatorContinuity5": "nosDrainContinuity",
@@ -206,7 +206,7 @@
 
 	"ac2.actuatorCurrent0": "nosGemsCurrent",
 	// "ac2.actuatorCurrent1": "nosFillCurrent",
-	// "ac2.actuatorCurrent2": "nosSlowVentCurrent",
+	// "ac2.actuatorCurrent2": BROKEN CHANNEL,
 	"ac2.actuatorCurrent3": "nosLineVentCurrent",
 	"ac2.actuatorCurrent4": "nosEmergencyVentCurrent",
 	"ac2.actuatorCurrent5": "nosDrainCurrent",
