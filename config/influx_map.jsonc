@@ -52,12 +52,12 @@
 	"pt1.ptSupply24Power": "pt1Supply24Power",
 
 	"pt1.ptValue0": "nosTankPT",
-	"pt1.ptValue1": "nosFillPT",
+	// "pt1.ptValue1": "nosFillPT",
 	"pt1.ptValue2": "mainValvePT",
 	"pt1.ptValue3": "solenoidPanelPT",
 	"pt1.ptValue4": "ipaTankPT",
-	// "pt1.ptValue5": "ipaPressPT",
-	// "pt1.ptValue6": "enginePT6",
+	// "pt1.ptValue5": "nosFillPT",
+	"pt1.ptValue6": "nosFillPT",
 	// "pt1.ptValue7": "enginePT7",
 
 	// PT Board 2
