@@ -86,7 +86,7 @@ class Graph extends Component {
     const now = Date.now() - anchor;
     const cutoff = now - this.window;
     let minValue = Number.MAX_VALUE;
-    let maxValue = Number.MIN_VALUE;
+    let maxValue = -Number.MAX_VALUE;
 
     for(let f = 0; f < this.numFields; f++) {
       const vArray = this.values[f];

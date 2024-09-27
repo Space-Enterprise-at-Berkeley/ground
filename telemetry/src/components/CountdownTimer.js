@@ -42,20 +42,20 @@ const styles = theme => ({
 });
 
 const steps = [
-  {label: 'Close RBVs', time: -7.215},
-  {label: 'Igniter On', time: -3.215},
-  {label: 'Arm Valves', time: -2.215},
-  {label: 'Open LOX', time: -0.215},
+  {label: 'Close RBVs', time: -6.665},
+  {label: 'Igniter On', time: -2.665},
+  {label: 'Arm Valves', time: -0.665},
+  {label: 'Open LOX', time: -0.165},
   {label: 'Open Fuel', time: 0.0},
-  {label: 'Close LOX', time: 5.0},
-  {label: 'Close Fuel', time: 5.2},
+  {label: 'Close LOX', time: 3.0},
+  {label: 'Close Fuel', time: 3.1},
 ];
 
 class CountdownTimer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      timeRemaining: -10.0,
+      timeRemaining: -6.7,
       activeStep: -1
     };
 
@@ -65,7 +65,7 @@ class CountdownTimer extends Component {
 
   startCountdown() {
     clearInterval(this.countdownInterval);
-    this.setState({timeRemaining: -10.0, activeStep: -1});
+    this.setState({timeRemaining: -6.7, activeStep: -1});
     this.countdownInterval = setInterval(() => {
       const { timeRemaining, activeStep } = this.state;
       const newTimeRemaining = timeRemaining + 0.1;
@@ -82,7 +82,7 @@ class CountdownTimer extends Component {
 
   stopCountdown() {
     clearInterval(this.countdownInterval);
-    this.setState({timeRemaining: -10.0, activeStep: -1});
+    this.setState({timeRemaining: -6.7, activeStep: -1});
   }
 
   componentDidMount() {
@@ -99,7 +99,7 @@ class CountdownTimer extends Component {
     const { timeRemaining, activeStep } = this.state;
 
     let countdownClass = classes.timerBlack;
-    if(timeRemaining > -10.0) {
+    if(timeRemaining > -6.7) {
       if(timeRemaining < 0) {
         countdownClass = classes.timerRed;
       } else {

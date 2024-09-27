@@ -70,15 +70,14 @@ class ButtonGroupHeater extends Component {
   }
 
   setDutyOn() {
-    const { sendDuty } = this.props;
-    sendDuty(255);
+    const { activate } = this.props;
+    activate();
     this.setState({duty: 255});
   }
 
   setDutyOff() {
-    const { duty } = this.state;
-    const { sendDuty } = this.props;
-    sendDuty(0);
+    const { deactivate } = this.props;
+    deactivate();
     this.setState({duty: 0});
   }
 

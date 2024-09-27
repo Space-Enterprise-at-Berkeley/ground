@@ -97,31 +97,31 @@ class Aux1 extends Component {
                 <SixValueSquare
                   field1={{
                     name: 'FC',
-                    field: 'flightVoltage',
+                    field: 'flightBattVoltage',
                     unit: 'V',
                     decimals: 1
                   }}
                   field2={{
                     name: 'AC 1',
-                    field: 'ac1Voltage',
+                    field: '_',
                     unit: 'V',
                     decimals: 1
                   }}
                   field3={{
                     name: 'AC 2',
-                    field: 'ac2Voltage',
+                    field: '_',
                     unit: 'V',
                     decimals: 1
                   }}
                   field4={{
                     name: 'DAQ 1',
-                    field: 'daq1Voltage',
+                    field: 'daq1BattVoltage',
                     unit: 'V',
                     decimals: 1
                   }}
                   field5={{
                     name: 'DAQ 2',
-                    field: 'daq2Voltage',
+                    field: 'daq2BattVoltage',
                     unit: 'V',
                     decimals: 1
                   }}
@@ -173,19 +173,19 @@ class Aux1 extends Component {
                 <SixValueSquare
                   field1={{
                     name: 'FC',
-                    field: 'flightCurrent',
+                    field: 'flightBattCurrent',
                     unit: 'A',
                     decimals: 1
                   }}
                   field2={{
                     name: 'AC 1',
-                    field: 'ac1CurrentDraw',
+                    field: '_',
                     unit: 'A',
                     decimals: 1
                   }}
                   field3={{
                     name: 'AC 2',
-                    field: 'ac2CurrentDraw',
+                    field: '_',
                     unit: 'A',
                     decimals: 1
                   }}

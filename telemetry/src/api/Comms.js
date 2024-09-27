@@ -28,12 +28,27 @@ class Comms {
     this.getDaq1Connected = this.getDaq1Connected.bind(this);
     this.getDaq2Connected = this.getDaq2Connected.bind(this);
     this.getDaq3Connected = this.getDaq3Connected.bind(this);
+    this.getDaq4Connected = this.getDaq4Connected.bind(this);
     this.getActCtrlr1Connected = this.getActCtrlr1Connected.bind(this);
     this.getActCtrlr2Connected = this.getActCtrlr2Connected.bind(this);
-    this.getActCtrlr3Connected = this.getActCtrlr3Connected.bind(this);
+
+    this.openloxGemsValve = this.openloxGemsValve.bind(this);
+    this.closeloxGemsValve = this.closeloxGemsValve.bind(this);
+
+    this.openfuelGemsValve = this.openfuelGemsValve.bind(this);
+    this.closefuelGemsValve = this.closefuelGemsValve.bind(this);
+
+    this.startToggleLoxGemsValve = this.startToggleLoxGemsValve.bind(this);
+    this.stopToggleLoxGemsValve = this.stopToggleLoxGemsValve.bind(this);
+
+    this.startToggleFuelGemsValve = this.startToggleFuelGemsValve.bind(this);
+    this.stopToggleFuelGemsValve = this.stopToggleFuelGemsValve.bind(this);
 
     this.openarmValve = this.openarmValve.bind(this);
     this.closearmValve = this.closearmValve.bind(this);
+
+    this.activateIgniter = this.activateIgniter.bind(this);
+    this.deactivateIgniter = this.deactivateIgniter.bind(this);
 
     this.openloxMainValve = this.openloxMainValve.bind(this);
     this.closeloxMainValve = this.closeloxMainValve.bind(this);
@@ -41,50 +56,29 @@ class Comms {
     this.openfuelMainValve = this.openfuelMainValve.bind(this);
     this.closefuelMainValve = this.closefuelMainValve.bind(this);
 
-    // this.openLoxGems = this.openLoxGems.bind(this);
-    // this.closeLoxGems = this.closeLoxGems.bind(this);
+    this.activateLoxTankBottomHtr = this.activateLoxTankBottomHtr.bind(this);
+    this.deactivateLoxTankBottomHtr = this.deactivateLoxTankBottomHtr.bind(this);
 
-    // this.openPropGems = this.openPropGems.bind(this);
-    // this.closePropGems = this.closePropGems.bind(this);
+    this.activateLoxTankMidHtr = this.activateLoxTankMidHtr.bind(this);
+    this.deactivateLoxTankMidHtr = this.deactivateLoxTankMidHtr.bind(this);
 
-    this.enableHPS = this.enableHPS.bind(this);
-    this.disableHPS = this.disableHPS.bind(this);
-    this.openHPS = this.openHPS.bind(this);
-    this.closeHPS = this.closeHPS.bind(this);
+    this.activateLoxTankTopHtr = this.activateLoxTankTopHtr.bind(this);
+    this.deactivateLoxTankTopHtr = this.deactivateLoxTankTopHtr.bind(this);
 
-    this.enableThermocoupleRead = this.enableThermocoupleRead.bind(this)
-    this.disableThermocoupleRead = this.disableThermocoupleRead.bind(this)
-
-    this.activateIgniter = this.activateIgniter.bind(this);
-    this.deactivateIgniter = this.deactivateIgniter.bind(this);
-
-    this.beginFlowAll = this.beginFlowAll.bind(this);
     this.beginFlow = this.beginFlow.bind(this);
-    this.endFlow = this.endFlow.bind(this);
     this.abort = this.abort.bind(this);
-    this.hold = this.hold.bind(this);
 
+    this.enableFastRead = this.enableFastRead.bind(this);
+    this.disableFastRead = this.disableFastRead.bind(this);
 
-    this.setloxTankPTHeater = this.setloxTankPTHeater.bind(this);
-    // this.setLoxGemsHeater = this.setLoxGemsHeater.bind(this);
-    this.setloxInjectorPTHeater = this.setloxInjectorPTHeater.bind(this);
-
-    this.setfuelTankPTHeater = this.setfuelTankPTHeater.bind(this);
-    // this.setPropGemsHeater = this.setPropGemsHeater.bind(this);
-    this.setfuelInjectorPTHeater = this.setfuelInjectorPTHeater.bind(this);
-
-    this.startCheckout = this.startCheckout.bind(this);
-    this.endCheckout = this.endCheckout.bind(this);
+    this.enableIgniter = this.enableIgniter.bind(this);
+    this.disableIgniter = this.disableIgniter.bind(this);
 
     //---------------DAQ 1---------------
 
     //---------------DAQ 2---------------
 
     //-------Actuator Controller 1-------
-
-    this.setfuelTankTopHeater = this.setfuelTankTopHeater.bind(this);
-
-    this.setfuelTankMidHeater = this.setfuelTankMidHeater.bind(this);
 
     this.openPressurantFlowRBV = this.openPressurantFlowRBV.bind(this);
     this.closePressurantFlowRBV = this.closePressurantFlowRBV.bind(this);
@@ -112,10 +106,6 @@ class Comms {
 
     //-------Actuator Controller 2-------
 
-    this.setfuelTankBottomHeater = this.setfuelTankBottomHeater.bind(this);
-
-    this.setloxTankTopHeater = this.setloxTankTopHeater.bind(this);
-
     // this.openLOxRQD = this.openLOxRQD.bind(this);
     // this.closeLOxRQD = this.closeLOxRQD.bind(this);
     // this.timeLOxRQD = this.timeLOxRQD.bind(this);
@@ -138,10 +128,6 @@ class Comms {
 
     //-------Actuator Controller 3-------
 
-    this.setloxTankMidHeater = this.setloxTankMidHeater.bind(this);
-
-    this.setloxTankBottomHeater = this.setloxTankBottomHeater.bind(this);
-
     this.openloxPrechillRBV = this.openloxPrechillRBV.bind(this);
     this.closeloxPrechillRBV = this.closeloxPrechillRBV.bind(this);
     this.timeloxPrechillRBV = this.timeloxPrechillRBV.bind(this);
@@ -161,10 +147,6 @@ class Comms {
     this.openPurgeFlowRBV = this.openPurgeFlowRBV.bind(this);
     this.closePurgeFlowRBV = this.closePurgeFlowRBV.bind(this);
     this.timePurgeFlowRBV = this.timePurgeFlowRBV.bind(this);
-
-    // this.extendIgniterInserter = this.extendIgniterInserter.bind(this);
-    // this.retractIgniterInserter = this.retractIgniterInserter.bind(this);
-    // this.timeIgniterInserter = this.timeIgniterInserter.bind(this);
 
   }
 
@@ -295,6 +277,10 @@ class Comms {
     return await this.ipc.invoke('daq3-connected');
   }
 
+  async getDaq4Connected() {
+    return await this.ipc.invoke('daq4-connected');
+  }
+
   async getActCtrlr1Connected() {
     return await this.ipc.invoke('actctrlr1-connected');
   }
@@ -303,8 +289,36 @@ class Comms {
     return await this.ipc.invoke('actctrlr2-connected');
   }
 
-  async getActCtrlr3Connected() {
-    return await this.ipc.invoke('actctrlr3-connected');
+  async openloxGemsValve() {
+    return await this.ipc.invoke('open-loxGemsValve');
+  }
+
+  async closeloxGemsValve() {
+    return await this.ipc.invoke('close-loxGemsValve');
+  }
+
+  async openfuelGemsValve() {
+    return await this.ipc.invoke('open-fuelGemsValve');
+  }
+
+  async closefuelGemsValve() {
+    return await this.ipc.invoke('close-fuelGemsValve');
+  }
+
+  async startToggleLoxGemsValve() {
+    return await this.ipc.invoke('start-toggleLoxGemsValve');
+  }
+
+  async stopToggleLoxGemsValve() {
+    return await this.ipc.invoke('stop-toggleLoxGemsValve');
+  }
+
+  async startToggleFuelGemsValve() {
+    return await this.ipc.invoke('start-toggleFuelGemsValve');
+  }
+
+  async stopToggleFuelGemsValve() {
+    return await this.ipc.invoke('stop-toggleFuelGemsValve');
   }
 
   async openarmValve() {
@@ -331,100 +345,46 @@ class Comms {
     return await this.ipc.invoke('close-fuelMainValve');
   }
 
-  // async openLoxGems() { return await this.ipc.invoke('open-loxGems'); }
-  // async closeLoxGems() { return await this.ipc.invoke('close-loxGems'); }
-
-  // async openPropGems() { return await this.ipc.invoke('open-propGems'); }
-  // async closePropGems() { return await this.ipc.invoke('close-propGems'); }
-
-  async enableHPS() {
-    return await this.ipc.invoke('enable-HPS');
-  }
-
-  async disableHPS() {
-    return await this.ipc.invoke('disable-HPS');
-  }
-
-  async openHPS() {
-    return await this.ipc.invoke('open-HPS');
-  }
-
-  async closeHPS() {
-    return await this.ipc.invoke('close-HPS');
-  }
-
   async activateIgniter() {
-    return await this.ipc.invoke('activate-Igniter');
+    return await this.ipc.invoke('activate-igniter');
   }
 
   async deactivateIgniter() {
-    return await this.ipc.invoke('deactivate-Igniter');
-  }
-
-  async disableThermocoupleRead() {
-    return await this.ipc.invoke('disable-thermocoupleReading');
-  }
-
-  async enableThermocoupleRead() {
-    return await this.ipc.invoke('enable-thermocoupleReading');
-  }
-
-  async beginFlowAll() {
-    window.setTimeout(async () => {
-      await this.closeloxPrechillRBV();
-      await this.closefuelPrechillRBV();
-      await this.closePrechillFlowRBV();
-      await this.closePurgeFlowRBV();
-      await this.closeloxTankVentRBV();
-      await this.closefuelTankVentRBV();
-      window.setTimeout(() => {
-        return this.beginFlow();
-      }, 3000);
-    }, 2875);
+    return await this.ipc.invoke('deactivate-igniter');
   }
 
   async beginFlow() {
-    return await this.ipc.invoke('begin-flow');
-  }
-
-  async endFlow() {
-    return await this.ipc.invoke('end-flow');
+    return await this.ipc.invoke('beginFlow');
   }
 
   async abort() {
     return await this.ipc.invoke('abort');
   }
 
-  async hold() {
-    return await this.ipc.invoke('hold');
+  async enableFastRead() {
+    return await this.ipc.invoke('enable-fastReadRate');
   }
 
-  async setloxTankPTHeater(val) {
-    return await this.ipc.invoke('set-loxTankPTHeater', val);
+  async disableFastRead() {
+    return await this.ipc.invoke('disable-fastReadRate');
   }
 
-  // async setLoxGemsHeater(val) { return await this.ipc.invoke('set-loxGemsHeater', val); }
-  async setloxInjectorPTHeater(val) {
-    return await this.ipc.invoke('set-loxInjectorPTHeater', val);
+  async enableIgniter() {
+    return await this.ipc.invoke('enable-igniter');
   }
 
-  async setfuelTankPTHeater(val) {
-    return await this.ipc.invoke('set-fuelTankPTHeater', val);
+  async disableIgniter() {
+    return await this.ipc.invoke('disable-igniter');
   }
 
-  // async setPropGemsHeater(val) { return await this.ipc.invoke('set-propGemsHeater', val); }
+  async activateLoxTankBottomHtr() { return await this.ipc.invoke('activate-loxTankBottomHtr'); }
+  async deactivateLoxTankBottomHtr() { return await this.ipc.invoke('deactivate-loxTankBottomHtr'); }
 
-  async setfuelInjectorPTHeater(val) {
-    return await this.ipc.invoke('set-fuelInjectorPTHeater', val);
-  }
+  async activateLoxTankMidHtr() { return await this.ipc.invoke('activate-loxTankMidHtr'); }
+  async deactivateLoxTankMidHtr() { return await this.ipc.invoke('deactivate-loxTankMidHtr'); }
 
-  async endCheckout() {
-    return await this.ipc.invoke('end-Checkout');
-  }
-
-  async startCheckout() {
-    return await this.ipc.invoke('start-Checkout');
-  }
+  async activateLoxTankTopHtr() { return await this.ipc.invoke('activate-loxTankTopHtr'); }
+  async deactivateLoxTankTopHtr() { return await this.ipc.invoke('deactivate-loxTankTopHtr'); }
 
 
   //---------------DAQ 1---------------

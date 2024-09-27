@@ -1,12 +1,16 @@
+const { OUTBOUND_PACKET_DEFS } = require("./packetDefs");
+const Interpolation = require("./Interpolation");
+const { FLOAT, UINT8, UINT32, UINT16 } = Interpolation.TYPES
+
 class Packet {
   /**
    *
    * @param {Number} id
-   * @param {Array} values
-   * @param {number} timestamp
+   * @param {Array.<Number|String>} values
+   * @param {Number|null} [timestamp]
    */
-  constructor(id, values, timestamp = null) {
-    if (timestamp === null) {
+  constructor(id, values, timestamp) {
+    if (!timestamp) {
       this.timestamp = Date.now();
     } else {
       this.timestamp = timestamp;
@@ -27,29 +31,69 @@ class Packet {
     return pack;
   }
 
-  /**
-   * Parses stringified packet into object
-   * @param {String} rawData
-   * @param parseAsString should the packet values not be converted to float?
-   * @returns parsed packet
-   */
-  static parsePacket(rawData, parseAsString = false) {
-    const timestamp = Date.now(); // TODO: Change this to come from packet
-    let data = rawData.replace(/(\r\n|\n|\r)/gm, '');
-    const start = data.indexOf('{');
-    const end = data.indexOf('}');
-    if (start < 0 || end < 0) {
-      return null;
+  toBuffer() {
+    const packetDef = OUTBOUND_PACKET_DEFS[this.id]
+    if (!packetDef) {
+      console.debug(`[${this.id}] Packet ID is not defined in the OUTBOUND_PACKET_DEFS.`)
+      return
     }
-    data = data.substring(start + 1, end);
-    const [rawValues, checksum] = data.replace(/({|})/gm, '').split('|');
-    const calculatedChecksum = Packet.fletcher16(Buffer.from(rawValues, 'binary'));
-    if (Number('0x' + checksum) !== calculatedChecksum) {
-      return null;
-    }
+    /**
+     * @type {Array.<Buffer>}
+     */
+    const dataBufArr = this.values.map((value, idx) => {
+      switch (packetDef[idx]) {
+        case FLOAT: {
+          const _buf = Buffer.alloc(4)
+          _buf.writeFloatLE(value)
+          return _buf
+        }
+        case UINT8: {
+          const _buf = Buffer.alloc(1)
+          _buf.writeUInt8(value)
+          return _buf
+        }
+        case UINT16: {
+          const _buf = Buffer.alloc(2)
+          _buf.writeUInt16LE(value)
+          return _buf
+        }
+        case UINT32: {
+          const _buf = Buffer.alloc(4)
+          _buf.writeUInt32LE(value)
+          return _buf
+        }
+      }
+    })
 
-    const [id, ...values] = rawValues.split(',').map(v => parseAsString ? v.toString().replace(/`/g, ",") : parseFloat(v));
-    return new Packet(id, values, timestamp);
+    const idBuf = Buffer.alloc(1)
+    idBuf.writeUInt8(this.id)
+    const lenBuf = Buffer.alloc(1)
+    lenBuf.writeUInt8(dataBufArr.reduce((acc, cur) => acc + cur.length, 0))
+    const tsOffsetBuf = Buffer.alloc(4)
+    tsOffsetBuf.writeUInt32LE(Date.now() - Packet.initTime)
+
+    const checksumBuf = Buffer.alloc(2)
+    checksumBuf.writeUInt16LE(Packet.fletcher16Partitioned([idBuf, lenBuf, tsOffsetBuf, ...dataBufArr]))
+
+    return Buffer.concat([idBuf, lenBuf, tsOffsetBuf, checksumBuf, ...dataBufArr])
+  }
+
+  /**
+   * Calculates the fletcher16 checksum for some partitioned data.
+   *
+   * See https://en.wikipedia.org/wiki/Fletcher%27s_checksum
+   * @param {Buffer[]} bufArr the data to checksum
+   * @returns integer checksum
+   */
+  static fletcher16Partitioned(bufArr) {
+    let a = 0, b = 0;
+    for (const buf of bufArr) {
+      for (let i = 0; i < buf.length; i++) {
+        a = (a + buf[i]) % 256;
+        b = (b + a) % 256;
+      }
+    }
+    return a | (b << 8);
   }
 
   /**
@@ -62,11 +106,13 @@ class Packet {
   static fletcher16(data) {
     let a = 0, b = 0;
     for (let i = 0; i < data.length; i++) {
-      a = (a + data[i]) % 255;
-      b = (b + a) % 255;
+      a = (a + data[i]) % 256;
+      b = (b + a) % 256;
     }
     return a | (b << 8);
   }
+
+  static initTime = Date.now()
 }
 
 module.exports = Packet;

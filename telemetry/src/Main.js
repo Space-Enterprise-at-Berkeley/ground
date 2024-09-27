@@ -163,8 +163,8 @@ class Main extends Component {
                     unit: 'PSI'
                   }}
                   field6={{
-                    name: 'Δ PSI / 5 Seconds',
-                    field: 'dPressurantPT',
+                    name: 'Δ PSI / 1 Second',
+                    field: 'pressurantPTROC',
                     unit: 'PSI',
                     decimals: 2
                   }}
@@ -237,26 +237,59 @@ class Main extends Component {
                     ]
                   }
                 />
+                {/* <Graph
+                  fields={
+                    [
+                      {
+                        name: 'thrust1',
+                        color: [255, 51, 224],
+                        unit: 'LBS'
+                      },
+                      {
+                        name: 'thrust2', // prop PT temp
+                        color: [15, 202, 221],
+                        unit: 'LBS'
+                      },
+                      {
+                        name: 'totalThrust', // prop PT temp
+                        color: [238, 154, 7],
+                        unit: 'LBS'
+                      },
+                    ]
+                  }
+                /> */}
               </Grid>
               <Grid item={1} xs={4} className={classes.item}>
                 <Graph
                   fields={
+                    // [
+                    //   {
+                    //     name: 'fuelTankBottomTC',
+                    //     color: [123, 35, 162],
+                    //     unit: 'ºC'
+                    //   }
+                    // ]
                     [
                       {
-                        name: 'fuelTankBottomTC',
+                        name: 'engineTC1',
                         color: [0, 126, 254],
                         unit: 'ºC'
                       },
                       {
-                        name: 'fuelTankMidTC',
+                        name: 'engineTC2',
                         color: [0, 187, 0],
                         unit: 'ºC'
                       },
                       {
-                        name: 'fuelTankTopTC',
+                        name: 'engineTC3',
                         color: [123, 35, 162],
                         unit: 'ºC'
-                      }
+                      },
+                      {
+                        name: 'engineTC4',
+                        color: [35, 123, 162],
+                        unit: 'ºC'
+                      },
                     ]
                   }
                 />

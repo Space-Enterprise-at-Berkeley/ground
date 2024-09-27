@@ -7,14 +7,23 @@ class UdpPort {
    *
    * @param {String} address
    * @param {Number} port
-   * @param {Object} boards
    * @param {Function} updateStateCallback
    */
   constructor(address, port, updateStateCallback) {
     this.address = address;
     this.port = port;
     this.server = dgram.createSocket('udp4');
+    /**
+     * @type {Object.<String, Board>}
+     */
     this.boards = {};
+    /**
+     * Callback to update the state of the ground station.
+     * @typedef {function(Number, any): void} updateStateCallback
+     */
+    /**
+     * @type {updateStateCallback}
+     */
     this.updateStateCallback = updateStateCallback;
 
     this.server.on('error', (err) => {
@@ -23,30 +32,23 @@ class UdpPort {
     });
 
     this.server.on('message', (msg, rinfo) => {
-      let b = this.boards[rinfo.address];
-      if (b === undefined && rinfo.address !== '127.0.0.1') {
-        // enables testing packets from localhost
-        console.info(`received packet from unknown remote: ${rinfo.address}`)
-        return;
+      let board
+      if(rinfo.address === '127.0.0.1'){
+        const addressLen = msg.readUInt8(0)
+        const devAddress = msg.toString("utf8", 1, 1+addressLen)
+        board = this.boards[devAddress]
+        msg = msg.slice(1+addressLen)
+      }else{
+        board = this.boards[rinfo.address];
       }
-      let pkt = Packet.parsePacket(msg.toString());
-      if (b === undefined && rinfo.address === '127.0.0.1') {
-        b = this.boards[`10.0.0.${pkt.values[0]}`] // if packet is from local test, set b to given address
-      }
-      const _pkt = b.packets[pkt?.id]
-      if (_pkt && Object.keys(_pkt).map(_k => _pkt[_k]).reduce((acc, cur) => acc || cur.parseAsString, false)) {
-        // should be parsed as string
-        pkt = Packet.parsePacket(msg.toString(), true)
-      }
+      if(!board) return;
+      board.updateRcvRate(msg.length);
+      const packet = board.parseMsgBuf(msg);
 
-      if (rinfo.address === '127.0.0.1') {
-        pkt.values.shift() // discard first value from local testing packet
-      }
-
-      if (pkt) {
-        const update = b.processPacket(pkt);
+      if (packet) {
+        const update = board.processPacket(packet);
         if (update === undefined) return;
-        this.updateStateCallback(pkt.timestamp, update);
+        this.updateStateCallback(packet.timestamp, update);
       }
     });
 
@@ -61,27 +63,33 @@ class UdpPort {
   /**
    * Register a board to receive packets
    *
-   * @param {string} address
+   * @param {String} address
    * @param {Board} board
    */
   register(address, board) {
     this.boards[address] = board;
-    // stupid windows won't start receiving until at least one packet sent
+    // Windows sometimes only accepts packets from an address/port AFTER making an outbound connection to it first.
     if (process.platform === 'win32') {
-      console.log('sending first packet (windows)')
-      this.server.send("{0|eeee}", this.port, address);
+      this.send(address, new Packet(0, [0]).toBuffer(), error => {
+        if (!error) {
+          return
+        }
+        console.debug(`could not connect to the board on address: ${address}. Error: ${error.toString()}`)
+      });
     }
   }
 
   /**
    * Send data over the port to the specified address
    *
-   * @param {string} address
+   * @param {String} address
    * @param {Object} data
-   */
-  send(address, data) {
-    console.log(address + ": " + data);
-    this.server.send(data, this.port, address);
+   * @param {Function} cb
+    */
+  send(address, data, cb) {
+    console.debug(`[${address}]: `);
+    console.debug(data.toString('hex').match(/../g).join(' '))
+    this.server.send(data, this.port, address, cb);
   }
 }
 

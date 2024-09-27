@@ -30,9 +30,9 @@ class Settings extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      influxHost: '',
-      influxPort: 443,
-      influxProtocol: 'https',
+      influxHost: '127.0.0.1',
+      influxPort: 8086,
+      influxProtocol: 'http',
       influxUsername: '',
       influxPassword: '',
       influxConnecting: false,
@@ -70,7 +70,7 @@ class Settings extends Component {
                               influxProtocol,
                               influxUsername,
                               influxPassword);
-    const databases = await Comms.getDatabases();
+    const databases = (await Comms.getDatabases()).splice(1).sort().reverse();
     this.setState({ influxDatabase: databases[0], influxDatabaseList: databases, influxConnecting: false });
   }
 

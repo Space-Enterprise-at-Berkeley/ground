@@ -105,6 +105,7 @@ class InfluxDB {
     if (this.influx === null) return;
     if (this.database === null) return;
     for (let k of Object.keys(update)) {
+      if(isNaN(update[k])) continue;
       this.pointsBuffer.push({
         measurement: k,
         tags: this.tags,
@@ -115,7 +116,11 @@ class InfluxDB {
     if (this.pointsBuffer.length > BATCH_SIZE) {
       const buffer = this.pointsBuffer;
       this.pointsBuffer = [];
-      await this.influx.writePoints(buffer, { database: this.database, precision: 'ms' });
+      // try {
+        await this.influx.writePoints(buffer, { database: this.database, precision: 'ms' });
+      // } catch(err) {
+      //   // log this maybe?
+      // }
       return true;
     }
     return false;
