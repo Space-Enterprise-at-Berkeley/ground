@@ -79,19 +79,19 @@
 					"field": "oreg.currentA",
 					"name": "OReg IA",
 					"units": "mA",
-					"color": [218, 165, 32]
+					"color": [255, 0, 0]
 				},
 				{
 					"field": "oreg.currentB",
 					"name": "OReg IB",
 					"units": "mA",
-					"color": [30, 144, 255]
+					"color": [0, 255, 0]
 				},
 				{
 					"field": "oreg.currentC",
 					"name": "OReg IC",
 					"units": "mA",
-					"color": [178, 34, 34]
+					"color": [0, 0, 255]
 				},
 				{
 					"field": "freg.currentA",
@@ -190,19 +190,19 @@
 					"field": "oreg.boardTemp1",
 					"name": "OReg Temp1",
 					"units": "C",
-					"color": [218, 165, 32]
+					"color": [255, 0, 0]
 				},
 				{
 					"field": "oreg.boardTemp2",
 					"name": "OReg Temp2",
 					"units": "C",
-					"color": [30, 144, 255]
+					"color": [0, 255, 0]
 				},
 				{
 					"field": "oreg.motorTemp",
 					"name": "OReg Mtr Tmp",
 					"units": "C",
-					"color": [178, 34, 34]
+					"color": [0, 0, 255]
 				},
 				{
 					"field": "freg.boardTemp1",
@@ -237,19 +237,19 @@
 					"field": "lc.lcValue1",
 					"name": "LC 1",
 					"units": "lbs",
-					"color": [30, 144, 255]
+					"color": [0, 255, 0]
 				},
 				{
 					"field": "lc.lcValue2",
 					"name": "LC 2",
 					"units": "lbs",
-					"color": [178, 34, 34]
+					"color": [0, 0, 255]
 				}
 				// {
 				// 	"field": "lc.lcValue3",
 				// 	"name": "LC 3",
 				// 	"units": "lbs",
-				// 	"color": [218, 165, 32]
+				// 	"color": [255, 0, 0]
 				// }
 			]
 		},
@@ -260,19 +260,19 @@
 					"field": "tc.tcValue6",
 					"name": "Engn TC 6",
 					"units": "C",
-					"color": [218, 165, 32]
+					"color": [255, 0, 0]
 				},
 				{
 					"field": "tc.tcValue1",
 					"name": "Engn TC 1",
 					"units": "C",
-					"color": [30, 144, 255]
+					"color": [0, 255, 0]
 				},
 				{
 					"field": "tc.tcValue2",
 					"name": "Engn TC 2",
 					"units": "C",
-					"color": [178, 34, 34]
+					"color": [0, 0, 255]
 				},
 				{
 					"field": "tc.tcValue3",
@@ -301,13 +301,13 @@
 					"field": "tc.tcValue6",
 					"name": "LOX Tank TC",
 					"units": "C",
-					"color": [218, 165, 32]
+					"color": [255, 0, 0]
 				},
 				{
 					"field": "tc.tcValue7",
 					"name": "Fuel Tank TC",
 					"units": "C",
-					"color": [30, 144, 255]
+					"color": [0, 255, 0]
 				}
 			]
 		}
