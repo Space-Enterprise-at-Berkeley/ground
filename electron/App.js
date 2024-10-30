@@ -73,7 +73,7 @@ class App {
     }
 
     setInterval(() => { // Heartbeat
-      let buf = App.generatePacket(250);
+      let buf = App.generatePacket(249);
       this.port.broadcast(buf, true);
     }, 1000);
 
