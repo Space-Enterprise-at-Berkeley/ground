@@ -12,6 +12,18 @@
 					"color": [218, 165, 32]
 				},
 				{
+					"field": "eregNosTankPT",
+					"name": "[EREG] NOS Tank PT",
+					"units": "PSI",
+					"color": [218, 165, 255]
+				},
+				{
+					"field": "eregPressureSetpoint",
+					"name": "[EREG] Pressure Setpoint",
+					"units": "PSI",
+					"color": [34, 255, 255]
+				},
+				{
 					"field": "nosFillPT",
 					"name": "Fill",
 					"units": "PSI",
@@ -58,7 +70,7 @@
 				{
 					"field": "gemsDutyCycle", 
 					"name": "GEMS Duty Cycle",
-					"units": ""
+					"units": "%"
 				},
 				{
 					"field": "nosTankPT", 
@@ -190,11 +202,11 @@
 					"field": "emergencyVentState",
 					"actions": {
 						"enable": {
-							"type": "off",
+							"type": "on",
 							"target": "emergencyVent"
 						},
 						"disable": {
-							"type": "on",
+							"type": "off",
 							"target": "emergencyVent"
 						}
 					},

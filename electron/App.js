@@ -72,9 +72,9 @@ class App {
       }
     }
 
-    setInterval(() => {
-      let buf = App.generatePacket(249, this.heartbeatEnabled, "asUInt8");
-      this.port.broadcast(buf);
+    setInterval(() => { // Heartbeat
+      let buf = App.generatePacket(250);
+      this.port.broadcast(buf, true);
     }, 1000);
 
     this.setupIPC();
@@ -338,7 +338,8 @@ class App {
   }
 
   setHeartbeatEnabled(_, enabled) {
-    this.heartbeatEnabled = enabled;
+    let buf = App.generatePacket(251, enabled, "asUInt8");
+    this.port.broadcast(buf, true);
   }
 }
 
